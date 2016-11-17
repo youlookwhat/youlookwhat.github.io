@@ -7,11 +7,11 @@ title: youlookwhat
 subtitle:
 description: 晓之以理，动之以情
 author: Jing Bin
-language:zh-Hans
+language: zh-Hans
 timezone:
 avatar: http://avatar.csdn.net/7/9/2/1_jingbin_.jpg
-duoshuo_shortname:youlookwhat
-baidu_analytics:4bf05054dba6aed3e35f11764b201341
+duoshuo_shortname: youlookwhat
+baidu_analytics: 4bf05054dba6aed3e35f11764b201341
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -67,8 +67,7 @@ pagination_dir: page
 # Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
-plugins:
-- hexo-generator-cname
+plugins: hexo-generator-cname
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
