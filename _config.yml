@@ -5,7 +5,7 @@
 # Site
 title: youlookwhat
 subtitle:
-description: 晓之以理，动之以情
+description: 
 author: Jing Bin
 language: zh-Hans
 timezone:
@@ -15,7 +15,7 @@ baidu_analytics: 4bf05054dba6aed3e35f11764b201341
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://jingbin.com
+url: http://jingbin.me
 root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
