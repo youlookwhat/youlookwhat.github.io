@@ -6,17 +6,12 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-# keywords: 
+keywords: "Hexo, NexT"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
 rss:
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
-  hub:
 
 # Specify the date when the site was setup
 #since: 2015
@@ -28,6 +23,7 @@ copyright: true
 # See: https://support.google.com/webmasters/answer/139066
 # Tips: Before you open this tag, remeber set up your URL in hexo _config.yml ( ex. url: http://yourdomain.com )
 canonical: true
+
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -60,6 +56,8 @@ menu_icons:
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
+
+
 
 
 # ---------------------------------------------------------------
@@ -129,11 +127,8 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-
-  social:
-  GitHub: https://github.com/youlookwhat
-  简书: http://www.jianshu.com/users/e43c6e979831/latest_articles
-  csdn: http://blog.csdn.net/jingbin_
+#social:
+  #LinkLabel: Link
 
 
 # Social Links Icons
@@ -171,7 +166,7 @@ toc:
 #creative_commons:
 
 
-sidebar: always
+sidebar:
   # Sidebar Position, available value: left | right
   # position: left
   position: right
@@ -181,8 +176,8 @@ sidebar: always
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggler.
-  display: post
-  #display: always
+  # display: post
+  display: always
   #display: hide
   #display: remove
 
