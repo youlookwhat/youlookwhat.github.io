@@ -9,16 +9,17 @@ description:
 author: Jing Bin
 language: zh-Hans
 timezone:
-avatar: http://avatar.csdn.net/7/9/2/1_jingbin_.jpg
-duoshuo_shortname: youlookwhat
-baidu_analytics: 4bf05054dba6aed3e35f11764b201341
+# avatar: http://avatar.csdn.net/7/9/2/1_jingbin_.jpg
+# duoshuo_shortname: youlookwhat
+# baidu_analytics: 4bf05054dba6aed3e35f11764b201341
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://jingbin.me
+# url: http://jingbin.me
+url: 
 root: 
 permalink: :year/:month/:day/:title/
-permalink_defaults:
+permalink_defaults: 
 
 # Directory
 source_dir: source
@@ -66,9 +67,9 @@ pagination_dir: page
 # Extensions
 # Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
-plugins: 
-- hexo-generator-cname
+theme: landscape
+# plugins: 
+# - hexo-generator-cname
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
