@@ -12,6 +12,11 @@ favicon: /favicon.ico
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
 rss:
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
 
 # Specify the date when the site was setup
 #since: 2015
@@ -23,7 +28,6 @@ copyright: true
 # See: https://support.google.com/webmasters/answer/139066
 # Tips: Before you open this tag, remeber set up your URL in hexo _config.yml ( ex. url: http://yourdomain.com )
 canonical: true
-
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -56,8 +60,6 @@ menu_icons:
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
-
-
 
 
 # ---------------------------------------------------------------
