@@ -91,7 +91,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":3738,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T13:57:13.785Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":3738,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T13:57:13.785Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":3738,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T13:57:13.786Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":3738,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T13:57:13.788Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":3738,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T13:57:13.788Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":3738,"level":20,"msg":"Database saved","time":"2016-11-18T13:57:13.795Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":3738,"level":20,"msg":"Processed: \u001b[35mCNAME\u001b[39m","time":"2016-11-18T13:57:55.987Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":3738,"level":20,"msg":"Processed: \u001b[35m_posts/hello-world.md\u001b[39m","time":"2016-11-18T13:57:55.991Z","v":0}
@@ -196,7 +196,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":5631,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T14:03:07.710Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":5631,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T14:03:07.710Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":5631,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T14:03:07.711Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":5631,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:03:07.715Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":5631,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:03:07.715Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":5631,"level":20,"msg":"Database saved","time":"2016-11-18T14:03:07.721Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":5631,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:03:14.192Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":5631,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:03:15.692Z","v":0}
@@ -348,7 +348,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":7980,"level":20,"msg":"Generator: \u001b[35mfeed\u001b[39m","time":"2016-11-18T14:29:09.011Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":7980,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T14:29:09.011Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":7980,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T14:29:09.012Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":7980,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:29:09.015Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":7980,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:29:09.015Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":7980,"level":20,"msg":"Database saved","time":"2016-11-18T14:29:09.022Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":7980,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:29:16.655Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":7980,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:29:18.384Z","v":0}
@@ -538,7 +538,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8060,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T14:36:25.190Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8060,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T14:36:25.190Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8060,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T14:36:25.191Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8060,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:36:25.197Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8060,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:36:25.197Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8060,"level":20,"msg":"Database saved","time":"2016-11-18T14:36:25.212Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8060,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:36:38.121Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8060,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:38:38.119Z","v":0}
@@ -632,7 +632,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8099,"level":20,"msg":"Generator: \u001b[35mfeed\u001b[39m","time":"2016-11-18T14:41:25.463Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8099,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T14:41:25.463Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8099,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T14:41:25.464Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8099,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:41:25.468Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8099,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:41:25.468Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8099,"level":20,"msg":"Database saved","time":"2016-11-18T14:41:25.489Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8099,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:41:26.424Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8099,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:41:28.539Z","v":0}
@@ -725,7 +725,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8165,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T14:47:30.336Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8165,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T14:47:30.336Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8165,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T14:47:30.337Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8165,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:47:30.341Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8165,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:47:30.341Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8165,"level":20,"msg":"Database saved","time":"2016-11-18T14:47:30.361Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8165,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:47:56.715Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8165,"level":30,"msg":"Have a nice day","time":"2016-11-18T14:48:44.067Z","v":0}
@@ -904,7 +904,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8186,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T14:48:46.891Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8186,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T14:48:46.891Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8186,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T14:48:46.892Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8186,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:48:46.898Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8186,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:48:46.898Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8186,"level":20,"msg":"Database saved","time":"2016-11-18T14:48:46.909Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8186,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:48:56.433Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8186,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:48:56.830Z","v":0}
@@ -1126,7 +1126,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8310,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T14:58:10.149Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8310,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T14:58:10.149Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8310,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T14:58:10.150Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8310,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:58:10.156Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8310,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T14:58:10.156Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8310,"level":20,"msg":"Database saved","time":"2016-11-18T14:58:10.167Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8310,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T14:58:16.953Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8310,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:00:16.956Z","v":0}
@@ -1306,7 +1306,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8851,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T15:33:24.758Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8851,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T15:33:24.758Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8851,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T15:33:24.759Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8851,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:33:24.764Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8851,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:33:24.764Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8851,"level":20,"msg":"Database saved","time":"2016-11-18T15:33:24.776Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8851,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:33:31.906Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8851,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:33:32.281Z","v":0}
@@ -1488,7 +1488,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8874,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T15:35:22.140Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8874,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T15:35:22.140Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8874,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T15:35:22.142Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8874,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:35:22.147Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8874,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:35:22.147Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8874,"level":20,"msg":"Database saved","time":"2016-11-18T15:35:22.159Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8874,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:35:26.394Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8874,"level":50,"msg":"Theme config load failed.","time":"2016-11-18T15:35:58.234Z","v":0}
@@ -1669,7 +1669,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8931,"level":20,"msg":"Generator: \u001b[35mfeed\u001b[39m","time":"2016-11-18T15:37:10.915Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8931,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T15:37:10.915Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8931,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T15:37:10.917Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8931,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:37:10.922Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8931,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:37:10.922Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8931,"level":20,"msg":"Database saved","time":"2016-11-18T15:37:10.933Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8931,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:37:12.773Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8931,"level":30,"msg":"Farewell","time":"2016-11-18T15:38:35.106Z","v":0}
@@ -1760,7 +1760,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8970,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T15:38:37.975Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8970,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T15:38:37.975Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8970,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T15:38:37.976Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8970,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:38:37.980Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8970,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:38:37.980Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8970,"level":20,"msg":"Database saved","time":"2016-11-18T15:38:38.003Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8970,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:38:40.347Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":8970,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:43:55.925Z","v":0}
@@ -1852,7 +1852,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":10467,"level":20,"msg":"Generator: \u001b[35mfeed\u001b[39m","time":"2016-11-18T15:45:14.744Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":10467,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T15:45:14.744Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":10467,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T15:45:14.746Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":10467,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:45:14.749Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":10467,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:45:14.749Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":10467,"level":20,"msg":"Database saved","time":"2016-11-18T15:45:14.770Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":10467,"level":30,"msg":"See you again","time":"2016-11-18T15:54:01.441Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":10467,"level":20,"msg":"Database saved","time":"2016-11-18T15:54:01.457Z","v":0}
@@ -1942,7 +1942,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11137,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T15:57:12.182Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11137,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T15:57:12.182Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11137,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T15:57:12.184Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11137,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:57:12.188Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11137,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:57:12.188Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11137,"level":20,"msg":"Database saved","time":"2016-11-18T15:57:12.194Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11137,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:57:20.335Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11137,"level":30,"msg":"Farewell","time":"2016-11-18T15:58:51.263Z","v":0}
@@ -2121,7 +2121,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11209,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T15:58:53.676Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11209,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T15:58:53.676Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11209,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T15:58:53.677Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11209,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:58:53.682Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11209,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T15:58:53.682Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11209,"level":20,"msg":"Database saved","time":"2016-11-18T15:58:53.696Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11209,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T15:58:55.572Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11209,"level":30,"msg":"Have a nice day","time":"2016-11-18T16:00:07.689Z","v":0}
@@ -2300,7 +2300,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11233,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T16:00:31.855Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11233,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T16:00:31.855Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11233,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T16:00:31.856Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11233,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T16:00:31.861Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11233,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T16:00:31.861Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11233,"level":20,"msg":"Database saved","time":"2016-11-18T16:00:31.872Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11233,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T16:00:38.708Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11233,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T16:00:47.831Z","v":0}
@@ -2474,7 +2474,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11288,"level":20,"msg":"Generator: \u001b[35mfeed\u001b[39m","time":"2016-11-18T16:02:16.109Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11288,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T16:02:16.109Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11288,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T16:02:16.110Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11288,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T16:02:16.112Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11288,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T16:02:16.112Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11288,"level":20,"msg":"Database saved","time":"2016-11-18T16:02:16.123Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11288,"level":40,"msg":"No layout: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T16:02:27.425Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":11288,"level":20,"msg":"Generator: \u001b[35mpage\u001b[39m","time":"2016-11-18T16:03:27.173Z","v":0}
@@ -2661,7 +2661,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":12318,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T16:19:26.425Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":12318,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T16:19:26.425Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":12318,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T16:19:26.426Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":12318,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T16:19:26.431Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":12318,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T16:19:26.431Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":12318,"level":20,"msg":"Database saved","time":"2016-11-18T16:19:26.440Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":12318,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T16:19:35.174Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":12318,"level":20,"msg":"Theme config loaded.","time":"2016-11-18T16:20:02.240Z","v":0}
@@ -2866,7 +2866,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":21515,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T17:21:39.120Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":21515,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T17:21:39.120Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":21515,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T17:21:39.121Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":21515,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T17:21:39.126Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":21515,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T17:21:39.126Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":21515,"level":20,"msg":"Database saved","time":"2016-11-18T17:21:39.137Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":21515,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T17:21:53.089Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":21515,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T17:22:05.826Z","v":0}
@@ -3049,7 +3049,7 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23019,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T17:53:46.944Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23019,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T17:53:46.944Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23019,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T17:53:46.945Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23019,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T17:53:46.949Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23019,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T17:53:46.949Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23019,"level":20,"msg":"Database saved","time":"2016-11-18T17:53:46.962Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23019,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T17:53:54.079Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23019,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T17:55:13.104Z","v":0}
@@ -3232,6 +3232,14 @@
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":20,"msg":"Generator: \u001b[35mindex\u001b[39m","time":"2016-11-18T18:03:49.537Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":20,"msg":"Generator: \u001b[35mtag\u001b[39m","time":"2016-11-18T18:03:49.537Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":20,"msg":"Generator: \u001b[35masset\u001b[39m","time":"2016-11-18T18:03:49.538Z","v":0}
-{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/blog/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T18:03:49.543Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":30,"msg":"Hexo is running at \u001b[4mhttp://localhost:4000/\u001b[24m. Press Ctrl+C to stop.","time":"2016-11-18T18:03:49.543Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":20,"msg":"Database saved","time":"2016-11-18T18:03:49.556Z","v":0}
 {"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T18:03:51.150Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T18:08:55.782Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":20,"msg":"Rendering index: \u001b[35mindex.html\u001b[39m","time":"2016-11-18T18:10:08.821Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":30,"msg":"Have a nice day","time":"2016-11-18T18:16:45.674Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":23141,"level":20,"msg":"Database saved","time":"2016-11-18T18:16:45.691Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":24913,"level":20,"msg":"Hexo version: \u001b[35m3.2.2\u001b[39m","time":"2016-11-18T18:17:59.228Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":24913,"level":20,"msg":"Working directory: \u001b[35m~/Documents/workspace/AsGithub/youlookwhat/\u001b[39m","time":"2016-11-18T18:17:59.230Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":24913,"level":20,"msg":"Config loaded: \u001b[35m~/Documents/workspace/AsGithub/youlookwhat/_config.yml\u001b[39m","time":"2016-11-18T18:17:59.311Z","v":0}
+{"name":"hexo","hostname":"jingbindeMacBook-Pro.local","pid":24913,"level":60,"err":{"message":"Cannot read property 'replace' of null","name":"TypeError","stack":"TypeError: Cannot read property 'replace' of null\n    at /Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/hexo/lib/hexo/load_config.js:34:30\n    at tryCatcher (/Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/bluebird/js/release/util.js:16:23)\n    at Promise._settlePromiseFromHandler (/Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/bluebird/js/release/promise.js:510:31)\n    at Promise._settlePromise (/Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/bluebird/js/release/promise.js:567:18)\n    at Promise._settlePromise0 (/Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/bluebird/js/release/promise.js:612:10)\n    at Promise._settlePromises (/Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/bluebird/js/release/promise.js:691:18)\n    at Async._drainQueue (/Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/bluebird/js/release/async.js:138:16)\n    at Async._drainQueues (/Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/bluebird/js/release/async.js:148:10)\n    at Immediate.Async.drainQueues (/Users/jingbin/Documents/workspace/AsGithub/youlookwhat/node_modules/bluebird/js/release/async.js:17:14)\n    at runCallback (timers.js:637:20)\n    at tryOnImmediate (timers.js:610:5)\n    at processImmediate [as _immediateCallback] (timers.js:582:5)"},"msg":"Cannot read property 'replace' of null","time":"2016-11-18T18:17:59.313Z","v":0}
