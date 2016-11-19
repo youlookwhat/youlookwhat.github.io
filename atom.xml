@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-11-19T19:15:48.000Z</updated>
+  <updated>2016-11-19T19:49:40.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2016/11/19/Mac%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95%EF%BC%8C%E6%8E%92%E9%9B%B7%E5%AE%8C%E6%88%90/"/>
     <id>http://jingbin.me/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/</id>
     <published>2016-11-18T19:02:13.000Z</published>
-    <updated>2016-11-19T19:15:48.000Z</updated>
+    <updated>2016-11-19T19:49:40.000Z</updated>
     
     <content type="html"><![CDATA[<p>经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..</p>
 <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的<a href="#jump">推荐文章</a>里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，除了问题就会不知道怎么回事。</p>
@@ -44,7 +44,7 @@
 <h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ cd &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
 <p> 新建完成后，指定文件夹的目录如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── <span class="keyword">package</span>.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure>
 <p>这样Hexo会在该文件夹创建本地博客所需的一切资源。这样本地博客就搭建好了，输入以下命令：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure>
 <p>这样就开启了一个本地博客服务器，打开浏览器，在地址栏输入<code>localhost:4000</code>，就可以查看本地博客了，hexo默认生成了一片hello world博客。按<code>control + c</code>关闭调试。</p>
@@ -60,7 +60,7 @@
 </blockquote>
 <p>保存配置之后，你可以不着急传到仓库，先刷新本地博客，看是否还是原样，如有问题可以看到log日志上的错误信息，然后检查没问题为止。</p>
 <p>确认无误之后，在本地博客目录执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean // clean本地项目，防止缓存</div><div class="line">hexo g // 全拼是：hexo generate，可以简写成 hexo g; 根据你编辑的md格式的博客，生成静态网页</div><div class="line">hexo d  // 全拼是：hexo deploy，可以简写成 hexo d; 将本地博客发布到github</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean <span class="comment">// clean本地项目，防止缓存</span></div><div class="line">hexo g <span class="comment">// 全拼是：hexo generate，可以简写成 hexo g; 根据你编辑的md格式的博客，生成静态网页</span></div><div class="line">hexo d  <span class="comment">// 全拼是：hexo deploy，可以简写成 hexo d; 将本地博客发布到github</span></div></pre></td></tr></table></figure>
 <p>然后，在浏览器地址栏输入<code>username.github.io</code>就可以访问你的博客了，别人也可以通过这个地址访问你的博客。如果错误请重复看以前流程，或参考其他文章，也可以<a href="#here">联系我</a>.</p>
 <h2 id="NexT主题配置及优化"><a href="#NexT主题配置及优化" class="headerlink" title="NexT主题配置及优化"></a>NexT主题配置及优化</h2><ul>
 <li><a href="http://theme-next.iissnan.com/getting-started.html#validate-next-theme" target="_blank" rel="external">Next主题</a></li>
@@ -84,7 +84,7 @@
 <p>注意：配置后进入调试模式测试一下，这样错了就可以马上更正。</p>
 </blockquote>
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p> cd 到仓库所在文件夹目录下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo init       //在指定目录执行该命令，会将当前目录初始化为hexo站点，生成hexo站点所需的一切文件</div><div class="line">hexo new “my new blog title”   //新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</div><div class="line">hexo server     // 或者简写成hexo s 启动本地hexo 服务器，默认localhost:4000可以访问</div><div class="line">hexo clean      // 清除缓存，如果对本地文件做了修改，同步到远程验证修改的效果之前，先clean，清除缓存</div><div class="line">hexo generate   // 可以简写成hexo g 根据markdown文件生成静态文件</div><div class="line">hexo deploy     // 或者简写成hexo d 将本地修改，部署到远端</div><div class="line">hexo version    // 显示hexo版本</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo init       <span class="comment">//在指定目录执行该命令，会将当前目录初始化为hexo站点，生成hexo站点所需的一切文件</span></div><div class="line">hexo <span class="keyword">new</span> “my <span class="keyword">new</span> blog title”   <span class="comment">//新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</span></div><div class="line">hexo server     <span class="comment">// 或者简写成hexo s 启动本地hexo 服务器，默认localhost:4000可以访问</span></div><div class="line">hexo clean      <span class="comment">// 清除缓存，如果对本地文件做了修改，同步到远程验证修改的效果之前，先clean，清除缓存</span></div><div class="line">hexo generate   <span class="comment">// 可以简写成hexo g 根据markdown文件生成静态文件</span></div><div class="line">hexo deploy     <span class="comment">// 或者简写成hexo d 将本地修改，部署到远端</span></div><div class="line">hexo version    <span class="comment">// 显示hexo版本</span></div></pre></td></tr></table></figure>
 <h2 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a><span id="jump">推荐文章</span></h2><ul>
 <li><a href="https://madongqiang2201.github.io/2016/07/21/Mac%E4%B8%8BHexo%EF%BC%8Bgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">Mac搭建Hexo博客及NexT主题配置优化</a></li>
 <li><a href="http://wingjay.com/2015/12/07/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E5%A4%A9%E4%B9%8B%E5%86%85%E6%90%AD%E5%BB%BA%E4%BB%A5%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%90%8D%E5%AD%97%E4%B8%BA%E5%9F%9F%E5%90%8D%E7%9A%84%E5%BE%88cool%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">如何在一天之内搭建以你自己名字为域名又具备cool属性的个人博客</a></li>
@@ -108,6 +108,8 @@
 &lt;p&gt;Ok，现在开始：&lt;/p&gt;
     
     </summary>
+    
+      <category term="hexo" scheme="http://jingbin.me/categories/hexo/"/>
     
     
       <category term="hexo" scheme="http://jingbin.me/tags/hexo/"/>
