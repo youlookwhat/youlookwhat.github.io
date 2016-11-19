@@ -82,31 +82,22 @@
 
 
 
-<meta name="description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的。
-So，本人实践，最清晰的流程：
-安装
-pkg文件 安装
-nvm
-123 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash//or">
+<meta name="description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
+引很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的推荐文章里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，除了问题就会不知道怎么回事。
+在此感谢小马哥Mark和 wingjay先前分享的教程，有些段落是从你">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac搭建Hexo博客流程记录，排雷完成">
 <meta property="og:url" content="http://jingbin.me/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
-<meta property="og:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的。
-So，本人实践，最清晰的流程：
-安装
-pkg文件 安装
-nvm
-123 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash//or">
-<meta property="og:updated_time" content="2016-11-18T20:41:08.000Z">
+<meta property="og:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
+引很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的推荐文章里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，除了问题就会不知道怎么回事。
+在此感谢小马哥Mark和 wingjay先前分享的教程，有些段落是从你">
+<meta property="og:updated_time" content="2016-11-19T11:43:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac搭建Hexo博客流程记录，排雷完成">
-<meta name="twitter:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的。
-So，本人实践，最清晰的流程：
-安装
-pkg文件 安装
-nvm
-123 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash//or">
+<meta name="twitter:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
+引很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的推荐文章里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，除了问题就会不知道怎么回事。
+在此感谢小马哥Mark和 wingjay先前分享的教程，有些段落是从你">
 
 
 
@@ -326,28 +317,54 @@ nvm
       
 
       
-        <p>经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的。</p>
-<p>So，本人实践，最清晰的流程：</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li>pkg文件 安装</li>
-<li><p>nvm</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> curl -o- https:<span class="comment">//raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</span></div><div class="line"><span class="comment">//or</span></div><div class="line">wget -qO- https:<span class="comment">//raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>测试 Node 安装状态</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ node -v</div><div class="line"> v4.2.4</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm -v</div><div class="line"> <span class="number">2.14</span>.12</div></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> # 安装淘宝的npm镜像工具cnpm</div><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div><div class="line"># 于是可以直接用cnpm了</div><div class="line">cnpm install -g hexo-cli</div></pre></td></tr></table></figure>
-</li>
+        <p>经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..</p>
+<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的<a href="#jump">推荐文章</a>里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，除了问题就会不知道怎么回事。</p>
+<p>在此感谢<a href="https://madongqiang2201.github.io/" target="_blank" rel="external">小马哥Mark</a>和 <a href="http://wingjay.com/" target="_blank" rel="external">wingjay</a>先前分享的教程，有些段落是从你们里摘抄过来的，希望博主见谅，如有侵权，请联系我删除。</p>
+<p>Ok，现在开始：</p>
+<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>在不购买服务器的前提下，我们的网站需要挂在GitHub Pages上。GitHub Pages是面向用户、组织和项目开放的公共静态页面搭建托管服务，可用于搭建个人博客。</p>
+<ul>
+<li>你需要拥有一个GitHub账号，去完成新手任务吧。</li>
+<li>进入GitHub Pages，一步步做，完成后就能在浏览器打开<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">至此，我们已经利用GitHub Pages搭建好了个人博客雏形了。下面要做的，就是个性化了。</div><div class="line"></div><div class="line">&gt; 注：如果你```http://username.github.io```首页就要是博客首页的话，就是[这样](jingbin.me)。完成后可以把```index.html```给删了，因为到最后你发现那是没用的，如果你又配置了子目录，它会给你造成干扰。</div><div class="line"></div><div class="line">## 前期准备</div><div class="line"></div><div class="line">### 安装Hexo</div><div class="line">参考[中文文档](https://hexo.io/zh-cn/docs/index.html)或[英文文档](https://hexo.io/docs/)。完成该步后，你的电脑便拥有了Git、Node.js和Hexo。</div><div class="line"></div><div class="line">### 测试安装状态</div></pre></td></tr></table></figure></li>
 </ul>
-  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">  &lt;!-- 多说评论框 start --&gt;</div><div class="line">	&lt;div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"&gt;&lt;/div&gt;</div><div class="line">&lt;!-- 多说评论框 end --&gt;</div><div class="line">&lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;</div><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">var duoshuoQuery = &#123;short_name:"youlookwhat"&#125;;</div><div class="line">	(function() &#123;</div><div class="line">		var ds = document.createElement('script');</div><div class="line">		ds.type = 'text/javascript';ds.async = true;</div><div class="line">		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';</div><div class="line">		ds.charset = 'UTF-8';</div><div class="line">		(document.getElementsByTagName('head')[0] </div><div class="line">		 || document.getElementsByTagName('body')[0]).appendChild(ds);</div><div class="line">	&#125;)();</div><div class="line">	&lt;/script&gt;</div><div class="line">&lt;!-- 多说公共JS代码 end --&gt;</div></pre></td></tr></table></figure>
-<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><ul>
-<li><a href="http://theme-next.iissnan.com/getting-started.html#validate-next-theme" target="_blank" rel="external">Next</a></li>
+<p>$ node -v<br> v4.2.4</p>
+<p>$ npm -v<br>2.14.12</p>
+<p>$ hexo -v</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##正式开始</div><div class="line">&gt; 确定拥有了Git、Node.js和Hexo后，进行下一步</div><div class="line"></div><div class="line">### 建站</div><div class="line">安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</div></pre></td></tr></table></figure>
+<p>$ hexo init <folder><br>$ cd <folder><br>$ npm install</folder></folder></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">新建完成后，指定文件夹的目录如下：</div></pre></td></tr></table></figure>
+<p>.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这样Hexo会在该文件夹创建本地博客所需的一切资源。这样本地博客就搭建好了，输入以下命令：</div></pre></td></tr></table></figure></p>
+<p>hexo s –debug<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">这样就开启了一个本地博客服务器，打开浏览器，在地址栏输入```localhost:4000```，就可以查看本地博客了，hexo默认生成了一片hello world博客。按```control + c```关闭调试。</div><div class="line"></div><div class="line">&gt; 注意：以上hexo开头的命令，执行目录必须是你创建的博客文件夹目录。</div><div class="line"></div><div class="line">### 同步Hexo博客到Github</div><div class="line">现在你已经可以在本机查看你的博客了，但是要想让别人通过网络可以查看你的博客，还需要一步，那就是将你的博客发布到github仓库。在terminal终端，将当前目录切换到你的本地博客目录，执行以下命令：</div></pre></td></tr></table></figure></p>
+<p>npm install hexo-deployer-git –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">安装完成之后，打开本地博客目录的```_config.yml```文件，编辑其中的</div><div class="line">```deploy```节点：</div></pre></td></tr></table></figure></p>
+<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/youlookwhat/youlookwhat.github.io.git" target="_blank" rel="external">https://github.com/youlookwhat/youlookwhat.github.io.git</a><br>  branch: master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; 注意：字段前需加空格，hexo有严格的格式规范。</div><div class="line"></div><div class="line">保存配置之后，你可以不着急传到仓库，先刷新本地博客，看是否还是原样，如有问题可以看到log日志上的错误信息，然后检查没问题为止。调试步骤:</div></pre></td></tr></table></figure></p>
+<p>hexo s –debug   //进入调试，查看本地博客<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> control + c // 退出调试</div><div class="line">确认无误之后，在本地博客目录执行以下命令：</div></pre></td></tr></table></figure></p>
+<p>hexo clean // clean本地项目，防止缓存<br>hexo g // 全拼是：hexo generate，可以简写成 hexo g ;根据你编辑的md格式的博客，生成静态网页<br>hexo d  // 全拼是：hexo deploy，可以简写成 hexo d；将本地博客发布到github</p>
+<p>```</p>
+<p>然后，在浏览器地址栏输入<code>yourusername.github.io</code>就可以访问你的博客了，别人也可以通过这个地址访问你的博客。如果错误请重复看以前流程，或参考其他文章，也可以<a href="#here">联系我</a>.</p>
+<blockquote>
+<p>hexo s –debug 使用 hexo s 也可以；// 启动本地hexo 服务器，默认localhost:4000可以访问</p>
+</blockquote>
+<h2 id="NexT主题配置及优化"><a href="#NexT主题配置及优化" class="headerlink" title="NexT主题配置及优化"></a>NexT主题配置及优化</h2><ul>
+<li><a href="http://theme-next.iissnan.com/getting-started.html#validate-next-theme" target="_blank" rel="external">Next主题</a></li>
 </ul>
-<h2 id="域名设置"><a href="#域名设置" class="headerlink" title="域名设置"></a>域名设置</h2><p>有些麻烦，在阿里云购买后，然后在里面指定解析类型CNAME，添加两种。</p>
-<p>不过，对于Hexo 3，这里有一个坑要注意：大家应该还记得上文说的，master分支里的内容都是自动生成的，而且会完全覆盖之前的内容。如果我们直接创建一个新文件CNAME，填好域名。但会发现在下一次部署后这个文件就消失了。不用惊讶，因为hexo并不会自动生成CNAME文件，所以在部署时被覆盖删除了。</p>
-<p>所以，我们就需要这个CNAME工具hexo-generator-cname，这时会自动在public里生成一个CNAME文件，把你的域名加进去再部署一下吧！</p>
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure>
-<h2 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a>推荐文章</h2><ul>
+<p>NexT主题是一套简约的主题，设置完成之后，就像我的博客现在的样子，里面有详细的配置说明，这里就不重述了。</p>
+<blockquote>
+<p>值得注意的是：因为有严格的格式规范，所以建议打开调试，配置时刷新页面，确定配置成功后再同步到仓库。</p>
+</blockquote>
+<h2 id="修饰环节"><a href="#修饰环节" class="headerlink" title="修饰环节"></a>修饰环节</h2><p>上面主题严格来讲也属于修饰。现在说的主要有：</p>
+<ul>
+<li>替换自己的域名</li>
+<li>fork me on github</li>
+<li>HTTP -&gt; HTTPS</li>
+</ul>
+<h3 id="域名设置"><a href="#域名设置" class="headerlink" title="域名设置"></a>域名设置</h3><p>大家可以看：<a href="http://wingjay.com/2015/12/07/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E5%A4%A9%E4%B9%8B%E5%86%85%E6%90%AD%E5%BB%BA%E4%BB%A5%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%90%8D%E5%AD%97%E4%B8%BA%E5%9F%9F%E5%90%8D%E7%9A%84%E5%BE%88cool%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">替换自己的域名</a> ,里面讲述的详细。</p>
+<blockquote>
+<p>注意：在<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>买了域名以后直接在里面配置，<a href="http://www.sudu.cn/service/detail/1/0/0/3/10036.html" target="_blank" rel="external">这里</a>只是参考用的。</p>
+</blockquote>
+<h3 id="fork-me-on-github-amp-HTTP-gt-HTTPS"><a href="#fork-me-on-github-amp-HTTP-gt-HTTPS" class="headerlink" title="fork me on github &amp; HTTP -&gt; HTTPS"></a>fork me on github &amp; HTTP -&gt; HTTPS</h3><p>大家可以看：<a href="https://madongqiang2201.github.io/2016/07/21/Mac%E4%B8%8BHexo%EF%BC%8Bgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">fork me on github &amp; HTTP -&gt; HTTPS</a> </p>
+<blockquote>
+<p>注意：配置后进入调试模式测试一下，这样错了就可以马上更正。</p>
+</blockquote>
+<h2 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a><span id="jump">推荐文章</span></h2><ul>
 <li><p><a href="https://madongqiang2201.github.io/2016/07/21/Mac%E4%B8%8BHexo%EF%BC%8Bgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">Mac搭建Hexo博客及NexT主题配置优化</a></p>
 </li>
 <li><p><a href="http://www.jianshu.com/p/1cd86fac2585" target="_blank" rel="external">使用GitHub和Hexo搭建免费静态Blog</a></p>
@@ -359,7 +376,11 @@ nvm
 <li><p><a href="http://www.jianshu.com/p/078d9900a7c8" target="_blank" rel="external">Mac下安装Node并切换taobao.org源</a></p>
 </li>
 </ul>
-<h2 id="后续完善"><a href="#后续完善" class="headerlink" title="后续完善"></a>后续完善</h2><p>11-19 04：22  睡觉了</p>
+<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a><span id="here">联系我</span></h2><ul>
+<li><a href="https://github.com/youlookwhat" target="_blank" rel="external">我的Github</a></li>
+<li><a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" rel="external">我的简书</a></li>
+<li><a href="http://blog.csdn.net/jingbin_" target="_blank" rel="external">我的CSDN</a></li>
+</ul>
 
       
     </div>
@@ -500,7 +521,7 @@ nvm
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题配置"><span class="nav-number">2.</span> <span class="nav-text">主题配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名设置"><span class="nav-number">3.</span> <span class="nav-text">域名设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交"><span class="nav-number">4.</span> <span class="nav-text">提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐文章"><span class="nav-number">5.</span> <span class="nav-text">推荐文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续完善"><span class="nav-number">6.</span> <span class="nav-text">后续完善</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引"><span class="nav-number">1.</span> <span class="nav-text">引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Pages"><span class="nav-number">2.</span> <span class="nav-text">GitHub Pages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT主题配置及优化"><span class="nav-number">3.</span> <span class="nav-text">NexT主题配置及优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰环节"><span class="nav-number">4.</span> <span class="nav-text">修饰环节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#域名设置"><span class="nav-number">4.1.</span> <span class="nav-text">域名设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fork-me-on-github-amp-HTTP-gt-HTTPS"><span class="nav-number">4.2.</span> <span class="nav-text">fork me on github & HTTP -> HTTPS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐文章"><span class="nav-number">5.</span> <span class="nav-text">推荐文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系我"><span class="nav-number">6.</span> <span class="nav-text">联系我</span></a></li></ol></div>
             
 
           </div>
