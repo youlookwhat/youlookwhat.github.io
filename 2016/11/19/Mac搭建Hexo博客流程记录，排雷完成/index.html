@@ -92,7 +92,7 @@
 <meta property="og:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
 引很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的推荐文章里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，除了问题就会不知道怎么回事。
 在此感谢小马哥Mark和 wingjay先前分享的教程，有些段落是从你">
-<meta property="og:updated_time" content="2016-11-19T12:13:54.000Z">
+<meta property="og:updated_time" content="2016-11-19T12:16:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac搭建Hexo博客流程记录，排雷完成">
 <meta name="twitter:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
@@ -377,7 +377,8 @@
 <blockquote>
 <p>注意：配置后进入调试模式测试一下，这样错了就可以马上更正。</p>
 </blockquote>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo init       //在指定目录执行该命令，会将当前目录初始化为hexo站点，生成hexo站点所需的一切文件</div><div class="line">hexo new “my new blog title”   //新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</div><div class="line">hexo server     // 或者简写成hexo s 启动本地hexo 服务器，默认localhost:4000可以访问</div><div class="line">hexo clean      // 清除缓存，如果对本地文件做了修改，同步到远程验证修改的效果之前，先clean，清除缓存</div><div class="line">hexo generate   // 可以简写成hexo g 根据markdown文件生成静态文件</div><div class="line">hexo deploy     // 或者简写成hexo d 将本地修改，部署到远端</div><div class="line">hexo version    // 显示hexo版本</div></pre></td></tr></table></figure>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p> cd 到仓库所在文件夹目录下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo init       //在指定目录执行该命令，会将当前目录初始化为hexo站点，生成hexo站点所需的一切文件</div><div class="line">hexo new “my new blog title”   //新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</div><div class="line">hexo server     // 或者简写成hexo s 启动本地hexo 服务器，默认localhost:4000可以访问</div><div class="line">hexo clean      // 清除缓存，如果对本地文件做了修改，同步到远程验证修改的效果之前，先clean，清除缓存</div><div class="line">hexo generate   // 可以简写成hexo g 根据markdown文件生成静态文件</div><div class="line">hexo deploy     // 或者简写成hexo d 将本地修改，部署到远端</div><div class="line">hexo version    // 显示hexo版本</div></pre></td></tr></table></figure>
 <h2 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a><span id="jump">推荐文章</span></h2><ul>
 <li><p><a href="https://madongqiang2201.github.io/2016/07/21/Mac%E4%B8%8BHexo%EF%BC%8Bgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">Mac搭建Hexo博客及NexT主题配置优化</a></p>
 </li>
