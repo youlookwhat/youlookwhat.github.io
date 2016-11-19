@@ -324,21 +324,36 @@
 <h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>在不购买服务器的前提下，我们的网站需要挂在GitHub Pages上。GitHub Pages是面向用户、组织和项目开放的公共静态页面搭建托管服务，可用于搭建个人博客。</p>
 <ul>
 <li>你需要拥有一个GitHub账号，去完成新手任务吧。</li>
-<li>进入GitHub Pages，一步步做，完成后就能在浏览器打开<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">至此，我们已经利用GitHub Pages搭建好了个人博客雏形了。下面要做的，就是个性化了。</div><div class="line"></div><div class="line">&gt; 注：如果你```http://username.github.io```首页就要是博客首页的话，就是[这样](jingbin.me)。完成后可以把```index.html```给删了，因为到最后你发现那是没用的，如果你又配置了子目录，它会给你造成干扰。</div><div class="line"></div><div class="line">## 前期准备</div><div class="line"></div><div class="line">### 安装Hexo</div><div class="line">参考[中文文档](https://hexo.io/zh-cn/docs/index.html)或[英文文档](https://hexo.io/docs/)。完成该步后，你的电脑便拥有了Git、Node.js和Hexo。</div><div class="line"></div><div class="line">### 测试安装状态</div></pre></td></tr></table></figure></li>
+<li>进入GitHub Pages，一步步做，完成后就能在浏览器打开<code>http://username.github.io</code>了。</li>
 </ul>
-<p>$ node -v<br> v4.2.4</p>
-<p>$ npm -v<br>2.14.12</p>
-<p>$ hexo -v</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">##正式开始</div><div class="line">&gt; 确定拥有了Git、Node.js和Hexo后，进行下一步</div><div class="line"></div><div class="line">### 建站</div><div class="line">安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</div></pre></td></tr></table></figure>
-<p>$ hexo init <folder><br>$ cd <folder><br>$ npm install</folder></folder></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">新建完成后，指定文件夹的目录如下：</div></pre></td></tr></table></figure>
-<p>.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这样Hexo会在该文件夹创建本地博客所需的一切资源。这样本地博客就搭建好了，输入以下命令：</div></pre></td></tr></table></figure></p>
-<p>hexo s –debug<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">这样就开启了一个本地博客服务器，打开浏览器，在地址栏输入```localhost:4000```，就可以查看本地博客了，hexo默认生成了一片hello world博客。按```control + c```关闭调试。</div><div class="line"></div><div class="line">&gt; 注意：以上hexo开头的命令，执行目录必须是你创建的博客文件夹目录。</div><div class="line"></div><div class="line">### 同步Hexo博客到Github</div><div class="line">现在你已经可以在本机查看你的博客了，但是要想让别人通过网络可以查看你的博客，还需要一步，那就是将你的博客发布到github仓库。在terminal终端，将当前目录切换到你的本地博客目录，执行以下命令：</div></pre></td></tr></table></figure></p>
-<p>npm install hexo-deployer-git –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">安装完成之后，打开本地博客目录的```_config.yml```文件，编辑其中的</div><div class="line">```deploy```节点：</div></pre></td></tr></table></figure></p>
-<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/youlookwhat/youlookwhat.github.io.git" target="_blank" rel="external">https://github.com/youlookwhat/youlookwhat.github.io.git</a><br>  branch: master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; 注意：字段前需加空格，hexo有严格的格式规范。</div><div class="line"></div><div class="line">保存配置之后，你可以不着急传到仓库，先刷新本地博客，看是否还是原样，如有问题可以看到log日志上的错误信息，然后检查没问题为止。调试步骤:</div></pre></td></tr></table></figure></p>
-<p>hexo s –debug   //进入调试，查看本地博客<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> control + c // 退出调试</div><div class="line">确认无误之后，在本地博客目录执行以下命令：</div></pre></td></tr></table></figure></p>
-<p>hexo clean // clean本地项目，防止缓存<br>hexo g // 全拼是：hexo generate，可以简写成 hexo g ;根据你编辑的md格式的博客，生成静态网页<br>hexo d  // 全拼是：hexo deploy，可以简写成 hexo d；将本地博客发布到github</p>
-<p>```</p>
+<p>至此，我们已经利用GitHub Pages搭建好了个人博客雏形了。下面要做的，就是个性化了。</p>
+<blockquote>
+<p>注：如果你<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 前期准备</div><div class="line"></div><div class="line">### 安装Hexo</div><div class="line">参考[中文文档](https://hexo.io/zh-cn/docs/index.html)或[英文文档](https://hexo.io/docs/)。完成该步后，你的电脑便拥有了Git、Node.js和Hexo。</div><div class="line"></div><div class="line">### 测试安装状态</div><div class="line"></div><div class="line">```java</div><div class="line">$ node -v</div><div class="line"> v4.2.4</div><div class="line"></div><div class="line">$ npm -v</div><div class="line">2.14.12</div><div class="line"></div><div class="line">$ hexo -v</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>##正式开始</p>
+<blockquote>
+<p>确定拥有了Git、Node.js和Hexo后，进行下一步</p>
+</blockquote>
+<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ cd &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<p> 新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── <span class="keyword">package</span>.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure>
+<p>这样Hexo会在该文件夹创建本地博客所需的一切资源。这样本地博客就搭建好了，输入以下命令：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure>
+<p>这样就开启了一个本地博客服务器，打开浏览器，在地址栏输入<code>localhost:4000</code>，就可以查看本地博客了，hexo默认生成了一片hello world博客。按<code>control + c</code>关闭调试。</p>
+<blockquote>
+<p>注意：以上hexo开头的命令，执行目录必须是你创建的博客文件夹目录。</p>
+</blockquote>
+<h3 id="同步Hexo博客到Github"><a href="#同步Hexo博客到Github" class="headerlink" title="同步Hexo博客到Github"></a>同步Hexo博客到Github</h3><p>现在你已经可以在本机查看你的博客了，但是要想让别人通过网络可以查看你的博客，还需要一步，那就是将你的博客发布到github仓库。在terminal终端，将当前目录切换到你的本地博客目录，执行以下命令：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>安装完成之后，打开本地博客目录的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">```deploy```节点：</div><div class="line"></div><div class="line">```java</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/youlookwhat/youlookwhat.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：字段前需加空格，hexo有严格的格式规范。</p>
+</blockquote>
+<p>保存配置之后，你可以不着急传到仓库，先刷新本地博客，看是否还是原样，如有问题可以看到log日志上的错误信息，然后检查没问题为止。调试步骤:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug   //进入调试，查看本地博客</div></pre></td></tr></table></figure>
+<p> control + c // 退出调试<br>确认无误之后，在本地博客目录执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean // clean本地项目，防止缓存</div><div class="line">hexo g // 全拼是：hexo generate，可以简写成 hexo g ;根据你编辑的md格式的博客，生成静态网页</div><div class="line">hexo d  // 全拼是：hexo deploy，可以简写成 hexo d；将本地博客发布到github</div></pre></td></tr></table></figure>
 <p>然后，在浏览器地址栏输入<code>yourusername.github.io</code>就可以访问你的博客了，别人也可以通过这个地址访问你的博客。如果错误请重复看以前流程，或参考其他文章，也可以<a href="#here">联系我</a>.</p>
 <blockquote>
 <p>hexo s –debug 使用 hexo s 也可以；// 启动本地hexo 服务器，默认localhost:4000可以访问</p>
