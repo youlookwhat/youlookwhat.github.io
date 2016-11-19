@@ -92,7 +92,7 @@
 <meta property="og:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
 引很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的推荐文章里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，除了问题就会不知道怎么回事。
 在此感谢小马哥Mark和 wingjay先前分享的教程，有些段落是从你">
-<meta property="og:updated_time" content="2016-11-19T12:11:03.000Z">
+<meta property="og:updated_time" content="2016-11-19T12:13:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac搭建Hexo博客流程记录，排雷完成">
 <meta name="twitter:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
@@ -343,8 +343,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug</div></pre></td></tr></table></figure>
 <p>这样就开启了一个本地博客服务器，打开浏览器，在地址栏输入<code>localhost:4000</code>，就可以查看本地博客了，hexo默认生成了一片hello world博客。按<code>control + c</code>关闭调试。</p>
 <blockquote>
-<p>注意：以上hexo开头的命令，执行目录必须是你创建的博客文件夹目录。</p>
-<p>hexo s –debug 使用 hexo s 也可以；// 启动本地hexo 服务器，默认localhost:4000可以访问</p>
+<p>注意：以上hexo开头的命令，执行目录必须是你创建的博客文件夹目录。<br>hexo s –debug 使用 hexo s 也可以；// 启动本地hexo 服务器，默认localhost:4000可以访问</p>
 </blockquote>
 <h3 id="同步Hexo博客到Github"><a href="#同步Hexo博客到Github" class="headerlink" title="同步Hexo博客到Github"></a>同步Hexo博客到Github</h3><p>现在你已经可以在本机查看你的博客了，但是要想让别人通过网络可以查看你的博客，还需要一步，那就是将你的博客发布到github仓库。在terminal终端，将当前目录切换到你的本地博客目录，执行以下命令：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
