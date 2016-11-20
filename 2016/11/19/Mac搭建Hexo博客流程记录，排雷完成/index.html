@@ -96,7 +96,7 @@
 <meta property="og:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
 引很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的推荐文章里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，出了问题就会不知道怎么回事。下面是自己的搭建记录，及所遇问题的解决。
 在此感谢小马哥Mark和 wi">
-<meta property="og:updated_time" content="2016-11-20T07:44:14.000Z">
+<meta property="og:updated_time" content="2016-11-20T08:03:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac搭建Hexo博客流程记录，排雷完成">
 <meta name="twitter:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
@@ -400,13 +400,11 @@
 </ul>
 <p>至此，我们已经利用GitHub Pages搭建好了个人博客雏形了。下面要做的，就是个性化了。</p>
 <blockquote>
-<p>注：如果你<code>http://username.github.io</code>首页就要是博客首页的话，就是<a href="http://jingbin.me">这样</a>。完成后可以把<code>index.html</code>给删了，因为到最后你发现那是没用的，如果你又配置了子目录，它会给你造成干扰。</p>
+<p>注意：如果你<code>http://username.github.io</code>首页就要是博客首页的话，建议初次配置选择首页，就是<a href="http://jingbin.me">这样</a>。完成后可以把<code>index.html</code>给删了，因为到最后你发现那是没用的，它将会给你造成干扰。</p>
 </blockquote>
 <h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>参考<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">中文文档</a>或<a href="https://hexo.io/docs/" target="_blank" rel="external">英文文档</a>。完成该步后，你的电脑便拥有了Git、Node.js和Hexo。</p>
 <h3 id="测试安装状态"><a href="#测试安装状态" class="headerlink" title="测试安装状态"></a>测试安装状态</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ node -v</div><div class="line"> v4.2.4</div><div class="line"></div><div class="line">$ npm -v</div><div class="line"><span class="number">2.14</span>.12</div><div class="line"></div><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
-<h2 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h2><blockquote>
-<p>确定拥有了Git、Node.js和Hexo后，进行下一步</p>
-</blockquote>
+<h2 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h2><p>确定拥有了Git、Node.js和Hexo后，进行下一步</p>
 <h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ cd &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
 <p> 新建完成后，指定文件夹的目录如下：</p>
