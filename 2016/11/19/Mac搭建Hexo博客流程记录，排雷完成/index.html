@@ -96,7 +96,7 @@
 <meta property="og:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
 引很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的推荐文章里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，出了问题就会不知道怎么回事。下面是自己的搭建记录，及所遇问题的解决。
 在此感谢小马哥Mark和 wi">
-<meta property="og:updated_time" content="2016-11-20T08:07:27.000Z">
+<meta property="og:updated_time" content="2016-11-20T08:35:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac搭建Hexo博客流程记录，排雷完成">
 <meta name="twitter:description" content="经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..
@@ -110,7 +110,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"always"},
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -169,7 +169,8 @@
   <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
-    <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
@@ -203,6 +204,8 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
           </a>
         </li>
@@ -210,6 +213,8 @@
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -219,6 +224,8 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
             归档
           </a>
         </li>
@@ -226,6 +233,8 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -237,6 +246,8 @@
           
             <a href="javascript:;" class="popup-trigger">
           
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -439,7 +450,7 @@
 </blockquote>
 <h2 id="优化环节"><a href="#优化环节" class="headerlink" title="优化环节"></a>优化环节</h2><ul>
 <li>域名设置</li>
-<li>fork me on github</li>
+<li><a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="external">fork me on github</a></li>
 <li>配置SSH key</li>
 <li>给博文添加tag和分类(<a href="http://theme-next.iissnan.com/theme-settings.html#author-sites" target="_blank" rel="external">主题</a>)</li>
 <li>手动实现某条博文置顶</li>
@@ -652,9 +663,21 @@
           <div class="links-of-blogroll motion-element links-of-blogroll-inline">
             <div class="links-of-blogroll-title">
               <i class="fa  fa-fw fa-globe"></i>
-              友情链接
+              经常逛的
             </div>
             <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://google.com/" title="Google" target="_blank">Google</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://pixabay.com/" title="pixabay" target="_blank">pixabay</a>
+                </li>
               
                 <li class="links-of-blogroll-item">
                   <a href="http://blog.csdn.net/lmj623565791" title="鸿洋_" target="_blank">鸿洋_</a>
@@ -665,7 +688,11 @@
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="https://drakeet.me/about" title="drakeet" target="_blank">drakeet</a>
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://stackoverflow.com/" title="stackoverflow" target="_blank">stackoverflow</a>
                 </li>
               
             </ul>
