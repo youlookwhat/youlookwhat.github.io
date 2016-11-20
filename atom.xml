@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-11-20T08:05:48.000Z</updated>
+  <updated>2016-11-20T08:07:27.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2016/11/19/Mac%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95%EF%BC%8C%E6%8E%92%E9%9B%B7%E5%AE%8C%E6%88%90/"/>
     <id>http://jingbin.me/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/</id>
     <published>2016-11-18T19:02:13.000Z</published>
-    <updated>2016-11-20T08:05:48.000Z</updated>
+    <updated>2016-11-20T08:07:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..</p>
 <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的<a href="#jump">推荐文章</a>里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，出了问题就会不知道怎么回事。下面是自己的搭建记录，及<a href="#ask">所遇问题的解决</a>。</p>
@@ -60,7 +60,7 @@
 <p>确认无误之后，在本地博客目录执行以下命令：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean <span class="comment">// clean本地项目，防止缓存</span></div><div class="line">hexo g <span class="comment">// 全拼是：hexo generate，可以简写成 hexo g; 根据你编辑的md格式的博客，生成静态网页</span></div><div class="line">hexo d  <span class="comment">// 全拼是：hexo deploy，可以简写成 hexo d; 将本地博客发布到github</span></div></pre></td></tr></table></figure>
 <p>然后，在浏览器地址栏输入<code>username.github.io</code>就可以访问你的博客了，别人也可以通过这个地址访问你的博客。如果错误请重复看以前流程，或参考其他文章，也可以<a href="#here">联系我</a>.</p>
-<h2 id="NexT主题配置及优化"><a href="#NexT主题配置及优化" class="headerlink" title="NexT主题配置及优化"></a>NexT主题配置及优化</h2><ul>
+<h2 id="NexT主题配置"><a href="#NexT主题配置" class="headerlink" title="NexT主题配置"></a>NexT主题配置</h2><ul>
 <li><a href="http://theme-next.iissnan.com/getting-started.html#validate-next-theme" target="_blank" rel="external">Next主题</a></li>
 </ul>
 <p>Hexo主题非常多，可以参考<a href="https://hexo.io/themes/" target="_blank" rel="external">丰富多彩的Hexo主题</a>，本文选Next为主题，NexT主题是一套简约的主题，设置完成之后，就像我的博客现在的样子，里面有详细的配置说明，这里就不重述了。</p>
@@ -71,8 +71,7 @@
 <blockquote>
 <p>注意：因为hexo有严格的格式规范，所以建议配置时及时调试页面。</p>
 </blockquote>
-<h2 id="修饰环节"><a href="#修饰环节" class="headerlink" title="修饰环节"></a>修饰环节</h2><p>上面主题严格来讲也属于修饰。现在说的主要有：</p>
-<ul>
+<h2 id="优化环节"><a href="#优化环节" class="headerlink" title="优化环节"></a>优化环节</h2><ul>
 <li>域名设置</li>
 <li>fork me on github</li>
 <li>配置SSH key</li>
