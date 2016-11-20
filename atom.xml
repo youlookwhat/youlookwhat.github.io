@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-11-20T08:35:40.000Z</updated>
+  <updated>2016-11-20T10:08:56.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2016/11/19/Mac%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95%EF%BC%8C%E6%8E%92%E9%9B%B7%E5%AE%8C%E6%88%90/"/>
     <id>http://jingbin.me/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/</id>
     <published>2016-11-18T19:02:13.000Z</published>
-    <updated>2016-11-20T08:35:40.000Z</updated>
+    <updated>2016-11-20T10:08:56.000Z</updated>
     
     <content type="html"><![CDATA[<p>经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..</p>
 <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的<a href="#jump">推荐文章</a>里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，出了问题就会不知道怎么回事。下面是自己的搭建记录，及<a href="#ask">所遇问题的解决</a>。</p>
@@ -110,6 +110,7 @@
 <li>设置搜索栏，进入<a href="https://swiftype.com/users/sign_up" target="_blank" rel="external">swiftype官网</a>，注册不上，应该收费了- -.</li>
 <li>设置侧边栏社交链接时，<code>social:</code><strong>下面字段前要有两个空格，切记</strong>。</li>
 </ul>
+<h2 id="相关网址"><a href="#相关网址" class="headerlink" title="相关网址"></a>相关网址</h2><p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT</a>、<a href="http://youlookwhat.duoshuo.com/admin/" target="_blank" rel="external">多说</a>、<a href="http://tongji.baidu.com/web/welcome/login" target="_blank" rel="external">百度统计</a>、<a href="https://leancloud.cn/app.html#/general" target="_blank" rel="external">leancloud</a>、<a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fhome.console.aliyun.com%2Fnew#/" target="_blank" rel="external">阿里云</a>、<a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="external">fork me</a>、<a href="http://www.ico.la/" target="_blank" rel="external">ico制作</a></p>
 <h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a><span id="here">联系我</span></h2><ul>
 <li><a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" rel="external">我的简书</a></li>
 <li><a href="http://blog.csdn.net/jingbin_" target="_blank" rel="external">我的CSDN</a></li>
