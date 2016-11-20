@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-11-20T10:08:56.000Z</updated>
+  <updated>2016-11-20T17:42:07.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://jingbin.me/2016/11/19/Mac%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95%EF%BC%8C%E6%8E%92%E9%9B%B7%E5%AE%8C%E6%88%90/"/>
     <id>http://jingbin.me/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/</id>
     <published>2016-11-18T19:02:13.000Z</published>
-    <updated>2016-11-20T10:08:56.000Z</updated>
+    <updated>2016-11-20T17:42:07.000Z</updated>
     
-    <content type="html"><![CDATA[<p>经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..</p>
+    <content type="html"><![CDATA[<p>经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面会把你坑的很惨..</p>
 <h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的<a href="#jump">推荐文章</a>里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，出了问题就会不知道怎么回事。下面是自己的搭建记录，及<a href="#ask">所遇问题的解决</a>。</p>
 <p>在此感谢<a href="https://madongqiang2201.github.io/" target="_blank" rel="external">小马哥Mark</a>和 <a href="http://wingjay.com/" target="_blank" rel="external">wingjay</a>先前分享的教程，有些段落是从你们里搬运过来的，希望博主见谅，如有侵权，请联系我删除。</p>
 <p>Ok，现在开始：</p>
@@ -120,7 +120,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面你都不知道怎么死的..&lt;/p&gt;
+      &lt;p&gt;经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面会把你坑的很惨..&lt;/p&gt;
 &lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的&lt;a href=&quot;#jump&quot;&gt;推荐文章&lt;/a&gt;里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，出了问题就会不知道怎么回事。下面是自己的搭建记录，及&lt;a href=&quot;#ask&quot;&gt;所遇问题的解决&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;在此感谢&lt;a href=&quot;https://madongqiang2201.github.io/&quot;&gt;小马哥Mark&lt;/a&gt;和 &lt;a href=&quot;http://wingjay.com/&quot;&gt;wingjay&lt;/a&gt;先前分享的教程，有些段落是从你们里搬运过来的，希望博主见谅，如有侵权，请联系我删除。&lt;/p&gt;
 &lt;p&gt;Ok，现在开始：&lt;/p&gt;
