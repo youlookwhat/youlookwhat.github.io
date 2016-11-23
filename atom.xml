@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-11-22T15:09:28.000Z</updated>
+  <updated>2016-11-23T14:48:40.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -14,6 +14,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>收集“新奇的网站”</title>
+    <link href="http://jingbin.me/2016/11/23/%E6%94%B6%E9%9B%86%E2%80%9C%E6%96%B0%E5%A5%87%E7%9A%84%E7%BD%91%E7%AB%99%E2%80%9D/"/>
+    <id>http://jingbin.me/2016/11/23/收集“新奇的网站”/</id>
+    <published>2016-11-23T14:36:23.000Z</published>
+    <updated>2016-11-23T14:48:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="产品原型制作"><a href="#产品原型制作" class="headerlink" title="产品原型制作"></a>产品原型制作</h3><ul>
+<li><a href="https://www.sketchapp.com/" target="_blank" rel="external">Sketch，最佳原型制作工具</a></li>
+<li><a href="https://dribbble.com/designers" target="_blank" rel="external">Dribbble，养成一双发现并懂得美的眼睛(美图)</a></li>
+<li><a href="http://www.calltoidea.com/" target="_blank" rel="external">新奇-Get quickly inspiration!（创意）</a></li>
+<li><a href="https://pixabay.com/" target="_blank" rel="external">免费的高清图片</a></li>
+</ul>
+<h3 id="颜色搭配及icon制作"><a href="#颜色搭配及icon制作" class="headerlink" title="颜色搭配及icon制作"></a>颜色搭配及icon制作</h3><ul>
+<li><a href="http://www.colorhunt.co/" target="_blank" rel="external">ColorHunt-色彩搭配</a></li>
+<li><a href="https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html" target="_blank" rel="external">icon在线制作</a></li>
+<li><a href="http://www.iconfont.cn/plus" target="_blank" rel="external">icon图标库</a></li>
+</ul>
+<h3 id="移动应用分发"><a href="#移动应用分发" class="headerlink" title="移动应用分发"></a>移动应用分发</h3><ul>
+<li><a href="http://fir.im/" target="_blank" rel="external">Fir.im</a></li>
+<li><a href="http://developer.wandoujia.com/" target="_blank" rel="external">豌豆荚</a></li>
+<li><a href="http://developer.android.com/distribute/tools/launch-checklist.html" target="_blank" rel="external">play store</a></li>
+</ul>
+<a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;产品原型制作&quot;&gt;&lt;a href=&quot;#产品原型制作&quot; class=&quot;headerlink&quot; title=&quot;产品原型制作&quot;&gt;&lt;/a&gt;产品原型制作&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sketchapp.com/&quot;&gt;Sketch，最佳原型制作工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dribbble.com/designers&quot;&gt;Dribbble，养成一双发现并懂得美的眼睛(美图)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.calltoidea.com/&quot;&gt;新奇-Get quickly inspiration!（创意）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pixabay.com/&quot;&gt;免费的高清图片&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;颜色搭配及icon制作&quot;&gt;&lt;a href=&quot;#颜色搭配及icon制作&quot; class=&quot;headerlink&quot; title=&quot;颜色搭配及icon制作&quot;&gt;&lt;/a&gt;颜色搭配及icon制作&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.colorhunt.co/&quot;&gt;ColorHunt-色彩搭配&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html&quot;&gt;icon在线制作&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.iconfont.cn/plus&quot;&gt;icon图标库&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;移动应用分发&quot;&gt;&lt;a href=&quot;#移动应用分发&quot; class=&quot;headerlink&quot; title=&quot;移动应用分发&quot;&gt;&lt;/a&gt;移动应用分发&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://fir.im/&quot;&gt;Fir.im&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://developer.wandoujia.com/&quot;&gt;豌豆荚&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://developer.android.com/distribute/tools/launch-checklist.html&quot;&gt;play store&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://jingbin.me/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="http://jingbin.me/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="创意灵感" scheme="http://jingbin.me/tags/%E5%88%9B%E6%84%8F%E7%81%B5%E6%84%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>可能是讲解Android事件分发最好的文章</title>
