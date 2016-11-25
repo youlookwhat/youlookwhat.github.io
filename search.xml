@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[开发中所遇问题归纳]]></title>
       <url>%2F2016%2F11%2F23%2F%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3%2F</url>
-      <content type="text"><![CDATA[issues databinding layout节点写了xmlns:android=&quot;http://schemas.android.com/apk/res/android后，子布局不能写 include子布局时子布局根节点也要声明id，不然引用不到子布局id databinding绑定子布局，先绑定后父布局再addView() 注入databinding后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。 兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，详情。]]></content>
+      <content type="text"><![CDATA[issues databinding layout节点写了xmlns:android=&quot;http://schemas.android.com/apk/res/android后，子布局不能写 include子布局时子布局根节点也要声明id，不然引用不到子布局id databinding绑定子布局，先绑定后父布局再addView() 注入databinding后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。 databinding绑定bean时，里面的子类也需要继承BaseObservable,否则会报错。 recyclerview的viewhodler里，获得绑定view的databinding:DataBindingUtil.getBinding(this.itemView);。 兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，详情。 listview某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。]]></content>
     </entry>
 
     

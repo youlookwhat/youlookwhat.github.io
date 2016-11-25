@@ -110,7 +110,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局，先绑定后父布局再addView()
 
 注入databinding后，AndriodStu">
-<meta property="og:updated_time" content="2016-11-25T04:16:00.000Z">
+<meta property="og:updated_time" content="2016-11-25T15:28:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="issues
@@ -441,11 +441,16 @@ databinding绑定子布局，先绑定后父布局再addView()
 </li>
 <li><p>注入<code>databinding</code>后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。</p>
 </li>
+<li><p><code>databinding</code>绑定<code>bean</code>时，里面的子类也需要继承<code>BaseObservable</code>,否则会报错。</p>
+</li>
+<li><p><code>recyclerview</code>的<code>viewhodler</code>里，获得绑定<code>view</code>的<code>databinding</code>:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
+</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</li>
+<li><code>listview</code>某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。</li>
 </ul>
 <a id="more"></a>
       
