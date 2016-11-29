@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,yunyue," />
+  <meta name="keywords" content="Android,开源库使用," />
 
 
 
@@ -86,43 +86,24 @@
 
 
 
-<meta name="description" content="issues
-databinding
-
-layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写
-
-include子布局时子布局根节点也要声明id，不然引用不到子布局id
-
-databinding绑定子布局，先绑定后父布局再addView()
-
-注入databinding后，AndriodStu">
+<meta name="description" content="引用1compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;
+加载图片基本加载123Glide.with(context)	.load(url)	.into(imageView);
+设置加载中和加载失败的情况12345Glide.with(context)	.load(url)	.placeholder(R.drawable.loading) //占位符">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开发中所遇问题归纳">
-<meta property="og:url" content="http://jingbin.me/2016/11/23/开发中所遇问题归纳/index.html">
+<meta property="og:title" content="关于Gilde的使用(高斯模糊、加载监听、圆角图片)">
+<meta property="og:url" content="http://jingbin.me/2016/11/29/关于Gilde的使用/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
-<meta property="og:description" content="issues
-databinding
-
-layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写
-
-include子布局时子布局根节点也要声明id，不然引用不到子布局id
-
-databinding绑定子布局，先绑定后父布局再addView()
-
-注入databinding后，AndriodStu">
-<meta property="og:updated_time" content="2016-11-28T08:43:46.000Z">
+<meta property="og:description" content="引用1compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;
+加载图片基本加载123Glide.with(context)	.load(url)	.into(imageView);
+设置加载中和加载失败的情况12345Glide.with(context)	.load(url)	.placeholder(R.drawable.loading) //占位符">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040">
+<meta property="og:updated_time" content="2016-11-29T05:16:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开发中所遇问题归纳">
-<meta name="twitter:description" content="issues
-databinding
-
-layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写
-
-include子布局时子布局根节点也要声明id，不然引用不到子布局id
-
-databinding绑定子布局，先绑定后父布局再addView()
-
-注入databinding后，AndriodStu">
+<meta name="twitter:title" content="关于Gilde的使用(高斯模糊、加载监听、圆角图片)">
+<meta name="twitter:description" content="引用1compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;
+加载图片基本加载123Glide.with(context)	.load(url)	.into(imageView);
+设置加载中和加载失败的情况12345Glide.with(context)	.load(url)	.placeholder(R.drawable.loading) //占位符">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040">
 
 
 
@@ -150,13 +131,13 @@ databinding绑定子布局，先绑定后父布局再addView()
 
 
 
-  <link rel="canonical" href="http://jingbin.me/2016/11/23/开发中所遇问题归纳/"/>
+  <link rel="canonical" href="http://jingbin.me/2016/11/29/关于Gilde的使用/"/>
 
 
 
 
 
-  <title> 开发中所遇问题归纳 | Jing Bin'blog </title>
+  <title> 关于Gilde的使用(高斯模糊、加载监听、圆角图片) | Jing Bin'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +304,7 @@ databinding绑定子布局，先绑定后父布局再addView()
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2016/11/23/开发中所遇问题归纳/">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2016/11/29/关于Gilde的使用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="肖子理">
@@ -347,7 +328,7 @@ databinding绑定子布局，先绑定后父布局再addView()
             
             
               
-                开发中所遇问题归纳
+                关于Gilde的使用(高斯模糊、加载监听、圆角图片)
               
             
           </h1>
@@ -360,8 +341,8 @@ databinding绑定子布局，先绑定后父布局再addView()
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-23T22:36:23+08:00">
-                2016-11-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-29T12:07:32+08:00">
+                2016-11-29
               </time>
             
 
@@ -394,8 +375,8 @@ databinding绑定子布局，先绑定后父布局再addView()
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/23/开发中所遇问题归纳/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/开发中所遇问题归纳/" itemprop="commentCount"></span>
+                <a href="/2016/11/29/关于Gilde的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/关于Gilde的使用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -405,7 +386,7 @@ databinding绑定子布局，先绑定后父布局再addView()
 
           
           
-             <span id="/2016/11/23/开发中所遇问题归纳/" class="leancloud_visitors" data-flag-title="开发中所遇问题归纳">
+             <span id="/2016/11/29/关于Gilde的使用/" class="leancloud_visitors" data-flag-title="关于Gilde的使用(高斯模糊、加载监听、圆角图片)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -430,32 +411,32 @@ databinding绑定子布局，先绑定后父布局再addView()
       
 
       
-        <h1 id="issues"><a href="#issues" class="headerlink" title="issues"></a>issues</h1><ul>
-<li><p>databinding</p>
-<ul>
-<li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
-</li>
-<li><p><code>include</code>子布局时子布局根节点也要声明id，不然引用不到子布局id</p>
-</li>
-<li><p><code>databinding</code>绑定子布局，先绑定后父布局再<code>addView()</code></p>
-</li>
-<li><p>注入<code>databinding</code>后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。</p>
-</li>
-<li><p><code>databinding</code>绑定<code>bean</code>时，里面的子类也需要继承<code>BaseObservable</code>,否则会报错。</p>
-</li>
-<li><p><code>recyclerview</code>的<code>viewhodler</code>里，获得绑定<code>view</code>的<code>databinding</code>:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
-</li>
+        <p><img src="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040" alt="stackblur_default.png"></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.github.bumptech.glide:glide:3.7.0'</span></div></pre></td></tr></table></figure>
+<h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><h3 id="基本加载"><a href="#基本加载" class="headerlink" title="基本加载"></a>基本加载</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.into(imageView);</div></pre></td></tr></table></figure>
+<h3 id="设置加载中和加载失败的情况"><a href="#设置加载中和加载失败的情况" class="headerlink" title="设置加载中和加载失败的情况"></a>设置加载中和加载失败的情况</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading) <span class="comment">//占位符 也就是加载中的图片，可放个gif</span></div><div class="line">	.error(R.drawable.failed) <span class="comment">//失败图片</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
+<h3 id="只加载动画"><a href="#只加载动画" class="headerlink" title="只加载动画"></a>只加载动画</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.asGif() <span class="comment">// 只能加载gif文件</span></div><div class="line">	.into(imageView);</div></pre></td></tr></table></figure>
+<h3 id="添加图片淡入加载的效果"><a href="#添加图片淡入加载的效果" class="headerlink" title="添加图片淡入加载的效果"></a>添加图片淡入加载的效果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading)</div><div class="line">	.error(R.drawable.failed) </div><div class="line">	.crossFade(<span class="number">1000</span>) <span class="comment">// 可设置时长，默认“300ms”</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
+<h3 id="加载高斯模糊图"><a href="#加载高斯模糊图" class="headerlink" title="加载高斯模糊图"></a>加载高斯模糊图</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading)</div><div class="line">	.error(R.drawable.failed) </div><div class="line">	.crossFade(<span class="number">1000</span>)</div><div class="line">	.bitmapTransform(<span class="keyword">new</span> BlurTransformation(context,<span class="number">23</span>,<span class="number">4</span>))  <span class="comment">// “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
+<h3 id="加载监听器RequestListener"><a href="#加载监听器RequestListener" class="headerlink" title="加载监听器RequestListener"></a>加载监听器RequestListener</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Glide.with(<span class="keyword">this</span>).load(internetUrl).listener(<span class="keyword">new</span> RequestListener&lt;String, GlideDrawable&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onException</span><span class="params">(Exception e, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">                Toast.makeText(getApplicationContext(),<span class="string">"资源加载异常"</span>,Toast.LENGTH_SHORT).show();</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//这个用于监听图片是否加载完成</span></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFromMemoryCache, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">                Toast.makeText(getApplicationContext(),<span class="string">"图片加载完成"</span>,Toast.LENGTH_SHORT).show();</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;).into(imageView);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果需要加载完成后设置图片透明度为0，则不能设置<code>.placeholder(R.drawable.url)</code>，否则达不到你想要的效果。</p>
+</blockquote>
+<h3 id="图片缓存机制"><a href="#图片缓存机制" class="headerlink" title="图片缓存机制"></a>图片缓存机制</h3><p>Glide缓存策略</p>
+<p>Glide默认开启磁盘缓存和内存缓存，当然也可以对单张图片进行设置特定的缓存策略。<br>设置图片不加入到内存缓存</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with( context )</div><div class="line">	.load( eatFoodyImages[<span class="number">0</span>] )</div><div class="line">	.skipMemoryCache( <span class="keyword">true</span> )</div><div class="line">	.into( imageViewInternet );</div></pre></td></tr></table></figure>
+<p>设置图片不加入到磁盘缓存</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with( context )</div><div class="line">	.load( eatFoodyImages[<span class="number">0</span>] )</div><div class="line">	.diskCacheStrategy( DiskCacheStrategy.NONE )</div><div class="line">	.into( imageViewInternet );</div></pre></td></tr></table></figure>
+<p>Glide支持多种磁盘缓存策略：</p>
+<p>DiskCacheStrategy.NONE :不缓存图片<br>DiskCacheStrategy.SOURCE :缓存图片源文件<br>DiskCacheStrategy.RESULT:缓存修改过的图片<br>DiskCacheStrategy.ALL:缓存所有的图片，默认</p>
+<h3 id="加载圆角图片"><a href="#加载圆角图片" class="headerlink" title="加载圆角图片"></a>加载圆角图片</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlideCircleTransform</span> <span class="keyword">extends</span> <span class="title">BitmapTransformation</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GlideCircleTransform</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Bitmap <span class="title">transform</span><span class="params">(BitmapPool pool, Bitmap toTransform, <span class="keyword">int</span> outWidth, <span class="keyword">int</span> outHeight)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> circleCrop(pool, toTransform);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Bitmap <span class="title">circleCrop</span><span class="params">(BitmapPool pool, Bitmap source)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (source == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">int</span> size = Math.min(source.getWidth(), source.getHeight());</div><div class="line">        <span class="keyword">int</span> x = (source.getWidth() - size) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">int</span> y = (source.getHeight() - size) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// TODO this could be acquired from the pool too</span></div><div class="line">        Bitmap squared = Bitmap.createBitmap(source, x, y, size, size);</div><div class="line">        Bitmap result = pool.get(size, size, Bitmap.Config.ARGB_8888);</div><div class="line">        <span class="keyword">if</span> (result == <span class="keyword">null</span>) &#123;</div><div class="line">            result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);</div><div class="line">        &#125;</div><div class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(result);</div><div class="line">        Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">        paint.setShader(<span class="keyword">new</span> BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));</div><div class="line">        paint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">        <span class="keyword">float</span> r = size / <span class="number">2f</span>;</div><div class="line">        canvas.drawCircle(r, r, r, paint);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getClass().getName();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with(mContext)</div><div class="line">    .load(imageUrl)</div><div class="line">    .transform(<span class="keyword">new</span> GlideCircleTransform(mContext))</div><div class="line">    .into(holder.imageView);</div></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://blog.csdn.net/zhihui_520/article/details/51822336" target="_blank" rel="external">http://blog.csdn.net/zhihui_520/article/details/51822336</a></li>
+<li><a href="http://blog.csdn.net/u010694658/article/details/52689317" target="_blank" rel="external">http://blog.csdn.net/u010694658/article/details/52689317</a></li>
 </ul>
-</li>
-</ul>
-<ul>
-<li>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</li>
-<li><code>listview</code>某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。</li>
-<li>当ScrollView里的元素想填满ScrollView时，使用<code>fill_parent</code>是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</li>
-<li>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</li>
-<li>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></li>
-</ul>
-<a id="more"></a>
+
       
     </div>
 
@@ -480,7 +461,7 @@ databinding绑定子布局，先绑定后父布局再addView()
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/yunyue/" rel="tag"># yunyue</a>
+            <a href="/tags/开源库使用/" rel="tag"># 开源库使用</a>
           
         </div>
       
@@ -489,8 +470,8 @@ databinding绑定子布局，先绑定后父布局再addView()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/23/收集“新奇的网站”/" rel="next" title="收集“新奇的网站”">
-                <i class="fa fa-chevron-left"></i> 收集“新奇的网站”
+              <a href="/2016/11/23/开发中所遇问题归纳/" rel="next" title="开发中所遇问题归纳">
+                <i class="fa fa-chevron-left"></i> 开发中所遇问题归纳
               </a>
             
           </div>
@@ -498,10 +479,6 @@ databinding绑定子布局，先绑定后父布局再addView()
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/29/关于Gilde的使用/" rel="prev" title="关于Gilde的使用(高斯模糊、加载监听、圆角图片)">
-                关于Gilde的使用(高斯模糊、加载监听、圆角图片) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -533,8 +510,8 @@ databinding绑定子布局，先绑定后父布局再addView()
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/23/开发中所遇问题归纳/"
-           data-title="开发中所遇问题归纳" data-url="http://jingbin.me/2016/11/23/开发中所遇问题归纳/">
+      <div class="ds-thread" data-thread-key="2016/11/29/关于Gilde的使用/"
+           data-title="关于Gilde的使用(高斯模糊、加载监听、圆角图片)" data-url="http://jingbin.me/2016/11/29/关于Gilde的使用/">
       </div>
     
   </div>
@@ -699,7 +676,7 @@ databinding绑定子布局，先绑定后父布局再addView()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#issues"><span class="nav-number">1.</span> <span class="nav-text">issues</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">1.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载图片"><span class="nav-number">2.</span> <span class="nav-text">加载图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本加载"><span class="nav-number">2.1.</span> <span class="nav-text">基本加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置加载中和加载失败的情况"><span class="nav-number">2.2.</span> <span class="nav-text">设置加载中和加载失败的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只加载动画"><span class="nav-number">2.3.</span> <span class="nav-text">只加载动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加图片淡入加载的效果"><span class="nav-number">2.4.</span> <span class="nav-text">添加图片淡入加载的效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载高斯模糊图"><span class="nav-number">2.5.</span> <span class="nav-text">加载高斯模糊图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载监听器RequestListener"><span class="nav-number">2.6.</span> <span class="nav-text">加载监听器RequestListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片缓存机制"><span class="nav-number">2.7.</span> <span class="nav-text">图片缓存机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载圆角图片"><span class="nav-number">2.8.</span> <span class="nav-text">加载圆角图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
