@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局，先绑定后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变乱">
-<meta property="og:updated_time" content="2016-11-30T04:26:46.000Z">
+<meta property="og:updated_time" content="2016-11-30T11:56:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="databinding
@@ -437,6 +437,8 @@ databinding绑定子布局，先绑定后父布局再addView()
 </li>
 <li><p><code>recyclerview</code>的<code>viewhodler</code>里，获得绑定<code>view</code>的<code>databinding</code>:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
 </li>
+<li><p>布局里没有生命<code>id</code>,则<code>ItemEverydayBinding</code>无法生成。</p>
+</li>
 </ul>
 <ol>
 <li><p>文件里引用bean:</p>
@@ -471,6 +473,12 @@ databinding绑定子布局，先绑定后父布局再addView()
 <li>当ScrollView里的元素想填满ScrollView时，使用<code>fill_parent</code>是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</li>
 <li>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</li>
 <li>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></li>
+<li><p>❎ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>,在<code>recyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));</code>之后，需要加上,不然滑动不流畅: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+<p>❌ 以上切换还是会卡顿，原因是角标越界，虽然<code>try</code>了，还是会卡。使用<code>MyScrollView</code>也不可以。显示不全！<a href="http://blog.csdn.net/fangchao3652/article/details/46914987" target="_blank" rel="external">FullyLinearLayoutManager&amp; MyScrollView</a></p>
+</li>
+<li><p>✔️ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>官方后期已经解决了显示不全问题！看引用的包是什么版本的！</p>
+</li>
 </ul>
 
       

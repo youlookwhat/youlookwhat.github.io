@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-11-30T04:26:46.000Z</updated>
+  <updated>2016-11-30T11:56:05.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-11-30T04:26:46.000Z</updated>
+    <updated>2016-11-30T11:56:05.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="databinding"><a href="#databinding" class="headerlink" title="databinding"></a>databinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
@@ -34,6 +34,8 @@
 <li><p><code>databinding</code>绑定<code>bean</code>时，里面的子类也需要继承<code>BaseObservable</code>,否则会报错。</p>
 </li>
 <li><p><code>recyclerview</code>的<code>viewhodler</code>里，获得绑定<code>view</code>的<code>databinding</code>:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
+</li>
+<li><p>布局里没有生命<code>id</code>,则<code>ItemEverydayBinding</code>无法生成。</p>
 </li>
 </ul>
 <ol>
@@ -69,6 +71,12 @@
 <li>当ScrollView里的元素想填满ScrollView时，使用<code>fill_parent</code>是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</li>
 <li>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</li>
 <li>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></li>
+<li><p>❎ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>,在<code>recyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));</code>之后，需要加上,不然滑动不流畅: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+<p>❌ 以上切换还是会卡顿，原因是角标越界，虽然<code>try</code>了，还是会卡。使用<code>MyScrollView</code>也不可以。显示不全！<a href="http://blog.csdn.net/fangchao3652/article/details/46914987" target="_blank" rel="external">FullyLinearLayoutManager&amp; MyScrollView</a></p>
+</li>
+<li><p>✔️ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>官方后期已经解决了显示不全问题！看引用的包是什么版本的！</p>
+</li>
 </ul>
 ]]></content>
     
@@ -86,6 +94,8 @@
 &lt;li&gt;&lt;p&gt;&lt;code&gt;databinding&lt;/code&gt;绑定&lt;code&gt;bean&lt;/code&gt;时，里面的子类也需要继承&lt;code&gt;BaseObservable&lt;/code&gt;,否则会报错。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;recyclerview&lt;/code&gt;的&lt;code&gt;viewhodler&lt;/code&gt;里，获得绑定&lt;code&gt;view&lt;/code&gt;的&lt;code&gt;databinding&lt;/code&gt;:&lt;code&gt;DataBindingUtil.getBinding(this.itemView);&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;布局里没有生命&lt;code&gt;id&lt;/code&gt;,则&lt;code&gt;ItemEverydayBinding&lt;/code&gt;无法生成。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol&gt;
