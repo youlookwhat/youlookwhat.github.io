@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局，先绑定后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变乱">
-<meta property="og:updated_time" content="2016-11-29T11:16:38.000Z">
+<meta property="og:updated_time" content="2016-11-30T04:26:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="databinding
@@ -443,10 +443,25 @@ databinding绑定子布局，先绑定后父布局再addView()
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;variable</div><div class="line">       name=<span class="string">"subjectsBean"</span></div><div class="line">	    type=<span class="string">"com.example.jingbin.bean.moviechild.SubjectsBean"</span> /&gt;</div></pre></td></tr></table></figure>
 </li>
 <li><p>文件里调用静态方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">import</span> type=<span class="string">"com.example.yunyue.utils.StringFormatUtil"</span>/&gt;</div><div class="line">android:text=<span class="string">"@&#123;StringFormatUtil.formatName(subjectsBean.directors)&#125;"</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">import</span> type=<span class="string">"com.example.yunyue.utils.StringFormatUtil"</span>/&gt;</div><div class="line"><span class="comment">// 布局调用</span></div><div class="line">android:text=<span class="string">"@&#123;StringFormatUtil.formatName(subjectsBean.directors)&#125;"</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>字符串和静态方法拼接(注意外层引号的区别，里面没有字符串时任意都行，有则使用单引号)：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:text=<span class="string">'@&#123;"类型："+StringFormatUtil.formatGenres(subjectsBean.genres)&#125;'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>@BindingAdapter()</code>，自定义loader用来异步载入图像：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// 任意类里声明</span></div><div class="line"> <span class="meta">@BindingAdapter</span>(<span class="string">"android:showImgBg"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showImgBg</span><span class="params">(ImageView imageView,String url)</span> </span>&#123;</div><div class="line">        displayGaussian(imageView.getContext(),url,imageView);</div><div class="line">    &#125;</div><div class="line"><span class="comment">// 布局调用</span></div><div class="line">android:showImgBg=<span class="string">'@&#123;subjectsBean.images.large&#125;'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li><strong>1.</strong> 方法参数第一个是控件声明,放在第二位不可以！</li>
+<li><strong>2.</strong> 布局调用时，命名空间可自动生成。</li>
+</ul>
+<p>建议：</p>
+<ul>
+<li><strong>1.</strong> <code>android:showImgBg</code>可任意写，但是项目里不能出现相同的命名，否则会被后来的覆盖掉！</li>
+<li><strong>2.</strong> 如果<code>imgload:showImgBg</code>这样写,第一次编译会提示找不到该命名空间，跳到声明处。建议写成<code>android:showImgBg</code>。</li>
+</ul>
+</blockquote>
 </li>
 </ol>
 <a id="more"></a>
