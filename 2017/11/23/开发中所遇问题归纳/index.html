@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局，先绑定后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变乱">
-<meta property="og:updated_time" content="2016-12-03T14:31:25.000Z">
+<meta property="og:updated_time" content="2016-12-03T14:50:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="databinding
@@ -468,7 +468,7 @@ databinding绑定子布局，先绑定后父布局再addView()
 </ol>
 <a id="more"></a>
 <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
-<li><p>✔️ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：</p>
+<li><p>✔️ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：(<strong>这样不推荐，会把内容全部一次性的加载进内存，造成卡顿</strong>)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 </li>
 <li><p>❌  <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>,在<code>recyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));</code>之后，需要加上,不然滑动不流畅: </p>
