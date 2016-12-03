@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-01T10:13:05.000Z</updated>
+  <updated>2016-12-03T14:31:25.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-01T10:13:05.000Z</updated>
+    <updated>2016-12-03T14:31:25.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="databinding"><a href="#databinding" class="headerlink" title="databinding"></a>databinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
@@ -66,12 +66,17 @@
 </ol>
 <a id="more"></a>
 <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
-<li>✔️ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>官方后期已经解决了显示不全问题！看引用的包是什么版本的！</li>
+<li><p>✔️ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+</li>
 <li><p>❌  <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>,在<code>recyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));</code>之后，需要加上,不然滑动不流畅: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 <p>以上切换还是会卡顿，原因是角标越界，虽然<code>try</code>了，还是会卡。使用<code>MyScrollView</code>也不可以。显示不全！<a href="http://blog.csdn.net/fangchao3652/article/details/46914987" target="_blank" rel="external">FullyLinearLayoutManager&amp; MyScrollView</a></p>
 </li>
 <li><code>RecyclerView</code>的item显示出现控件显示不全,item只显示一部分，非常怪异！在adapter中的<code>onCreateViewHolder()</code>中<br><code>View inflate = layoutInflater.inflate(R.layout.xxx, parent, false);</code>注意要依附于parent。这样就好了！</li>
+</ul>
+<ul>
+<li><code>RecyclerView: No adapter attached; skipping layout</code>没有数据时，<code>gone</code>掉，不然一直会提示这个！</li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</li>
