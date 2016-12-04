@@ -86,37 +86,37 @@
 
 
 
-<meta name="description" content="databinding
+<meta name="description" content="DataBinding
 layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写
 
 include子布局时子布局根节点也要声明id，不然引用不到子布局id
 
-databinding绑定子布局，先绑定后父布局再addView()
+databinding绑定子布局。先绑定,后父布局再addView()
 
-注入databinding后，AndriodStudio包结构变乱">
+注入databinding后，AndriodStudio包结构变">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发中所遇问题归纳（持续更新）">
 <meta property="og:url" content="http://jingbin.me/2017/11/23/开发中所遇问题归纳/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
-<meta property="og:description" content="databinding
+<meta property="og:description" content="DataBinding
 layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写
 
 include子布局时子布局根节点也要声明id，不然引用不到子布局id
 
-databinding绑定子布局，先绑定后父布局再addView()
+databinding绑定子布局。先绑定,后父布局再addView()
 
-注入databinding后，AndriodStudio包结构变乱">
-<meta property="og:updated_time" content="2016-12-03T14:50:05.000Z">
+注入databinding后，AndriodStudio包结构变">
+<meta property="og:updated_time" content="2016-12-04T09:46:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
-<meta name="twitter:description" content="databinding
+<meta name="twitter:description" content="DataBinding
 layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写
 
 include子布局时子布局根节点也要声明id，不然引用不到子布局id
 
-databinding绑定子布局，先绑定后父布局再addView()
+databinding绑定子布局。先绑定,后父布局再addView()
 
-注入databinding后，AndriodStudio包结构变乱">
+注入databinding后，AndriodStudio包结构变">
 
 
 
@@ -424,12 +424,12 @@ databinding绑定子布局，先绑定后父布局再addView()
       
 
       
-        <h2 id="databinding"><a href="#databinding" class="headerlink" title="databinding"></a>databinding</h2><ul>
+        <h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
 </li>
 <li><p><code>include</code>子布局时子布局根节点也要声明id，不然引用不到子布局id</p>
 </li>
-<li><p><code>databinding</code>绑定子布局，先绑定后父布局再<code>addView()</code></p>
+<li><p><code>databinding</code>绑定子布局。先绑定,后父布局再<code>addView()</code></p>
 </li>
 <li><p>注入<code>databinding</code>后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。</p>
 </li>
@@ -440,6 +440,7 @@ databinding绑定子布局，先绑定后父布局再addView()
 <li><p>布局里没有声明<code>id</code>,则<code>ItemEverydayBinding</code>无法生成。</p>
 </li>
 </ul>
+<a id="more"></a>
 <ol>
 <li><p>文件里引用bean:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;variable</div><div class="line">       name=<span class="string">"subjectsBean"</span></div><div class="line">	    type=<span class="string">"com.example.jingbin.bean.moviechild.SubjectsBean"</span> /&gt;</div></pre></td></tr></table></figure>
@@ -466,7 +467,6 @@ databinding绑定子布局，先绑定后父布局再addView()
 </blockquote>
 </li>
 </ol>
-<a id="more"></a>
 <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
 <li><p>✔️ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：(<strong>这样不推荐，会把内容全部一次性的加载进内存，造成卡顿</strong>)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
@@ -730,7 +730,7 @@ databinding绑定子布局，先绑定后父布局再addView()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#databinding"><span class="nav-number">1.</span> <span class="nav-text">databinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataBinding"><span class="nav-number">1.</span> <span class="nav-text">DataBinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
