@@ -389,11 +389,11 @@
   </entry>
   
   <entry>
-    <title>关于WebView全方面的使用（项目应用篇）</title>
+    <title>Android 关于WebView全方面的使用（项目应用篇）</title>
     <link href="http://jingbin.me/2016/12/04/Android%20%E5%85%B3%E4%BA%8EWebView%E5%85%A8%E6%96%B9%E9%9D%A2%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8%E7%AF%87%EF%BC%89/"/>
     <id>http://jingbin.me/2016/12/04/Android 关于WebView全方面的使用（项目应用篇）/</id>
     <published>2016-12-04T09:36:54.000Z</published>
-    <updated>2016-12-04T09:42:53.000Z</updated>
+    <updated>2016-12-05T13:51:23.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li><strong>与JS交互</strong></li>
@@ -476,11 +476,11 @@
   </entry>
   
   <entry>
-    <title>关于Glide的使用(高斯模糊、加载监听、圆角图片)</title>
+    <title>Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)</title>
     <link href="http://jingbin.me/2016/11/29/Android%20%E5%85%B3%E4%BA%8EGlide%E7%9A%84%E4%BD%BF%E7%94%A8(%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A%E3%80%81%E5%8A%A0%E8%BD%BD%E7%9B%91%E5%90%AC%E3%80%81%E5%9C%86%E8%A7%92%E5%9B%BE%E7%89%87)/"/>
     <id>http://jingbin.me/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/</id>
     <published>2016-11-29T04:07:32.000Z</published>
-    <updated>2016-12-05T13:47:58.000Z</updated>
+    <updated>2016-12-05T13:50:35.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040" alt="stackblur_default.png"></p>
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.github.bumptech.glide:glide:3.7.0'</span></div></pre></td></tr></table></figure>
