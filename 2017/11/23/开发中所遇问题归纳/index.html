@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局。先绑定,后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变">
-<meta property="og:updated_time" content="2016-12-04T09:46:04.000Z">
+<meta property="og:updated_time" content="2016-12-08T08:08:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -479,6 +479,7 @@ databinding绑定子布局。先绑定,后父布局再addView()
 </ul>
 <ul>
 <li><code>RecyclerView: No adapter attached; skipping layout</code>没有数据时，<code>gone</code>掉，不然一直会提示这个！</li>
+<li><code>addFooterView</code>时，使用<code>LinearLayout</code>包裹时会显示部分，改为<code>RelativeLayout</code>或<code>FrameLayout</code>正常。</li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</li>
@@ -487,6 +488,7 @@ databinding绑定子布局。先绑定,后父布局再addView()
 <li>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</li>
 <li>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></li>
 <li><code>viewpager</code>左右预加载页面的个数设置：<code>setOffscreenPageLimit(3);</code>,设置后保证页面不被销毁，切换时就不会卡顿了。注意，如果是这个viewpager本身就在父一个viewpager的一个页面里，则设置adapter时，应传<code>getChildFragmentManager()</code>,不然以上会设置不上，非法状态异常！</li>
+<li>使用retrofit请求时，bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</li>
 </ul>
 
       
