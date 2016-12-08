@@ -414,14 +414,6 @@
 <li><p><code>databinding</code>绑定子布局。先绑定,后父布局再<code>addView()</code></p>
 </li>
 <li><p>注入<code>databinding</code>后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。</p>
-</li>
-<li><p><code>databinding</code>绑定<code>bean</code>时，里面的子类也需要继承<code>BaseObservable</code>,否则会报错。</p>
-</li>
-<li><p><code>recyclerview</code>的<code>viewhodler</code>里，获得绑定<code>view</code>的<code>databinding</code>:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
-</li>
-<li><p>布局里没有声明<code>id</code>,则<code>ItemEverydayBinding</code>无法生成。</p>
-</li>
-</ul>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/11/23/开发中所遇问题归纳/#more" rel="contents">

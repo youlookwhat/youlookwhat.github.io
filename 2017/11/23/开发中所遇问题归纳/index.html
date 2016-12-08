@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局。先绑定,后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变">
-<meta property="og:updated_time" content="2016-12-08T14:23:11.000Z">
+<meta property="og:updated_time" content="2016-12-08T16:13:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -432,6 +432,7 @@ databinding绑定子布局。先绑定,后父布局再addView()
 <li><p><code>databinding</code>绑定子布局。先绑定,后父布局再<code>addView()</code></p>
 </li>
 <li><p>注入<code>databinding</code>后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。</p>
+<a id="more"></a>
 </li>
 <li><p><code>databinding</code>绑定<code>bean</code>时，里面的子类也需要继承<code>BaseObservable</code>,否则会报错。</p>
 </li>
@@ -439,8 +440,9 @@ databinding绑定子布局。先绑定,后父布局再addView()
 </li>
 <li><p>布局里没有声明<code>id</code>,则<code>ItemEverydayBinding</code>无法生成。</p>
 </li>
+<li><p>更改包名之后<code>（rename -- gradle.applicationId）</code>， <code>databinding</code>相关文件会报错，进入<code>Build --&gt; Build Project</code>就好了！</p>
+</li>
 </ul>
-<a id="more"></a>
 <ol>
 <li><p>文件里引用bean:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;variable</div><div class="line">       name=<span class="string">"subjectsBean"</span></div><div class="line">	    type=<span class="string">"com.example.jingbin.bean.moviechild.SubjectsBean"</span> /&gt;</div></pre></td></tr></table></figure>
