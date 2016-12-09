@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-08T16:13:06.000Z</updated>
+  <updated>2016-12-09T10:45:19.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-08T16:13:06.000Z</updated>
+    <updated>2016-12-09T10:45:19.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
@@ -90,6 +90,7 @@
 <li><code>viewpager</code>左右预加载页面的个数设置：<code>setOffscreenPageLimit(3);</code>,设置后保证页面不被销毁，切换时就不会卡顿了（显示时加载数据）。注意，如果是这个viewpager本身就在父一个viewpager的一个页面里，则设置adapter时，应传<code>getChildFragmentManager()</code>,不然以上会设置不上，非法状态异常！</li>
 <li>使用<code>retrofit</code>请求时，Bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</li>
 <li>Android 5.1的SDK把<code>Button</code>的默认<code>Style</code>改了，使<code>Button</code>上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</li>
+<li>使用<code>retrofit</code>请求时，若请求成功且有数据返回还报错，看<code>Bean</code>里字段或字段类型是否写错。</li>
 </ul>
 ]]></content>
     
