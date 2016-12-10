@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-10T16:08:44.000Z</updated>
+  <updated>2016-12-10T17:14:36.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-10T16:08:44.000Z</updated>
+    <updated>2016-12-10T17:14:36.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
@@ -42,7 +42,7 @@
 </li>
 <li><p>注意，引用如：<code>android:showImg=&#39;@{bean.images.large}&#39;</code>时，里面的<code>bean</code>写错会造成编译错误！</p>
 </li>
-<li><p><code>android:showImg=&#39;@{bean.images.large}&#39;</code>这样设置图片会闪一下！尤其是在<code>recyclerview</code>里面，效果很不好，如果是写在<code>adapter</code>里就好了：<code>ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);</code>。原因为找到！里面的问题也是。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
+<li><p><code>android:showImg=&#39;@{bean.images.large}&#39;</code>这样设置图片会闪一下！尤其是在<code>recyclerview</code>里面，效果很不好，如果是写在<code>adapter</code>里就好了：<code>ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);</code>。不管图片，文字也会闪。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
 </li>
 </ul>
 <ol>
