@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局。先绑定,后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变">
-<meta property="og:updated_time" content="2016-12-10T17:16:08.000Z">
+<meta property="og:updated_time" content="2016-12-12T12:59:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -445,6 +445,8 @@ databinding绑定子布局。先绑定,后父布局再addView()
 <li><p>注意，引用如：<code>android:showImg=&#39;@{bean.images.large}&#39;</code>时，里面的<code>bean</code>写错会造成编译错误！</p>
 </li>
 <li><p><code>android:showImg=&#39;@{bean.images.large}&#39;</code>这样设置图片会闪一下！尤其是在<code>recyclerview</code>里面，效果很不好，如果是写在<code>adapter</code>里就好了：<code>ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);</code>。不仅仅图片，文字也会闪。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
+</li>
+<li><p>布局里面的子布局里引用的<code>bean</code>可以一样（<code>type</code>一样），但是最好<code>name</code>不一样，不然可能会导致<code>setBean()</code>无效。改变<code>name</code>名就好了。</p>
 </li>
 </ul>
 <ol>
