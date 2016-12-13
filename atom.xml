@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-12T12:59:34.000Z</updated>
+  <updated>2016-12-13T09:53:46.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-12T12:59:34.000Z</updated>
+    <updated>2016-12-13T09:53:46.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
@@ -101,6 +101,10 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name="ToolBar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"&gt;</div><div class="line">      &lt;item name="android:textSize"&gt;18.0sp&lt;/item&gt;</div><div class="line">      &lt;item name="android:textColor"&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
 <p>也可以在<code>activity</code>中设置：<br><code>binding.titleToolBar.setTitleTextAppearance(this, R.style.ToolBar_Title);</code></p>
 </li>
+<li><p>设置透明状态栏时，布局根节点不要设置<code>android:fitsSystemWindows=&quot;true&quot;</code>否则状态栏会一直存在，被这个问题坑了一整天！！还有整块布局也不要给设置颜色。 </p>
+</li>
+<li><p><code>retrofit</code>设置<code>post</code>请求时，传数组时使用<code>image_ids[]</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"/vip/diagnostic_explains"</span>)</div><div class="line"><span class="function">Observable&lt;ErrorBean&gt; <span class="title">postDiagnosticExplains</span><span class="params">(@Header(<span class="string">"a"</span>)</span> String a, </span></div><div class="line">					@<span class="title">Field</span><span class="params">(<span class="string">"userkey"</span>)</span> String userkey, @<span class="title">Field</span><span class="params">(<span class="string">"comment"</span>)</span> String comment, </div><div class="line">			    @<span class="title">Field</span><span class="params">(<span class="string">"image_ids[]"</span>)</span> List&lt;Integer&gt; image_ids);</div></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
     
