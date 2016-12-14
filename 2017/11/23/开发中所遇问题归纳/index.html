@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局。先绑定,后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变">
-<meta property="og:updated_time" content="2016-12-13T09:53:46.000Z">
+<meta property="og:updated_time" content="2016-12-14T07:45:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -473,6 +473,9 @@ databinding绑定子布局。先绑定,后父布局再addView()
 <li><strong>2.</strong> 如果<code>imgload:showImgBg</code>这样写,第一次编译会提示找不到该命名空间，跳到声明处。建议写成<code>android:showImgBg</code>。</li>
 </ul>
 </blockquote>
+</li>
+<li><p>三元运算法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">导入：&lt;<span class="keyword">import</span> type=<span class="string">"android.text.TextUtils"</span> /&gt;</div><div class="line">使用：android:text=<span class="string">'@&#123;TextUtils.isEmpty(resultsBean.who)?"佚名":resultsBean.who&#125;'</span></div><div class="line">也可以直接使用这时返回为<span class="keyword">null</span>会不显示。</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
