@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局。先绑定,后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变">
-<meta property="og:updated_time" content="2016-12-14T07:45:37.000Z">
+<meta property="og:updated_time" content="2016-12-17T18:24:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -491,6 +491,7 @@ databinding绑定子布局。先绑定,后父布局再addView()
 <ul>
 <li><code>RecyclerView: No adapter attached; skipping layout</code>没有数据时，<code>gone</code>掉，不然一直会提示这个！</li>
 <li><code>addFooterView</code>时，使用<code>LinearLayout</code>包裹时会显示部分，改为<code>RelativeLayout</code>或<code>FrameLayout</code>正常。</li>
+<li>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</li>
@@ -509,7 +510,11 @@ databinding绑定子布局。先绑定,后父布局再addView()
 <li><p>设置透明状态栏时，布局根节点不要设置<code>android:fitsSystemWindows=&quot;true&quot;</code>否则状态栏会一直存在，被这个问题坑了一整天！！还有整块布局也不要给设置颜色。 </p>
 </li>
 <li><p><code>retrofit</code>设置<code>post</code>请求时，传数组时使用<code>image_ids[]</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"/vip/diagnostic_explains"</span>)</div><div class="line"><span class="function">Observable&lt;ErrorBean&gt; <span class="title">postDiagnosticExplains</span><span class="params">(@Header(<span class="string">"a"</span>)</span> String a, </span></div><div class="line">					@<span class="title">Field</span><span class="params">(<span class="string">"userkey"</span>)</span> String userkey, @<span class="title">Field</span><span class="params">(<span class="string">"comment"</span>)</span> String comment, </div><div class="line">			    @<span class="title">Field</span><span class="params">(<span class="string">"image_ids[]"</span>)</span> List&lt;Integer&gt; image_ids);</div></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"/vip/diagnostic_explains"</span>)</div><div class="line"><span class="function">Observable&lt;ErrorBean&gt; <span class="title">postDiagnosticExplains</span><span class="params">(@Header(<span class="string">"a"</span>)</span> String a, </span></div><div class="line">					@<span class="title">Field</span><span class="params">(<span class="string">"userkey"</span>)</span> String userkey, @<span class="title">Field</span><span class="params">(<span class="string">"comment"</span>)</span> String comment, </div><div class="line">			    @<span class="title">Field</span><span class="params">(<span class="string">"image_ids[]"</span>)</span> List&lt;Integer&gt; image_ids);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>使用<code>Cache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时<code>logcat</code>会提示有两个相同<code>bean</code>的<code>id</code>，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></li>
 </ul>
 
       
