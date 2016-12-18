@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-18T09:28:18.000Z</updated>
+  <updated>2016-12-18T09:29:51.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-18T09:28:18.000Z</updated>
+    <updated>2016-12-18T09:29:51.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
@@ -68,14 +68,19 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 妹子，电影列表图</div><div class="line"> * <span class="doctag">@param</span> defaultPicType 妹子：1 电影：0</div><div class="line"> */</div><div class="line"><span class="meta">@BindingAdapter</span>(&#123;<span class="string">"android:displayFadeImage"</span>,<span class="string">"android:defaultPicType"</span>&#125;)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">displayFadeImage</span><span class="params">(ImageView imageView, String url,<span class="keyword">int</span> defaultPicType)</span> </span>&#123;</div><div class="line">    displayEspImage(url, imageView, defaultPicType);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// XML里使用：</span></div><div class="line">android:defaultPicType=<span class="string">"@&#123;1&#125;"</span></div><div class="line">android:displayFadeImage=<span class="string">"@&#123;bean.url&#125;"</span></div></pre></td></tr></table></figure>
 </li>
 </ol>
-<pre><code>&gt; 注意：
-&gt; - **1.** 方法参数第一个是控件声明,放在第二位不可以！
-&gt; - **2.** 布局调用时，命名空间可自动生成。
-&gt; 
-&gt; 建议：
-&gt; - **1.** ``android:showImgBg``可任意写，但是项目里不能出现相同的命名，否则会被后来的覆盖掉！
-&gt; - **2.** 如果``imgload:showImgBg``这样写,第一次编译会提示找不到该命名空间，跳到声明处。建议写成``android:showImgBg``。
-</code></pre><ol>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li><strong>1.</strong> 方法参数第一个是控件声明,放在第二位不可以！</li>
+<li><strong>2.</strong> 布局调用时，命名空间可自动生成。</li>
+</ul>
+<p>建议：</p>
+<ul>
+<li><strong>1.</strong> <code>android:showImgBg</code>可任意写，但是项目里不能出现相同的命名，否则会被后来的覆盖掉！</li>
+<li><strong>2.</strong> 如果<code>imgload:showImgBg</code>这样写,第一次编译会提示找不到该命名空间，跳到声明处。建议写成<code>android:showImgBg</code>。</li>
+</ul>
+</blockquote>
+<ol>
 <li><p>三元运算法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">导入：&lt;<span class="keyword">import</span> type=<span class="string">"android.text.TextUtils"</span> /&gt;</div><div class="line">使用：android:text=<span class="string">'@&#123;TextUtils.isEmpty(resultsBean.who)?"佚名":resultsBean.who&#125;'</span></div><div class="line">也可以直接使用这时返回为<span class="keyword">null</span>会不显示。</div></pre></td></tr></table></figure>
 </li>
