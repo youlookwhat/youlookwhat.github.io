@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-18T09:29:51.000Z</updated>
+  <updated>2016-12-19T03:43:41.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-18T09:29:51.000Z</updated>
+    <updated>2016-12-19T03:43:41.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
@@ -101,11 +101,14 @@
 <li>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
-<li>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</li>
-<li><code>listview</code>某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。</li>
+<li><p>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</p>
+</li>
+<li><p><code>listview</code>某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。</p>
+</li>
 <li>当ScrollView里的元素想填满ScrollView时，使用<code>fill_parent</code>是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</li>
 <li>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</li>
 <li>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></li>
+<li><code>textView</code>中间加横线:<code>textView .getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG );</code></li>
 <li><code>viewpager</code>左右预加载页面的个数设置：<code>setOffscreenPageLimit(3);</code>,设置后保证页面不被销毁，切换时就不会卡顿了（显示时加载数据）。注意，如果是这个viewpager本身就在父一个viewpager的一个页面里，则设置adapter时，应传<code>getChildFragmentManager()</code>,不然以上会设置不上，非法状态异常！</li>
 <li>使用<code>retrofit</code>请求时，Bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</li>
 <li>Android 5.1的SDK把<code>Button</code>的默认<code>Style</code>改了，使<code>Button</code>上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</li>
@@ -154,15 +157,9 @@
     <link href="http://jingbin.me/2016/12/04/%E6%BC%AB%E5%A8%81%E5%AE%87%E5%AE%99/"/>
     <id>http://jingbin.me/2016/12/04/漫威宇宙/</id>
     <published>2016-12-04T10:33:34.000Z</published>
-    <updated>2016-12-15T03:06:07.000Z</updated>
+    <updated>2016-12-19T15:31:12.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://img.blog.csdn.net/20161204183656050" alt="漫威人物"></p>
-<blockquote>
-<p>记得看的第一部印象深刻的漫威电影的是《绿巨人》，当时觉得看的很振奋，纯属打斗场景，后来有机会接触了这系列的电影，知道是漫威宇宙，于是找到了这系列的全部电影，并一一全部看了。自己感到共鸣的并不是打斗的多么精彩，而是每个英雄为拯救人类的那种精神。</p>
-<p>听见有人说美国英雄系列电影的一些套路就是：主角刚开始是个毫不起眼的角色，然后经历了一场灾难，获得了某种特殊能力，最初并不想用这种能力来帮助人类，经历很多事情的催化之后，明白自己应该承担起这份责任，保护人类，保护地球。（大概就是这么个意思）</p>
-<p>开始认真看漫威系列电影的时候，看的是《钢铁侠》三部曲，然后是美国队长，刚开始每看完一部就写完这部的故事情节，最后因为看的太多了，一天可能看完好几部，就没有坚持下去，但觉得是个遗憾，因为不写下来，之后有一些主要情节可能都忘记了，跟别人谈论时，明明当时看的很认真，但是不知道从哪说起，花几分钟时间记录很重要，可以回顾故事情节的同时，也好跟别人讲述的时候不至于都不知道从哪开始。</p>
-<p>所以，这里记下电影的主要故事情节，有些是自己写的，有些则是网上摘录的。</p>
-</blockquote>
 <a id="more"></a>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-00f5756578bf3609.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="漫威1"></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-b81905fe1bd56424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="漫威2"></p>
@@ -401,17 +398,17 @@
 <li><a href="http://www.gamersky.com/wenku/201606/759888_14.shtml" target="_blank" rel="external">灭霸前十都进不去？漫威电影宇宙反派人气排行榜</a></li>
 <li><a href="http://entertainment.anhuinews.com/system/2016/12/14/007526824_09.shtml" target="_blank" rel="external">冯小刚给周星驰演戏 这片场照绝版了(走错片场了)</a></li>
 </ul>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><blockquote>
+<p>记得看的第一部印象深刻的漫威电影的是《绿巨人》，当时觉得看的很振奋，纯属打斗场景，后来有机会接触了这系列的电影，知道是漫威宇宙，于是找到了这系列的全部电影，并一一全部看了。自己感到共鸣的并不是打斗的多么精彩，而是每个英雄为拯救人类的那种精神。</p>
+<p>听见有人说美国英雄系列电影的一些套路就是：主角刚开始是个毫不起眼的角色，然后经历了一场灾难，获得了某种特殊能力，最初并不想用这种能力来帮助人类，经历很多事情的催化之后，明白自己应该承担起这份责任，保护人类，保护地球。（大概就是介么个意思）</p>
+<p>开始认真看漫威系列电影的时候，看的是《钢铁侠》三部曲，然后是美国队长，刚开始每看完一部就写完这部的故事情节，最后因为看的太多了，一天可能看完好几部，就没有坚持下去，但觉得是个遗憾，因为不写下来，之后有一些主要情节可能都忘记了，跟别人谈论时，明明当时看的很认真，但是不知道从哪说起，花几分钟时间记录很重要，可以回顾故事情节的同时，也好日后好跟别人吹牛掰。哈哈</p>
+<p>所以，这里记下电影的主要故事情节，有些是自己写的，有些则是网上摘录的。</p>
+</blockquote>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20161204183656050&quot; alt=&quot;漫威人物&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;记得看的第一部印象深刻的漫威电影的是《绿巨人》，当时觉得看的很振奋，纯属打斗场景，后来有机会接触了这系列的电影，知道是漫威宇宙，于是找到了这系列的全部电影，并一一全部看了。自己感到共鸣的并不是打斗的多么精彩，而是每个英雄为拯救人类的那种精神。&lt;/p&gt;
-&lt;p&gt;听见有人说美国英雄系列电影的一些套路就是：主角刚开始是个毫不起眼的角色，然后经历了一场灾难，获得了某种特殊能力，最初并不想用这种能力来帮助人类，经历很多事情的催化之后，明白自己应该承担起这份责任，保护人类，保护地球。（大概就是这么个意思）&lt;/p&gt;
-&lt;p&gt;开始认真看漫威系列电影的时候，看的是《钢铁侠》三部曲，然后是美国队长，刚开始每看完一部就写完这部的故事情节，最后因为看的太多了，一天可能看完好几部，就没有坚持下去，但觉得是个遗憾，因为不写下来，之后有一些主要情节可能都忘记了，跟别人谈论时，明明当时看的很认真，但是不知道从哪说起，花几分钟时间记录很重要，可以回顾故事情节的同时，也好跟别人讲述的时候不至于都不知道从哪开始。&lt;/p&gt;
-&lt;p&gt;所以，这里记下电影的主要故事情节，有些是自己写的，有些则是网上摘录的。&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     
