@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,yunyue,databinding," />
+  <meta name="keywords" content="Android,cloudreader,databinding," />
 
 
 
@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局。先绑定,后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变">
-<meta property="og:updated_time" content="2016-12-19T03:43:41.000Z">
+<meta property="og:updated_time" content="2016-12-22T10:46:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -502,17 +502,33 @@ databinding绑定子布局。先绑定,后父布局再addView()
 <li><code>addFooterView</code>时，使用<code>LinearLayout</code>包裹时会显示部分，改为<code>RelativeLayout</code>或<code>FrameLayout</code>正常。</li>
 <li>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</li>
 </ul>
+<h2 id="ViewPager-与-Fragment"><a href="#ViewPager-与-Fragment" class="headerlink" title="ViewPager 与 Fragment"></a>ViewPager 与 Fragment</h2><ul>
+<li><p>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</p>
+</li>
+<li><p><code>viewpager</code>左右预加载页面的个数设置：<code>setOffscreenPageLimit(3);</code>,设置后保证页面不被销毁，切换时就不会卡顿了（显示时加载数据）。注意，如果是这个viewpager本身就在父一个viewpager的一个页面里，则设置adapter时，应传<code>getChildFragmentManager()</code>,不然以上会设置不上，非法状态异常！</p>
+</li>
+<li><p><code>fragment</code>和当前自身所在的<code>Activity</code>走一套生命周期，意思就是<code>Activity</code>走了<code>onResume()</code>,<code>fragment</code>才会走自身的<code>onResume()</code>，多个<code>fragment</code>相互切换是不走<code>onResume()</code>和<code>onDestroy()</code>的。</p>
+</li>
+<li><p>如果<code>listview</code>里<code>addHeaderView()</code>添加轮播图，则轮播图滚动时会调用<code>listview</code>的滚动监听，且返回的<code>firstVisiblePosition = 0</code>。</p>
+</li>
+<li><p><code>Activity</code>里放多个<code>fragment</code>，当加载过其中一个<code>fragment A</code>后，切到其他的<code>fragment</code>，直至销毁<code>fragment A</code>后,再直接切到<code>fragment A</code>，这时<code>fragmentA.getUserVisibleHint() = false</code>。所以依赖<code>getUserVisibleHint() = true</code>的逻辑要注意了！最好的方式是在<code>viewpager</code>的监听里，手动<code>fragment.setUserVisibleHint(true)</code>。</p>
+</li>
+<li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现<code>fragment</code>的懒加载。<code>setUserVisibleHint()</code>会在<code>onActivityCreated()</code>之前调用，所以可以在<code>onActivityCreated()</code>进行一系列初始化的操作，然后在<code>setUserVisibleHint()</code>里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
+</li>
+</ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li><p>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</p>
 </li>
 <li><p><code>listview</code>某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。</p>
 </li>
-<li>当ScrollView里的元素想填满ScrollView时，使用<code>fill_parent</code>是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</li>
-<li>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</li>
-<li>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></li>
-<li><code>textView</code>中间加横线:<code>textView .getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG );</code></li>
-<li><code>viewpager</code>左右预加载页面的个数设置：<code>setOffscreenPageLimit(3);</code>,设置后保证页面不被销毁，切换时就不会卡顿了（显示时加载数据）。注意，如果是这个viewpager本身就在父一个viewpager的一个页面里，则设置adapter时，应传<code>getChildFragmentManager()</code>,不然以上会设置不上，非法状态异常！</li>
-<li>使用<code>retrofit</code>请求时，Bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</li>
+<li><p>当ScrollView里的元素想填满ScrollView时，使用<code>fill_parent</code>是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</p>
+</li>
+<li><p>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></p>
+</li>
+<li><p><code>textView</code>中间加横线:<code>textView .getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG );</code></p>
+</li>
+<li><p>使用<code>retrofit</code>请求时，Bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</p>
+</li>
 <li>Android 5.1的SDK把<code>Button</code>的默认<code>Style</code>改了，使<code>Button</code>上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</li>
 <li>使用<code>retrofit</code>请求时，若请求成功且有数据返回还报错，看<code>Bean</code>里字段或字段类型是否写错。</li>
 <li><p><code>toolbar</code>中设置标题和副标题文字颜色和大小时，在<code>xml</code>文件配置<code>app:titleTextAppearance=&quot;@style/ToolBar.Title&quot;</code>可以，其中</p>
@@ -553,7 +569,7 @@ databinding绑定子布局。先绑定,后父布局再addView()
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/yunyue/" rel="tag"># yunyue</a>
+            <a href="/tags/cloudreader/" rel="tag"># cloudreader</a>
           
             <a href="/tags/databinding/" rel="tag"># databinding</a>
           
@@ -770,7 +786,7 @@ databinding绑定子布局。先绑定,后父布局再addView()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataBinding"><span class="nav-number">1.</span> <span class="nav-text">DataBinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataBinding"><span class="nav-number">1.</span> <span class="nav-text">DataBinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPager-与-Fragment"><span class="nav-number">3.</span> <span class="nav-text">ViewPager 与 Fragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
