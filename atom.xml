@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-22T10:46:35.000Z</updated>
+  <updated>2016-12-24T18:58:26.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-22T10:46:35.000Z</updated>
+    <updated>2016-12-24T18:58:26.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
@@ -40,7 +40,10 @@
 </li>
 <li><p>更改包名之后<code>（rename -- gradle.applicationId）</code>， <code>databinding</code>相关文件会报错，进入<code>Build --&gt; Build Project</code>就好了！</p>
 </li>
-<li><p>注意，引用如：<code>android:showImg=&#39;@{bean.images.large}&#39;</code>时，里面的<code>bean</code>写错会造成编译错误！</p>
+<li><p>注意：引用如：<code>android:showImg=&#39;@{bean.images.large}&#39;</code>时，里面的<code>bean</code>写错会造成编译错误！</p>
+<ul>
+<li>注意：<code>text=&#39;@{xx}&#39;</code>里面的值应为<code>String</code>类型。引用方法里的参数类型应一致。报错是不告诉具体的哪行代码，写多了只能自己一个个地方找。</li>
+</ul>
 </li>
 <li><p><code>android:showImg=&#39;@{bean.images.large}&#39;</code>这样设置图片会闪一下！尤其是在<code>recyclerview</code>里面，效果很不好，如果是写在<code>adapter</code>里就好了：<code>ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);</code>。不仅仅图片，文字也会闪。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
 </li>
@@ -140,7 +143,10 @@
 </li>
 </ul>
 <ul>
-<li>使用<code>Cache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时<code>logcat</code>会提示有两个相同<code>bean</code>的<code>id</code>，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></li>
+<li><p>使用<code>Cache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时<code>logcat</code>会提示有两个相同<code>bean</code>的<code>id</code>，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></p>
+</li>
+<li><p><code>ImageView</code>图片直接<code>src</code>会内存泄漏，图片宽高大时会很严重，建议代码设置。</p>
+</li>
 </ul>
 ]]></content>
     
