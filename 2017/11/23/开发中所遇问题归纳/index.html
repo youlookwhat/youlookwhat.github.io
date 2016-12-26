@@ -106,7 +106,7 @@ include子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding绑定子布局。先绑定,后父布局再addView()
 
 注入databinding后，AndriodStudio包结构变">
-<meta property="og:updated_time" content="2016-12-24T18:59:38.000Z">
+<meta property="og:updated_time" content="2016-12-26T16:55:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -547,6 +547,10 @@ databinding绑定子布局。先绑定,后父布局再addView()
 <li><p>使用<code>Cache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时<code>logcat</code>会提示有两个相同<code>bean</code>的<code>id</code>，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></p>
 </li>
 <li><p><code>ImageView</code>图片直接<code>src</code>会内存泄漏，图片宽高大时会很严重，建议代码设置。</p>
+</li>
+<li><p>1920*1080(1080p) 小米3，小米5等，属于xxhdpi，将图片放在这个文件夹内，这个分辨率的手机显示图片会很清晰，放在xhdpi清晰度会降低。</p>
+</li>
+<li><p>1.文字颜色选择器：里面的根节点应为<code>color</code>且最好放在新建<code>color</code>文件下。2.作为背景选择器来说，根节点应该是<code>drawble</code>，最好放在<code>drawble</code>文件夹下。</p>
 </li>
 </ul>
 
