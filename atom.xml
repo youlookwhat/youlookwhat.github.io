@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-30T14:47:44.000Z</updated>
+  <updated>2016-12-30T14:54:43.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-30T14:47:44.000Z</updated>
+    <updated>2016-12-30T14:54:43.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><code>layout</code>节点写了 xmlns:android=”<a href="http://schemas.android.com/apk/res/android" target="_blank" rel="external">http://schemas.android.com/apk/res/android</a> 后，子布局不能写</p>
@@ -40,11 +40,11 @@
 </li>
 <li><p>更改包名之后（rename – gradle.applicationId）， databinding 相关文件会报错，进入<code>Build --&gt; Build Project</code>就好了！</p>
 </li>
-<li><p>注意：引用如：<code>android:showImg=&#39;@{bean.images.large}&#39;</code>时，里面的<code>bean</code>写错会造成编译错误！</p>
+<li><p>注意：引用如：android:showImg=’@{bean.images.large}’时，里面的<code>bean</code>写错会造成编译错误！</p>
 </li>
 <li><p>注意：<code>text=&#39;@{xx}&#39;</code>里面的值应为<code>String</code>类型。引用方法里的参数类型应一致。报错是不告诉具体的哪行代码，写多了只能自己一个个地方找。</p>
 </li>
-<li><p><code>android:showImg=&#39;@{bean.images.large}&#39;</code>这样设置图片会闪一下！尤其是在<code>recyclerview</code>里面，效果很不好，如果是写在<code>adapter</code>里就好了：<code>ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);</code>。不仅仅图片，文字也会闪。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
+<li><p>android:showImg=’@{bean.images.large}’这样设置图片会闪一下！尤其是在recyclerview里面，效果很不好，如果是写在 adapter里就好了：ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);。不仅仅图片，文字也会闪。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
 </li>
 <li><p>布局里面的子布局里引用的bean可以一样（type一样），但是最好name不一样，不然可能会导致<code>setBean()</code>无效。改变name名就好了。</p>
 </li>
@@ -91,7 +91,7 @@
 <li><p>✔️ <code>NestedScrollView</code>里嵌套 RecyclerView 官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：(<strong>这样不推荐，会把内容全部一次性的加载进内存，造成卡顿</strong>)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 </li>
-<li><p>❌  <code>NestedScrollView</code>里嵌套 RecyclerView ,在<code>recyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));</code>之后，需要加上,不然滑动不流畅: </p>
+<li><p>❌ NestedScrollView里嵌套 RecyclerView ,在<code>recyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));</code>之后，需要加上,不然滑动不流畅: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 <p>以上切换还是会卡顿，原因是角标越界，虽然<code>try</code>了，还是会卡。使用<code>MyScrollView</code>也不可以。显示不全！<a href="http://blog.csdn.net/fangchao3652/article/details/46914987" target="_blank" rel="external">FullyLinearLayoutManager&amp; MyScrollView</a></p>
 </li>
@@ -105,13 +105,13 @@
 <h2 id="ViewPager-与-Fragment"><a href="#ViewPager-与-Fragment" class="headerlink" title="ViewPager 与 Fragment"></a>ViewPager 与 Fragment</h2><ul>
 <li><p>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</p>
 </li>
-<li><p><code>viewpager</code>左右预加载页面的个数设置：<code>setOffscreenPageLimit(3);</code>,设置后保证页面不被销毁，切换时就不会卡顿了（显示时加载数据）。注意，如果是这个viewpager本身就在父一个viewpager的一个页面里，则设置adapter时，应传<code>getChildFragmentManager()</code>,不然以上会设置不上，非法状态异常！</p>
+<li><p>viewpager左右预加载页面的个数设置：<code>setOffscreenPageLimit(3);</code>,设置后保证页面不被销毁，切换时就不会卡顿了（显示时加载数据）。注意，如果是这个viewpager本身就在父一个viewpager的一个页面里，则设置adapter时，应传<code>getChildFragmentManager()</code>,不然以上会设置不上，非法状态异常！</p>
 </li>
-<li><p>Fragment 和当前自身所在的Activity 走一套生命周期，意思就是<code>Activity</code>走了<code>onResume()</code>,<code>fragment</code>才会走自身的<code>onResume()</code>，多个Fragment 相互切换是不走<code>onResume()</code>和<code>onDestroy()</code>的。</p>
+<li><p>Fragment 和当前自身所在的Activity 走一套生命周期，意思就是<code>Activity</code>走了<code>onResume()</code>,<code>fragment</code>才会走自身的<code>onResume()</code>，多个Fragment 相互切换是不走onResume()和onDestroy()的。</p>
 </li>
 <li><p>如果listview 里<code>addHeaderView()</code>添加轮播图，则轮播图滚动时会调用 listview 的滚动监听，且返回的<code>firstVisiblePosition = 0</code>。</p>
 </li>
-<li><p>Activity 里放多个fragment，当加载过其中一个<code>fragment A</code>后，切到其他的fragment，直至销毁<code>fragment A</code>后,再直接切到<code>fragment A</code>，这时<code>fragmentA.getUserVisibleHint() = false</code>。所以依赖<code>getUserVisibleHint() = true</code>的逻辑要注意了！最好的方式是在 viewpager 的监听里，手动<code>fragment.setUserVisibleHint(true)</code>。</p>
+<li><p>Activity 里放多个fragment，当加载过其中一个<code>fragment A</code>后，切到其他的fragment，直至销毁fragment A后,再直接切到fragment A，这时<code>fragmentA.getUserVisibleHint() = false</code>。所以依赖getUserVisibleHint() = true的逻辑要注意了！最好的方式是在 viewpager 的监听里，手动<code>fragment.setUserVisibleHint(true)</code>。</p>
 </li>
 <li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现 fragment 的懒加载。setUserVisibleHint() 会在<code>onActivityCreated()</code>之前调用，所以可以在onActivityCreated() 进行一系列初始化的操作，然后在 setUserVisibleHint() 里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
 </li>
@@ -121,7 +121,7 @@
 </li>
 <li><p><code>listview</code>某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。</p>
 </li>
-<li><p>当ScrollView里的元素想填满ScrollView时，使用<code>fill_parent</code>是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</p>
+<li><p>当ScrollView里的元素想填满ScrollView时，使用 fill_parent 是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</p>
 </li>
 <li><p>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></p>
 </li>
@@ -129,11 +129,11 @@
 </li>
 <li><p>使用<code>retrofit</code>请求时，Bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</p>
 </li>
-<li>Android 5.1的SDK把<code>Button</code>的默认<code>Style</code>改了，使<code>Button</code>上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</li>
+<li>Android 5.1的SDK把<code>Button</code>的默认Style改了，使Button上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</li>
 <li>使用<code>retrofit</code>请求时，若请求成功且有数据返回还报错，看<code>Bean</code>里字段或字段类型是否写错。</li>
-<li><p><code>toolbar</code>中设置标题和副标题文字颜色和大小时，在<code>xml</code>文件配置<code>app:titleTextAppearance=&quot;@style/ToolBar.Title&quot;</code>可以，其中</p>
+<li><p><code>toolbar</code>中设置标题和副标题文字颜色和大小时，在<strong>xml</strong>文件配置<code>app:titleTextAppearance=&quot;@style/ToolBar.Title&quot;</code>可以，其中</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name="ToolBar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"&gt;</div><div class="line">      &lt;item name="android:textSize"&gt;18.0sp&lt;/item&gt;</div><div class="line">      &lt;item name="android:textColor"&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
-<p>也可以在<code>activity</code>中设置：<br><code>binding.titleToolBar.setTitleTextAppearance(this, R.style.ToolBar_Title);</code></p>
+<p>也可以在activity中设置：<br><code>binding.titleToolBar.setTitleTextAppearance(this, R.style.ToolBar_Title);</code></p>
 </li>
 <li><p>设置透明状态栏时，布局根节点不要设置<code>android:fitsSystemWindows=&quot;true&quot;</code>否则状态栏会一直存在，被这个问题坑了一整天！！还有整块布局也不要给设置颜色。 </p>
 </li>
@@ -142,7 +142,7 @@
 </li>
 </ul>
 <ul>
-<li><p>使用<code>ACache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时<code>logcat</code>会提示有两个相同<code>bean</code>的<code>id</code>，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></p>
+<li><p>使用<code>ACache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时logcat会提示有两个相同bean的id，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></p>
 </li>
 <li><p>使用<code>ACache</code>工具缓存时，subList没有实现序列化！缓存<code>List</code>时会出错！<a href="http://liyin-rookie.iteye.com/blog/1147284" target="_blank" rel="external">详情</a></p>
 </li>
