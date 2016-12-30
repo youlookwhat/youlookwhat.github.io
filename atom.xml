@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2016-12-29T15:22:57.000Z</updated>
+  <updated>2016-12-30T14:32:50.000Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,25 +20,25 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2016-12-29T15:22:57.000Z</updated>
+    <updated>2016-12-30T14:32:50.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
-<li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写</p>
+<li><p><code>layout</code>节点写了 xmlns:android=”<a href="http://schemas.android.com/apk/res/android" target="_blank" rel="external">http://schemas.android.com/apk/res/android</a> 后，子布局不能写</p>
 </li>
-<li><p><code>include</code>子布局时子布局根节点也要声明id，不然引用不到子布局id</p>
+<li><p>include 子布局时子布局根节点也要声明id，不然引用不到子布局id</p>
 </li>
-<li><p><code>databinding</code>绑定子布局。先绑定,后父布局再<code>addView()</code></p>
+<li><p>databinding 绑定子布局。先绑定,后父布局再<code>addView()</code></p>
 </li>
-<li><p>注入<code>databinding</code>后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。</p>
+<li><p>注入 databinding 后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。</p>
 <a id="more"></a>
 </li>
-<li><p><code>databinding</code>绑定<code>bean</code>时，里面的子类也需要继承<code>BaseObservable</code>,否则会报错。</p>
+<li><p>databinding绑定<code>bean</code>时，里面的子类也需要继承<code>BaseObservable</code>,否则会报错。</p>
 </li>
-<li><p><code>recyclerview</code>的<code>viewhodler</code>里，获得绑定<code>view</code>的<code>databinding</code>:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
+<li><p>recyclerview 的<code>viewhodler</code>里，获得绑定 view 的databinding:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
 </li>
-<li><p>布局里没有声明<code>id</code>,则<code>ItemEverydayBinding</code>无法生成。</p>
+<li><p>布局里没有声明<code>id</code>,则对应的 ItemEverydayBinding 无法生成。</p>
 </li>
-<li><p>更改包名之后<code>（rename -- gradle.applicationId）</code>， <code>databinding</code>相关文件会报错，进入<code>Build --&gt; Build Project</code>就好了！</p>
+<li><p>更改包名之后<code>（rename -- gradle.applicationId）</code>， databinding 相关文件会报错，进入<code>Build --&gt; Build Project</code>就好了！</p>
 </li>
 <li><p>注意：引用如：<code>android:showImg=&#39;@{bean.images.large}&#39;</code>时，里面的<code>bean</code>写错会造成编译错误！</p>
 </li>
@@ -88,10 +88,10 @@
 </li>
 </ol>
 <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
-<li><p>✔️ <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：(<strong>这样不推荐，会把内容全部一次性的加载进内存，造成卡顿</strong>)</p>
+<li><p>✔️ <code>NestedScrollView</code>里嵌套 RecyclerView 官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：(<strong>这样不推荐，会把内容全部一次性的加载进内存，造成卡顿</strong>)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 </li>
-<li><p>❌  <code>NestedScrollView</code>里嵌套<code>RecyclerView</code>,在<code>recyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));</code>之后，需要加上,不然滑动不流畅: </p>
+<li><p>❌  <code>NestedScrollView</code>里嵌套 RecyclerView ,在<code>recyclerView.setLayoutManager(new FullyLinearLayoutManager(getActivity()));</code>之后，需要加上,不然滑动不流畅: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 <p>以上切换还是会卡顿，原因是角标越界，虽然<code>try</code>了，还是会卡。使用<code>MyScrollView</code>也不可以。显示不全！<a href="http://blog.csdn.net/fangchao3652/article/details/46914987" target="_blank" rel="external">FullyLinearLayoutManager&amp; MyScrollView</a></p>
 </li>
@@ -107,13 +107,13 @@
 </li>
 <li><p><code>viewpager</code>左右预加载页面的个数设置：<code>setOffscreenPageLimit(3);</code>,设置后保证页面不被销毁，切换时就不会卡顿了（显示时加载数据）。注意，如果是这个viewpager本身就在父一个viewpager的一个页面里，则设置adapter时，应传<code>getChildFragmentManager()</code>,不然以上会设置不上，非法状态异常！</p>
 </li>
-<li><p><code>fragment</code>和当前自身所在的<code>Activity</code>走一套生命周期，意思就是<code>Activity</code>走了<code>onResume()</code>,<code>fragment</code>才会走自身的<code>onResume()</code>，多个<code>fragment</code>相互切换是不走<code>onResume()</code>和<code>onDestroy()</code>的。</p>
+<li><p>Fragment 和当前自身所在的Activity 走一套生命周期，意思就是<code>Activity</code>走了<code>onResume()</code>,<code>fragment</code>才会走自身的<code>onResume()</code>，多个Fragment 相互切换是不走<code>onResume()</code>和<code>onDestroy()</code>的。</p>
 </li>
-<li><p>如果<code>listview</code>里<code>addHeaderView()</code>添加轮播图，则轮播图滚动时会调用<code>listview</code>的滚动监听，且返回的<code>firstVisiblePosition = 0</code>。</p>
+<li><p>如果listview 里<code>addHeaderView()</code>添加轮播图，则轮播图滚动时会调用 listview 的滚动监听，且返回的<code>firstVisiblePosition = 0</code>。</p>
 </li>
-<li><p><code>Activity</code>里放多个<code>fragment</code>，当加载过其中一个<code>fragment A</code>后，切到其他的<code>fragment</code>，直至销毁<code>fragment A</code>后,再直接切到<code>fragment A</code>，这时<code>fragmentA.getUserVisibleHint() = false</code>。所以依赖<code>getUserVisibleHint() = true</code>的逻辑要注意了！最好的方式是在<code>viewpager</code>的监听里，手动<code>fragment.setUserVisibleHint(true)</code>。</p>
+<li><p>Activity 里放多个fragment，当加载过其中一个<code>fragment A</code>后，切到其他的fragment，直至销毁<code>fragment A</code>后,再直接切到<code>fragment A</code>，这时<code>fragmentA.getUserVisibleHint() = false</code>。所以依赖<code>getUserVisibleHint() = true</code>的逻辑要注意了！最好的方式是在 viewpager 的监听里，手动<code>fragment.setUserVisibleHint(true)</code>。</p>
 </li>
-<li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现<code>fragment</code>的懒加载。<code>setUserVisibleHint()</code>会在<code>onActivityCreated()</code>之前调用，所以可以在<code>onActivityCreated()</code>进行一系列初始化的操作，然后在<code>setUserVisibleHint()</code>里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
+<li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现 fragment 的懒加载。<code>setUserVisibleHint()</code>会在<code>onActivityCreated()</code>之前调用，所以可以在onActivityCreated() 进行一系列初始化的操作，然后在<code>setUserVisibleHint()</code>里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
 </li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
@@ -160,13 +160,13 @@
     <summary type="html">
     
       &lt;h2 id=&quot;DataBinding&quot;&gt;&lt;a href=&quot;#DataBinding&quot; class=&quot;headerlink&quot; title=&quot;DataBinding&quot;&gt;&lt;/a&gt;DataBinding&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;layout&lt;/code&gt;节点写了&lt;code&gt;xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&lt;/code&gt;后，子布局不能写&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;layout&lt;/code&gt;节点写了 xmlns:android=”&lt;a href=&quot;http://schemas.android.com/apk/res/android&quot;&gt;http://schemas.android.com/apk/res/android&lt;/a&gt; 后，子布局不能写&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;include&lt;/code&gt;子布局时子布局根节点也要声明id，不然引用不到子布局id&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;include 子布局时子布局根节点也要声明id，不然引用不到子布局id&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;databinding&lt;/code&gt;绑定子布局。先绑定,后父布局再&lt;code&gt;addView()&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;databinding 绑定子布局。先绑定,后父布局再&lt;code&gt;addView()&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;注入&lt;code&gt;databinding&lt;/code&gt;后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;注入 databinding 后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。&lt;/p&gt;
     
     </summary>
     
@@ -186,11 +186,12 @@
     <link href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/"/>
     <id>http://jingbin.me/2016/12/30/更新日志-云阅/</id>
     <published>2016-12-30T09:45:31.000Z</published>
-    <updated>2016-12-30T10:15:33.000Z</updated>
+    <updated>2016-12-30T14:00:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>大家好，很高兴大家能看到这里，这里是<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">云阅开源项目</a>的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip" alt="版本更新.gif"></p>
 <hr>
+ <a id="more"></a>
 <h3 id="版本-V1-0"><a href="#版本-V1-0" class="headerlink" title="版本 V1.0"></a>版本 V1.0</h3><blockquote>
 <p>此版的具体说明请见项目主页：<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">点击这里</a>。</p>
 </blockquote>
@@ -228,7 +229,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;大家好，很高兴大家能看到这里，这里是&lt;a href=&quot;https://github.com/youlookwhat/CloudReader&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;云阅开源项目&lt;/a&gt;的当前所在版本的内容和下一版计划更新的内容，希望能
+      &lt;p&gt;大家好，很高兴大家能看到这里，这里是&lt;a href=&quot;https://github.com/youlookwhat/CloudReader&quot;&gt;云阅开源项目&lt;/a&gt;的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;版本更新.gif&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
     
     </summary>
     
