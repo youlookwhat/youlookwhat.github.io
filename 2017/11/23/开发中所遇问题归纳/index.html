@@ -106,7 +106,7 @@ include 子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding 绑定子布局。先绑定,后父布局再addView()
 
 注入 databinding 后，AndriodStudio包结构">
-<meta property="og:updated_time" content="2016-12-30T14:32:50.000Z">
+<meta property="og:updated_time" content="2016-12-30T14:47:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -436,11 +436,11 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 </li>
 <li><p>databinding绑定<code>bean</code>时，里面的子类也需要继承<code>BaseObservable</code>,否则会报错。</p>
 </li>
-<li><p>recyclerview 的<code>viewhodler</code>里，获得绑定 view 的databinding:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
+<li><p>recyclerview 的viewhodler 里，获得绑定 view 的databinding:<code>DataBindingUtil.getBinding(this.itemView);</code>。</p>
 </li>
 <li><p>布局里没有声明<code>id</code>,则对应的 ItemEverydayBinding 无法生成。</p>
 </li>
-<li><p>更改包名之后<code>（rename -- gradle.applicationId）</code>， databinding 相关文件会报错，进入<code>Build --&gt; Build Project</code>就好了！</p>
+<li><p>更改包名之后（rename – gradle.applicationId）， databinding 相关文件会报错，进入<code>Build --&gt; Build Project</code>就好了！</p>
 </li>
 <li><p>注意：引用如：<code>android:showImg=&#39;@{bean.images.large}&#39;</code>时，里面的<code>bean</code>写错会造成编译错误！</p>
 </li>
@@ -448,7 +448,7 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 </li>
 <li><p><code>android:showImg=&#39;@{bean.images.large}&#39;</code>这样设置图片会闪一下！尤其是在<code>recyclerview</code>里面，效果很不好，如果是写在<code>adapter</code>里就好了：<code>ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);</code>。不仅仅图片，文字也会闪。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
 </li>
-<li><p>布局里面的子布局里引用的<code>bean</code>可以一样（<code>type</code>一样），但是最好<code>name</code>不一样，不然可能会导致<code>setBean()</code>无效。改变<code>name</code>名就好了。</p>
+<li><p>布局里面的子布局里引用的bean可以一样（type一样），但是最好name不一样，不然可能会导致<code>setBean()</code>无效。改变name名就好了。</p>
 </li>
 </ul>
 <ol>
@@ -481,7 +481,7 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 <p>建议：</p>
 <ul>
 <li><strong>1.</strong> <code>android:showImgBg</code>可任意写，但是项目里不能出现相同的命名，否则会被后来的覆盖掉！</li>
-<li><strong>2.</strong> 如果<code>imgload:showImgBg</code>这样写,第一次编译会提示找不到该命名空间，跳到声明处。建议写成<code>android:showImgBg</code>。</li>
+<li><strong>2.</strong> 如果 imgload:showImgBg 这样写,第一次编译会提示找不到该命名空间，跳到声明处。建议写成 android:showImgBg。</li>
 </ul>
 </blockquote>
 <ol>
@@ -497,11 +497,11 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 <p>以上切换还是会卡顿，原因是角标越界，虽然<code>try</code>了，还是会卡。使用<code>MyScrollView</code>也不可以。显示不全！<a href="http://blog.csdn.net/fangchao3652/article/details/46914987" target="_blank" rel="external">FullyLinearLayoutManager&amp; MyScrollView</a></p>
 </li>
-<li><code>RecyclerView</code>的item显示出现控件显示不全,item只显示一部分，非常怪异！在adapter中的<code>onCreateViewHolder()</code>中<br><code>View inflate = layoutInflater.inflate(R.layout.xxx, parent, false);</code>注意要依附于parent。这样就好了！</li>
+<li>RecyclerView 的item显示出现控件显示不全,item只显示一部分，非常怪异！在adapter中的onCreateViewHolder()中<br><code>View inflate = layoutInflater.inflate(R.layout.xxx, parent, false);</code>注意要依附于parent。这样就好了！</li>
 </ul>
 <ul>
-<li><code>RecyclerView: No adapter attached; skipping layout</code>没有数据时，<code>gone</code>掉，不然一直会提示这个！</li>
-<li><code>addFooterView</code>时，使用<code>LinearLayout</code>包裹时会显示部分，改为<code>RelativeLayout</code>或<code>FrameLayout</code>正常。</li>
+<li>RecyclerView: No adapter attached; skipping layout 没有数据时，<code>gone</code>掉，不然一直会提示这个！</li>
+<li><code>addFooterView</code>时，使用LinearLayout 包裹时会显示部分，改为RelativeLayout或FrameLayout正常。</li>
 <li>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</li>
 </ul>
 <h2 id="ViewPager-与-Fragment"><a href="#ViewPager-与-Fragment" class="headerlink" title="ViewPager 与 Fragment"></a>ViewPager 与 Fragment</h2><ul>
@@ -515,7 +515,7 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 </li>
 <li><p>Activity 里放多个fragment，当加载过其中一个<code>fragment A</code>后，切到其他的fragment，直至销毁<code>fragment A</code>后,再直接切到<code>fragment A</code>，这时<code>fragmentA.getUserVisibleHint() = false</code>。所以依赖<code>getUserVisibleHint() = true</code>的逻辑要注意了！最好的方式是在 viewpager 的监听里，手动<code>fragment.setUserVisibleHint(true)</code>。</p>
 </li>
-<li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现 fragment 的懒加载。<code>setUserVisibleHint()</code>会在<code>onActivityCreated()</code>之前调用，所以可以在onActivityCreated() 进行一系列初始化的操作，然后在<code>setUserVisibleHint()</code>里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
+<li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现 fragment 的懒加载。setUserVisibleHint() 会在<code>onActivityCreated()</code>之前调用，所以可以在onActivityCreated() 进行一系列初始化的操作，然后在 setUserVisibleHint() 里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
 </li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
