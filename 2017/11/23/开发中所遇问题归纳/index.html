@@ -106,7 +106,7 @@ include 子布局时子布局根节点也要声明id，不然引用不到子布�
 databinding 绑定子布局。先绑定,后父布局再addView()
 
 注入 databinding 后，AndriodStudio包结构">
-<meta property="og:updated_time" content="2016-12-30T14:54:43.000Z">
+<meta property="og:updated_time" content="2016-12-31T12:29:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
@@ -540,7 +540,7 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 <li><p>设置透明状态栏时，布局根节点不要设置<code>android:fitsSystemWindows=&quot;true&quot;</code>否则状态栏会一直存在，被这个问题坑了一整天！！还有整块布局也不要给设置颜色。 </p>
 </li>
 <li><p><code>retrofit</code>设置<code>post</code>请求时，传数组时使用<code>image_ids[]</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"/vip/diagnostic_explains"</span>)</div><div class="line"><span class="function">Observable&lt;ErrorBean&gt; <span class="title">postDiagnosticExplains</span><span class="params">(@Header(<span class="string">"a"</span>)</span> String a, </span></div><div class="line">					@<span class="title">Field</span><span class="params">(<span class="string">"userkey"</span>)</span> String userkey, @<span class="title">Field</span><span class="params">(<span class="string">"comment"</span>)</span> String comment, </div><div class="line">			    @<span class="title">Field</span><span class="params">(<span class="string">"image_ids[]"</span>)</span> List&lt;Integer&gt; image_ids);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"/vip/diagnostic_explains"</span>)</div><div class="line"><span class="function">Observable&lt;ErrorBean&gt; <span class="title">postDiagnosticExplains</span><span class="params">(@Header(<span class="string">"a"</span>)</span> String a, </span></div><div class="line">		@<span class="title">Field</span><span class="params">(<span class="string">"userkey"</span>)</span> String userkey, @<span class="title">Field</span><span class="params">(<span class="string">"comment"</span>)</span> String comment,  </div><div class="line">		@<span class="title">Field</span><span class="params">(<span class="string">"image_ids[]"</span>)</span> List&lt;Integer&gt; image_ids);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
