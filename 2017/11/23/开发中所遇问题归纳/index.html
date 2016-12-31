@@ -87,36 +87,36 @@
 
 
 <meta name="description" content="DataBinding
-layout节点写了 xmlns:android=”http://schemas.android.com/apk/res/android 后，子布局不能写
+layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写.
 
 include 子布局时子布局根节点也要声明id，不然引用不到子布局id
 
 databinding 绑定子布局。先绑定,后父布局再addView()
 
-注入 databinding 后，AndriodStudio包结构">
+注入 databinding 后，AndriodStudi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开发中所遇问题归纳（持续更新）">
 <meta property="og:url" content="http://jingbin.me/2017/11/23/开发中所遇问题归纳/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
 <meta property="og:description" content="DataBinding
-layout节点写了 xmlns:android=”http://schemas.android.com/apk/res/android 后，子布局不能写
+layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写.
 
 include 子布局时子布局根节点也要声明id，不然引用不到子布局id
 
 databinding 绑定子布局。先绑定,后父布局再addView()
 
-注入 databinding 后，AndriodStudio包结构">
-<meta property="og:updated_time" content="2016-12-31T12:29:16.000Z">
+注入 databinding 后，AndriodStudi">
+<meta property="og:updated_time" content="2016-12-31T12:40:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳（持续更新）">
 <meta name="twitter:description" content="DataBinding
-layout节点写了 xmlns:android=”http://schemas.android.com/apk/res/android 后，子布局不能写
+layout节点写了xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android后，子布局不能写.
 
 include 子布局时子布局根节点也要声明id，不然引用不到子布局id
 
 databinding 绑定子布局。先绑定,后父布局再addView()
 
-注入 databinding 后，AndriodStudio包结构">
+注入 databinding 后，AndriodStudi">
 
 
 
@@ -425,7 +425,7 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 
       
         <h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
-<li><p><code>layout</code>节点写了 xmlns:android=”<a href="http://schemas.android.com/apk/res/android" target="_blank" rel="external">http://schemas.android.com/apk/res/android</a> 后，子布局不能写</p>
+<li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写.</p>
 </li>
 <li><p>include 子布局时子布局根节点也要声明id，不然引用不到子布局id</p>
 </li>
@@ -518,6 +518,27 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 <li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现 fragment 的懒加载。setUserVisibleHint() 会在<code>onActivityCreated()</code>之前调用，所以可以在onActivityCreated() 进行一系列初始化的操作，然后在 setUserVisibleHint() 里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
 </li>
 </ul>
+<h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2><ul>
+<li><p>使用<code>retrofit</code>请求时，Bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</p>
+</li>
+<li><p>使用<code>retrofit</code>请求时，若请求成功且有数据返回还报错，看<code>Bean</code>里字段或字段类型是否写错。</p>
+</li>
+<li><p><code>retrofit</code>设置<code>post</code>请求时，传数组时使用<code>image_ids[]</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"/vip/diagnostic_explains"</span>)</div><div class="line"><span class="function">Observable&lt;ErrorBean&gt; <span class="title">postDiagnosticExplains</span><span class="params">(@Header(<span class="string">"a"</span>)</span> String a, </span></div><div class="line">		@<span class="title">Field</span><span class="params">(<span class="string">"userkey"</span>)</span> String userkey, @<span class="title">Field</span><span class="params">(<span class="string">"comment"</span>)</span> String comment,  </div><div class="line">		@<span class="title">Field</span><span class="params">(<span class="string">"image_ids[]"</span>)</span> List&lt;Integer&gt; image_ids);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="ACache"><a href="#ACache" class="headerlink" title="ACache"></a>ACache</h2><ul>
+<li><p>使用<code>ACache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时logcat会提示有两个相同bean的id，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></p>
+</li>
+<li><p>使用<code>ACache</code>工具缓存时，subList没有实现序列化！缓存<code>List</code>时会出错！<a href="http://liyin-rookie.iteye.com/blog/1147284" target="_blank" rel="external">详情</a></p>
+</li>
+</ul>
+<h2 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h2><ul>
+<li><p>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></p>
+</li>
+<li><p><code>textView</code>中间加横线:<code>textView .getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG );</code></p>
+</li>
+</ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li><p>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</p>
 </li>
@@ -525,28 +546,13 @@ databinding 绑定子布局。先绑定,后父布局再addView()
 </li>
 <li><p>当ScrollView里的元素想填满ScrollView时，使用 fill_parent 是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</p>
 </li>
-<li><p>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></p>
+<li><p>Android 5.1的SDK把<code>Button</code>的默认Style改了，使Button上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</p>
 </li>
-<li><p><code>textView</code>中间加横线:<code>textView .getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG );</code></p>
-</li>
-<li><p>使用<code>retrofit</code>请求时，Bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</p>
-</li>
-<li>Android 5.1的SDK把<code>Button</code>的默认Style改了，使Button上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</li>
-<li>使用<code>retrofit</code>请求时，若请求成功且有数据返回还报错，看<code>Bean</code>里字段或字段类型是否写错。</li>
 <li><p><code>toolbar</code>中设置标题和副标题文字颜色和大小时，在<strong>xml</strong>文件配置<code>app:titleTextAppearance=&quot;@style/ToolBar.Title&quot;</code>可以，其中</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name="ToolBar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"&gt;</div><div class="line">      &lt;item name="android:textSize"&gt;18.0sp&lt;/item&gt;</div><div class="line">      &lt;item name="android:textColor"&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
 <p>也可以在activity中设置：<br><code>binding.titleToolBar.setTitleTextAppearance(this, R.style.ToolBar_Title);</code></p>
 </li>
 <li><p>设置透明状态栏时，布局根节点不要设置<code>android:fitsSystemWindows=&quot;true&quot;</code>否则状态栏会一直存在，被这个问题坑了一整天！！还有整块布局也不要给设置颜色。 </p>
-</li>
-<li><p><code>retrofit</code>设置<code>post</code>请求时，传数组时使用<code>image_ids[]</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"/vip/diagnostic_explains"</span>)</div><div class="line"><span class="function">Observable&lt;ErrorBean&gt; <span class="title">postDiagnosticExplains</span><span class="params">(@Header(<span class="string">"a"</span>)</span> String a, </span></div><div class="line">		@<span class="title">Field</span><span class="params">(<span class="string">"userkey"</span>)</span> String userkey, @<span class="title">Field</span><span class="params">(<span class="string">"comment"</span>)</span> String comment,  </div><div class="line">		@<span class="title">Field</span><span class="params">(<span class="string">"image_ids[]"</span>)</span> List&lt;Integer&gt; image_ids);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>使用<code>ACache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时logcat会提示有两个相同bean的id，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></p>
-</li>
-<li><p>使用<code>ACache</code>工具缓存时，subList没有实现序列化！缓存<code>List</code>时会出错！<a href="http://liyin-rookie.iteye.com/blog/1147284" target="_blank" rel="external">详情</a></p>
 </li>
 <li><p><code>ImageView</code>图片直接<code>src</code>会内存泄漏，图片宽高大时会很严重，建议代码设置。</p>
 </li>
@@ -799,7 +805,7 @@ databinding 绑定子布局。先绑定,后父布局再addView()
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataBinding"><span class="nav-number">1.</span> <span class="nav-text">DataBinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPager-与-Fragment"><span class="nav-number">3.</span> <span class="nav-text">ViewPager 与 Fragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataBinding"><span class="nav-number">1.</span> <span class="nav-text">DataBinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPager-与-Fragment"><span class="nav-number">3.</span> <span class="nav-text">ViewPager 与 Fragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrofit"><span class="nav-number">4.</span> <span class="nav-text">Retrofit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACache"><span class="nav-number">5.</span> <span class="nav-text">ACache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextView"><span class="nav-number">6.</span> <span class="nav-text">TextView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">7.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
