@@ -87,7 +87,7 @@
 <meta name="description" content="开源让生活更美好">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jing Bin'blog">
-<meta property="og:url" content="http://jingbin.me/tags/cloudreader/index.html">
+<meta property="og:url" content="http://jingbin.me/tags/CloudReader/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
 <meta property="og:description" content="开源让生活更美好">
 <meta name="twitter:card" content="summary">
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://jingbin.me/tags/cloudreader/"/>
+  <link rel="canonical" href="http://jingbin.me/tags/CloudReader/"/>
 
 
 
 
 
-  <title> 标签: cloudreader | Jing Bin'blog </title>
+  <title> 标签: CloudReader | Jing Bin'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -286,10 +286,38 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        cloudreader
+        CloudReader
         <small>标签</small>
       </h2>
     </div>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2018/01/03/云阅：一个基于网易云音乐UI，使用Gank-Io及豆瓣Api开发的开源项目/" itemprop="url">
+              
+                <span itemprop="name">云阅：一个基于网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-03T18:33:07+08:00"
+              content="2018-01-03" >
+          01-03
+        </time>
+      </div>
+
+    </header>
+  </article>
+
 
     
       
@@ -312,6 +340,62 @@
               datetime="2017-11-23T22:36:23+08:00"
               content="2017-11-23" >
           11-23
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/12/30/更新日志-云阅/" itemprop="url">
+              
+                <span itemprop="name">更新日志-云阅</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-12-30T17:45:31+08:00"
+              content="2016-12-30" >
+          12-30
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/12/25/常见问题-云阅/" itemprop="url">
+              
+                <span itemprop="name">常见问题-云阅</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-12-25T17:40:38+08:00"
+              content="2016-12-25" >
+          12-25
         </time>
       </div>
 
@@ -378,7 +462,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -826,58 +910,6 @@
                 var $element = $(document.getElementById(url));
                 $element.find('.leancloud-visitors-count').text(counter.get('time'));
               },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-
-</body>
-</html>
-         },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
