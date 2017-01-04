@@ -87,29 +87,23 @@
 
 
 <meta name="description" content="CloudReader一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在这里。
-github地址：CloudReader
-效果图
-部分效果图">
+github地址：CloudReader">
 <meta property="og:type" content="article">
 <meta property="og:title" content="云阅：一个基于网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目">
 <meta property="og:url" content="http://jingbin.me/2018/01/03/云阅：一个基于网易云音乐UI，使用Gank-Io及豆瓣Api开发的开源项目/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
 <meta property="og:description" content="CloudReader一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在这里。
-github地址：CloudReader
-效果图
-部分效果图">
+github地址：CloudReader">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-6d119cdf55036fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-d3c4ed3d57d58db7.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-71e53682c8ce9706.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-502cceae1674e70a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/340">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-c282b9a84637ea73.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-01-03T14:24:48.000Z">
+<meta property="og:updated_time" content="2017-01-04T10:37:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="云阅：一个基于网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目">
 <meta name="twitter:description" content="CloudReader一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在这里。
-github地址：CloudReader
-效果图
-部分效果图">
+github地址：CloudReader">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-6d119cdf55036fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -420,17 +414,17 @@ github地址：CloudReader
       
         <h2 id="CloudReader"><a href="#CloudReader" class="headerlink" title="CloudReader"></a>CloudReader</h2><p>一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在<a href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/">这里</a>。</p>
 <p>github地址：<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a></p>
+<a id="more"></a>
 <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><ul>
 <li>部分效果图</li>
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-6d119cdf55036fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cloudreader.png"></p>
-<a id="more"></a>
 <ul>
 <li>gif演示</li>
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-d3c4ed3d57d58db7.gif?imageMogr2/auto-orient/strip" alt="cloudreader.gif"></p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>网易云音乐于2013年4月23日正式发布，是一款主打发现和分享，带有浓厚社交基因的网络音乐产品。相信用过的人都知道它给人的体验是极好的，我看过了绝大多数仿写的案例，基本UI都不够细致，于是决定自己动手写一个，起初也不知道具体它是怎么布局的，后来使用SDK提供的工具<code>uiautomatorviewer</code>慢慢分析后再逐渐完善的，争取效果一致~ </p>
-<h2 id="模块分析"><a href="#模块分析" class="headerlink" title="模块分析"></a>模块分析</h2><h4 id="干货（gank-io）"><a href="#干货（gank-io）" class="headerlink" title="干货（gank.io）"></a>干货（gank.io）</h4><blockquote>
+<h2 id="模块分析"><a href="#模块分析" class="headerlink" title="模块分析"></a>模块分析</h2><h3 id="干货（gank-io）"><a href="#干货（gank-io）" class="headerlink" title="干货（gank.io）"></a>干货（gank.io）</h3><blockquote>
 <p>API使用的是动听（轮播图）和代码家的Gank.Io。</p>
 </blockquote>
 <ul>
@@ -443,14 +437,14 @@ github地址：CloudReader
 <li><p><strong>大安卓：</strong> 显示安卓的全部资讯。支持下拉刷新方便查看最新的资源。</p>
 </li>
 </ul>
-<h4 id="电影（豆瓣）"><a href="#电影（豆瓣）" class="headerlink" title="电影（豆瓣）"></a>电影（豆瓣）</h4><blockquote>
+<h3 id="电影（豆瓣）"><a href="#电影（豆瓣）" class="headerlink" title="电影（豆瓣）"></a>电影（豆瓣）</h3><blockquote>
 <p>API是豆瓣提供的，因为限制了每个ip每分钟请求的次数，所以请酌情使用，由此带来的不便请见谅。</p>
 </blockquote>
 <ul>
 <li><strong>电影热映区：</strong> 每日更新，展示最新上映的电影热度排行榜。</li>
 <li><strong>豆瓣电影Top250：</strong> 豆瓣高分电影集锦，让你放心找好片~</li>
 </ul>
-<h4 id="书籍（豆瓣）"><a href="#书籍（豆瓣）" class="headerlink" title="书籍（豆瓣）"></a>书籍（豆瓣）</h4><blockquote>
+<h3 id="书籍（豆瓣）"><a href="#书籍（豆瓣）" class="headerlink" title="书籍（豆瓣）"></a>书籍（豆瓣）</h3><blockquote>
 <p>使用的是豆瓣的搜索API。更多订制内容由于时间原因第一版还未添加，第二版会加上。</p>
 </blockquote>
 <ul>
@@ -458,7 +452,7 @@ github地址：CloudReader
 <li><strong>文学：</strong> 检索豆瓣文学类的书籍并展示。</li>
 <li><strong>生活：</strong> 检索豆瓣生活类的书籍并展示。</li>
 </ul>
-<h4 id="抽屉界面"><a href="#抽屉界面" class="headerlink" title="抽屉界面"></a>抽屉界面</h4><blockquote>
+<h3 id="抽屉界面"><a href="#抽屉界面" class="headerlink" title="抽屉界面"></a>抽屉界面</h3><blockquote>
 <p>完全仿网易云音乐抽屉界面，包括诸多细节如透明标题栏，背景透明度，水波纹颜色等。</p>
 </blockquote>
 <ul>
@@ -467,8 +461,7 @@ github地址：CloudReader
 <li><strong>问题反馈：</strong>常见问题归纳，反馈地方，联系方式都在这里哦！</li>
 <li><strong>关于云阅：</strong>更新日志在这里可见，主人是利用工作外时间做的，周期较长，满意的小伙伴给个Star吧，这将是我继续迭代的动力，谢谢~</li>
 </ul>
-<h2 id="What-can-be-learned-about-this-project"><a href="#What-can-be-learned-about-this-project" class="headerlink" title="What can be learned about this project"></a>What can be learned about this project</h2><p>那么，从本项目中你能学到哪些知识呢？</p>
-<ul>
+<h2 id="Features-特性"><a href="#Features-特性" class="headerlink" title="Features 特性"></a>Features 特性</h2><ul>
 <li>1、干货集中营内容与豆瓣电影书籍内容。</li>
 <li>2、高仿网易云音乐歌单详情页。</li>
 <li>3、<code>NavigationView</code>搭配<code>DrawerLayout</code>的具体使用。</li>
@@ -531,9 +524,6 @@ github地址：CloudReader
 <li><strong>Email：</strong>jingbin127@163.com</li>
 <li><strong>GitHub：</strong><a href="https://github.com/youlookwhat" target="_blank" rel="external">https://github.com/youlookwhat</a></li>
 </ul>
-<blockquote>
-<p>排版问题 稍后修正..</p>
-</blockquote>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-c282b9a84637ea73.gif?imageMogr2/auto-orient/strip" alt=""></p>
 
       
@@ -775,7 +765,7 @@ github地址：CloudReader
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CloudReader"><span class="nav-number">1.</span> <span class="nav-text">CloudReader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图"><span class="nav-number">2.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">3.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块分析"><span class="nav-number">4.</span> <span class="nav-text">模块分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#干货（gank-io）"><span class="nav-number">4.0.1.</span> <span class="nav-text">干货（gank.io）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#电影（豆瓣）"><span class="nav-number">4.0.2.</span> <span class="nav-text">电影（豆瓣）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#书籍（豆瓣）"><span class="nav-number">4.0.3.</span> <span class="nav-text">书籍（豆瓣）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽屉界面"><span class="nav-number">4.0.4.</span> <span class="nav-text">抽屉界面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-can-be-learned-about-this-project"><span class="nav-number">5.</span> <span class="nav-text">What can be learned about this project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细节分析-ToolBar-上的按钮点击效果"><span class="nav-number">6.</span> <span class="nav-text">细节分析 - ToolBar 上的按钮点击效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于ToolBar的布局"><span class="nav-number">6.1.</span> <span class="nav-text">关于ToolBar的布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DownLoad"><span class="nav-number">7.</span> <span class="nav-text">DownLoad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宝贵意见"><span class="nav-number">8.</span> <span class="nav-text">宝贵意见</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thanks"><span class="nav-number">9.</span> <span class="nav-text">Thanks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement"><span class="nav-number">9.1.</span> <span class="nav-text">Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#End"><span class="nav-number">10.</span> <span class="nav-text">End</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#About-me"><span class="nav-number">11.</span> <span class="nav-text">About me</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CloudReader"><span class="nav-number">1.</span> <span class="nav-text">CloudReader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图"><span class="nav-number">2.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">3.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块分析"><span class="nav-number">4.</span> <span class="nav-text">模块分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#干货（gank-io）"><span class="nav-number">4.1.</span> <span class="nav-text">干货（gank.io）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电影（豆瓣）"><span class="nav-number">4.2.</span> <span class="nav-text">电影（豆瓣）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#书籍（豆瓣）"><span class="nav-number">4.3.</span> <span class="nav-text">书籍（豆瓣）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽屉界面"><span class="nav-number">4.4.</span> <span class="nav-text">抽屉界面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Features-特性"><span class="nav-number">5.</span> <span class="nav-text">Features 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细节分析-ToolBar-上的按钮点击效果"><span class="nav-number">6.</span> <span class="nav-text">细节分析 - ToolBar 上的按钮点击效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于ToolBar的布局"><span class="nav-number">6.1.</span> <span class="nav-text">关于ToolBar的布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DownLoad"><span class="nav-number">7.</span> <span class="nav-text">DownLoad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宝贵意见"><span class="nav-number">8.</span> <span class="nav-text">宝贵意见</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thanks"><span class="nav-number">9.</span> <span class="nav-text">Thanks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement"><span class="nav-number">9.1.</span> <span class="nav-text">Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#End"><span class="nav-number">10.</span> <span class="nav-text">End</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#About-me"><span class="nav-number">11.</span> <span class="nav-text">About me</span></a></li></ol></div>
             
 
           </div>

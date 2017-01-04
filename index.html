@@ -408,10 +408,6 @@
         
           <h2 id="CloudReader"><a href="#CloudReader" class="headerlink" title="CloudReader"></a>CloudReader</h2><p>一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在<a href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/">这里</a>。</p>
 <p>github地址：<a href="https://github.com/youlookwhat/CloudReader">CloudReader</a></p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><ul>
-<li>部分效果图</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-6d119cdf55036fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cloudreader.png"></p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2018/01/03/云阅：一个基于网易云音乐UI，使用Gank-Io及豆瓣Api开发的开源项目/#more" rel="contents">
@@ -567,20 +563,14 @@
       
         
           <blockquote>
-<p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader">CloudReader</a>及工作上的所遇到问题。</p>
+<p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader">CloudReader</a>及工作上所遇到的问题。</p>
 </blockquote>
 <h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
 <li><p><strong>DataBindingHelper.jar</strong>的使用：作为<a href="http://blog.csdn.net/yy1300326388/article/details/46409637">插件导入</a>后，和<code>GsonFormat</code>的使用类似。在对应的<code>Bean</code>里，可自动生成<code>@Bindable</code>和<code>notifyPropertyChanged(BR.title);</code>。此杰作是同事做的。网上也有类似的插件可以使用。</p>
 </li>
 <li><p><strong>神坑！windows下<a href="http://www.th7.cn/Program/Android/201608/944362.shtml">databinding引入文字</a>会有问题，而mac上没有！使用<code>@string/string_type</code>引入字符串！</strong></p>
 </li>
-<li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写.</p>
-</li>
-<li><p>include 子布局时子布局根节点也要声明id，不然引用不到子布局id</p>
-</li>
-<li><p>databinding 绑定子布局。先绑定,后父布局再<code>addView()</code></p>
-</li>
-<li><p>注入 databinding 后，AndriodStudio包结构变乱。解决：Android Studio2.2会出现此情况，升级到2.2.2就可以了。</p>
+</ul>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2017/11/23/开发中所遇问题归纳/#more" rel="contents">
