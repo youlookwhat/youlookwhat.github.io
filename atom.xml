@@ -166,10 +166,10 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-01-04T08:38:10.000Z</updated>
+    <updated>2017-01-04T08:54:02.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
-<li><p><strong>DataBindingHelper.jar</strong>的使用：作为插件导入后，和<code>GsonFormat</code>一样使用。在对应的<code>Bean</code>里，可自动生成<code>@Bindable</code>和<code>notifyPropertyChanged(BR.title);</code>。此杰作是同事做的。网上也有类似的插件可以使用。</p>
+<li><p><strong>DataBindingHelper.jar</strong>的使用：作为<a href="http://blog.csdn.net/yy1300326388/article/details/46409637" target="_blank" rel="external">插件导入</a>后，和<code>GsonFormat</code>的使用类似。在对应的<code>Bean</code>里，可自动生成<code>@Bindable</code>和<code>notifyPropertyChanged(BR.title);</code>。此杰作是同事做的。网上也有类似的插件可以使用。</p>
 </li>
 <li><p><strong>神坑！windows下databinding引入文字会有问题，而mac上没有！使用<code>@string/string_type</code>引入字符串！</strong></p>
 </li>
@@ -316,7 +316,7 @@
     <summary type="html">
     
       &lt;h2 id=&quot;DataBinding&quot;&gt;&lt;a href=&quot;#DataBinding&quot; class=&quot;headerlink&quot; title=&quot;DataBinding&quot;&gt;&lt;/a&gt;DataBinding&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;DataBindingHelper.jar&lt;/strong&gt;的使用：作为插件导入后，和&lt;code&gt;GsonFormat&lt;/code&gt;一样使用。在对应的&lt;code&gt;Bean&lt;/code&gt;里，可自动生成&lt;code&gt;@Bindable&lt;/code&gt;和&lt;code&gt;notifyPropertyChanged(BR.title);&lt;/code&gt;。此杰作是同事做的。网上也有类似的插件可以使用。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;DataBindingHelper.jar&lt;/strong&gt;的使用：作为&lt;a href=&quot;http://blog.csdn.net/yy1300326388/article/details/46409637&quot;&gt;插件导入&lt;/a&gt;后，和&lt;code&gt;GsonFormat&lt;/code&gt;的使用类似。在对应的&lt;code&gt;Bean&lt;/code&gt;里，可自动生成&lt;code&gt;@Bindable&lt;/code&gt;和&lt;code&gt;notifyPropertyChanged(BR.title);&lt;/code&gt;。此杰作是同事做的。网上也有类似的插件可以使用。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;神坑！windows下databinding引入文字会有问题，而mac上没有！使用&lt;code&gt;@string/string_type&lt;/code&gt;引入字符串！&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
