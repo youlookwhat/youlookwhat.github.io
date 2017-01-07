@@ -854,7 +854,7 @@
     <link href="http://jingbin.me/2016/11/23/%E6%94%B6%E9%9B%86%E2%80%9C%E6%96%B0%E5%A5%87%E7%9A%84%E7%BD%91%E7%AB%99%E2%80%9D/"/>
     <id>http://jingbin.me/2016/11/23/收集“新奇的网站”/</id>
     <published>2016-11-23T14:36:23.000Z</published>
-    <updated>2016-11-29T03:30:41.000Z</updated>
+    <updated>2017-01-07T10:29:12.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="产品原型制作"><a href="#产品原型制作" class="headerlink" title="产品原型制作"></a>产品原型制作</h3><ul>
 <li><a href="https://www.sketchapp.com/" target="_blank" rel="external">Sketch，最佳原型制作工具</a></li>
@@ -869,13 +869,20 @@
 <li><a href="http://www.ui.cn/" target="_blank" rel="external">UI中国-专业界面交互平台</a></li>
 <li><a href="https://www.behance.net/" target="_blank" rel="external">behance 展示和发现创意作品</a></li>
 </ul>
+<a id="more"></a>
 <h3 id="颜色搭配及icon制作"><a href="#颜色搭配及icon制作" class="headerlink" title="颜色搭配及icon制作"></a>颜色搭配及icon制作</h3><ul>
 <li><a href="http://www.colorhunt.co/" target="_blank" rel="external">ColorHunt-色彩搭配</a></li>
 <li><a href="https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html" target="_blank" rel="external">icon在线制作</a></li>
 <li><a href="http://www.iconfont.cn/plus" target="_blank" rel="external">icon图标库</a></li>
+<li><a href="https://android-material-icon-generator.bitdroid.de/" target="_blank" rel="external">MD的icon制作网站</a></li>
 <li><a href="http://www.sioe.cn/yingyong/yanse-rgb-16/" target="_blank" rel="external">RGB颜色值转换成十六进制颜色码</a></li>
 </ul>
-<a id="more"></a>
+<h3 id="GitHub美化"><a href="#GitHub美化" class="headerlink" title="GitHub美化"></a>GitHub美化</h3><ul>
+<li><a href="http://shields.io/" target="_blank" rel="external">README的标签</a></li>
+<li><a href="https://github.com/fehmicansaglam/progressed.io" target="_blank" rel="external">README的进度tag</a></li>
+<li><a href="http://ezgif.com/" target="_blank" rel="external">mp4转gif</a></li>
+<li><a href="http://sspai.com/27937" target="_blank" rel="external">带壳截图</a></li>
+</ul>
 <h3 id="移动应用分发"><a href="#移动应用分发" class="headerlink" title="移动应用分发"></a>移动应用分发</h3><ul>
 <li><a href="http://fir.im/" target="_blank" rel="external">Fir.im</a></li>
 <li><a href="http://developer.wandoujia.com/" target="_blank" rel="external">豌豆荚</a></li>
@@ -897,12 +904,6 @@
 &lt;li&gt;&lt;a href=&quot;http://www.woofeng.cn/&quot;&gt;黄蜂网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.ui.cn/&quot;&gt;UI中国-专业界面交互平台&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.behance.net/&quot;&gt;behance 展示和发现创意作品&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;颜色搭配及icon制作&quot;&gt;&lt;a href=&quot;#颜色搭配及icon制作&quot; class=&quot;headerlink&quot; title=&quot;颜色搭配及icon制作&quot;&gt;&lt;/a&gt;颜色搭配及icon制作&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.colorhunt.co/&quot;&gt;ColorHunt-色彩搭配&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html&quot;&gt;icon在线制作&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.iconfont.cn/plus&quot;&gt;icon图标库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.sioe.cn/yingyong/yanse-rgb-16/&quot;&gt;RGB颜色值转换成十六进制颜色码&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
