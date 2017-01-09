@@ -158,7 +158,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-01-04T10:36:48.000Z</updated>
+    <updated>2017-01-09T11:00:48.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -246,7 +246,15 @@
 </ul>
 <ul>
 <li>RecyclerView: No adapter attached; skipping layout 没有数据时，<code>gone</code>掉，不然一直会提示这个！</li>
-<li><code>addFooterView</code>时，使用LinearLayout 包裹时会显示部分，改为RelativeLayout或FrameLayout正常。</li>
+<li><p><code>addFooterView</code>时，使用LinearLayout 包裹时会显示部分，改为RelativeLayout或FrameLayout正常。</p>
+</li>
+<li><p><code>NestedScrollView</code>包裹<code>RecyclerView</code>如果没关联下面design包会显示不出，加了就好了！</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.android.support:design:24.2.1'</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>同时此包里还含有<code>Toolbar</code>的属性：</p>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:layout_collapseMode=<span class="string">"pin"</span></div><div class="line">  app:layout_scrollFlags=<span class="string">"enterAlways|scroll"</span></div></pre></td></tr></table></figure>
+</code></pre><ul>
 <li>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</li>
 </ul>
 <h2 id="ViewPager-与-Fragment"><a href="#ViewPager-与-Fragment" class="headerlink" title="ViewPager 与 Fragment"></a>ViewPager 与 Fragment</h2><ul>
