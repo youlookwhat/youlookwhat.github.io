@@ -97,7 +97,7 @@
 
 我几乎看过国内讲解Android事件分发的所有文章，但遗憾的是都没有这篇讲的好，原因有二：它阐明了具体的事件分发机制的设计意图，让人既知其然，又知其所以然；它没有贴源码，吓唬本宝宝。所以我决定将它翻译出来，">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1371984-8cbcd729711f25ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-11-22T15:09:28.000Z">
+<meta property="og:updated_time" content="2017-01-10T04:30:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="可能是讲解Android事件分发最好的文章">
 <meta name="twitter:description" content="这是在简书上看到的一篇文章，感觉非常好，就转了过来，这是老外写的，这个作者翻译过来的。 综合之前在CSDN写过的一篇类似的文章[Android 简述事件分发机制]，差不多这个知识点就清晰了。
@@ -415,9 +415,9 @@
 <blockquote>
 <p>我几乎看过国内讲解Android事件分发的所有文章，但遗憾的是都没有这篇讲的好，原因有二：它阐明了具体的事件分发机制的设计意图，让人既知其然，又知其所以然；它没有贴源码，吓唬本宝宝。所以我决定将它翻译出来，造福广大Android开发者。原文请点击<a href="http://balpha.de/2013/07/android-development-what-i-wish-i-had-known-earlier/" target="_blank" rel="external">这里</a></p>
 </blockquote>
+<a id="more"></a>
 <p>有时，你必须要自己处理触摸事件（touch events）而不能依赖于有可用的onSomethingListener。我就遇到过这样的时候，当时我很想有一篇文章能简单地解释触摸事件是怎样在视图层次（view hierarchy）中传播的，从而可以将之作为进一步深入学习的起点。这篇博客是我的一次尝试，它看起来有点长，但这是因为我是按照触摸事件的传播过程一步一步来写的。</p>
 <h2 id="一些假设"><a href="#一些假设" class="headerlink" title="一些假设"></a>一些假设</h2><p>我们只考虑最重要的四个触摸事件，即：<strong>DOWN,MOVE,UP和CANCEL</strong>。<strong>一个手势（gesture）</strong>是一个事件列，以一个DOWN事件开始（当用户触摸屏幕时产生），后跟0个或多个MOVE事件（当用户四处移动手指时产生），最后跟一个单独的UP或CANCEL事件（当用户手指离开屏幕或者系统告诉你手势（gesture）由于其他原因结束时产生）。当我们说到“<strong>手势剩余部分</strong>”时指的是手势后续的MOVE事件和最后的UP或CANCEL事件。</p>
-<a id="more"></a>
 <p>在这里我也不考虑多点触摸手势（我们只假设用一个手指）并且忽略多个MOVE事件可以被归为一组这一实际情况。最后，我们假设文中的view都没有注册onTouchListener。</p>
 <p>我们将要讨论的视图层次是这样的：最外层是一个ViewGroup A，包含一个或多个子view（children），其中一个子view是ViewGroup B，ViewGroupB中又包含一个或多个子view，其中一个子view是 View C,C不是一个ViewGroup。这里我们忽略同层级view之间可能的交叉叠加。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1371984-8cbcd729711f25ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="android-touch.png"></p>

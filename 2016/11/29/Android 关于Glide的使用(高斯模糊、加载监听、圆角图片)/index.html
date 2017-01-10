@@ -86,23 +86,26 @@
 
 
 
-<meta name="description" content="引用1compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;
-加载图片基本加载123Glide.with(context)	.load(url)	.into(imageView);
-设置加载中和加载失败的情况12345Glide.with(context)	.load(url)	.placeholder(R.drawable.loading) //占位符">
+<meta name="description" content="引用
+引入的库应为如下，将官方的额外扩展了，使其可以支持高斯模糊。
+
+1compile &apos;jp.wasabeef:glide-transformations:2.0.1&apos;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)">
+<meta property="og:title" content="Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片)">
 <meta property="og:url" content="http://jingbin.me/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
-<meta property="og:description" content="引用1compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;
-加载图片基本加载123Glide.with(context)	.load(url)	.into(imageView);
-设置加载中和加载失败的情况12345Glide.with(context)	.load(url)	.placeholder(R.drawable.loading) //占位符">
+<meta property="og:description" content="引用
+引入的库应为如下，将官方的额外扩展了，使其可以支持高斯模糊。
+
+1compile &apos;jp.wasabeef:glide-transformations:2.0.1&apos;">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040">
-<meta property="og:updated_time" content="2016-12-05T13:50:35.000Z">
+<meta property="og:updated_time" content="2017-01-10T04:29:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)">
-<meta name="twitter:description" content="引用1compile &apos;com.github.bumptech.glide:glide:3.7.0&apos;
-加载图片基本加载123Glide.with(context)	.load(url)	.into(imageView);
-设置加载中和加载失败的情况12345Glide.with(context)	.load(url)	.placeholder(R.drawable.loading) //占位符">
+<meta name="twitter:title" content="Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片)">
+<meta name="twitter:description" content="引用
+引入的库应为如下，将官方的额外扩展了，使其可以支持高斯模糊。
+
+1compile &apos;jp.wasabeef:glide-transformations:2.0.1&apos;">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040">
 
 
@@ -137,7 +140,7 @@
 
 
 
-  <title> Android 关于Glide的使用(高斯模糊、加载监听、圆角图片) | Jing Bin'blog </title>
+  <title> Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片) | Jing Bin'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -328,7 +331,7 @@
             
             
               
-                Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)
+                Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片)
               
             
           </h1>
@@ -386,7 +389,7 @@
 
           
           
-             <span id="/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/" class="leancloud_visitors" data-flag-title="Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)">
+             <span id="/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/" class="leancloud_visitors" data-flag-title="Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -412,10 +415,13 @@
 
       
         <p><img src="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040" alt="stackblur_default.png"></p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.github.bumptech.glide:glide:3.7.0'</span></div></pre></td></tr></table></figure>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p>引入的库应为如下，将官方的额外扩展了，使其可以支持高斯模糊。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'jp.wasabeef:glide-transformations:2.0.1'</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><h3 id="基本加载"><a href="#基本加载" class="headerlink" title="基本加载"></a>基本加载</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.into(imageView);</div></pre></td></tr></table></figure>
 <h3 id="设置加载中和加载失败的情况"><a href="#设置加载中和加载失败的情况" class="headerlink" title="设置加载中和加载失败的情况"></a>设置加载中和加载失败的情况</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading) <span class="comment">//占位符 也就是加载中的图片，可放个gif</span></div><div class="line">	.error(R.drawable.failed) <span class="comment">//失败图片</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h3 id="只加载动画"><a href="#只加载动画" class="headerlink" title="只加载动画"></a>只加载动画</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.asGif() <span class="comment">// 只能加载gif文件</span></div><div class="line">	.into(imageView);</div></pre></td></tr></table></figure>
 <h3 id="添加图片淡入加载的效果"><a href="#添加图片淡入加载的效果" class="headerlink" title="添加图片淡入加载的效果"></a>添加图片淡入加载的效果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading)</div><div class="line">	.error(R.drawable.failed) </div><div class="line">	.crossFade(<span class="number">1000</span>) <span class="comment">// 可设置时长，默认“300ms”</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
 <h3 id="加载高斯模糊图"><a href="#加载高斯模糊图" class="headerlink" title="加载高斯模糊图"></a>加载高斯模糊图</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading)</div><div class="line">	.error(R.drawable.failed) </div><div class="line">	.crossFade(<span class="number">1000</span>)</div><div class="line">	.bitmapTransform(<span class="keyword">new</span> BlurTransformation(context,<span class="number">23</span>,<span class="number">4</span>))  <span class="comment">// “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
@@ -522,7 +528,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/"
-           data-title="Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)" data-url="http://jingbin.me/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/">
+           data-title="Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片)" data-url="http://jingbin.me/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/">
       </div>
     
   </div>

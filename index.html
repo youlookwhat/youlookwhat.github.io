@@ -1270,7 +1270,7 @@
               
                 
                 <a class="post-title-link" href="/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/" itemprop="url">
-                  Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)
+                  Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片)
                 </a>
               
             
@@ -1329,7 +1329,7 @@
 
           
           
-             <span id="/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/" class="leancloud_visitors" data-flag-title="Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)">
+             <span id="/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/" class="leancloud_visitors" data-flag-title="Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1356,9 +1356,10 @@
       
         
           <p><img src="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040" alt="stackblur_default.png"></p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.github.bumptech.glide:glide:3.7.0'</span></div></pre></td></tr></table></figure>
-<h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><h3 id="基本加载"><a href="#基本加载" class="headerlink" title="基本加载"></a>基本加载</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.into(imageView);</div></pre></td></tr></table></figure>
-<h3 id="设置加载中和加载失败的情况"><a href="#设置加载中和加载失败的情况" class="headerlink" title="设置加载中和加载失败的情况"></a>设置加载中和加载失败的情况</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading) <span class="comment">//占位符 也就是加载中的图片，可放个gif</span></div><div class="line">	.error(R.drawable.failed) <span class="comment">//失败图片</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<p>引入的库应为如下，将官方的额外扩展了，使其可以支持高斯模糊。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'jp.wasabeef:glide-transformations:2.0.1'</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/#more" rel="contents">
@@ -1684,8 +1685,6 @@
 <blockquote>
 <p>我几乎看过国内讲解Android事件分发的所有文章，但遗憾的是都没有这篇讲的好，原因有二：它阐明了具体的事件分发机制的设计意图，让人既知其然，又知其所以然；它没有贴源码，吓唬本宝宝。所以我决定将它翻译出来，造福广大Android开发者。原文请点击<a href="http://balpha.de/2013/07/android-development-what-i-wish-i-had-known-earlier/">这里</a></p>
 </blockquote>
-<p>有时，你必须要自己处理触摸事件（touch events）而不能依赖于有可用的onSomethingListener。我就遇到过这样的时候，当时我很想有一篇文章能简单地解释触摸事件是怎样在视图层次（view hierarchy）中传播的，从而可以将之作为进一步深入学习的起点。这篇博客是我的一次尝试，它看起来有点长，但这是因为我是按照触摸事件的传播过程一步一步来写的。</p>
-<h2 id="一些假设"><a href="#一些假设" class="headerlink" title="一些假设"></a>一些假设</h2><p>我们只考虑最重要的四个触摸事件，即：<strong>DOWN,MOVE,UP和CANCEL</strong>。<strong>一个手势（gesture）</strong>是一个事件列，以一个DOWN事件开始（当用户触摸屏幕时产生），后跟0个或多个MOVE事件（当用户四处移动手指时产生），最后跟一个单独的UP或CANCEL事件（当用户手指离开屏幕或者系统告诉你手势（gesture）由于其他原因结束时产生）。当我们说到“<strong>手势剩余部分</strong>”时指的是手势后续的MOVE事件和最后的UP或CANCEL事件。</p>
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/22/可能是讲解Android事件分发最好的文章/#more" rel="contents">
