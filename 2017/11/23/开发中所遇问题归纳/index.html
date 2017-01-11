@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和GsonFormat的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindin">
-<meta property="og:updated_time" content="2017-01-09T17:06:30.000Z">
+<meta property="og:updated_time" content="2017-01-11T08:04:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -511,8 +511,9 @@ DataBindingHelper.jar的使用：作为插件导入后，和GsonFormat的使用�
 <p>同时此包里还含有<code>Toolbar</code>的属性：</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:layout_collapseMode=<span class="string">"pin"</span></div><div class="line">  app:layout_scrollFlags=<span class="string">"enterAlways|scroll"</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</p>
+<li><p>NestedScrollView里嵌套 RecyclerView 需要在<code>onResume</code>里加上<code>.setFocusable(false)</code>，不然进入页面会定位到列表第一条或其他问题。</p>
 </li>
+<li>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</li>
 </ul>
 <h2 id="ViewPager-与-Fragment"><a href="#ViewPager-与-Fragment" class="headerlink" title="ViewPager 与 Fragment"></a>ViewPager 与 Fragment</h2><ul>
 <li><p>父布局使用<code>fragment</code>或<code>scrollview</code>下拉会有阴影效果。</p>
