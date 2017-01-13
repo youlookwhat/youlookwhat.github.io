@@ -346,10 +346,11 @@
     <link href="http://jingbin.me/2017/01/13/Android%20-%20%E4%BB%BF%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%AD%8C%E5%8D%95%E8%AF%A6%E6%83%85%E9%A1%B5/"/>
     <id>http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/</id>
     <published>2017-01-13T04:55:23.000Z</published>
-    <updated>2017-01-13T11:14:37.000Z</updated>
+    <updated>2017-01-13T11:22:00.000Z</updated>
     
     <content type="html"><![CDATA[<p>前段时间使用DataBinding模仿网易云音乐UI做了一个App：<a href="http://www.jianshu.com/p/69a229fb6e1d" target="_blank" rel="external">CloudReader</a>，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，因为其中关联到的知识点还比较有价值，而且还有很多值得注意的地方。</p>
 <p>本次项目地址：<a href="https://github.com/youlookwhat/ScrollShapeUI" target="_blank" rel="external">ScrollShapeUI</a></p>
+<a id="more"></a>
 <h3 id="效果图对比："><a href="#效果图对比：" class="headerlink" title="效果图对比："></a>效果图对比：</h3><ul>
 <li><p>网易云音乐App原图：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip" alt="网易云音乐App原图.gif"></p>
@@ -394,7 +395,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;前段时间使用DataBinding模仿网易云音乐UI做了一个App：&lt;a href=&quot;http://www.jianshu.com/p/69a229fb6e1d&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CloudReader&lt;/a&gt;，今天把其中的类似
+      &lt;p&gt;前段时间使用DataBinding模仿网易云音乐UI做了一个App：&lt;a href=&quot;http://www.jianshu.com/p/69a229fb6e1d&quot;&gt;CloudReader&lt;/a&gt;，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，因为其中关联到的知识点还比较有价值，而且还有很多值得注意的地方。&lt;/p&gt;
+&lt;p&gt;本次项目地址：&lt;a href=&quot;https://github.com/youlookwhat/ScrollShapeUI&quot;&gt;ScrollShapeUI&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -412,12 +414,12 @@
     <link href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/"/>
     <id>http://jingbin.me/2016/12/30/更新日志-云阅/</id>
     <published>2016-12-30T09:45:31.000Z</published>
-    <updated>2017-01-03T14:25:03.000Z</updated>
+    <updated>2017-01-13T11:22:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>大家好，很高兴大家能看到这里，这里是<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">云阅开源项目</a>的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。</p>
+ <a id="more"></a>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip" alt="版本更新.gif"></p>
 <hr>
- <a id="more"></a>
 <h3 id="版本-V1-0"><a href="#版本-V1-0" class="headerlink" title="版本 V1.0"></a>版本 V1.0</h3><blockquote>
 <p>此版的具体说明请见项目主页：<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">点击这里</a>。</p>
 </blockquote>
@@ -459,8 +461,6 @@
     <summary type="html">
     
       &lt;p&gt;大家好，很高兴大家能看到这里，这里是&lt;a href=&quot;https://github.com/youlookwhat/CloudReader&quot;&gt;云阅开源项目&lt;/a&gt;的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip&quot; alt=&quot;版本更新.gif&quot;&gt;&lt;/p&gt;
-&lt;hr&gt;
     
     </summary>
     
