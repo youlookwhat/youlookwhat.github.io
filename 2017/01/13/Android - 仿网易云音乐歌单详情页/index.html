@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="cloudreader,开源项目," />
+  <meta name="keywords" content="Android,cloudreader," />
 
 
 
@@ -86,18 +86,50 @@
 
 
 
-<meta name="description" content="大家好，为了帮助大家更加愉快的使用云阅开源项目，现将大家可能遇到的问题及产生原因列举在这里，希望能帮到大家。">
+<meta name="description" content="前段时间使用DataBinding模仿网易云音乐UI做了一个App：CloudReader，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，因为其中关联到的知识点还比较有价值，而且还有很多值得注意的地方。
+本次项目地址：ScrollShapeUI
+效果图对比：
+网易云音乐App原图：
+
+
+模仿的效果图：
+
+
+
+建议大家直接看CloudReader项目应用里的效果，里面的内容部">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常见问题-云阅">
-<meta property="og:url" content="http://jingbin.me/2016/12/25/常见问题-云阅/index.html">
+<meta property="og:title" content="Android - 仿网易云音乐歌单详情页">
+<meta property="og:url" content="http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
-<meta property="og:description" content="大家好，为了帮助大家更加愉快的使用云阅开源项目，现将大家可能遇到的问题及产生原因列举在这里，希望能帮到大家。">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-f689de2ba9720db9.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-01-03T14:25:30.000Z">
+<meta property="og:description" content="前段时间使用DataBinding模仿网易云音乐UI做了一个App：CloudReader，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，因为其中关联到的知识点还比较有价值，而且还有很多值得注意的地方。
+本次项目地址：ScrollShapeUI
+效果图对比：
+网易云音乐App原图：
+
+
+模仿的效果图：
+
+
+
+建议大家直接看CloudReader项目应用里的效果，里面的内容部">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-9aeef33cf3721aa6.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-fb6286fe506cadcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:updated_time" content="2017-01-13T11:14:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常见问题-云阅">
-<meta name="twitter:description" content="大家好，为了帮助大家更加愉快的使用云阅开源项目，现将大家可能遇到的问题及产生原因列举在这里，希望能帮到大家。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-f689de2ba9720db9.gif?imageMogr2/auto-orient/strip">
+<meta name="twitter:title" content="Android - 仿网易云音乐歌单详情页">
+<meta name="twitter:description" content="前段时间使用DataBinding模仿网易云音乐UI做了一个App：CloudReader，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，因为其中关联到的知识点还比较有价值，而且还有很多值得注意的地方。
+本次项目地址：ScrollShapeUI
+效果图对比：
+网易云音乐App原图：
+
+
+模仿的效果图：
+
+
+
+建议大家直接看CloudReader项目应用里的效果，里面的内容部">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip">
 
 
 
@@ -125,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://jingbin.me/2016/12/25/常见问题-云阅/"/>
+  <link rel="canonical" href="http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/"/>
 
 
 
 
 
-  <title> 常见问题-云阅 | Jing Bin'blog </title>
+  <title> Android - 仿网易云音乐歌单详情页 | Jing Bin'blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -298,7 +330,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2016/12/25/常见问题-云阅/">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jingbin_">
@@ -322,7 +354,7 @@
             
             
               
-                常见问题-云阅
+                Android - 仿网易云音乐歌单详情页
               
             
           </h1>
@@ -335,8 +367,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-25T17:40:38+08:00">
-                2016-12-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-13T12:55:23+08:00">
+                2017-01-13
               </time>
             
 
@@ -354,8 +386,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/开源项目/" itemprop="url" rel="index">
-                    <span itemprop="name">开源项目</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -369,8 +401,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/25/常见问题-云阅/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/25/常见问题-云阅/" itemprop="commentCount"></span>
+                <a href="/2017/01/13/Android - 仿网易云音乐歌单详情页/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/13/Android - 仿网易云音乐歌单详情页/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,7 +412,7 @@
 
           
           
-             <span id="/2016/12/25/常见问题-云阅/" class="leancloud_visitors" data-flag-title="常见问题-云阅">
+             <span id="/2017/01/13/Android - 仿网易云音乐歌单详情页/" class="leancloud_visitors" data-flag-title="Android - 仿网易云音乐歌单详情页">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -405,19 +437,48 @@
       
 
       
-        <p>大家好，为了帮助大家更加愉快的使用<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">云阅开源项目</a>，现将大家可能遇到的问题及产生原因列举在这里，希望能帮到大家。</p>
-  <a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-f689de2ba9720db9.gif?imageMogr2/auto-orient/strip" alt=""></p>
-<hr>
-<h3 id="1-为什么我安装不上App？"><a href="#1-为什么我安装不上App？" class="headerlink" title="1.为什么我安装不上App？"></a>1.为什么我安装不上App？</h3><p>本APP只支持Android 4.4及以上系统版本，低于这之下的版本是安装不上的哦。</p>
-<h3 id="2-搜索，调整栏目等其他按钮点击没效果？"><a href="#2-搜索，调整栏目等其他按钮点击没效果？" class="headerlink" title="2.搜索，调整栏目等其他按钮点击没效果？"></a>2.搜索，调整栏目等其他按钮点击没效果？</h3><p>由于项目需要做的功能点比较多，为了每个功能点做的精细，所以耗时较长，导致没有完善每个功能。后期将逐步的完善其中的功能，完善后会及时更新。</p>
-<h3 id="3-为了网页一直显示“加载中…”？"><a href="#3-为了网页一直显示“加载中…”？" class="headerlink" title="3.为了网页一直显示“加载中…”？"></a>3.为了网页一直显示“加载中…”？</h3><p>在App中打开的网页皆是外链，由于网速慢，或限时访问等问题有可能会导致访问失败，这时不妨试试其他网页或等一段时间再访问。</p>
-<h3 id="4-问题反馈中点击QQ跳转错误。"><a href="#4-问题反馈中点击QQ跳转错误。" class="headerlink" title="4.问题反馈中点击QQ跳转错误。"></a>4.问题反馈中点击QQ跳转错误。</h3><p>点击QQ直接跳转的是QQ会话页面，没有加好友可能导致此问题出现，可以加我的qq:770413277,然后再向我反馈即可。</p>
-<h3 id="5-首页没有内容展示？"><a href="#5-首页没有内容展示？" class="headerlink" title="5.首页没有内容展示？"></a>5.首页没有内容展示？</h3><p>由于使用的代码家gank.io提供的api，双休时是不更新的，如果双休有数据取得则是之前的缓存。</p>
-<h3 id="6-上下迅速滑动后轮播图会跳动。"><a href="#6-上下迅速滑动后轮播图会跳动。" class="headerlink" title="6.上下迅速滑动后轮播图会跳动。"></a>6.上下迅速滑动后轮播图会跳动。</h3><p>这是暂时的一个问题所在，因为没有产生比较大的问题，所以被延后处理，后期将修复。</p>
-<h3 id="7-书籍或电影详情页一直访问失败？"><a href="#7-书籍或电影详情页一直访问失败？" class="headerlink" title="7.书籍或电影详情页一直访问失败？"></a>7.书籍或电影详情页一直访问失败？</h3><p>因为豆瓣api限制普通用于，每个ip每分钟请求次数是40次，超过ip会被暂时停用，一般为半小时左右，建议换到其他网络，或过一段时间再次访问。</p>
-<h3 id="8-点击更多进入详情页后返回要快速返回两次才有效。"><a href="#8-点击更多进入详情页后返回要快速返回两次才有效。" class="headerlink" title="8.点击更多进入详情页后返回要快速返回两次才有效。"></a>8.点击更多进入详情页后返回要快速返回两次才有效。</h3><p>因为详情页是豆瓣提供的网页链接，我们这边无法处理，其他页面可能是正常的，谢谢。</p>
-<h3 id="9-有比较多的书籍详情的部分内容缺失。"><a href="#9-有比较多的书籍详情的部分内容缺失。" class="headerlink" title="9.有比较多的书籍详情的部分内容缺失。"></a>9.有比较多的书籍详情的部分内容缺失。</h3><p>因为是展示的豆瓣提供的书籍页面，一切的数据内容都是豆瓣提供，如出现此类情况不能满足您的需要，请采用其他搜索引擎搜索，给您带来的不变深感抱歉。</p>
+        <p>前段时间使用DataBinding模仿网易云音乐UI做了一个App：<a href="http://www.jianshu.com/p/69a229fb6e1d" target="_blank" rel="external">CloudReader</a>，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，因为其中关联到的知识点还比较有价值，而且还有很多值得注意的地方。</p>
+<p>本次项目地址：<a href="https://github.com/youlookwhat/ScrollShapeUI" target="_blank" rel="external">ScrollShapeUI</a></p>
+<h3 id="效果图对比："><a href="#效果图对比：" class="headerlink" title="效果图对比："></a>效果图对比：</h3><ul>
+<li><p>网易云音乐App原图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip" alt="网易云音乐App原图.gif"></p>
+</li>
+<li><p>模仿的效果图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-9aeef33cf3721aa6.gif?imageMogr2/auto-orient/strip" alt="模仿的效果图.gif"></p>
+</li>
+</ul>
+<p>建议大家直接看<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader项目应用</a>里的效果，里面的内容部分有加载中的loading图，效果更逼真。</p>
+<h3 id="基本布局："><a href="#基本布局：" class="headerlink" title="基本布局："></a>基本布局：</h3><p>FrameLayout　<br>　—– MyNestedScrollView // 为了Api23下的滑动兼容<br>　　　—- LinearLayout // 内容部分<br>　—– RelativeLayout<br>　　　—- ImageView // Toolbar后面的背景图<br>　　　—- Toolbar // 标题栏</p>
+<p>由于篇幅原因，不能做详细的介绍，这里就简单介绍实现这种效果的思路：</p>
+<h3 id="实现思路："><a href="#实现思路：" class="headerlink" title="实现思路："></a>实现思路：</h3><ul>
+<li>1、Activity设置自定义Shared Element切换动画</li>
+<li>2、透明状态栏（透明Toolbar,使背景图上移）</li>
+<li>3、Toolbar底部增加和背景一样的高斯模糊图，并上移图片（为了使背景图的底部作为toolbar的背景）</li>
+<li>4、上下滑动，通过NestedScrollView拿到移动的高度，同时调整Toolbar的背景图透明度</li>
+</ul>
+<h4 id="1、Activity设置自定义元素共享切换动画"><a href="#1、Activity设置自定义元素共享切换动画" class="headerlink" title="1、Activity设置自定义元素共享切换动画"></a>1、Activity设置自定义元素共享切换动画</h4><p>大家可以发现页面跳转时图片移动的是一个<strong>曲线路径</strong>，我们可以定制View的过渡切换效果。这是Material Design中比较常见的用法，Api21以上才有效。这需要开启页面时使用<code>ActivityOptions.makeSceneTransitionAnimation()</code>来定义共享的view和transitionName。然后在对应的Activity里创建<code>ArcMotion</code>对象。ArcMotion是<code>PathMotion</code>子类，是个曲线路径，对应代码片：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// Activity设置自定义 Shared Element切换动画</span></div><div class="line"> <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">        <span class="comment">//定义ArcMotion</span></div><div class="line">        ArcMotion arcMotion = <span class="keyword">new</span> ArcMotion();</div><div class="line">        arcMotion.setMinimumHorizontalAngle(<span class="number">50f</span>);</div><div class="line">        arcMotion.setMinimumVerticalAngle(<span class="number">50f</span>);</div><div class="line">        <span class="comment">//插值器，控制速度</span></div><div class="line">        Interpolator interpolator = AnimationUtils.loadInterpolator(<span class="keyword">this</span>, android.R.interpolator.fast_out_slow_in);</div><div class="line">        <span class="comment">//实例化自定义的ChangeBounds</span></div><div class="line">        CustomChangeBounds changeBounds = <span class="keyword">new</span> CustomChangeBounds();</div><div class="line">        changeBounds.setPathMotion(arcMotion);</div><div class="line">        changeBounds.setInterpolator(interpolator);</div><div class="line">        changeBounds.addTarget(binding.include.ivOnePhoto);</div><div class="line">        <span class="comment">//将切换动画应用到当前的Activity的进入和返回</span></div><div class="line">        getWindow().setSharedElementEnterTransition(changeBounds);</div><div class="line">        getWindow().setSharedElementReturnTransition(changeBounds);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">// 开启</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(context, MovieDetailActivity.class);</div><div class="line">intent.putExtra(<span class="string">"bean"</span>, positionData);</div><div class="line">ActivityOptionsCompat options =</div><div class="line">			ActivityOptionsCompat.makeSceneTransitionAnimation(context,imageView, CommonUtils.getString(R.string.transition_book_img));<span class="comment">//与xml文件对应</span></div><div class="line"> ActivityCompat.startActivity(context, intent, options.toBundle());</div></pre></td></tr></table></figure>
+<blockquote>
+<p>值得注意的是：因为加载图片要一点时间，加载过程中就会出现闪烁的情况，而如果取的是缓存就不会有这样的问题，所以这里有个小技巧，就是起初Glide加载的图片就指定固定的大小（<code>.override(120,120)</code>），这样图片就会被缓存起来，等到跳转时就取缓存。具体请看项目源码。</p>
+</blockquote>
+<h4 id="2、透明状态栏"><a href="#2、透明状态栏" class="headerlink" title="2、透明状态栏"></a>2、透明状态栏</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为头部是View的界面设置状态栏透明</span></div><div class="line">StatusBarUtil.setTranslucentImageHeader(<span class="keyword">this</span>, <span class="number">0</span>, binding.titleToolBar);</div><div class="line"><span class="comment">// 上移背景图片，使空白状态栏消失(这样下方就空了状态栏的高度)</span></div><div class="line">ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) binding.include.imgItemBg.getLayoutParams();</div><div class="line"> layoutParams.setMargins(<span class="number">0</span>, -StatusBarUtil.getStatusBarHeight(<span class="keyword">this</span>), <span class="number">0</span>, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>其中<a href="https://github.com/youlookwhat/ScrollShapeUI/blob/master/app/src/main/java/com/example/jingbin/scrollshapeui/utils/StatusBarUtil.java" target="_blank" rel="external">StatusBarUtil</a>。</p>
+<h4 id="3、Toolbar的背景图"><a href="#3、Toolbar的背景图" class="headerlink" title="3、Toolbar的背景图"></a>3、Toolbar的背景图</h4><p>仔细分析后发现网易云音乐的Toolbar的背景其实显示的是高斯模糊图的底部，所以这里基本套路是Toolbar是透明的，后面背景图取的是高斯模糊图的底部一部分。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-fb6286fe506cadcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt=""></p>
+<h5 id="调整Toolbar背景图位置"><a href="#调整Toolbar背景图位置" class="headerlink" title="调整Toolbar背景图位置"></a>调整Toolbar背景图位置</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Toolbar的高度</span></div><div class="line"><span class="keyword">int</span> toolbarHeight = binding.titleToolBar.getLayoutParams().height;</div><div class="line"><span class="comment">// Toolbar+状态栏的高度　</span></div><div class="line"><span class="keyword">final</span> <span class="keyword">int</span> headerBgHeight = toolbarHeight + StatusBarUtil.getStatusBarHeight(<span class="keyword">this</span>);</div><div class="line">    </div><div class="line"><span class="comment">// 使背景图向上移动到图片的最底端，保留Toolbar+状态栏的高度</span></div><div class="line">binding.ivTitleHeadBg.setVisibility(View.VISIBLE);</div><div class="line">ViewGroup.LayoutParams params = binding.ivTitleHeadBg.getLayoutParams();</div><div class="line">ViewGroup.MarginLayoutParams ivTitleHeadBgParams = (ViewGroup.MarginLayoutParams) binding.ivTitleHeadBg.getLayoutParams();</div><div class="line"><span class="keyword">int</span> marginTop = params.height - headerBgHeight;</div><div class="line">ivTitleHeadBgParams.setMargins(<span class="number">0</span>, -marginTop, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">binding.ivTitleHeadBg.setImageAlpha(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+<h5 id="显示Toolbar背景图"><a href="#显示Toolbar背景图" class="headerlink" title="显示Toolbar背景图"></a>显示Toolbar背景图</h5><p>监听图片显示，在显示之后将其设置为透明色，然后在滑动的时候渐变。这里值得注意的是在设置图片时不要设置加载中的图片，不然初始化时达不到透明的效果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 高斯模糊背景，加载后将背景设为透明</span></div><div class="line"> Glide.with(<span class="keyword">this</span>).load(NeteasePlaylistActivity.IMAGE_URL_MEDIUM)</div><div class="line">         <span class="comment">//.placeholder(R.drawable.stackblur_default)</span></div><div class="line">         .error(R.drawable.stackblur_default)</div><div class="line">         .bitmapTransform(<span class="keyword">new</span> BlurTransformation(<span class="keyword">this</span>, <span class="number">14</span>, <span class="number">3</span>))<span class="comment">// 设置高斯模糊</span></div><div class="line">         .listener(<span class="keyword">new</span> RequestListener&lt;String, GlideDrawable&gt;() &#123;<span class="comment">//监听加载状态</span></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onException</span><span class="params">(Exception e, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFromMemoryCache, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">         <span class="comment">// Toolbar背景设为透明</span></div><div class="line">         binding.titleToolBar.setBackgroundColor(Color.TRANSPARENT);</div><div class="line">         <span class="comment">// 后面的图片初始化为全透明</span></div><div class="line">         binding.ivTitleHeadBg.setImageAlpha(<span class="number">0</span>);</div><div class="line">         binding.ivTitleHeadBg.setVisibility(View.VISIBLE);</div><div class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     &#125;</div><div class="line"> &#125;).into(binding.ivTitleHeadBg);</div></pre></td></tr></table></figure>
+<h4 id="4、上下滑动，渐变背景图透明度"><a href="#4、上下滑动，渐变背景图透明度" class="headerlink" title="4、上下滑动，渐变背景图透明度"></a>4、上下滑动，渐变背景图透明度</h4><p>由于<code>NestedScrollView</code>滚动监听只能在API23以上才能使用，这里为了兼容需要额外处理，定义滚动接口，具体：<a href="https://github.com/youlookwhat/ScrollShapeUI/blob/master/app/src/main/java/com/example/jingbin/scrollshapeui/view/MyNestedScrollView.java" target="_blank" rel="external">MyNestedScrollView</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 根据页面滑动距离改变Header透明度方法</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">scrollChangeHeader</span><span class="params">(<span class="keyword">int</span> scrolledY)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (scrolledY &lt; <span class="number">0</span>) &#123;</div><div class="line">        scrolledY = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">float</span> alpha = Math.abs(scrolledY) * <span class="number">1.0f</span> / (slidingDistance);</div><div class="line">    Drawable drawable = binding.ivTitleHeadBg.getDrawable();</div><div class="line">    <span class="keyword">if</span> (drawable != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (scrolledY &lt;= slidingDistance) &#123;</div><div class="line">            <span class="comment">// title部分的渐变</span></div><div class="line">            drawable.mutate().setAlpha((<span class="keyword">int</span>) (alpha * <span class="number">255</span>));</div><div class="line">            binding.ivTitleHeadBg.setImageDrawable(drawable);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            drawable.mutate().setAlpha(<span class="number">255</span>);</div><div class="line">            binding.ivTitleHeadBg.setImageDrawable(drawable);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="http://www.jianshu.com/p/37e94f8b6f59" target="_blank" rel="external">http://www.jianshu.com/p/37e94f8b6f59</a></li>
+<li><a href="https://github.com/pinguo-zhouwei/YunMusicUI" target="_blank" rel="external">https://github.com/pinguo-zhouwei/YunMusicUI</a></li>
+<li><a href="http://blog.csdn.net/u011734444/article/details/51471182" target="_blank" rel="external">http://blog.csdn.net/u011734444/article/details/51471182</a></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本人思考并实践了很多实现这个页面的方法，目前为止这个方案是最好的，效果体验几乎是一样，其中涉及到的知识点有：1、页面跳转共享元素曲线动画；2、透明状态栏；3、Glide监听图片加载状态和加载固定大小图片等；4、NestedScrollView在Api23下的滑动兼容。如果有更好的方案还请联系我，本次项目的源代码：<a href="https://github.com/youlookwhat/ScrollShapeUI" target="_blank" rel="external">https://github.com/youlookwhat/ScrollShapeUI</a>。</p>
+<blockquote>
+<p>欢迎关注我的<a href="http://www.jianshu.com/u/e43c6e979831" target="_blank" rel="external">简书</a>和<a href="https://github.com/youlookwhat" target="_blank" rel="external">Github</a></p>
+</blockquote>
 
       
     </div>
@@ -441,9 +502,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cloudreader/" rel="tag"># cloudreader</a>
+            <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/开源项目/" rel="tag"># 开源项目</a>
+            <a href="/tags/cloudreader/" rel="tag"># cloudreader</a>
           
         </div>
       
@@ -452,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/04/漫威宇宙/" rel="next" title="漫威电影宇宙">
-                <i class="fa fa-chevron-left"></i> 漫威电影宇宙
+              <a href="/2016/12/30/更新日志-云阅/" rel="next" title="更新日志-云阅">
+                <i class="fa fa-chevron-left"></i> 更新日志-云阅
               </a>
             
           </div>
@@ -462,8 +523,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/30/更新日志-云阅/" rel="prev" title="更新日志-云阅">
-                更新日志-云阅 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/23/开发中所遇问题归纳/" rel="prev" title="开发中所遇问题归纳">
+                开发中所遇问题归纳 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -496,8 +557,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/25/常见问题-云阅/"
-           data-title="常见问题-云阅" data-url="http://jingbin.me/2016/12/25/常见问题-云阅/">
+      <div class="ds-thread" data-thread-key="2017/01/13/Android - 仿网易云音乐歌单详情页/"
+           data-title="Android - 仿网易云音乐歌单详情页" data-url="http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/">
       </div>
     
   </div>
@@ -677,7 +738,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么我安装不上App？"><span class="nav-number">1.</span> <span class="nav-text">1.为什么我安装不上App？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-搜索，调整栏目等其他按钮点击没效果？"><span class="nav-number">2.</span> <span class="nav-text">2.搜索，调整栏目等其他按钮点击没效果？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-为了网页一直显示“加载中…”？"><span class="nav-number">3.</span> <span class="nav-text">3.为了网页一直显示“加载中…”？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-问题反馈中点击QQ跳转错误。"><span class="nav-number">4.</span> <span class="nav-text">4.问题反馈中点击QQ跳转错误。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-首页没有内容展示？"><span class="nav-number">5.</span> <span class="nav-text">5.首页没有内容展示？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-上下迅速滑动后轮播图会跳动。"><span class="nav-number">6.</span> <span class="nav-text">6.上下迅速滑动后轮播图会跳动。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-书籍或电影详情页一直访问失败？"><span class="nav-number">7.</span> <span class="nav-text">7.书籍或电影详情页一直访问失败？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-点击更多进入详情页后返回要快速返回两次才有效。"><span class="nav-number">8.</span> <span class="nav-text">8.点击更多进入详情页后返回要快速返回两次才有效。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-有比较多的书籍详情的部分内容缺失。"><span class="nav-number">9.</span> <span class="nav-text">9.有比较多的书籍详情的部分内容缺失。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#效果图对比："><span class="nav-number">1.</span> <span class="nav-text">效果图对比：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本布局："><span class="nav-number">2.</span> <span class="nav-text">基本布局：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现思路："><span class="nav-number">3.</span> <span class="nav-text">实现思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、Activity设置自定义元素共享切换动画"><span class="nav-number">3.1.</span> <span class="nav-text">1、Activity设置自定义元素共享切换动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、透明状态栏"><span class="nav-number">3.2.</span> <span class="nav-text">2、透明状态栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、Toolbar的背景图"><span class="nav-number">3.3.</span> <span class="nav-text">3、Toolbar的背景图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#调整Toolbar背景图位置"><span class="nav-number">3.3.1.</span> <span class="nav-text">调整Toolbar背景图位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#显示Toolbar背景图"><span class="nav-number">3.3.2.</span> <span class="nav-text">显示Toolbar背景图</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、上下滑动，渐变背景图透明度"><span class="nav-number">3.4.</span> <span class="nav-text">4、上下滑动，渐变背景图透明度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
