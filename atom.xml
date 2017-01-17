@@ -340,6 +340,70 @@
   </entry>
   
   <entry>
+    <title>♪ Music 如何在个人主页里插入音乐</title>
+    <link href="http://jingbin.me/2017/01/17/%E2%99%AA%20Music%20%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E9%87%8C%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90/"/>
+    <id>http://jingbin.me/2017/01/17/♪ Music 如何在个人主页里插入音乐/</id>
+    <published>2017-01-17T04:48:23.000Z</published>
+    <updated>2017-01-17T06:40:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在自己的个人主页里插入喜欢的音乐有木有感觉很Cool呢，这里推荐四种形式：</p>
+<ul>
+<li>1、MarkDown里插入单曲</li>
+<li>2、MarkDown里插入歌单列表</li>
+<li>3、MarkDown里插入歌单列表，宽度自适应且自动播放</li>
+<li>4、新建菜单栏，以网页的形式插入</li>
+</ul>
+<h2 id="MarkDown里插入单曲"><a href="#MarkDown里插入单曲" class="headerlink" title="MarkDown里插入单曲"></a>MarkDown里插入单曲</h2><object width="340" height="86" data="http://music.163.com/style/swf/widget.swf?sid=445154960&type=2&auto=0&width=320&height=66" type="application/x-shockwave-flash"></object>  
+
+<a id="more"></a>
+<p>对应的字符串：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;object width="340" height="86" data="http://music.163.com/style/swf/widget.swf?</div><div class="line">sid=445154960&amp;type=2&amp;auto=0&amp;width=320&amp;height=66" </div><div class="line">type="application/x-shockwave-flash"&gt;&lt;/object&gt;</div></pre></td></tr></table></figure>
+<p>注意<strong>删掉中间的换行符</strong>。<br>然后进入<code>https://music.163.com/</code>搜索自己要添加的音乐然后找到id，替换即可。见下图：<br><img src="http://upload-images.jianshu.io/upload_images/1354448-65ecc6cb5570b00c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="music.png"></p>
+<h2 id="MarkDown里插入歌单列表"><a href="#MarkDown里插入歌单列表" class="headerlink" title="MarkDown里插入歌单列表"></a>MarkDown里插入歌单列表</h2><object width="330" height="450" data="http://music.163.com/style/swf/widget.swf?sid=108250019&type=0&auto=0&width=310&height=430" type="application/x-shockwave-flash"></object>
+
+<p>对应字符串：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;object width="330" height="450" data="http://music.163.com/style/swf/widget.swf?</div><div class="line">sid=108250019&amp;type=0&amp;auto=0&amp;width=310&amp;height=430" </div><div class="line">type="application/x-shockwave-flash"&gt;&lt;/object&gt;</div></pre></td></tr></table></figure>
+<p>与上面的步骤类似，找到要添加的歌单的id，更换即可：<br><img src="http://upload-images.jianshu.io/upload_images/1354448-a399b03b39cb9cd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="playlist.png"></p>
+<h2 id="MarkDown里插入歌单列表，宽度自适应且自动播放"><a href="#MarkDown里插入歌单列表，宽度自适应且自动播放" class="headerlink" title="MarkDown里插入歌单列表，宽度自适应且自动播放"></a>MarkDown里插入歌单列表，宽度自适应且自动播放</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="600" height="330" src="http://music.163.com/outchain/player?type=0&id=572758458&auto=1&height=430"></iframe>
+
+<p>对应字符串：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;iframe frameborder="no" border="0" marginwidth="0" </div><div class="line">marginheight="0" width="600" height="330" src="http://music.</div><div class="line">163.com/outchain/player?</div><div class="line">type=0&amp;id=572758458&amp;auto=1&amp;height=430"&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure>
+<p>操作一样，只是引入的字符串变了而已。</p>
+<h2 id="新建菜单栏，以网页的形式插入"><a href="#新建菜单栏，以网页的形式插入" class="headerlink" title="新建菜单栏，以网页的形式插入"></a>新建菜单栏，以网页的形式插入</h2><p>这个有些许麻烦，以添加“云音乐”菜单为例：</p>
+<h3 id="主题-config-yml配置"><a href="#主题-config-yml配置" class="headerlink" title="主题_config.yml配置"></a>主题<code>_config.yml</code>配置</h3><p>在主题文件夹的<code>_config.yml</code>里，添加需要添加的网页<br><img src="http://upload-images.jianshu.io/upload_images/1354448-cac8bfa6b1b94f13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="主题配置.png"></p>
+<h3 id="source文件夹下"><a href="#source文件夹下" class="headerlink" title="source文件夹下"></a><code>source</code>文件夹下</h3><p>然后在主题文件夹的<code>source</code>文件夹下，新建名为<code>music.html</code>的网页<br><img src="http://upload-images.jianshu.io/upload_images/1354448-c3b2ebfba363d0d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="source.png"></p>
+<h3 id="music-html里的内容"><a href="#music-html里的内容" class="headerlink" title="music.html里的内容"></a><code>music.html</code>里的内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;  </div><div class="line"> &lt;html&gt;  </div><div class="line">  &lt;head&gt;  </div><div class="line">   &lt;meta http-equiv=&quot;Content-type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;  </div><div class="line">    &lt;/head&gt;  </div><div class="line">     &lt;body&gt;  </div><div class="line">        &lt;div&gt;  </div><div class="line">            &lt;object width=&quot;340&quot; height=&quot;86&quot; data=&quot;http://music.163.com/style/swf/widget.swf?sid=188900&amp;type=2&amp;auto=0&amp;width=320&amp;height=66&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;  </div><div class="line">        &lt;/div&gt;  </div><div class="line">        &lt;hr /&gt;  </div><div class="line">        &lt;div&gt;  </div><div class="line">        &lt;object width=&quot;330&quot; height=&quot;450&quot; data=&quot;http://music.163.com/style/swf/widget.swf?sid=108250019&amp;type=0&amp;auto=0&amp;width=310&amp;height=430&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;  </div><div class="line">        &lt;/div&gt;  </div><div class="line">            &lt;hr /&gt;  </div><div class="line">        &lt;div&gt;  </div><div class="line">        &lt;object width=&quot;330&quot; height=&quot;450&quot; data=&quot;http://music.163.com/style/swf/widget.swf?sid=19971812&amp;type=0&amp;auto=0&amp;width=310&amp;height=430&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;  </div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;600&quot; height=&quot;450&quot; src=&quot;http://music.163.com/outchain/player?type=0&amp;id=108250019&amp;auto=1&amp;height=430&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;  </div><div class="line">     &lt;/body&gt;  </div><div class="line">      &lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>里面内容的跟上面所述的基本一致，只是放在了网页而已，这种方式快捷，但是不易扩展，比如要添加图片不方便，建议以md文档的形式新建一个菜单栏。</p>
+<h3 id="更改菜单名"><a href="#更改菜单名" class="headerlink" title="更改菜单名"></a>更改菜单名</h3><p>这样设置以后网页就可以正常开启了，只是菜单名默认为<code>Menu.Music</code>，不太美观，为了和其他的名称效果一致，需要修改为对应的字符串。这时候在站点的配置文件里找到你之前设置过的显示的语言<br><img src="http://upload-images.jianshu.io/upload_images/1354448-0deebf8e67566bf8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="language.png"></p>
+<p>然后找到对应的语言的文件夹内修改为自己想要的菜单名即可，示例请见：<a href="http://jingbin.me">http://jingbin.me</a><br><img src="http://upload-images.jianshu.io/upload_images/1354448-cf8664c6327130f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="txt.png"></p>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>是不是很简单呢，动起手来吧~<br>遇到什么问题可以联系我：<br>　　个人主页：<a href="http://jingbin.me">http://jingbin.me</a><br>　　简书：<a href="http://www.jianshu.com/u/e43c6e979831" target="_blank" rel="external">Jingbin_</a>  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在自己的个人主页里插入喜欢的音乐有木有感觉很Cool呢，这里推荐四种形式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1、MarkDown里插入单曲&lt;/li&gt;
+&lt;li&gt;2、MarkDown里插入歌单列表&lt;/li&gt;
+&lt;li&gt;3、MarkDown里插入歌单列表，宽度自适应且自动播放&lt;/li&gt;
+&lt;li&gt;4、新建菜单栏，以网页的形式插入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;MarkDown里插入单曲&quot;&gt;&lt;a href=&quot;#MarkDown里插入单曲&quot; class=&quot;headerlink&quot; title=&quot;MarkDown里插入单曲&quot;&gt;&lt;/a&gt;MarkDown里插入单曲&lt;/h2&gt;&lt;object width=&quot;340&quot; height=&quot;86&quot; data=&quot;http://music.163.com/style/swf/widget.swf?sid=445154960&amp;type=2&amp;auto=0&amp;width=320&amp;height=66&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;
+    
+    </summary>
+    
+      <category term="music" scheme="http://jingbin.me/categories/music/"/>
+    
+    
+      <category term="music" scheme="http://jingbin.me/tags/music/"/>
+    
+      <category term="markdown" scheme="http://jingbin.me/tags/markdown/"/>
+    
+      <category term="html" scheme="http://jingbin.me/tags/html/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android - 仿网易云音乐歌单详情页</title>
     <link href="http://jingbin.me/2017/01/13/Android%20-%20%E4%BB%BF%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%AD%8C%E5%8D%95%E8%AF%A6%E6%83%85%E9%A1%B5/"/>
     <id>http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/</id>
