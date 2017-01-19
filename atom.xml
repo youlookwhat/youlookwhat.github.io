@@ -478,24 +478,23 @@
     <link href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/"/>
     <id>http://jingbin.me/2016/12/30/更新日志-云阅/</id>
     <published>2016-12-30T09:45:31.000Z</published>
-    <updated>2017-01-18T09:22:40.000Z</updated>
+    <updated>2017-01-19T04:05:35.000Z</updated>
     
     <content type="html"><![CDATA[<p>大家好，很高兴大家能看到这里，这里是<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">云阅开源项目</a>的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。</p>
 <p>可以在<code>develop</code>分支上查看最新的提交，最后会合到<code>master</code>分支上。</p>
  <a id="more"></a>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip" alt="版本更新.gif"></p>
 <hr>
-<h3 id="版本-V1-2"><a href="#版本-V1-2" class="headerlink" title="版本 V1.2"></a>版本 V1.2</h3><ul>
+<h3 id="版本-V1-2（1-18）"><a href="#版本-V1-2（1-18）" class="headerlink" title="版本 V1.2（1-18）"></a>版本 V1.2（1-18）</h3><ul>
 <li>1、更改每日推荐逻辑，使其一定有数据</li>
 <li>2、干货集中营的item改为CardView展示</li>
 <li>3、代码优化</li>
 </ul>
 <hr>
-<h3 id="版本-V1-1"><a href="#版本-V1-1" class="headerlink" title="版本 V1.1"></a>版本 V1.1</h3><ul>
+<h3 id="版本-V1-1（1-15）"><a href="#版本-V1-1（1-15）" class="headerlink" title="版本 V1.1（1-15）"></a>版本 V1.1（1-15）</h3><ul>
 <li>1.书籍详情页面增加自定义元素共享切换动画，并可简单添加需要支持的详情页</li>
 <li>2.代码优化</li>
 <li>3.其他</li>
-<li>另：<code>develop</code>分支上已更新了”删除多余的三方库，干货集中营item列表改为CardView样式”</li>
 </ul>
 <hr>
 <h3 id="版本-V1-0"><a href="#版本-V1-0" class="headerlink" title="版本 V1.0"></a>版本 V1.0</h3><blockquote>
