@@ -156,13 +156,13 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-01-17T08:22:05.000Z</updated>
+    <updated>2017-02-03T06:05:35.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
 </blockquote>
 <h2 id="DataBinding"><a href="#DataBinding" class="headerlink" title="DataBinding"></a>DataBinding</h2><ul>
-<li><p><strong>DataBindingHelper.jar</strong>的使用：作为<a href="http://blog.csdn.net/yy1300326388/article/details/46409637" target="_blank" rel="external">插件导入</a>后，和<code>GsonFormat</code>的使用类似。在对应的<code>Bean</code>里，可自动生成<code>@Bindable</code>和<code>notifyPropertyChanged(BR.title);</code>。此杰作是同事做的。网上也有类似的插件可以使用。</p>
+<li><p><strong>DataBindingHelper.jar</strong>的使用：作为<a href="http://blog.csdn.net/yy1300326388/article/details/46409637" target="_blank" rel="external">插件导入</a>后，和生成<code>Get、Set方法</code>的使用类似。在对应的<code>Bean</code>里，可自动生成<code>@Bindable</code>和<code>notifyPropertyChanged(BR.title);</code>。此杰作是同事做的。网上也有类似的插件可以使用。</p>
 </li>
 <li><p><strong>神坑！windows下<a href="http://www.th7.cn/Program/Android/201608/944362.shtml" target="_blank" rel="external">databinding引入文字</a>会有问题，而mac上没有！使用<code>@string/string_type</code>引入字符串！</strong></p>
 </li>
@@ -322,7 +322,7 @@
 &lt;p&gt;持续更新，主要记录&lt;a href=&quot;https://github.com/youlookwhat/CloudReader&quot;&gt;CloudReader&lt;/a&gt;及工作上所遇到的问题。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;DataBinding&quot;&gt;&lt;a href=&quot;#DataBinding&quot; class=&quot;headerlink&quot; title=&quot;DataBinding&quot;&gt;&lt;/a&gt;DataBinding&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;DataBindingHelper.jar&lt;/strong&gt;的使用：作为&lt;a href=&quot;http://blog.csdn.net/yy1300326388/article/details/46409637&quot;&gt;插件导入&lt;/a&gt;后，和&lt;code&gt;GsonFormat&lt;/code&gt;的使用类似。在对应的&lt;code&gt;Bean&lt;/code&gt;里，可自动生成&lt;code&gt;@Bindable&lt;/code&gt;和&lt;code&gt;notifyPropertyChanged(BR.title);&lt;/code&gt;。此杰作是同事做的。网上也有类似的插件可以使用。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;DataBindingHelper.jar&lt;/strong&gt;的使用：作为&lt;a href=&quot;http://blog.csdn.net/yy1300326388/article/details/46409637&quot;&gt;插件导入&lt;/a&gt;后，和生成&lt;code&gt;Get、Set方法&lt;/code&gt;的使用类似。在对应的&lt;code&gt;Bean&lt;/code&gt;里，可自动生成&lt;code&gt;@Bindable&lt;/code&gt;和&lt;code&gt;notifyPropertyChanged(BR.title);&lt;/code&gt;。此杰作是同事做的。网上也有类似的插件可以使用。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;神坑！windows下&lt;a href=&quot;http://www.th7.cn/Program/Android/201608/944362.shtml&quot;&gt;databinding引入文字&lt;/a&gt;会有问题，而mac上没有！使用&lt;code&gt;@string/string_type&lt;/code&gt;引入字符串！&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -478,12 +478,24 @@
     <link href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/"/>
     <id>http://jingbin.me/2016/12/30/更新日志-云阅/</id>
     <published>2016-12-30T09:45:31.000Z</published>
-    <updated>2017-01-19T04:05:35.000Z</updated>
+    <updated>2017-02-03T06:03:56.000Z</updated>
     
-    <content type="html"><![CDATA[<p>大家好，很高兴大家能看到这里，这里是<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">云阅开源项目</a>的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>最后更新：2017-2-3 14：00</p>
+</blockquote>
+<p>大家好，很高兴大家能看到这里，这里是<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">云阅开源项目</a>的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。</p>
 <p>可以在<code>develop</code>分支上查看最新的提交，最后会合到<code>master</code>分支上。</p>
  <a id="more"></a>
 <p><img src="http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip" alt="版本更新.gif"></p>
+<hr>
+<h3 id="版本-V1-5（1-29）"><a href="#版本-V1-5（1-29）" class="headerlink" title="版本 V1.5（1-29）"></a>版本 V1.5（1-29）</h3><ul>
+<li>1、<strong>App体积大小从16M降到5.8M！</strong></li>
+<li>2、将App里固定的图片以移动到七牛。</li>
+<li>3、更改项目主页透明状态栏显示方式。</li>
+<li>4、更改每日推荐图片显示规则，使其不重复显示。</li>
+<li>5、更换过渡图图片。</li>
+<li>6、代码优化；删除多余资源。</li>
+</ul>
 <hr>
 <h3 id="版本-V1-2（1-18）"><a href="#版本-V1-2（1-18）" class="headerlink" title="版本 V1.2（1-18）"></a>版本 V1.2（1-18）</h3><ul>
 <li>1、更改每日推荐逻辑，使其一定有数据</li>
@@ -538,7 +550,10 @@
     
     <summary type="html">
     
-      &lt;p&gt;大家好，很高兴大家能看到这里，这里是&lt;a href=&quot;https://github.com/youlookwhat/CloudReader&quot;&gt;云阅开源项目&lt;/a&gt;的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;最后更新：2017-2-3 14：00&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;大家好，很高兴大家能看到这里，这里是&lt;a href=&quot;https://github.com/youlookwhat/CloudReader&quot;&gt;云阅开源项目&lt;/a&gt;的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。&lt;/p&gt;
 &lt;p&gt;可以在&lt;code&gt;develop&lt;/code&gt;分支上查看最新的提交，最后会合到&lt;code&gt;master&lt;/code&gt;分支上。&lt;/p&gt;
     
     </summary>
