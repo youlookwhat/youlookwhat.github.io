@@ -340,11 +340,55 @@
   </entry>
   
   <entry>
+    <title>Android 面试资料集锦</title>
+    <link href="http://jingbin.me/2017/02/20/Android%20%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E9%9B%86%E9%94%A6/"/>
+    <id>http://jingbin.me/2017/02/20/Android 面试资料集锦/</id>
+    <published>2017-02-20T10:51:00.000Z</published>
+    <updated>2017-02-20T10:58:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>正在收集中…<br>2017.02.20</p>
+</blockquote>
+<h3 id="资源集"><a href="#资源集" class="headerlink" title="资源集"></a>资源集</h3><ul>
+<li><strong><a href="https://github.com/GeniusVJR/LearningNotes" target="_blank" rel="external">LearningNotes</a></strong></li>
+<li><a href="https://github.com/baoyachi/Interview" target="_blank" rel="external">【面试集锦】</a></li>
+</ul>
+<a id="more"></a>
+<h3 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h3><ul>
+<li><a href="http://www.jianshu.com/p/94e0f9ab3f1d" target="_blank" rel="external">Context都没弄明白，还怎么做Android开发？</a></li>
+<li><a href="http://www.jianshu.com/p/8a7d059da746" target="_blank" rel="external">Android中RelativeLayout和LinearLayout性能分析</a></li>
+<li><a href="http://blog.csdn.net/dd864140130/article/details/55833087" target="_blank" rel="external">要换工作? 来看看面试题吧,Java 面试题集
+</a></li>
+<li><a href="http://www.jianshu.com/p/e99b5e8bd67b?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weixin" target="_blank" rel="external">图解 Android 事件分发机制</a></li>
+<li><a href="http://blog.csdn.net/qq_22329521/article/details/51934783" target="_blank" rel="external">垃圾收集器与内存分配策略</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;正在收集中…&lt;br&gt;2017.02.20&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;资源集&quot;&gt;&lt;a href=&quot;#资源集&quot; class=&quot;headerlink&quot; title=&quot;资源集&quot;&gt;&lt;/a&gt;资源集&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/GeniusVJR/LearningNotes&quot;&gt;LearningNotes&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/baoyachi/Interview&quot;&gt;【面试集锦】&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>♪ Music 如何在个人主页里插入音乐</title>
     <link href="http://jingbin.me/2017/01/17/%E2%99%AA%20Music%20%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E9%87%8C%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90/"/>
     <id>http://jingbin.me/2017/01/17/♪ Music 如何在个人主页里插入音乐/</id>
     <published>2017-01-17T04:48:23.000Z</published>
-    <updated>2017-01-17T06:40:31.000Z</updated>
+    <updated>2017-02-20T10:59:37.000Z</updated>
     
     <content type="html"><![CDATA[<p>在自己的个人主页里插入喜欢的音乐有木有感觉很Cool呢，这里推荐四种形式：</p>
 <ul>
@@ -353,7 +397,7 @@
 <li>3、MarkDown里插入歌单列表，宽度自适应且自动播放</li>
 <li>4、新建菜单栏，以网页的形式插入</li>
 </ul>
-<h2 id="MarkDown里插入单曲"><a href="#MarkDown里插入单曲" class="headerlink" title="MarkDown里插入单曲"></a>MarkDown里插入单曲</h2><object width="340" height="86" data="http://music.163.com/style/swf/widget.swf?sid=445154960&type=2&auto=0&width=320&height=66" type="application/x-shockwave-flash"></object>  
+<h2 id="MarkDown里插入单曲"><a href="#MarkDown里插入单曲" class="headerlink" title="MarkDown里插入单曲"></a>MarkDown里插入单曲</h2><object width="340" height="86" data="http://music.163.com/style/swf/widget.swf?sid=36492196&type=2&auto=0&width=320&height=66" type="application/x-shockwave-flash"></object>  
 
 <a id="more"></a>
 <p>对应的字符串：</p>
@@ -388,7 +432,7 @@
 &lt;li&gt;3、MarkDown里插入歌单列表，宽度自适应且自动播放&lt;/li&gt;
 &lt;li&gt;4、新建菜单栏，以网页的形式插入&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;MarkDown里插入单曲&quot;&gt;&lt;a href=&quot;#MarkDown里插入单曲&quot; class=&quot;headerlink&quot; title=&quot;MarkDown里插入单曲&quot;&gt;&lt;/a&gt;MarkDown里插入单曲&lt;/h2&gt;&lt;object width=&quot;340&quot; height=&quot;86&quot; data=&quot;http://music.163.com/style/swf/widget.swf?sid=445154960&amp;type=2&amp;auto=0&amp;width=320&amp;height=66&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;
+&lt;h2 id=&quot;MarkDown里插入单曲&quot;&gt;&lt;a href=&quot;#MarkDown里插入单曲&quot; class=&quot;headerlink&quot; title=&quot;MarkDown里插入单曲&quot;&gt;&lt;/a&gt;MarkDown里插入单曲&lt;/h2&gt;&lt;object width=&quot;340&quot; height=&quot;86&quot; data=&quot;http://music.163.com/style/swf/widget.swf?sid=36492196&amp;type=2&amp;auto=0&amp;width=320&amp;height=66&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;
     
     </summary>
     
