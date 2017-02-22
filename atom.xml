@@ -344,7 +344,7 @@
     <link href="http://jingbin.me/2017/02/20/Android%20%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E9%9B%86%E9%94%A6/"/>
     <id>http://jingbin.me/2017/02/20/Android 面试资料集锦/</id>
     <published>2017-02-20T10:51:00.000Z</published>
-    <updated>2017-02-21T08:34:10.000Z</updated>
+    <updated>2017-02-22T10:33:55.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>正在收集中…<br>2017.02.20</p>
@@ -368,9 +368,14 @@
 <li><a href="http://blog.csdn.net/vking_wang/article/details/14166593" target="_blank" rel="external">HashMap实现原理分析</a></li>
 <li><a href="http://blog.chinaunix.net/uid-11775320-id-3143919.html" target="_blank" rel="external">java面试题-HashMap原理</a></li>
 <li><a href="http://szysky.com/2017/02/08/%E9%9D%A2%E8%AF%95%E4%B9%8BBinder%E7%9A%84%E8%AE%A4%E7%9F%A5/" target="_blank" rel="external">面试之Binder的认知</a></li>
+<li><a href="http://blog.csdn.net/qy1387/article/details/7752973" target="_blank" rel="external">Java常用排序算法/程序员必须掌握的8大排序算法</a></li>
+<li><a href="http://www.cnblogs.com/maybe2030/p/4715035.html" target="_blank" rel="external">七大查找算法</a></li>
 </ul>
 <h3 id="面试经验"><a href="#面试经验" class="headerlink" title="面试经验"></a>面试经验</h3><ul>
 <li><a href="http://gdky005.com/2016/07/08/%E4%B8%80%E4%B8%AA%E4%BA%94%E5%B9%B4Android%E5%BC%80%E5%8F%91%E8%80%85%E7%99%BE%E5%BA%A6%E3%80%81%E9%98%BF%E9%87%8C%E3%80%81%E8%81%9A%E7%BE%8E%E3%80%81%E6%98%A0%E5%AE%A2%E7%9A%84%E9%9D%A2%E8%AF%95%E5%BF%83%E7%BB%8F/" target="_blank" rel="external">一个五年Android开发者百度、阿里、聚美、映客的面试心经</a></li>
+</ul>
+<h3 id="简历模板"><a href="#简历模板" class="headerlink" title="简历模板"></a>简历模板</h3><ul>
+<li><a href="https://github.com/geekcompany/ResumeSample/blob/master/android.md" target="_blank" rel="external">Android程序员简历模板</a></li>
 </ul>
 ]]></content>
     
