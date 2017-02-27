@@ -438,7 +438,7 @@
     <link href="http://jingbin.me/2017/02/20/Android%20%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E9%9B%86%E9%94%A6/"/>
     <id>http://jingbin.me/2017/02/20/Android 面试资料集锦/</id>
     <published>2017-02-20T10:51:00.000Z</published>
-    <updated>2017-02-23T11:38:12.000Z</updated>
+    <updated>2017-02-27T10:51:31.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>正在收集中…<br>2017.02.20</p>
@@ -462,6 +462,7 @@
 <li><a href="http://blog.csdn.net/vking_wang/article/details/14166593" target="_blank" rel="external">HashMap实现原理分析</a></li>
 <li><a href="http://blog.chinaunix.net/uid-11775320-id-3143919.html" target="_blank" rel="external">java面试题-HashMap原理</a></li>
 <li><a href="http://szysky.com/2017/02/08/%E9%9D%A2%E8%AF%95%E4%B9%8BBinder%E7%9A%84%E8%AE%A4%E7%9F%A5/" target="_blank" rel="external">面试之Binder的认知</a></li>
+<li><a href="http://www.jianshu.com/p/c20de49d8d9a" target="_blank" rel="external">浅析HandlerThread</a></li>
 </ul>
 <h4 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h4><ul>
 <li><a href="http://www.cnblogs.com/liuling/archive/2013/04/14/suanfa.html" target="_blank" rel="external">常用的算法的时间复杂度和空间复杂度</a></li>
