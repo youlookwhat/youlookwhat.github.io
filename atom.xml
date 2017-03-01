@@ -344,7 +344,7 @@
     <link href="http://jingbin.me/2017/03/01/%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://jingbin.me/2017/03/01/《大话数据结构》读书笔记/</id>
     <published>2017-03-01T10:23:20.000Z</published>
-    <updated>2017-03-01T11:36:54.000Z</updated>
+    <updated>2017-03-01T16:36:25.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>如果你有梦想的话，就要去捍卫它。当别人做不到的时候，他们就想要告诉你，你也不能。如果你想要些什么，就得去努力争取。就这样！ – 《当幸福来敲门》</p>
@@ -384,7 +384,75 @@
 <p><strong>数组</strong> → 读取：<code>O(1)</code>， 插入或删除：<code>O(n)</code></p>
 <h4 id="链式存储结构"><a href="#链式存储结构" class="headerlink" title="链式存储结构"></a>链式存储结构</h4><p>1.单链表结构：<br>　<strong>链表：</strong> → 读取：<code>O(n)</code>， 插入或删除：<code>O(1)</code><br>还有：2.静态链表结构、3.循环链表、4.双向链表</p>
 <h3 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h3><p>　　<strong><em>栈</em></strong>：是限定仅在表尾进行插入和删除操作的线性表。<br>　　<strong><em>队列</em></strong>：是只允许在一端操作、而在另一端进行删除操作的线性表。</p>
-<h4 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h4>]]></content>
+<h4 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h4><p>四则运算表达式求值：<br>后缀（逆波兰）表示法定义 -&gt; 不需要括号<br><code>&quot;9 + (3 - 1) * 3 + 10 / 2&quot;</code>  →  <code>&quot;931 - 3 *+ 10 2 /+&quot;</code></p>
+<h5 id="知道中缀表达式-→-后缀表达式"><a href="#知道中缀表达式-→-后缀表达式" class="headerlink" title="知道中缀表达式  → 后缀表达式"></a>知道中缀表达式  → 后缀表达式</h5><ul>
+<li>数字 → 输出</li>
+<li>括号 → 等反括号，再输出反括号里的符号</li>
+<li><code>* /</code> → 优先级高先出栈</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>它们均可以用线性表的顺序存储结构来实现，但都存在着顺序存储的一些弊端，因此它们各自有各自的技巧来解决这个问题。<br>对于栈来说，如果是两个相同类型的栈，则可以用数组的两端作栈底的方法来让两个栈共享数据，这就可以最大化地利用数组的空间。<br>对于队列来说，为了避免数组插入和删除时需要移动数据，于是就引入了循环队列，是的队头和队尾可以在数组中循环变化。解决了移动数据的时间损耗，是的本来插入和删除是<code>O(n)</code>的时间复杂度变成了<code>O(1)</code>。</p>
+<h3 id="串"><a href="#串" class="headerlink" title="串"></a>串</h3><blockquote>
+<p>是由零个或多个字符组成的有限序列，又名叫字符串。</p>
+</blockquote>
+<h3 id="树-Tree"><a href="#树-Tree" class="headerlink" title="树(Tree)"></a>树(Tree)</h3><p>树是n(n≥0)个结点的有限集。n=0时称为空树。在任意一颗非空树中：<br>　　<1> 有且仅有一个特定的称为根(Root)的结点。<br>　　<2>当n &gt; 1时，其余结点可分为m(m&gt;0)个互不相交的有限集T1、T2…、Tm，其中每一个集合本身又是一棵树，并且称为根的子树(SubTree)。
+　　</2></1></p>
+<h4 id="二叉树（Binary-Tree）"><a href="#二叉树（Binary-Tree）" class="headerlink" title="二叉树（Binary Tree）"></a>二叉树（Binary Tree）</h4><p>二叉树是n(n≥0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根节点和两棵互不交换的、分别称为根节点的<strong><em>左子树</em></strong>和<strong><em>右子数</em></strong>的二叉树组成。</p>
+<p>特殊二叉树：<br>　　1、斜树<br>　　2、满二叉树<br>　　3、完全二叉树</p>
+<h4 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h4><h5 id="二叉树顺序存储结构"><a href="#二叉树顺序存储结构" class="headerlink" title="二叉树顺序存储结构"></a>二叉树顺序存储结构</h5><p>二叉树的顺序存储结构就是用一维数组存储二叉树中的结点，并且结点的存储位置，也就是数组的下标要能体现结点之间的逻辑关系，比如双亲与孩子的关系，左右兄弟的关系等。<br><img src="http://upload-images.jianshu.io/upload_images/1354448-eb91008a568d9655.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="完全二叉树的顺序存储"></p>
+<h5 id="二叉链表"><a href="#二叉链表" class="headerlink" title="二叉链表"></a>二叉链表</h5><p>既然顺序存储适用性不强，我们就要考虑链式存储结构。<strong>二叉树每个结点最多有连个孩子，所以为它设计一个数据域和指针域</strong>是比较自然的想法，<strong>我们称这样的链表叫做二叉链表。</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">lchild</th>
+<th style="text-align:center">data</th>
+<th style="text-align:center">rchild</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">l</td>
+<td style="text-align:center">A</td>
+<td style="text-align:center">r</td>
+</tr>
+</tbody>
+</table>
+<p>其中dataz是数据域，lchild 和 rchild 都是指针域，分别存放指向左孩子和右孩子的指针。<br><img src="http://upload-images.jianshu.io/upload_images/1354448-9a9a292d88480b3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="二叉链表结构图"></p>
+<h4 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h4><p>二叉树的遍历（traversing binary tree）是指从根节点出发，按照某种次序依次访问二叉树中所有结点，使得每个结点被访问一次且仅访问一次。</p>
+<p>遍历方法：<br>　　1、前序遍历<br>　　2、中序遍历<br>　　3、后序遍历<br>　　4、层序遍历<br>　　<br>知道：前序：ABCDEF 中序：CBAEDF<br>推出：后序：CBEFDA<br>过程：<br>　　前序：可知[A]是根节点<br>　　中序：[CB]知道C是B的左孩子<br>　　<br>知道：中序：ABCDEFG  后序：BDCAFGE<br>推出：前序：EACBDGF<br>过程：<br>　　后序：[E]在尾端，知[E]为根节点。<br>　　…</p>
+<h4 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h4><h3 id="图-Graph"><a href="#图-Graph" class="headerlink" title="图(Graph)"></a>图(Graph)</h3><p>是由定点的有穷非空集合和顶点之间的集合组成，通常表示为G(V,E)，其中，G表示一个图，V是图G中顶点的集合，E是图G中边的集合。</p>
+<p>多对多的情况 → eg:人际关系</p>
+<p>无向边：若顶点Vi到Vj之间的边没有方向，则称这条边为无向边(Edge)，用无序偶对(Vi，Vj)来表示。<br>任意两个顶点之间的边都是无向的，则称该图为<strong>无向图</strong>。</p>
+<p>有向边：若顶点Vi到Vj之间的边有方向，则称这条边为有向边，也称为弧(Arc)。<br>任意两个顶点之间的边都是有向边，则称该图为<strong>有向图</strong>。</p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><h4 id="顺序查找-O-n"><a href="#顺序查找-O-n" class="headerlink" title="顺序查找 O(n)"></a>顺序查找 O(n)</h4><h4 id="有序表查找"><a href="#有序表查找" class="headerlink" title="有序表查找"></a>有序表查找</h4><blockquote>
+<p>三者的区别是：中间数取的不一样。<br>具有n个结点的完全二叉树的深度为[log2n]+1。→ ㏒ｎ</p>
+</blockquote>
+<h5 id="二分差找-O-㏒n"><a href="#二分差找-O-㏒n" class="headerlink" title="二分差找 O(㏒ｎ)"></a>二分差找 O(㏒ｎ)</h5><h5 id="插值查找-O-㏒n"><a href="#插值查找-O-㏒n" class="headerlink" title="插值查找 O(㏒ｎ)"></a>插值查找 O(㏒ｎ)</h5><h5 id="斐波那契差找-O-㏒n"><a href="#斐波那契差找-O-㏒n" class="headerlink" title="斐波那契差找 O(㏒ｎ)"></a>斐波那契差找 O(㏒ｎ)</h5><h4 id="树表查找"><a href="#树表查找" class="headerlink" title="树表查找"></a>树表查找</h4><h5 id="二叉树查找-二叉排序树"><a href="#二叉树查找-二叉排序树" class="headerlink" title="二叉树查找(二叉排序树)"></a>二叉树查找(二叉排序树)</h5><p>插入和查找的时间复杂度为<code>O(㏒ｎ)</code>，最坏(长条)为<code>O(n)</code>。<br>优化：<br>　　平衡二叉树，为了避免上述最差的情况(<code>O(n)</code>)，构建时，让这棵二叉排序树是平衡二叉树，此时，查找、插入和删除都是<code>O(㏒ｎ)</code>。
+　　</p>
+<h5 id="平衡查找树之2-3查找树-2-3Tree-O-㏒n"><a href="#平衡查找树之2-3查找树-2-3Tree-O-㏒n" class="headerlink" title="平衡查找树之2-3查找树(2-3Tree) O(㏒ｎ)"></a>平衡查找树之2-3查找树(2-3Tree) O(㏒ｎ)</h5><p>属于二叉树查找优化<br><strong>性质：</strong></p>
+<ul>
+<li>1、中序遍历2-3查找树，就可以得到好序的序列。</li>
+<li>2、在一个完全平衡的2-3查找树中，根节点到每一个为空节点的距离都相同。</li>
+</ul>
+<p>最坏：所有都是2-node节点，时间复杂度：㏒ｎ<br>最好：所有都是3-node节点，时间复杂度：0.631㏒ｎ</p>
+<h5 id="平衡查找树之2红黑树-Red-Black-Tree"><a href="#平衡查找树之2红黑树-Red-Black-Tree" class="headerlink" title="平衡查找树之2红黑树(Red-Black-Tree)"></a>平衡查找树之2红黑树(Red-Black-Tree)</h5><p>2-3树实现起来比较复杂，于是有了一种简单实现的2-3树的数据结构 – 红黑树。</p>
+<p>红黑树中将节点之间的链接分为两种不同的类型：<br>　　红色链接：用来链接两个2-nodes节点来表示一个3-nodes节点。<br>　　黑色链接：用来链接普通的2-3节点。</p>
+<p>特性：<br>　　1、红色链接向左倾斜。<br>　　2、一个节点不可能有两个红色链接。<br>　　3、整个树完全黑色平衡。<br>　　<br>Java：TreeMap和TreeSet都是基于红黑二叉树。</p>
+<h5 id="B树和B-树（B-Tree-B-Tree）"><a href="#B树和B-树（B-Tree-B-Tree）" class="headerlink" title="B树和B+树（B Tree/B+ Tree）"></a>B树和B+树（B Tree/B+ Tree）</h5><p>用于：文件系统和数据库系统中（硬盘里的文件）。</p>
+<h4 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h4><p>哈希表查找： Map的本质是Hash表 → 以空间换时间。<br>key - indexed 键 - 值<br>时间复杂度：<code>O(1)</code></p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>算法的复杂性：算法本身的复杂度，而不是指算法的时间负责度。</p>
+<p>内排序：插入排序、交换排序、选择排序、归并排序<br>简单算法：<br>　　　　冒泡排序：O(ｎ²)<br>　　　　简单选择排序：O(ｎ²)<br>　　　　直接插入排序：O(ｎ²)<br>改进算法：<br>　　　　希尔排序：O(ｎ³/²)  不稳定<br>　　　　堆排序：O(ｎ㏒ｎ) 不稳定<br>　　　　归并排序：O(ｎ㏒ｎ) 稳定<br>　　　　快速排序：
+　　　　</p>
+<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>挨个比较，设置flag(优化)</p>
+<h4 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h4><p>比较n次，最小交换到第1位<br>比较n-1次，最小交换到第2位<br>比较n-2次，最小交换到第3位</p>
+<p>性能略高于冒泡排序</p>
+<h4 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h4><p>一个记录的辅助空间，比上两种性能好一些。向前插入依次向后移动。（适用于：基本有序、少数）</p>
+<h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><blockquote>
+<p>改进的直接插入排序。</p>
+</blockquote>
+<p>条件：基本有序（通过希尔排序达到基本有序）</p>
+<p>将相隔某个“增量”的记录组成一个子序列，实现<strong><em>跳跃式的移动</em></strong>，使得排序的效率提高。<br><strong><em>跳跃式的移动</em></strong>：导致了不稳定。</p>
+<p>增量： increment = increment/3 + 1;</p>
+]]></content>
     
     <summary type="html">
     
