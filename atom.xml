@@ -701,7 +701,7 @@
     <link href="http://jingbin.me/2017/02/20/Android%20%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E9%9B%86%E9%94%A6/"/>
     <id>http://jingbin.me/2017/02/20/Android 面试资料集锦/</id>
     <published>2017-02-20T10:51:00.000Z</published>
-    <updated>2017-02-28T14:08:25.000Z</updated>
+    <updated>2017-03-01T16:50:23.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>正在收集中…<br>2017.02.20</p>
@@ -717,8 +717,6 @@
 <li><a href="http://www.jianshu.com/p/94e0f9ab3f1d" target="_blank" rel="external">Context都没弄明白，还怎么做Android开发？</a></li>
 <li><a href="http://www.jianshu.com/p/8a7d059da746" target="_blank" rel="external">Android中RelativeLayout和LinearLayout性能分析</a></li>
 <li><a href="http://www.jianshu.com/p/ef892323e68f" target="_blank" rel="external">TCP协议详解</a></li>
-<li><a href="http://blog.csdn.net/dd864140130/article/details/55833087" target="_blank" rel="external">要换工作? 来看看面试题吧,Java 面试题集
-</a></li>
 <li><a href="http://www.jianshu.com/p/e99b5e8bd67b?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weixin" target="_blank" rel="external">图解 Android 事件分发机制</a></li>
 <li><a href="http://blog.csdn.net/qq_22329521/article/details/51934783" target="_blank" rel="external">垃圾收集器与内存分配策略</a></li>
 <li><a href="http://www.cnblogs.com/liuling/archive/2015/09/24/2015-9-24-1.html" target="_blank" rel="external">内存缓存LruCache实现原理</a></li>
@@ -726,6 +724,12 @@
 <li><a href="http://blog.chinaunix.net/uid-11775320-id-3143919.html" target="_blank" rel="external">java面试题-HashMap原理</a></li>
 <li><a href="http://szysky.com/2017/02/08/%E9%9D%A2%E8%AF%95%E4%B9%8BBinder%E7%9A%84%E8%AE%A4%E7%9F%A5/" target="_blank" rel="external">面试之Binder的认知</a></li>
 <li><a href="http://www.jianshu.com/p/c20de49d8d9a" target="_blank" rel="external">浅析HandlerThread</a></li>
+</ul>
+<h4 id="面试题集"><a href="#面试题集" class="headerlink" title="面试题集"></a>面试题集</h4><ul>
+<li><a href="http://blog.csdn.net/dd864140130/article/details/55833087" target="_blank" rel="external">要换工作? 来看看面试题吧,Java 面试题集
+</a></li>
+<li><a href="http://www.jianshu.com/p/bd1bfc0c34b8" target="_blank" rel="external">java面试题整理(更新…)</a></li>
+<li><a href="http://www.jianshu.com/p/1c9a55e3fa89" target="_blank" rel="external">Android基础面试题</a></li>
 </ul>
 <h4 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h4><ul>
 <li><a href="http://www.cnblogs.com/liuling/archive/2013/04/14/suanfa.html" target="_blank" rel="external">常用的算法的时间复杂度和空间复杂度</a></li>
