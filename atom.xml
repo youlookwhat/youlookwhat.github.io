@@ -344,7 +344,7 @@
     <link href="http://jingbin.me/2017/03/01/%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://jingbin.me/2017/03/01/《大话数据结构》读书笔记/</id>
     <published>2017-03-01T10:23:20.000Z</published>
-    <updated>2017-03-01T16:36:25.000Z</updated>
+    <updated>2017-03-01T16:42:39.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>如果你有梦想的话，就要去捍卫它。当别人做不到的时候，他们就想要告诉你，你也不能。如果你想要些什么，就得去努力争取。就这样！ – 《当幸福来敲门》</p>
@@ -428,13 +428,12 @@
 </blockquote>
 <h5 id="二分差找-O-㏒n"><a href="#二分差找-O-㏒n" class="headerlink" title="二分差找 O(㏒ｎ)"></a>二分差找 O(㏒ｎ)</h5><h5 id="插值查找-O-㏒n"><a href="#插值查找-O-㏒n" class="headerlink" title="插值查找 O(㏒ｎ)"></a>插值查找 O(㏒ｎ)</h5><h5 id="斐波那契差找-O-㏒n"><a href="#斐波那契差找-O-㏒n" class="headerlink" title="斐波那契差找 O(㏒ｎ)"></a>斐波那契差找 O(㏒ｎ)</h5><h4 id="树表查找"><a href="#树表查找" class="headerlink" title="树表查找"></a>树表查找</h4><h5 id="二叉树查找-二叉排序树"><a href="#二叉树查找-二叉排序树" class="headerlink" title="二叉树查找(二叉排序树)"></a>二叉树查找(二叉排序树)</h5><p>插入和查找的时间复杂度为<code>O(㏒ｎ)</code>，最坏(长条)为<code>O(n)</code>。<br>优化：<br>　　平衡二叉树，为了避免上述最差的情况(<code>O(n)</code>)，构建时，让这棵二叉排序树是平衡二叉树，此时，查找、插入和删除都是<code>O(㏒ｎ)</code>。
 　　</p>
-<h5 id="平衡查找树之2-3查找树-2-3Tree-O-㏒n"><a href="#平衡查找树之2-3查找树-2-3Tree-O-㏒n" class="headerlink" title="平衡查找树之2-3查找树(2-3Tree) O(㏒ｎ)"></a>平衡查找树之2-3查找树(2-3Tree) O(㏒ｎ)</h5><p>属于二叉树查找优化<br><strong>性质：</strong></p>
-<ul>
-<li>1、中序遍历2-3查找树，就可以得到好序的序列。</li>
-<li>2、在一个完全平衡的2-3查找树中，根节点到每一个为空节点的距离都相同。</li>
-</ul>
+<h5 id="平衡查找树之2-3查找树-2-3Tree-O-㏒n"><a href="#平衡查找树之2-3查找树-2-3Tree-O-㏒n" class="headerlink" title="平衡查找树之2-3查找树(2-3Tree) O(㏒ｎ)"></a>平衡查找树之2-3查找树(2-3Tree) O(㏒ｎ)</h5><blockquote>
+<p>属于二叉树查找优化。</p>
+</blockquote>
+<p><strong>性质：</strong><br>　　1、中序遍历2-3查找树，就可以得到好序的序列。<br>　　2、在一个完全平衡的2-3查找树中，根节点到每一个为空节点的距离都相同。</p>
 <p>最坏：所有都是2-node节点，时间复杂度：㏒ｎ<br>最好：所有都是3-node节点，时间复杂度：0.631㏒ｎ</p>
-<h5 id="平衡查找树之2红黑树-Red-Black-Tree"><a href="#平衡查找树之2红黑树-Red-Black-Tree" class="headerlink" title="平衡查找树之2红黑树(Red-Black-Tree)"></a>平衡查找树之2红黑树(Red-Black-Tree)</h5><p>2-3树实现起来比较复杂，于是有了一种简单实现的2-3树的数据结构 – 红黑树。</p>
+<h5 id="平衡查找树之红黑树-Red-Black-Tree"><a href="#平衡查找树之红黑树-Red-Black-Tree" class="headerlink" title="平衡查找树之红黑树(Red-Black-Tree)"></a>平衡查找树之红黑树(Red-Black-Tree)</h5><p>2-3树实现起来比较复杂，于是有了一种简单实现的2-3树的数据结构 – 红黑树。</p>
 <p>红黑树中将节点之间的链接分为两种不同的类型：<br>　　红色链接：用来链接两个2-nodes节点来表示一个3-nodes节点。<br>　　黑色链接：用来链接普通的2-3节点。</p>
 <p>特性：<br>　　1、红色链接向左倾斜。<br>　　2、一个节点不可能有两个红色链接。<br>　　3、整个树完全黑色平衡。<br>　　<br>Java：TreeMap和TreeSet都是基于红黑二叉树。</p>
 <h5 id="B树和B-树（B-Tree-B-Tree）"><a href="#B树和B-树（B-Tree-B-Tree）" class="headerlink" title="B树和B+树（B Tree/B+ Tree）"></a>B树和B+树（B Tree/B+ Tree）</h5><p>用于：文件系统和数据库系统中（硬盘里的文件）。</p>
@@ -449,10 +448,9 @@
 <h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><blockquote>
 <p>改进的直接插入排序。</p>
 </blockquote>
-<p>条件：基本有序（通过希尔排序达到基本有序）</p>
-<p>将相隔某个“增量”的记录组成一个子序列，实现<strong><em>跳跃式的移动</em></strong>，使得排序的效率提高。<br><strong><em>跳跃式的移动</em></strong>：导致了不稳定。</p>
+<p>条件：基本有序（通过希尔排序达到基本有序）<br>将相隔某个“增量”的记录组成一个子序列，实现<strong><em>跳跃式的移动</em></strong>，使得排序的效率提高。<br><strong><em>跳跃式的移动</em></strong>：导致了不稳定。</p>
 <p>增量： increment = increment/3 + 1;</p>
-]]></content>
+<h3 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a>推荐文章</h3>]]></content>
     
     <summary type="html">
     
