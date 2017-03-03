@@ -964,15 +964,11 @@
     <link href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/"/>
     <id>http://jingbin.me/2016/12/30/更新日志-云阅/</id>
     <published>2016-12-30T09:45:31.000Z</published>
-    <updated>2017-03-03T14:29:48.000Z</updated>
+    <updated>2017-03-03T15:15:42.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>最后更新：2017-3-3 22：29</p>
+<p><strong><em>最后更新：2017-3-3　22：29</em></strong><br>可以在<code>develop</code>分支上查看最新的提交，最后会合到<code>master</code>分支上。</p>
 </blockquote>
-<p>大家好，很高兴大家能看到这里，这里是<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">云阅开源项目</a>的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。</p>
-<p>可以在<code>develop</code>分支上查看最新的提交，最后会合到<code>master</code>分支上。</p>
- <a id="more"></a>
-<hr>
 <h3 id="版本-V1-8-0（3-3）"><a href="#版本-V1-8-0（3-3）" class="headerlink" title="版本 V1.8.0（3-3）"></a>版本 V1.8.0（3-3）</h3><ul>
 <li>1、[新增] 侧边栏增加“<strong>登录GitHub账号</strong>”和“<strong>退出应用</strong>”功能</li>
 <li>2、[新增] WebView新增“<strong>分享到</strong>”、“<strong>复制链接</strong>”、“<strong>打开链接</strong>”功能</li>
@@ -981,12 +977,14 @@
 <li>5、[改进] 首页轮播图更换显示链接</li>
 <li>6、[优化] 进入主界面动画优化</li>
 <li>7、[优化] 兼容至7.0、升级关联库和代码优化等</li>
-<li>8、[待完善] 换肤功能入口隐藏，正在逐步完善。</li>
+<li><p>8、[待完善] 换肤功能入口隐藏，正在逐步完善。</p>
+<a id="more"></a>
+</li>
 </ul>
 <blockquote>
 <p>包里面包含换肤相关文件。如要删除其文件可按下面步骤逐一删除。</p>
 </blockquote>
-<h4 id="换肤相关"><a href="#换肤相关" class="headerlink" title="换肤相关"></a>换肤相关</h4><p>换肤由于关联的资源较多，正在完善中，但不影响正常的使用。<br>如需查看换肤调试详情，可去菜单栏显示“夜间模式”布局。<br>植入夜间模式步骤与注意事项：<br>步骤：<br>1.关联：<br>　　compile ‘skin.support:skin-support:1.0.1’<br>　　compile ‘skin.support:skin-support-design:0.0.2’<br>　　<br>2.“CloudReaderApplication.java”<br>// 皮肤<br>SkinMaterialManager.init(this);<br>SkinCompatManager.init(this).loadSkin();</p>
+<h4 id="换肤相关"><a href="#换肤相关" class="headerlink" title="换肤相关"></a>换肤相关</h4><p>换肤由于关联的资源较多，正在完善中，但不影响正常的使用。<br>如需查看换肤调试详情，可去菜单栏布局景“夜间模式”部分显示出来。<br>植入夜间模式步骤与注意事项：<br>步骤：<br>1.关联：<br>　　compile ‘skin.support:skin-support:1.0.1’<br>　　compile ‘skin.support:skin-support-design:0.0.2’<br>　　<br>2.“CloudReaderApplication.java”<br>// 皮肤<br>SkinMaterialManager.init(this);<br>SkinCompatManager.init(this).loadSkin();</p>
 <p>3.BaseActivity和MainActivity继承“SkinCompatActivity.java”</p>
 <p>4.新建”assets”，里面再建文件夹:”skins”，里面放置“night.skin”<br>“night.skin”：是一个单独的app，只是改了后缀名，里面只存放<strong><em>要替换的资源文件。</em></strong></p>
 <p>5.加入开关和相关逻辑：</p>
@@ -1065,10 +1063,17 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;最后更新：2017-3-3 22：29&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;最后更新：2017-3-3　22：29&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;可以在&lt;code&gt;develop&lt;/code&gt;分支上查看最新的提交，最后会合到&lt;code&gt;master&lt;/code&gt;分支上。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;大家好，很高兴大家能看到这里，这里是&lt;a href=&quot;https://github.com/youlookwhat/CloudReader&quot;&gt;云阅开源项目&lt;/a&gt;的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。&lt;/p&gt;
-&lt;p&gt;可以在&lt;code&gt;develop&lt;/code&gt;分支上查看最新的提交，最后会合到&lt;code&gt;master&lt;/code&gt;分支上。&lt;/p&gt;
+&lt;h3 id=&quot;版本-V1-8-0（3-3）&quot;&gt;&lt;a href=&quot;#版本-V1-8-0（3-3）&quot; class=&quot;headerlink&quot; title=&quot;版本 V1.8.0（3-3）&quot;&gt;&lt;/a&gt;版本 V1.8.0（3-3）&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;1、[新增] 侧边栏增加“&lt;strong&gt;登录GitHub账号&lt;/strong&gt;”和“&lt;strong&gt;退出应用&lt;/strong&gt;”功能&lt;/li&gt;
+&lt;li&gt;2、[新增] WebView新增“&lt;strong&gt;分享到&lt;/strong&gt;”、“&lt;strong&gt;复制链接&lt;/strong&gt;”、“&lt;strong&gt;打开链接&lt;/strong&gt;”功能&lt;/li&gt;
+&lt;li&gt;3、[新增] 使其系统更改字体无效&lt;/li&gt;
+&lt;li&gt;4、[改进] 网络请求更换成&lt;code&gt;retrofit 2.x&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;5、[改进] 首页轮播图更换显示链接&lt;/li&gt;
+&lt;li&gt;6、[优化] 进入主界面动画优化&lt;/li&gt;
+&lt;li&gt;7、[优化] 兼容至7.0、升级关联库和代码优化等&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;8、[待完善] 换肤功能入口隐藏，正在逐步完善。&lt;/p&gt;
     
     </summary>
     
