@@ -86,7 +86,7 @@
 
 
 
-<meta name="description" content="最后更新：2017-2-3 14：00
+<meta name="description" content="最后更新：2017-3-3 19：32
 
 大家好，很高兴大家能看到这里，这里是云阅开源项目的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。
 可以在develop分支上查看最新的提交，最后会合到master分支上。">
@@ -94,20 +94,19 @@
 <meta property="og:title" content="更新日志-云阅">
 <meta property="og:url" content="http://jingbin.me/2016/12/30/更新日志-云阅/index.html">
 <meta property="og:site_name" content="Jing Bin'blog">
-<meta property="og:description" content="最后更新：2017-2-3 14：00
+<meta property="og:description" content="最后更新：2017-3-3 19：32
 
 大家好，很高兴大家能看到这里，这里是云阅开源项目的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。
 可以在develop分支上查看最新的提交，最后会合到master分支上。">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-fb01487f2b010800.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-02-03T06:03:56.000Z">
+<meta property="og:updated_time" content="2017-03-03T14:27:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="更新日志-云阅">
-<meta name="twitter:description" content="最后更新：2017-2-3 14：00
+<meta name="twitter:description" content="最后更新：2017-3-3 19：32
 
 大家好，很高兴大家能看到这里，这里是云阅开源项目的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。
 可以在develop分支上查看最新的提交，最后会合到master分支上。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-fb01487f2b010800.gif?imageMogr2/auto-orient/strip">
 
 
 
@@ -426,14 +425,39 @@
 
       
         <blockquote>
-<p>最后更新：2017-2-3 14：00</p>
+<p>最后更新：2017-3-3 19：32</p>
 </blockquote>
 <p>大家好，很高兴大家能看到这里，这里是<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">云阅开源项目</a>的当前所在版本的内容和下一版计划更新的内容，希望能帮到大家。</p>
 <p>可以在<code>develop</code>分支上查看最新的提交，最后会合到<code>master</code>分支上。</p>
  <a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-48d22964c9afd7c3.gif?imageMogr2/auto-orient/strip" alt="版本更新.gif"></p>
 <hr>
-<h3 id="版本-V1-5（1-29）"><a href="#版本-V1-5（1-29）" class="headerlink" title="版本 V1.5（1-29）"></a>版本 V1.5（1-29）</h3><ul>
+<h3 id="版本-V1-8-0（3-3）"><a href="#版本-V1-8-0（3-3）" class="headerlink" title="版本 V1.8.0（3-3）"></a>版本 V1.8.0（3-3）</h3><ul>
+<li>1、[新增] 侧边栏增加“<strong>登录GitHub账号</strong>”和“<strong>退出应用</strong>”功能</li>
+<li>2、[新增] WebView新增“<strong>分享到</strong>”、“<strong>复制链接</strong>”、“<strong>打开链接</strong>”功能</li>
+<li>3、[新增] 使其系统更改字体无效</li>
+<li>4、[改进] 网络请求更换成<code>retrofit 2.x</code></li>
+<li>5、[改进] 首页轮播图更换显示链接</li>
+<li>6、[优化] 进入主界面动画优化</li>
+<li>7、[优化] 兼容至7.0、升级关联库和代码优化等</li>
+<li>8、[待完善] 换肤功能入口隐藏，正在逐步完善。</li>
+</ul>
+<blockquote>
+<p>包里面包含换肤相关文件。如要删除其文件可按下面步骤逐一删除。</p>
+</blockquote>
+<h4 id="换肤相关"><a href="#换肤相关" class="headerlink" title="换肤相关"></a>换肤相关</h4><p>换肤由于关联的资源较多，正在完善中，但不影响正常的使用。<br>如需查看换肤调试详情，可去菜单栏显示“夜间模式”布局。<br>植入夜间模式步骤与注意事项：<br>步骤：<br>1.关联：<br>　　compile ‘skin.support:skin-support:1.0.1’<br>　　compile ‘skin.support:skin-support-design:0.0.2’<br>　　<br>2.“CloudReaderApplication.java”<br>// 皮肤<br>SkinMaterialManager.init(this);<br>SkinCompatManager.init(this).loadSkin();</p>
+<p>3.BaseActivity和MainActivity继承“SkinCompatActivity.java”</p>
+<p>4.新建”assets”，里面再建文件夹:”skins”，里面放置“night.skin”<br>“night.skin”：是一个单独的app，只是改了后缀名，里面只存放<strong><em>要替换的资源文件。</em></strong></p>
+<p>5.加入开关和相关逻辑：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getNightMode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> SPUtils.getNightMode();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNightModeClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!SPUtils.getNightMode()) &#123;</div><div class="line">            SkinCompatManager.getInstance().loadSkin(Constants.NIGHT_SKIN);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 恢复应用默认皮肤</span></div><div class="line">            SkinCompatManager.getInstance().restoreDefaultTheme();</div><div class="line">        &#125;</div><div class="line">        SPUtils.setNightMode(!SPUtils.getNightMode());</div><div class="line">        bind.dayNightSwitch.setChecked(SPUtils.getNightMode());</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>6.由于不支持状态栏切换，所以需要手动加状态块，布局文件里已加入，但隐藏了，因为这样长按搜索图标提示会在下面不美观。暂时不实现此功能。</p>
+<p>7.暂不支持TabLayout:tabBackground属性<br>所以此部分的点击效果使用的是系统的，但觉得可以优化，没有这样做，还是想使用自己的选择器。</p>
+<h4 id="待更新内容（部分）"><a href="#待更新内容（部分）" class="headerlink" title="待更新内容（部分）"></a>待更新内容（部分）</h4><ul>
+<li>1、完善换肤功能</li>
+<li>2、更换轮播图显示控件</li>
+<li>3、新增段子和文章内容</li>
+</ul>
+<hr>
+<h3 id="版本-V1-5-0（1-29）"><a href="#版本-V1-5-0（1-29）" class="headerlink" title="版本 V1.5.0（1-29）"></a>版本 V1.5.0（1-29）</h3><ul>
 <li>1、<strong>App体积大小从16M降到5.8M！</strong></li>
 <li>2、将App里固定的图片以移动到七牛。</li>
 <li>3、更改项目主页透明状态栏显示方式。</li>
@@ -442,19 +466,19 @@
 <li>6、代码优化；删除多余资源。</li>
 </ul>
 <hr>
-<h3 id="版本-V1-2（1-18）"><a href="#版本-V1-2（1-18）" class="headerlink" title="版本 V1.2（1-18）"></a>版本 V1.2（1-18）</h3><ul>
+<h3 id="版本-V1-2-0（1-18）"><a href="#版本-V1-2-0（1-18）" class="headerlink" title="版本 V1.2.0（1-18）"></a>版本 V1.2.0（1-18）</h3><ul>
 <li>1、更改每日推荐逻辑，使其一定有数据</li>
 <li>2、干货集中营的item改为CardView展示</li>
 <li>3、代码优化</li>
 </ul>
 <hr>
-<h3 id="版本-V1-1（1-15）"><a href="#版本-V1-1（1-15）" class="headerlink" title="版本 V1.1（1-15）"></a>版本 V1.1（1-15）</h3><ul>
+<h3 id="版本-V1-1-0（1-15）"><a href="#版本-V1-1-0（1-15）" class="headerlink" title="版本 V1.1.0（1-15）"></a>版本 V1.1.0（1-15）</h3><ul>
 <li>1.书籍详情页面增加自定义元素共享切换动画，并可简单添加需要支持的详情页</li>
 <li>2.代码优化</li>
 <li>3.其他</li>
 </ul>
 <hr>
-<h3 id="版本-V1-0"><a href="#版本-V1-0" class="headerlink" title="版本 V1.0"></a>版本 V1.0</h3><blockquote>
+<h3 id="版本-V1-0-0"><a href="#版本-V1-0-0" class="headerlink" title="版本 V1.0.0"></a>版本 V1.0.0</h3><blockquote>
 <p>此版的具体说明请见项目主页：<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">点击这里</a>。</p>
 </blockquote>
 <h4 id="干货区（gank-io）"><a href="#干货区（gank-io）" class="headerlink" title="干货区（gank.io）"></a>干货区（gank.io）</h4><ul>
@@ -478,7 +502,10 @@
 <li>关于云阅</li>
 </ul>
 <hr>
-<h3 id="下版本更新计划-待更新内容"><a href="#下版本更新计划-待更新内容" class="headerlink" title="下版本更新计划(待更新内容)"></a>下版本更新计划(待更新内容)</h3><p><img src="http://upload-images.jianshu.io/upload_images/1354448-fb01487f2b010800.gif?imageMogr2/auto-orient/strip" alt="乱世佳人.gif"></p>
+<h3 id="待完善"><a href="#待完善" class="headerlink" title="待完善"></a>待完善</h3><blockquote>
+<p>不一定更新，依重要性而定。</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-fb01487f2b010800.gif?imageMogr2/auto-orient/strip" alt="乱世佳人.gif"></p>
 <ul>
 <li>每日推荐可输入日期来显示当日内容</li>
 <li>保存图片按钮UI优化</li>
@@ -768,7 +795,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-5（1-29）"><span class="nav-number">1.</span> <span class="nav-text">版本 V1.5（1-29）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-2（1-18）"><span class="nav-number">2.</span> <span class="nav-text">版本 V1.2（1-18）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-1（1-15）"><span class="nav-number">3.</span> <span class="nav-text">版本 V1.1（1-15）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-0"><span class="nav-number">4.</span> <span class="nav-text">版本 V1.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#干货区（gank-io）"><span class="nav-number">4.1.</span> <span class="nav-text">干货区（gank.io）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#电影区（豆瓣）"><span class="nav-number">4.2.</span> <span class="nav-text">电影区（豆瓣）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#书籍区（豆瓣）"><span class="nav-number">4.3.</span> <span class="nav-text">书籍区（豆瓣）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽屉界面"><span class="nav-number">4.4.</span> <span class="nav-text">抽屉界面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下版本更新计划-待更新内容"><span class="nav-number">5.</span> <span class="nav-text">下版本更新计划(待更新内容)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-8-0（3-3）"><span class="nav-number">1.</span> <span class="nav-text">版本 V1.8.0（3-3）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#换肤相关"><span class="nav-number">1.1.</span> <span class="nav-text">换肤相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#待更新内容（部分）"><span class="nav-number">1.2.</span> <span class="nav-text">待更新内容（部分）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-5-0（1-29）"><span class="nav-number">2.</span> <span class="nav-text">版本 V1.5.0（1-29）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-2-0（1-18）"><span class="nav-number">3.</span> <span class="nav-text">版本 V1.2.0（1-18）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-1-0（1-15）"><span class="nav-number">4.</span> <span class="nav-text">版本 V1.1.0（1-15）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本-V1-0-0"><span class="nav-number">5.</span> <span class="nav-text">版本 V1.0.0</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#干货区（gank-io）"><span class="nav-number">5.1.</span> <span class="nav-text">干货区（gank.io）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#电影区（豆瓣）"><span class="nav-number">5.2.</span> <span class="nav-text">电影区（豆瓣）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#书籍区（豆瓣）"><span class="nav-number">5.3.</span> <span class="nav-text">书籍区（豆瓣）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽屉界面"><span class="nav-number">5.4.</span> <span class="nav-text">抽屉界面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#待完善"><span class="nav-number">6.</span> <span class="nav-text">待完善</span></a></li></ol></div>
             
 
           </div>
