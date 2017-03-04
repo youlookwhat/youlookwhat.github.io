@@ -964,7 +964,7 @@
     <link href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/"/>
     <id>http://jingbin.me/2016/12/30/更新日志-云阅/</id>
     <published>2016-12-30T09:45:31.000Z</published>
-    <updated>2017-03-03T15:15:42.000Z</updated>
+    <updated>2017-03-04T16:30:08.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><strong><em>最后更新：2017-3-3　22：29</em></strong><br>可以在<code>develop</code>分支上查看最新的提交，最后会合到<code>master</code>分支上。</p>
@@ -976,13 +976,12 @@
 <li>4、[改进] 网络请求更换成<code>retrofit 2.x</code></li>
 <li>5、[改进] 首页轮播图更换显示链接</li>
 <li>6、[优化] 进入主界面动画优化</li>
-<li>7、[优化] 兼容至7.0、升级关联库和代码优化等</li>
-<li><p>8、[待完善] 换肤功能入口隐藏，正在逐步完善。</p>
+<li><p>7、[优化] 兼容至7.0、升级关联库和代码优化等</p>
 <a id="more"></a>
 </li>
 </ul>
 <blockquote>
-<p>包里面包含换肤相关文件。如要删除其文件可按下面步骤逐一删除。</p>
+<p><strong><em>由于换肤模块内存泄漏严重，已移除。以下不用看！</em></strong><br>包里面包含换肤相关文件。如要删除其文件可按下面步骤逐一删除。</p>
 </blockquote>
 <h4 id="换肤相关"><a href="#换肤相关" class="headerlink" title="换肤相关"></a>换肤相关</h4><p>换肤由于关联的资源较多，正在完善中，但不影响正常的使用。<br>如需查看换肤调试详情，可去菜单栏布局景“夜间模式”部分显示出来。<br>植入夜间模式步骤与注意事项：<br>步骤：<br>1.关联：<br>　　compile ‘skin.support:skin-support:1.0.1’<br>　　compile ‘skin.support:skin-support-design:0.0.2’<br>　　<br>2.“CloudReaderApplication.java”<br>// 皮肤<br>SkinMaterialManager.init(this);<br>SkinCompatManager.init(this).loadSkin();</p>
 <p>3.BaseActivity和MainActivity继承“SkinCompatActivity.java”</p>
@@ -1072,8 +1071,7 @@
 &lt;li&gt;4、[改进] 网络请求更换成&lt;code&gt;retrofit 2.x&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;5、[改进] 首页轮播图更换显示链接&lt;/li&gt;
 &lt;li&gt;6、[优化] 进入主界面动画优化&lt;/li&gt;
-&lt;li&gt;7、[优化] 兼容至7.0、升级关联库和代码优化等&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;8、[待完善] 换肤功能入口隐藏，正在逐步完善。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;7、[优化] 兼容至7.0、升级关联库和代码优化等&lt;/p&gt;
     
     </summary>
     
