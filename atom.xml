@@ -784,7 +784,7 @@
     <link href="http://jingbin.me/2017/02/20/Android%20%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E9%9B%86%E9%94%A6/"/>
     <id>http://jingbin.me/2017/02/20/Android 面试资料集锦/</id>
     <published>2017-02-20T10:51:00.000Z</published>
-    <updated>2017-03-02T05:14:16.000Z</updated>
+    <updated>2017-03-05T14:55:26.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>犹太法典:当你挽救了一条生命，你就等于挽救了全世界。 - 《辛德勒名单》</p>
@@ -794,6 +794,9 @@
 <li><a href="https://github.com/baoyachi/Interview" target="_blank" rel="external">【面试集锦】</a></li>
 <li><a href="https://github.com/suzeyu1992/repo" target="_blank" rel="external">记录一个自己的知识库</a></li>
 <li><a href="http://www.jianshu.com/p/735be5ece9e8?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note&amp;utm_source=qq" target="_blank" rel="external">Android 名企面试题及涉及知识点整理</a></li>
+<li><a href="https://github.com/JackyAndroid/AndroidInterview-Q-A/blob/master/README-CN.md" target="_blank" rel="external">国内一线互联网公司内部面试题库</a></li>
+<li><a href="http://www.jianshu.com/p/d1efe2f31b6d" target="_blank" rel="external">史上最全 Android 面试资料集合</a></li>
+<li><a href="https://github.com/Freelander/Android_Data" target="_blank" rel="external">Android 学习资料收集</a></li>
 </ul>
 <a id="more"></a>
 <h3 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h3><ul>
@@ -832,11 +835,16 @@
 </ul>
 <h3 id="面试经验"><a href="#面试经验" class="headerlink" title="面试经验"></a>面试经验</h3><ul>
 <li><a href="http://gdky005.com/2016/07/08/%E4%B8%80%E4%B8%AA%E4%BA%94%E5%B9%B4Android%E5%BC%80%E5%8F%91%E8%80%85%E7%99%BE%E5%BA%A6%E3%80%81%E9%98%BF%E9%87%8C%E3%80%81%E8%81%9A%E7%BE%8E%E3%80%81%E6%98%A0%E5%AE%A2%E7%9A%84%E9%9D%A2%E8%AF%95%E5%BF%83%E7%BB%8F/" target="_blank" rel="external">一个五年Android开发者百度、阿里、聚美、映客的面试心经</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/21565914" target="_blank" rel="external">Android 面试那些事儿</a></li>
+<li></li>
 </ul>
 <h3 id="简历模板"><a href="#简历模板" class="headerlink" title="简历模板"></a>简历模板</h3><ul>
 <li><a href="https://github.com/geekcompany/ResumeSample/blob/master/android.md" target="_blank" rel="external">Android程序员简历模板</a></li>
 <li><a href="http://mp.weixin.qq.com/s?__biz=MzA4NTQwNDcyMA==&amp;mid=402970472&amp;idx=1&amp;sn=b9738c66fb5750c2515d57357c01a83f&amp;scene=21#wechat_redirect" target="_blank" rel="external">你真的会写简历么？</a></li>
 <li><a href="http://www.jianshu.com/p/99f890ef36d4?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">写好一份技术简历很重要</a></li>
+<li><a href="http://j.codekk.com/blogs/detail/5705bcdf4a38205862ef4770" target="_blank" rel="external">80% 以上简历都是不合格的</a></li>
+<li><a href="http://j.codekk.com/blogs/detail/5705bcdf4a38205862ef476f" target="_blank" rel="external">推荐两个技术简历模板</a></li>
+<li><a href="https://mdluo.github.io/blog/about-resume/" target="_blank" rel="external">关于程序员求职简历</a></li>
 </ul>
 ]]></content>
     
@@ -850,6 +858,9 @@
 &lt;li&gt;&lt;a href=&quot;https://github.com/baoyachi/Interview&quot;&gt;【面试集锦】&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/suzeyu1992/repo&quot;&gt;记录一个自己的知识库&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/735be5ece9e8?utm_campaign=hugo&amp;amp;utm_medium=reader_share&amp;amp;utm_content=note&amp;amp;utm_source=qq&quot;&gt;Android 名企面试题及涉及知识点整理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/JackyAndroid/AndroidInterview-Q-A/blob/master/README-CN.md&quot;&gt;国内一线互联网公司内部面试题库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jianshu.com/p/d1efe2f31b6d&quot;&gt;史上最全 Android 面试资料集合&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Freelander/Android_Data&quot;&gt;Android 学习资料收集&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
     
     </summary>
