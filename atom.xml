@@ -344,7 +344,7 @@
     <link href="http://jingbin.me/2017/03/05/Future/"/>
     <id>http://jingbin.me/2017/03/05/Future/</id>
     <published>2017-03-05T05:39:21.000Z</published>
-    <updated>2017-03-05T05:57:35.000Z</updated>
+    <updated>2017-03-05T15:17:54.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>我在为孩子寻找母亲，为孙儿寻找奶奶，所以希望你少而美丽，中而强干，老而慈祥；我出差的时候，你能为我收拾行李，这样当我在异地他乡，打开箱子就能想起你；咱们爸妈年纪都大了，应该常去看他们，如果我忙糊涂了，你会记得提醒我；最后也是最重要的一点，你已经做好了一切准备进入婚姻，并经营好它。</p>
@@ -784,7 +784,7 @@
     <link href="http://jingbin.me/2017/02/20/Android%20%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E9%9B%86%E9%94%A6/"/>
     <id>http://jingbin.me/2017/02/20/Android 面试资料集锦/</id>
     <published>2017-02-20T10:51:00.000Z</published>
-    <updated>2017-03-05T14:59:00.000Z</updated>
+    <updated>2017-03-05T15:25:45.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>犹太法典:当你挽救了一条生命，你就等于挽救了全世界。 - 《辛德勒名单》</p>
@@ -844,6 +844,39 @@
 <li><a href="http://j.codekk.com/blogs/detail/5705bcdf4a38205862ef4770" target="_blank" rel="external">80% 以上简历都是不合格的</a></li>
 <li><a href="http://j.codekk.com/blogs/detail/5705bcdf4a38205862ef476f" target="_blank" rel="external">推荐两个技术简历模板</a></li>
 <li><a href="https://mdluo.github.io/blog/about-resume/" target="_blank" rel="external">关于程序员求职简历</a></li>
+</ul>
+<hr>
+<h3 id="复习点备忘"><a href="#复习点备忘" class="headerlink" title="复习点备忘"></a>复习点备忘</h3><ul>
+<li>主界面viewpager嵌套viewpager滑动冲突（自己处理的还是Drawlayout处理的)</li>
+<li>事件分发机制、消息机制</li>
+<li>说到mvvm 你怎么看待mvp呢</li>
+<li>开源的那个项目难点是啥</li>
+<li>你不是用了rxjava和retrofit嘛。它们实现原理是啥</li>
+<li>内存泄漏 性能优化</li>
+<li>增量更新啊 热修复 插件化开发</li>
+<li>apk瘦身技术</li>
+<li>目前你知道事件冲突解决方式有哪几种</li>
+<li>事件机制用到设计模式什么模式（责任链模式–&gt;源码）</li>
+<li>结合android源码来分析设计模式</li>
+<li>什么对象会被GCRoot引用</li>
+<li>为什么butterkinfe效率高</li>
+<li>databinding优缺点</li>
+<li><strong>写一个自定义控件</strong></li>
+<li>缓存和线程[车童]</li>
+<li>md5啊，rsaa，RSA加密[车童]</li>
+<li>百度地图api[车童]</li>
+</ul>
+<h3 id="中级工程师进阶方法"><a href="#中级工程师进阶方法" class="headerlink" title="中级工程师进阶方法"></a>中级工程师进阶方法</h3><ul>
+<li>坚持写博客</li>
+<li>在Github上参与开源项目</li>
+<li>有自己的完整作品（CloudReader最新的技术！）</li>
+</ul>
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3><ul>
+<li>Thinking in Java</li>
+<li>Effective Java</li>
+<li>Android 开发艺术探索(进阶必备)</li>
+<li>第一行代码</li>
+<li>阅读Android源码，理解一些高级概念（activity、view的内部运行机制：比如：aidl、JNI）</li>
 </ul>
 ]]></content>
     
