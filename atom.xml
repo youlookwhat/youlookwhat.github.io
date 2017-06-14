@@ -162,7 +162,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-06-08T13:26:46.000Z</updated>
+    <updated>2017-06-14T06:27:45.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -273,6 +273,8 @@
 <li><p>Activity 里放多个fragment，当加载过其中一个<code>fragment A</code>后，切到其他的fragment，直至销毁fragment A后,再直接切到fragment A，这时<code>fragmentA.getUserVisibleHint() = false</code>。所以依赖getUserVisibleHint() = true的逻辑要注意了！最好的方式是在 viewpager 的监听里，手动<code>fragment.setUserVisibleHint(true)</code>。</p>
 </li>
 <li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现 fragment 的懒加载。setUserVisibleHint() 会在<code>onActivityCreated()</code>之前调用，所以可以在onActivityCreated() 进行一系列初始化的操作，然后在 setUserVisibleHint() 里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
+</li>
+<li><p>如从子页面回到主页面并切到对应type的fragment里，这里的<code>.commit()</code>要改为<code>.commitAllowingStateLoss()</code>，不然会出现<code>Can not perform this action after onSaveInstanceState</code>错误。</p>
 </li>
 </ul>
 <h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2><ul>

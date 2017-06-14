@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-06-08T13:26:46.000Z">
+<meta property="og:updated_time" content="2017-06-14T06:27:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -537,6 +537,8 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 <li><p>Activity 里放多个fragment，当加载过其中一个<code>fragment A</code>后，切到其他的fragment，直至销毁fragment A后,再直接切到fragment A，这时<code>fragmentA.getUserVisibleHint() = false</code>。所以依赖getUserVisibleHint() = true的逻辑要注意了！最好的方式是在 viewpager 的监听里，手动<code>fragment.setUserVisibleHint(true)</code>。</p>
 </li>
 <li><p>根据<code>setUserVisibleHint()</code>方法的调用时间，来实现 fragment 的懒加载。setUserVisibleHint() 会在<code>onActivityCreated()</code>之前调用，所以可以在onActivityCreated() 进行一系列初始化的操作，然后在 setUserVisibleHint() 里请求数据。具体请见<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/1021/1813.html" target="_blank" rel="external">这里</a>。</p>
+</li>
+<li><p>如从子页面回到主页面并切到对应type的fragment里，这里的<code>.commit()</code>要改为<code>.commitAllowingStateLoss()</code>，不然会出现<code>Can not perform this action after onSaveInstanceState</code>错误。</p>
 </li>
 </ul>
 <h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2><ul>
