@@ -162,7 +162,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-06-14T06:27:45.000Z</updated>
+    <updated>2017-06-21T06:23:42.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -324,6 +324,8 @@
 <li><p><code>Glide</code>加载图片：自动缓存当前图片的尺寸，如果其他地方取这个比例的图片则取的是缓存。不缓存等比例的图片！如果其他地方想要取当前图片的缓存，可加载时设置当前图片的宽高，用这个方法：<code>override(300,400)</code>,值在<code>dimens</code>里取，直接设置会损失清晰度。</p>
 </li>
 <li><p>引用的库文件里，关于gradle配置<code>compileSdkVersion</code>,<code>buildToolsVersion</code>需和主工程配置一致，不然可能还会出现无法编译及点击xml文件失效等问题。</p>
+</li>
+<li><p>adapter使用多种类别的item时，<code>getItemViewType</code>要从0开始，不然会出现<a href="http://www.jianshu.com/p/e441c0362364" target="_blank" rel="external">角标越界异常</a>。</p>
 </li>
 </ul>
 ]]></content>

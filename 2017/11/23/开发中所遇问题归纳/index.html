@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-06-14T06:27:45.000Z">
+<meta property="og:updated_time" content="2017-06-21T06:23:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -588,6 +588,8 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 <li><p><code>Glide</code>加载图片：自动缓存当前图片的尺寸，如果其他地方取这个比例的图片则取的是缓存。不缓存等比例的图片！如果其他地方想要取当前图片的缓存，可加载时设置当前图片的宽高，用这个方法：<code>override(300,400)</code>,值在<code>dimens</code>里取，直接设置会损失清晰度。</p>
 </li>
 <li><p>引用的库文件里，关于gradle配置<code>compileSdkVersion</code>,<code>buildToolsVersion</code>需和主工程配置一致，不然可能还会出现无法编译及点击xml文件失效等问题。</p>
+</li>
+<li><p>adapter使用多种类别的item时，<code>getItemViewType</code>要从0开始，不然会出现<a href="http://www.jianshu.com/p/e441c0362364" target="_blank" rel="external">角标越界异常</a>。</p>
 </li>
 </ul>
 
