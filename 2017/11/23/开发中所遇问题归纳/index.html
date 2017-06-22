@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-06-21T06:23:42.000Z">
+<meta property="og:updated_time" content="2017-06-22T11:24:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -590,6 +590,12 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 <li><p>引用的库文件里，关于gradle配置<code>compileSdkVersion</code>,<code>buildToolsVersion</code>需和主工程配置一致，不然可能还会出现无法编译及点击xml文件失效等问题。</p>
 </li>
 <li><p>adapter使用多种类别的item时，<code>getItemViewType</code>要从0开始，不然会出现<a href="http://www.jianshu.com/p/e441c0362364" target="_blank" rel="external">角标越界异常</a>。</p>
+</li>
+<li><p>如何删除默认 button 中的样式android? 加上属性：<code>style=&quot;?android:attr/borderlessButtonStyle&quot;</code></p>
+</li>
+<li><p><code>RatingBar</code>不设置半星:<code>android:stepSize=&quot;1&quot;</code>,不可滑动:<code>android:isIndicator=&quot;true&quot;</code></p>
+</li>
+<li><p>后台返回值为<code>Integer</code>类型的话，不能直接以<code>!=0</code>判断，而是以<code>!=null</code>判断，不然会调用请求失败的方法<code>showErr()</code>。</p>
 </li>
 </ul>
 
