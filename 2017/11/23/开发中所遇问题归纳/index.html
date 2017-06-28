@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-06-26T05:59:31.000Z">
+<meta property="og:updated_time" content="2017-06-28T11:29:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -523,7 +523,10 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 </li>
 <li><p>NestedScrollView里嵌套 RecyclerView 需要在<code>onResume</code>里加上<code>.setFocusable(false)</code>，不然进入页面会定位到列表第一条或其他问题。</p>
 </li>
-<li>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</li>
+<li><p>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</p>
+</li>
+<li><p><a href="http://www.voidcn.com/blog/ming2316780/article/p-5999345.html" target="_blank" rel="external">完美解决隐藏Listview和RecyclerView去掉滚动条和滑动到边界阴影的方案</a></p>
+</li>
 </ul>
 <h2 id="ViewPager-与-Fragment"><a href="#ViewPager-与-Fragment" class="headerlink" title="ViewPager 与 Fragment"></a>ViewPager 与 Fragment</h2><ul>
 <li><p>父布局使用<code>FrameLayout</code>或<code>Scrollview</code>下拉会有阴影效果，颜色是你配置的主题上指定的颜色。</p>
