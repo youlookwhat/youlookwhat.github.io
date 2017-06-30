@@ -162,7 +162,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-06-28T11:29:04.000Z</updated>
+    <updated>2017-06-30T02:21:01.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -189,7 +189,9 @@
 </li>
 <li><p>布局里没有声明<code>id</code>,则对应的 ItemEverydayBinding 无法生成。</p>
 </li>
-<li><p>更改包名之后（rename – gradle.applicationId）， databinding 相关文件会报错，进入<code>Build --&gt; Build Project</code>就好了！</p>
+<li><p>更改包名之后（rename – gradle.applicationId）， databinding 相关文件会报错，进入<code>Build --&gt; Rebuild Project</code>就好了！</p>
+</li>
+<li><p>AS里更改包名：保险的方法(费了几个小时的时间的总结)：在目录下新建想要的工程目录，把<code>activity</code>等包拖到新建的目录底下，然后修改<code>gradle</code>下的<code>applicationId</code>。这时候已经好了，可以跑起来了。但是<code>AndroidManifest.xml</code>未更改<code>package</code>，更改后你会发现项目中的<code>databinding</code>会报错，需要使用全局替换，将之前的包名替换成想要的包名，然后进入<code>Build --&gt; Rebuild Project</code>就好了！</p>
 </li>
 <li><p>注意：引用如：android:showImg=’@{bean.images.large}’时，里面的<code>bean</code>写错会造成编译错误！</p>
 </li>
@@ -337,6 +339,8 @@
 <li><p>后台返回值为<code>Integer</code>类型的话，不能直接以<code>!=0</code>判断，而是以<code>!=null</code>判断，不然会调用请求失败的方法<code>showErr()</code>。</p>
 </li>
 <li><p>Postman请求出现<code>Invalid CORS request</code>，解决方法：<code>Then add a header to your request. The header Key should be &quot;Origin&quot; and the header Value should be the full URL of your server (Do not forget the http:// or https://).</code></p>
+</li>
+<li><p>Android Studio “重置”是丢弃所有修改。</p>
 </li>
 </ul>
 ]]></content>
