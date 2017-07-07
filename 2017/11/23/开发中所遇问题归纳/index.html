@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-06-30T02:21:01.000Z">
+<meta property="og:updated_time" content="2017-07-07T11:44:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -528,6 +528,14 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 <li><p>添加<code>headerview</code>后，隐藏显示，进度条不会到达屏幕顶端。</p>
 </li>
 <li><p><a href="http://www.voidcn.com/blog/ming2316780/article/p-5999345.html" target="_blank" rel="external">完美解决隐藏Listview和RecyclerView去掉滚动条和滑动到边界阴影的方案</a></p>
+</li>
+<li><p>把WebView做为headerview添加，会有很多问题：</p>
+<ul>
+<li>1.有时候webview底部会显示会出现一大片的空白区域：把WebView的<code>layout_height</code>设置为<code>wrap_content</code>。</li>
+<li>2.加载完成后，点击webview区域，会滚动到webview的顶部：使其失去焦点，在headerview的根布局里加上：<code>android:descendantFocusability=&quot;blocksDescendants&quot;</code></li>
+<li>3.点击item进入详情后返回，会自动滚动到webview的顶部，在activity里加上：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onResume();</div><div class="line">    <span class="keyword">if</span> (detailBinding!=<span class="keyword">null</span>) &#123;</div><div class="line">        detailBinding.wvDetail.setFocusable(<span class="keyword">false</span>);</div><div class="line">        detailBinding.wvDetail.setFocusableInTouchMode(<span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 <h2 id="ViewPager-与-Fragment"><a href="#ViewPager-与-Fragment" class="headerlink" title="ViewPager 与 Fragment"></a>ViewPager 与 Fragment</h2><ul>
