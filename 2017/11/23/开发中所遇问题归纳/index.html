@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-07-07T11:44:58.000Z">
+<meta property="og:updated_time" content="2017-07-28T06:18:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -533,7 +533,7 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 <ul>
 <li>1.有时候webview底部会显示会出现一大片的空白区域：把WebView的<code>layout_height</code>设置为<code>wrap_content</code>。</li>
 <li>2.加载完成后，点击webview区域，会滚动到webview的顶部：使其失去焦点，在headerview的根布局里加上：<code>android:descendantFocusability=&quot;blocksDescendants&quot;</code></li>
-<li>3.点击item进入详情后返回，会自动滚动到webview的顶部，在activity里加上：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onResume();</div><div class="line">    <span class="keyword">if</span> (detailBinding!=<span class="keyword">null</span>) &#123;</div><div class="line">        detailBinding.wvDetail.setFocusable(<span class="keyword">false</span>);</div><div class="line">        detailBinding.wvDetail.setFocusableInTouchMode(<span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>3.点击item进入详情后返回，会自动滚动到webview的顶部，在activity里加上：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onResume();</div><div class="line">    <span class="keyword">if</span> (detailBinding!=<span class="keyword">null</span>) &#123;</div><div class="line">        detailBinding.getRoot().setFocusable(<span class="keyword">false</span>);</div><div class="line">        detailBinding.getRoot().setFocusableInTouchMode(<span class="keyword">false</span>);</div><div class="line">        detailBinding.wvDetail.setFocusable(<span class="keyword">false</span>);</div><div class="line">        detailBinding.wvDetail.setFocusableInTouchMode(<span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -576,6 +576,8 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 </li>
 <li><p><code>EditText</code>如设置搜索模式，还要加上单行显示，不然可以一直换行。</p>
 </li>
+<li><p><code>TextView</code>增加属性<code>maxEms、maxLines=1、ellipsize</code>这样会出现”…”。</p>
+</li>
 </ul>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
 <li><p>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</p>
@@ -612,7 +614,13 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 </li>
 <li><p>Postman请求出现<code>Invalid CORS request</code>，解决方法：<code>Then add a header to your request. The header Key should be &quot;Origin&quot; and the header Value should be the full URL of your server (Do not forget the http:// or https://).</code></p>
 </li>
-<li><p>Android Studio “重置”是丢弃所有修改。</p>
+<li><p>sourcetree “重置”是丢弃所有修改。</p>
+</li>
+<li><p>webview与js交互中，“遍历所有的a节点,将节点里的属性传递过去(属性自定义,用于页面跳转) ”，如果遍历两次a节点，最后一次的会覆盖前面的。</p>
+</li>
+<li><p>太大的数据不要通过Intent之间传递，传递的数据最好不要超过1M,不然会报错，报错的地方不一定是当前传值的地方，可能是下一个页面。<code>Do not exchange huge data (&gt;1MB) between services and application</code>，可以通过<code>SharedPreferences</code>转json转bean来解决。</p>
+</li>
+<li><p>popuwindow显示有两个方法，每个方法只能在Android7.0之前或之后适应，需要辨别版本使用两和方法。<a href="https://www.oschina.net/question/588216_2210921" target="_blank" rel="external">链接</a></p>
 </li>
 </ul>
 
