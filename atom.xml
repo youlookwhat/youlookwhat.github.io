@@ -388,6 +388,79 @@
   </entry>
   
   <entry>
+    <title>Macbook Pro键帽拆解安装图文教程</title>
+    <link href="http://jingbin.me/2017/08/05/Macbook-Pro%E9%94%AE%E5%B8%BD%E6%8B%86%E8%A7%A3%E5%AE%89%E8%A3%85%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B/"/>
+    <id>http://jingbin.me/2017/08/05/Macbook-Pro键帽拆解安装图文教程/</id>
+    <published>2017-08-05T14:19:13.000Z</published>
+    <updated>2017-08-05T14:29:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1354448-7b8f5e2646e56223.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="keyboard.png"></p>
+<a id="more"></a>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前段时间把可乐洒在电脑上了，大概有1/5的罐装可乐，紧急之下把电脑翻转过来，万幸的是电脑没出问题。就是过了两天之后，键盘黏黏的，特别是空格键。<br>送修的话，这属于人为的，不再保修范围之内，关键是来回时周期很长，耽误了工作，于是决定自己拆解，网上有很多发了类似的教程，但自己还是遇到了一些坑。</p>
+<p>在此发出来，希望之后遇到类似事情的人有一个参考。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><h4 id="拆解工具"><a href="#拆解工具" class="headerlink" title="拆解工具"></a>拆解工具</h4><ul>
+<li>1、镊子</li>
+<li>2、屏幕清洗液(一般清水也可替代)</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-e94a627226044ff3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="镊子.png"><br>网上有很多栗子说要专业的拔键帽工具，楼主也在网上找了类似的工具，但是这个工具和拆解电脑的其他配件是一起的，但我又不需要那些工具，就没有购买，想了镊子应该也可以完成，就开始试了。</p>
+<h4 id="拆解普通字母按键"><a href="#拆解普通字母按键" class="headerlink" title="拆解普通字母按键"></a>拆解普通字母按键</h4><p>先看拆解之后的样子：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-132a3d6dcfea1983.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="普通字母按键1.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-e9577d464963b09c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="普通字母按键2.png"></p>
+<p>拆第一个字母按键的时候弄断了右边的一个塑料角！但装上去之后基本不影响后感。在卸下来后找到了经验，算是换了点经验。所有的按键都有X支架，它们的拆解方法都是一样的。<br><strong>步骤</strong>：<br>先将镊子的一脚放在按键的<strong>底部中间</strong>(中间处有空隙)，然后往上翘，看见一个脚起来后，再翘底部另一个脚，等到底部两个脚都起来后，就可以轻轻地将键帽拿起来了。<br>（之前在网上看的是将镊子放在右边的脚上，其实这是错误的，塑料角很脆弱，很容易断，如果直接掰右边的脚，很容易掰断。如果放在中间，然后慢慢抬起镊子，这之后两边的X支架的脚受力会轻一些，这样断的可能会小很多。）</p>
+<h4 id="拆解command键"><a href="#拆解command键" class="headerlink" title="拆解command键"></a>拆解command键</h4><p>我们来看command键的结构</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-14a8b8706b393250.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="command键.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-684bcf4aece9b0f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="command键2.png"></p>
+<p>注意：command键是有挂钩的，shift键应该也会有。<br>之前看到有的博客说空格间才是双挂钩，后来拆的时候发现command键也是双挂钩。</p>
+<p><strong>步骤</strong>：<br>1、先和拆解普通按键一样，插接X支架。<br>2、然后你会看见挂钩了，这时候需要一点耐心，用镊子的一脚将挂钩的一边推出去，然后再推另一边。同样第二个挂钩也是。</p>
+<h4 id="拆解空格键"><a href="#拆解空格键" class="headerlink" title="拆解空格键"></a>拆解空格键</h4><p>空格键是最难的，应该放在最后来进行，可以先在前面的拆解中学学经验。</p>
+<p>同样先上图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-c93c42d768c16a83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="空格键.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-ccdc7be37b073a3e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="空格键2.png"></p>
+<p>空格键结构和command键相似，不同的是它有两个X支架，挂钩长一些。</p>
+<p><strong>步骤</strong>：<br>1、先依次拆两个X支架，这时候比较容易弄断角，恩，尽管我很小心了，还是弄断了两个角，不过安装上去了后影响并不是很大。<br>2、然后拆挂钩，这个挂钩比cmmand键难拆，但只要细心和有点耐心花点时间也是没问题的。</p>
+<h4 id="清洗"><a href="#清洗" class="headerlink" title="清洗"></a>清洗</h4><p>1、先可以把键帽拿去用水冲洗了，我拆解下来后，发现里面还有一点污渍，冲洗后晒干后即可。<br>2、还有就是用镊子清晰按键的边缘，如图处：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-832da07cfbbdb880.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="边缘.png"></p>
+<p>清洗完之后等待键帽上的水干了就可以安装了。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><img src="http://upload-images.jianshu.io/upload_images/1354448-219c3d2d6dc188e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="金属片.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-cdeefd3e93b24ea8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="X支架.png"></p>
+<blockquote>
+<p>特别注意：<br>1、注意X支架的正反面，有凹槽的地方朝下，因为这个原因我把两个金属脚都按弯了……，最后用镊子将它掰正的!!<br>2、图中有两个金属角，需要先将X支架放上去，第一步应该是将金属脚对准，如果歪了可能和我一样把金属脚压弯，我相信你不喜欢看到那一幕。</p>
+</blockquote>
+<p><strong>步骤</strong>：<br>1、普通按键，安装好X支架，然后将键帽扣上去，听到咔一声证明好了。<br>2、空格键和command键类似，先安装好X支架后，将两个挂钩勾上去，让挂钩和键帽上面的槽对准，然后按下，还是听到咔一声就好了。</p>
+<h3 id="注意要点"><a href="#注意要点" class="headerlink" title="注意要点"></a>注意要点</h3><ul>
+<li>不要硬掰，强按。</li>
+<li>镊子从X支架的中间翘起。</li>
+<li>安装的时候注意X支架的正反面，且先对其金属片。</li>
+</ul>
+<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><ul>
+<li><a href="http://bbs.feng.com/read-htm-tid-6404498.html" target="_blank" rel="external">MacBook（非蝶式键盘）键帽拆解教程【多图+详细说明】</a></li>
+<li><a href="http://www.apple21.com/article.php?id=77" target="_blank" rel="external">新款MacBook Pro、MacBook Air键盘、键帽拆卸清洗视频教程</a></li>
+<li><a href="https://bbs.feng.com/forum.php?mod=viewthread&amp;tid=11095755" target="_blank" rel="external">16款MacBook Pro 空格键卡键修复教程 简约教程</a></li>
+<li><a href="http://my.tv.sohu.com/us/63361417/55235770.shtml" target="_blank" rel="external">Macbook pro 拆键盘方法</a></li>
+</ul>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>安装好之后打开电脑，发现“B”键的一右下脚是凹下去的，是在看不下去，就又用镊子将键帽拔了出来，这时候发现键盘灯熄灭了！！！心里想会不会是将什么线路弄断了，又重新安装好之后开机，发现键盘灯一直是熄灭的，也不能调光，键盘上的背光灯键是个禁止符号了。</p>
+<p>心想，呵呵，这次把线路弄断了。习惯性的google了一下，发现<strong>外界亮的情况下，背光灯会不让亮的</strong>。真惊喜真刺激🙄</p>
+<blockquote>
+<p>每个键盘的内部结构也能有差别，且不止一种拆卸方法，此方法不一定完美，仅供参考。</p>
+</blockquote>
+<p>最后附一张结果图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-97f1d891b1450b00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="键盘.png"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1354448-7b8f5e2646e56223.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;keyboard.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Macbook Pro" scheme="http://jingbin.me/categories/Macbook-Pro/"/>
+    
+    
+      <category term="Macbook Pro" scheme="http://jingbin.me/tags/Macbook-Pro/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《醒世恒言》读书笔记·下</title>
     <link href="http://jingbin.me/2017/03/08/%E3%80%8A%E9%86%92%E4%B8%96%E6%81%92%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%C2%B7%E4%B8%8B/"/>
     <id>http://jingbin.me/2017/03/08/《醒世恒言》读书笔记·下/</id>
@@ -2135,125 +2208,6 @@
       <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
     
       <category term="Android基础知识点" scheme="http://jingbin.me/tags/Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac搭建Hexo博客流程记录，排雷完成</title>
-    <link href="http://jingbin.me/2016/11/19/Mac%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95%EF%BC%8C%E6%8E%92%E9%9B%B7%E5%AE%8C%E6%88%90/"/>
-    <id>http://jingbin.me/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/</id>
-    <published>2016-11-18T19:02:13.000Z</published>
-    <updated>2016-11-20T17:42:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面会把你坑的很惨..</p>
-<h2 id="引"><a href="#引" class="headerlink" title="引"></a>引</h2><p>很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的<a href="#jump">推荐文章</a>里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，出了问题就会不知道怎么回事。下面是自己的搭建记录，及<a href="#ask">所遇问题的解决</a>。</p>
-<p>在此感谢<a href="https://madongqiang2201.github.io/" target="_blank" rel="external">小马哥Mark</a>和 <a href="http://wingjay.com/" target="_blank" rel="external">wingjay</a>先前分享的教程，有些段落是从你们里搬运过来的，希望博主见谅，如有侵权，请联系我删除。</p>
-<p>Ok，现在开始：</p>
-<a id="more"></a>
-<h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>在不购买服务器的前提下，我们的网站需要挂在GitHub Pages上。GitHub Pages是面向用户、组织和项目开放的公共静态页面搭建托管服务，可用于搭建个人博客。</p>
-<ul>
-<li>首先你需要拥有一个<a href="https://github.com/" target="_blank" rel="external">GitHub</a>账号。</li>
-<li>然后进入<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>，一步步做，完成后就能在浏览器打开<code>http://username.github.io</code>了。</li>
-</ul>
-<p>至此，我们已经利用GitHub Pages搭建好了个人博客雏形了。下面要做的，就是个性化了。</p>
-<blockquote>
-<p>注意：如果你<code>http://username.github.io</code>首页就要是博客首页的话，建议初次配置选择首页，就是<a href="http://jingbin.me">这样</a>。完成后可以把<code>index.html</code>给删了，因为到最后你发现那是没用的，它将会给你造成干扰。</p>
-</blockquote>
-<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>参考<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">中文文档</a>或<a href="https://hexo.io/docs/" target="_blank" rel="external">英文文档</a>。完成该步后，你的电脑便拥有了Git、Node.js和Hexo。</p>
-<h3 id="测试安装状态"><a href="#测试安装状态" class="headerlink" title="测试安装状态"></a>测试安装状态</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ node -v</div><div class="line"> v4.2.4</div><div class="line"></div><div class="line">$ npm -v</div><div class="line"><span class="number">2.14</span>.12</div><div class="line"></div><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
-<h2 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h2><p>确定拥有了Git、Node.js和Hexo后，进行下一步：</p>
-<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ cd &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
-<p> 新建完成后，指定文件夹的目录如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure>
-<p>这样Hexo会在该文件夹创建本地博客所需的一切资源。这样本地博客就搭建好了，输入以下命令：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo s --debug <span class="comment">// 启动本地hexo 服务器，默认localhost:4000可以访问，可以看到调试信息</span></div></pre></td></tr></table></figure>
-<p>这样就开启了一个本地博客服务器，打开浏览器，在地址栏输入<code>localhost:4000</code>，就可以查看本地博客了，hexo默认生成了一片hello world博客。出现问题可以看terminal终端错误信息。按<code>control + c</code>关闭调试。</p>
-<blockquote>
-<p>注意：以上hexo开头的命令，执行目录必须是你创建的博客文件夹目录。使用hexo s 也可以，只是没有了调试信息。</p>
-</blockquote>
-<h3 id="同步Hexo博客到Github"><a href="#同步Hexo博客到Github" class="headerlink" title="同步Hexo博客到Github"></a>同步Hexo博客到Github</h3><p>现在你已经可以在本机查看你的博客了，但是要想让别人通过网络可以查看你的博客，还需要一步，那就是将你的博客发布到github仓库。在terminal终端，将当前目录切换到你的本地博客目录，执行以下命令：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>安装完成之后，打开本地博客目录的<code>_config.yml</code>文件，编辑其中的<code>deploy</code>节点：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https:<span class="comment">//github.com/youlookwhat/youlookwhat.github.io.git</span></div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：字段前需加空格，hexo有严格的格式规范。</p>
-</blockquote>
-<p>保存配置之后，你可以不着急传到仓库，先刷新本地博客，看是否还是原样，如有问题可以看到terminal终端上的错误信息，然后检查没问题为止。</p>
-<p>确认无误之后，在本地博客目录执行以下命令：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean <span class="comment">// clean本地项目，防止缓存</span></div><div class="line">hexo g <span class="comment">// 全拼是：hexo generate，可以简写成 hexo g; 根据你编辑的md格式的博客，生成静态网页</span></div><div class="line">hexo d  <span class="comment">// 全拼是：hexo deploy，可以简写成 hexo d; 将本地博客发布到github</span></div></pre></td></tr></table></figure>
-<p>然后，在浏览器地址栏输入<code>username.github.io</code>就可以访问你的博客了，别人也可以通过这个地址访问你的博客。如果错误请重复看以前流程，或参考其他文章，也可以<a href="#here">联系我</a>.</p>
-<h2 id="NexT主题配置"><a href="#NexT主题配置" class="headerlink" title="NexT主题配置"></a>NexT主题配置</h2><ul>
-<li><a href="http://theme-next.iissnan.com/getting-started.html#validate-next-theme" target="_blank" rel="external">Next主题</a></li>
-</ul>
-<p>Hexo主题非常多，可以参考<a href="https://hexo.io/themes/" target="_blank" rel="external">丰富多彩的Hexo主题</a>，本文选Next为主题，NexT主题是一套简约的主题，设置完成之后，就像我的博客现在的样子，里面有详细的配置说明，这里就不重述了。</p>
-<p>配置后调试：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo s --debug</div></pre></td></tr></table></figure>
-<p>确认无误后上传：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line">hexo g</div><div class="line">hexo d</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：因为hexo有严格的格式规范，所以建议配置时及时调试页面。</p>
-</blockquote>
-<h2 id="优化环节"><a href="#优化环节" class="headerlink" title="优化环节"></a>优化环节</h2><ul>
-<li>域名设置</li>
-<li><a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="external">fork me on github</a></li>
-<li>配置SSH key</li>
-<li>给博文添加tag和分类(<a href="http://theme-next.iissnan.com/theme-settings.html#author-sites" target="_blank" rel="external">主题</a>)</li>
-<li>手动实现某条博文置顶</li>
-</ul>
-<h3 id="域名设置"><a href="#域名设置" class="headerlink" title="域名设置"></a>域名设置</h3><p>大家可以看：<a href="http://wingjay.com/2015/12/07/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E5%A4%A9%E4%B9%8B%E5%86%85%E6%90%AD%E5%BB%BA%E4%BB%A5%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%90%8D%E5%AD%97%E4%B8%BA%E5%9F%9F%E5%90%8D%E7%9A%84%E5%BE%88cool%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">替换自己的域名</a> ,里面讲述的详细。</p>
-<blockquote>
-<p>注意：在<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>买了域名以后直接在里面配置，<a href="http://www.sudu.cn/service/detail/1/0/0/3/10036.html" target="_blank" rel="external">这里</a>只是参考用的。</p>
-</blockquote>
-<h3 id="其它四条"><a href="#其它四条" class="headerlink" title="其它四条"></a>其它四条</h3><p>大家可以看：<a href="https://madongqiang2201.github.io/2016/07/21/Mac%E4%B8%8BHexo%EF%BC%8Bgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">其他遗漏的点</a> </p>
-<blockquote>
-<p>注意：配置后进入调试模式测试一下，这样错了就可以马上更正。</p>
-</blockquote>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p> cd 到仓库所在文件夹目录下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo init       <span class="comment">//在指定目录执行该命令，会将当前目录初始化为hexo站点，生成hexo站点所需的一切文件</span></div><div class="line">hexo <span class="keyword">new</span> “my <span class="keyword">new</span> blog title”   <span class="comment">//新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</span></div><div class="line">hexo s --debug    <span class="comment">// 启动本地hexo 服务器，默认localhost:4000可以访问</span></div><div class="line">hexo clean      <span class="comment">// 清除缓存，如果对本地文件做了修改，同步到远程验证修改的效果之前，先clean，清除缓存</span></div><div class="line">hexo generate   <span class="comment">// 可以简写成hexo g 根据markdown文件生成静态文件</span></div><div class="line">hexo deploy     <span class="comment">// 或者简写成hexo d 将本地修改，部署到远端</span></div><div class="line">hexo version    <span class="comment">// 显示hexo版本</span></div></pre></td></tr></table></figure>
-<h2 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a><span id="jump">推荐文章</span></h2><ul>
-<li><a href="https://madongqiang2201.github.io/2016/07/21/Mac%E4%B8%8BHexo%EF%BC%8Bgithub-pages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="external">Mac搭建Hexo博客及NexT主题配置优化</a></li>
-<li><a href="http://wingjay.com/2015/12/07/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%B8%80%E5%A4%A9%E4%B9%8B%E5%86%85%E6%90%AD%E5%BB%BA%E4%BB%A5%E4%BD%A0%E8%87%AA%E5%B7%B1%E5%90%8D%E5%AD%97%E4%B8%BA%E5%9F%9F%E5%90%8D%E7%9A%84%E5%BE%88cool%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">如何在一天之内搭建以你自己名字为域名又具备cool属性的个人博客</a></li>
-<li><a href="http://www.jianshu.com/p/1cd86fac2585" target="_blank" rel="external">使用GitHub和Hexo搭建免费静态Blog</a></li>
-<li><a href="http://www.arao.me/2015/hexo-next-theme-optimize-base/#为你的hexo网站NexT主题增加留言页" target="_blank" rel="external">动动手指，NexT主题与Hexo更搭哦（基础篇）</a></li>
-</ul>
-<h2 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a><span id="ask">所遇问题</span></h2><ul>
-<li>按照步骤来，及时调试，确认无误后再执行下一步。有一句话说的好，步子跨大了容易扯着蛋。</li>
-<li>建议将基础的先搭建出来，主题细节可以之后再慢慢配置。</li>
-<li>编辑站点<code>_config.yml</code>文件其中的<code>deploy</code>节点时，注意<code>repo</code>的值。</li>
-<li>替换域名时：<ul>
-<li>直接在万维网设置解析方式；</li>
-<li>在仓库Setting的要设置跳转链接；</li>
-<li>CNAME会被覆盖，安装CNAME工具<a href="https://github.com/leecrossley/hexo-generator-cname" target="_blank" rel="external">hexo-generator-cname</a></li>
-</ul>
-</li>
-<li>为博客文章添加阅读量统计功能，参照<a href="http://www.tuicool.com/articles/EbquI3B" target="_blank" rel="external">这里</a>，注意顺序，我在其中被坑过。</li>
-<li>设置网站图标时，就是上传“.ico”文件时，确认成功后浏览器会有缓存，显示不出来，关掉浏览器清除缓存就好了（可放在最后）。</li>
-<li>设置代码高亮主题测试时没事，上传后会有延迟，等等就好了（本人这样）。</li>
-<li>设置搜索栏，进入<a href="https://swiftype.com/users/sign_up" target="_blank" rel="external">swiftype官网</a>，注册不上，应该收费了- -.</li>
-<li>设置侧边栏社交链接时，<code>social:</code><strong>下面字段前要有两个空格，切记</strong>。</li>
-</ul>
-<h2 id="相关网址"><a href="#相关网址" class="headerlink" title="相关网址"></a>相关网址</h2><p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT</a>、<a href="http://youlookwhat.duoshuo.com/admin/" target="_blank" rel="external">多说</a>、<a href="http://tongji.baidu.com/web/welcome/login" target="_blank" rel="external">百度统计</a>、<a href="https://leancloud.cn/app.html#/general" target="_blank" rel="external">leancloud</a>、<a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fhome.console.aliyun.com%2Fnew#/" target="_blank" rel="external">阿里云</a>、<a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="external">fork me</a>、<a href="http://www.ico.la/" target="_blank" rel="external">ico制作</a></p>
-<h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a><span id="here">联系我</span></h2><ul>
-<li><a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" rel="external">我的简书</a></li>
-<li><a href="http://blog.csdn.net/jingbin_" target="_blank" rel="external">我的CSDN</a></li>
-<li><a href="https://github.com/youlookwhat" target="_blank" rel="external">我的个人博客</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;经过一天的辛苦作战，总算基础的东西出来了。踩了太多的坑，综合我踩坑的经过，明白到，选好一篇引导文很重要！有些步骤不要先做了，不然后面会把你坑的很惨..&lt;/p&gt;
-&lt;h2 id=&quot;引&quot;&gt;&lt;a href=&quot;#引&quot; class=&quot;headerlink&quot; title=&quot;引&quot;&gt;&lt;/a&gt;引&lt;/h2&gt;&lt;p&gt;很多博客都已经详细讲述了Hexo博客框架的好处和怎么做，下面的&lt;a href=&quot;#jump&quot;&gt;推荐文章&lt;/a&gt;里会给出链接。但有些过于复杂，让初次配置的人有点雨里雾里；有些又太简单，出了问题就会不知道怎么回事。下面是自己的搭建记录，及&lt;a href=&quot;#ask&quot;&gt;所遇问题的解决&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;在此感谢&lt;a href=&quot;https://madongqiang2201.github.io/&quot;&gt;小马哥Mark&lt;/a&gt;和 &lt;a href=&quot;http://wingjay.com/&quot;&gt;wingjay&lt;/a&gt;先前分享的教程，有些段落是从你们里搬运过来的，希望博主见谅，如有侵权，请联系我删除。&lt;/p&gt;
-&lt;p&gt;Ok，现在开始：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://jingbin.me/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="http://jingbin.me/tags/hexo/"/>
     
   </entry>
   
