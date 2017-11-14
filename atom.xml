@@ -1510,12 +1510,12 @@
     <link href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/"/>
     <id>http://jingbin.me/2016/12/30/更新日志-云阅/</id>
     <published>2016-12-30T09:45:31.000Z</published>
-    <updated>2017-11-14T03:01:16.000Z</updated>
+    <updated>2017-11-14T03:05:42.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p><strong><em>最后更新：2017-3-30　13：02</em></strong><br>可以在<code>develop</code>分支上查看最新的提交，最后会合到<code>master</code>分支上。</p>
 </blockquote>
-<h4 id="版本-V1-8-3（11-14）"><a href="#版本-V1-8-3（11-14）" class="headerlink" title="版本 V1.8.3（11-14）"></a>版本 V1.8.3（11-14）</h4><ul>
+<h3 id="版本-V1-8-3（11-14）"><a href="#版本-V1-8-3（11-14）" class="headerlink" title="版本 V1.8.3（11-14）"></a>版本 V1.8.3（11-14）</h3><ul>
 <li>1、[修复] 已选择分类退出App再次进入,type失效的问题</li>
 <li>2、[修复] 跳转B站视频显示网页错误的问题</li>
 </ul>
@@ -1625,7 +1625,7 @@
       &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;最后更新：2017-3-30　13：02&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;可以在&lt;code&gt;develop&lt;/code&gt;分支上查看最新的提交，最后会合到&lt;code&gt;master&lt;/code&gt;分支上。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&quot;版本-V1-8-3（11-14）&quot;&gt;&lt;a href=&quot;#版本-V1-8-3（11-14）&quot; class=&quot;headerlink&quot; title=&quot;版本 V1.8.3（11-14）&quot;&gt;&lt;/a&gt;版本 V1.8.3（11-14）&lt;/h4&gt;&lt;ul&gt;
+&lt;h3 id=&quot;版本-V1-8-3（11-14）&quot;&gt;&lt;a href=&quot;#版本-V1-8-3（11-14）&quot; class=&quot;headerlink&quot; title=&quot;版本 V1.8.3（11-14）&quot;&gt;&lt;/a&gt;版本 V1.8.3（11-14）&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;1、[修复] 已选择分类退出App再次进入,type失效的问题&lt;/li&gt;
 &lt;li&gt;2、[修复] 跳转B站视频显示网页错误的问题&lt;/li&gt;
 &lt;/ul&gt;
