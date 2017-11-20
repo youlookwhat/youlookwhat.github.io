@@ -162,7 +162,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-09-15T16:29:13.000Z</updated>
+    <updated>2017-11-20T08:20:29.587Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -360,6 +360,8 @@
 <li><p>太大的数据不要通过Intent之间传递，传递的数据最好不要超过1M,不然会报错，报错的地方不一定是当前传值的地方，可能是下一个页面。<code>Do not exchange huge data (&gt;1MB) between services and application</code>，可以通过<code>SharedPreferences</code>转json转bean来解决。</p>
 </li>
 <li><p>popuwindow显示有两个方法，每个方法只能在Android7.0之前或之后适应，需要辨别版本使用两和方法。<a href="https://www.oschina.net/question/588216_2210921" target="_blank" rel="external">链接</a></p>
+</li>
+<li><p>mac更新后git出错<strong>can’t start git:usr/bin/git</strong>（Android Studio2.3.3版本）出现这个问题是因为该目录下的git无法执行，解决方法：在终端界面输入<code>sudo /usr/bin/git</code>这个命令，时候会提示<code>invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</code>,然后再输入<code>xcode-select --install</code>就解决了！</p>
 </li>
 </ul>
 ]]></content>
