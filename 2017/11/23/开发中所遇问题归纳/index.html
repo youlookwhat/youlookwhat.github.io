@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-11-20T08:20:29.587Z">
+<meta property="og:updated_time" content="2017-11-29T14:40:13.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -554,6 +554,11 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 </li>
 <li><p><code>retrofit</code>设置<code>post</code>请求时，传数组时使用<code>image_ids[]</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"/vip/diagnostic_explains"</span>)</div><div class="line"><span class="function">Observable&lt;ErrorBean&gt; <span class="title">postDiagnosticExplains</span><span class="params">(@Header(<span class="string">"a"</span>)</span> String a, </span></div><div class="line">		@<span class="title">Field</span><span class="params">(<span class="string">"userkey"</span>)</span> String userkey, @<span class="title">Field</span><span class="params">(<span class="string">"comment"</span>)</span> String comment,  </div><div class="line">		@<span class="title">Field</span><span class="params">(<span class="string">"image_ids[]"</span>)</span> List&lt;Integer&gt; image_ids);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>自己搭建服务端，<a href="http://blog.csdn.net/wangzhen19891010/article/details/52368396" target="_blank" rel="external">Post传值出现中文乱码问题</a></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"&#123;user&#125;/setDeviceName"</span>)</div><div class="line"><span class="meta">@Headers</span>(<span class="string">"Content-Type:application/x-www-form-urlencoded; charset=utf-8"</span>) <span class="comment">//添加</span></div><div class="line"><span class="function">Observable&lt;String&gt; <span class="title">updateName</span><span class="params">(@Header(<span class="string">"Authorization"</span>)</span> String header,@<span class="title">Path</span><span class="params">(<span class="string">"user"</span>)</span> String user</span></div><div class="line">, @<span class="title">Field</span><span class="params">(<span class="string">"deviceMac"</span>)</span> String mac, @<span class="title">Field</span><span class="params">(<span class="string">"type"</span>)</span> String type, @<span class="title">Field</span><span class="params">(<span class="string">"name"</span>)</span> String name);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="ACache"><a href="#ACache" class="headerlink" title="ACache"></a>ACache</h2><ul>
