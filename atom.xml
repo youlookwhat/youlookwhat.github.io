@@ -162,7 +162,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-11-29T14:40:13.165Z</updated>
+    <updated>2017-12-06T10:48:42.463Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -178,6 +178,8 @@
 <li><p><code>layout</code>节点写了<code>xmlns:android=&quot;http://schemas.android.com/apk/res/android</code>后，子布局不能写.</p>
 </li>
 <li><p>include 子布局时子布局根节点也要声明id，不然引用不到子布局id</p>
+</li>
+<li><p><strong>内部类加”private”,导致编译不通过,DataBinding出问题的bug。</strong>Adapter里有多个Holder，Holder类前加<code>private</code>后编译不通过，去掉就好了。暂时不清楚具体原因！</p>
 </li>
 <li><p>databinding 绑定子布局。先绑定,后父布局再<code>addView()</code></p>
 </li>
