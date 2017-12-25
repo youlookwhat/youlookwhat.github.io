@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-12-06T10:48:42.463Z">
+<meta property="og:updated_time" content="2017-12-25T16:16:25.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -119,7 +119,7 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"post"},
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -175,7 +175,7 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
     
   
 
-  <div class="container one-collumn sidebar-position-right page-post-detail ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
@@ -459,6 +459,8 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 <li><p>android:showImg=’@{bean.images.large}’这样设置图片会闪一下！尤其是在recyclerview里面，效果很不好，如果是写在 adapter里就好了：ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);。不仅仅图片，文字也会闪。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
 </li>
 <li><p>布局里面的子布局里引用的bean可以一样（type一样），但是最好name不一样，不然可能会导致<code>setBean()</code>无效。改变name名就好了。</p>
+</li>
+<li><p>布局里使用了引用方法，一定要生成该布局的databinding类，不然方法会失效。</p>
 </li>
 </ul>
 <ol>

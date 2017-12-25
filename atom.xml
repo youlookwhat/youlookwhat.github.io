@@ -162,7 +162,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-12-06T10:48:42.463Z</updated>
+    <updated>2017-12-25T16:16:25.071Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -202,6 +202,8 @@
 <li><p>android:showImg=’@{bean.images.large}’这样设置图片会闪一下！尤其是在recyclerview里面，效果很不好，如果是写在 adapter里就好了：ImgLoadUtil.displayEspImage(bean.getImages().getLarge(), binding.ivTopPhoto, 0);。不仅仅图片，文字也会闪。加上这句就好了：<code>binding.executePendingBindings();</code>，意思是：<strong>当数据改变时，binding会在下一帧去改变数据，如果我们需要立即改变，就去调用executePendingBindings方法。</strong></p>
 </li>
 <li><p>布局里面的子布局里引用的bean可以一样（type一样），但是最好name不一样，不然可能会导致<code>setBean()</code>无效。改变name名就好了。</p>
+</li>
+<li><p>布局里使用了引用方法，一定要生成该布局的databinding类，不然方法会失效。</p>
 </li>
 </ul>
 <ol>
