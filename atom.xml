@@ -158,6 +158,73 @@
   </entry>
   
   <entry>
+    <title>2018不畏将来 | 2017不念过往</title>
+    <link href="http://jingbin.me/2018/01/02/2018%E4%B8%8D%E7%95%8F%E5%B0%86%E6%9D%A5%20%7C%202017%E4%B8%8D%E5%BF%B5%E8%BF%87%E5%BE%80/"/>
+    <id>http://jingbin.me/2018/01/02/2018不畏将来 | 2017不念过往/</id>
+    <published>2018-01-02T12:48:09.000Z</published>
+    <updated>2018-01-02T15:54:31.935Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="2017年终总结"><a href="#2017年终总结" class="headerlink" title="2017年终总结"></a>2017年终总结</h3><p>2016年也准备写年终总结，忙着写云阅就没有写，之后写了<a href="http://jingbin.me/2017/02/27/%E5%9C%A8%E5%B8%9D%E9%83%BD%E7%8B%AC%E5%B1%85%E4%B8%80%E5%B9%B4%E5%A4%9A%EF%BC%8C%E8%AE%A9%E6%88%91%E4%BD%93%E4%BC%9A%E5%88%B0%E4%BB%80%E4%B9%88/">《在帝都独居一年多，让我体会到什么<br>》</a>,算了离开和年终总结一起了。<br>2017年发生太多的事，真的需要好好的回想梳理一下。工作，身体都有很大的改变。<br>本打算在2018年之前，将CloudReader架构规范一下，看来要延期了，不过也是最近一端时间的事。<br>很庆幸自己当初选择这份职业，工作了近三年，现在依然对它非常热爱，前面的路也越来越清晰。</p>
+<a id="more"></a>
+<h3 id="深圳找工作的两个月"><a href="#深圳找工作的两个月" class="headerlink" title="深圳找工作的两个月"></a>深圳找工作的两个月</h3><p>自从三月份离职去了深圳，在那找了大约两个月的工作，现将能记得的归纳于此。</p>
+<p>3月份去了之后住在我一个叔叔那里，在龙华区，记得大二暑假打完暑期工后去那里玩了两天，现在还在那一块但是搬了一点距离，感觉没有多大的变化，他在那边已经住了四年左右。</p>
+<p><strong>起初打算是这样的：</strong>去深圳找前女友的，在那边找一份工作，尽量在她工作的周围（后来由于没有预想的那么好找和她马上要换工作的原因就开始没有考虑地区的投简历了），然后每周去找她希望能复合，在一起后在那边工作然后有时间一起去香港澳门旅游，在武汉买一套房付个首付，在那边挣钱还这边的房贷也基本不会吃力。</p>
+<p><strong>然而现实是这样的：</strong>她准备马上换工作的，我找的工作也不是很顺利就开始不考虑地区，没有复合也没有去香港澳门旅游，在武汉看了房子因为隔主城区很远就放弃了在那边买房子(因为限购的原因只能在不限购的地方买)，做了一个决定就是回武汉，然后分道扬镳。</p>
+<h4 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h4><blockquote>
+<p>直接进入找工作吧，<br>刚开始在拉钩上投简历，但基本上没有面试的，有时候真怀疑那个平台有问题，投了将近百来份邀请面试的差不多3家。在智联投的最多，也邀请面试的最多。前程无忧投了很多但没有一次邀请面试的。</p>
+</blockquote>
+<p>最初面试的一家是一家做智能硬件的，深圳有很多做智能硬件的，面试了好几家都是。他们的需求很简单，就是一个智能摄像头，厂家给了开发这个摄像头的SDK文档，然后你用它的文档开发一个Android上运行的软件，在上面操作摄像头的上下左右旋转来达到监控的作用。<br>公司是一层大厅是办公区域，其中隔了一部分，那一部分应该是车间，里面有很多设备。过去后老板直接给了一个软件和文档给我看，软件是厂家提供的但是没有源码，公司之前也没有开发类似的软件，因为自己也没有这方面的经验而且公司也不适合长期发展随便聊了一下就走了。</p>
+<p>因为面的太多，之后的就不记录顺序了。</p>
+<p>有一家是在关内 南山区，关内的规划很好，道路，环境，建筑都和关外有很大差别。面试是在一家高楼里，里面的人都穿西服打领带很正式，但一家互联网公司一般不会穿如此。进去是CTO接待的我，因为公司想出了一个idea，就差程序员了。这仿佛是一个段子，哈哈哈。<br>CTO是做全栈的，Android端的基本实现了功能，只是UI和性能需要重新优化，各方面都问了，当然基本没有问题，谈薪资时发现公司是初创公司，正在招人而且是独立开发，就叫的16K，处于两点考虑，第一自己不是很想进这家公司，说不定公司马上就没了，第二这活很麻烦而且得不到多大的提升，不适合长待。公司招聘上面写的是10-15k，叫16k也不过分，多了可以要求降低嘛。<br>事实并非如此，过了大约十天，没有联系我，我再次看了一个招聘信息，薪资改为8-10k了…之后面了很多公司，他们都写的10-15k，然而他们根本不能给这个范围的工资，关外的基本是这样。</p>
+<p>期间面试，遇到各种奇葩公司，当然也有几家很好的。</p>
+<p>有一家位置有点偏，那个地方是个科技园，楼栋编排的很好，而且每一栋都有它的别名，很文艺。进去后，那家公司有自己的Android团队，公司是一整层楼，布局很优雅，还带有一个大的阳台，面试我的是一个小组组长，问了一些工作中的遇到的问题和内存优化方面的问题，他表示很满意，只是那时候已经是午饭时间，人事和CTO去吃饭了就把简历留下了说会通知下一轮面试，但是也是没有结果了。</p>
+<p>有一家是做订制外包的，在猪八戒网有店铺。地方在稍微中心一点的一个科技园，在那个科技园面试了三家，这个还算靠谱，面试了估计有一个小时左右，知道了我的能力范围，觉得可以，然后让我和人事沟通，本以为到这一轮很稳了，但没想到的是居然被人事pass了，不知道是不是工资要高了，后来问了一个做ios的，他的工资是8-9k，我要的是12k，当然还可能是其他的原因，具体也不清楚。<br>那地方有一个公司刚成立，公司还没有10个人，正在组建团队，面试的是老板也没有技术面，也是无果。<br>还有一个更奇葩了，去了以后让我在茶水室坐了一会儿，然后过来跟我说今天面试技术的没有来，让我回去，WTF，跑了几个小时过来得到这句话，真TM有病的公司。</p>
+<h4 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h4><ul>
+<li>一家做摄像头智能硬件的，由于没有相关经验和公司没有人带无果。</li>
+<li>一家关内的做<strong>手画板</strong>的，就是聊天的时候可以自己画东西发给对方的那种。</li>
+<li>一家做订制外包的，被人事Pass了。</li>
+<li>一家公司刚起步，忘了做什么的了，10人以内。</li>
+<li>一家去了后，说面技术的没来，呵呵🙂</li>
+<li>一家不知道做什么的，应该不止一个App，无果。</li>
+<li>一家做语音的，差不多和科大讯飞业务一致，得到阿里的投资。两个人问了几个问题就让我走了(是不是人事为了kpi？)。</li>
+<li>一家集团的分公司，做智能硬件的，不过之前有人做了接着优化，面了满意，工资最高给的是10k，我只能要10K那就10k，公司条件也很差。无果。</li>
+<li>一家去了后有大约7个人左右一起笔试，android端估计爆了，招了这么多人来面。</li>
+<li>还有一家还可以，不过公司的位置不大，但人员很多，比较拥挤，面试了以后我之后很明确的问了她有没有录用的可能，那边说工资给不了那么高，我当时要的12K，她说最多只能给到7K。</li>
+<li>之前可能还有忘记写的，说最后一个吧。最后一个在龙岗，一家自己在家开的公司…位置不大，招了二十个左右的人，聊了很长时间，想了想还是拿一份offer吧，就答应了。</li>
+</ul>
+<p>面试资料：<a href="http://jingbin.me/2017/02/20/Android%20%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99%E9%9B%86%E9%94%A6/">Android 面试资料集锦</a></p>
+<h3 id="武汉房价"><a href="#武汉房价" class="headerlink" title="武汉房价"></a>武汉房价</h3><blockquote>
+<p>2015年没买，2016年涨疯，2017年持续。</p>
+</blockquote>
+<p>本打算在武汉远城区买套房，深圳工作还房贷，可事实是残酷的。远城区太远以后居住根本不现实，买了也不会增值多少，深圳工作工资也比预想中的少很多，看了一下武汉的Android开发工资和深圳差不多。于是思考后觉得最靠谱的是，马上回武汉。</p>
+<ul>
+<li>远城区房价也不便宜，平均1w一平，本来不贵，因为限购所以涨了起来。反而主城区的价格还不是很贵，但是就是限购。于是当时想的是工作两年，然后转为武汉户口再在主城区买。</li>
+<li>工资差不多，关键是离家近，而且弟弟马上来武汉读书，可以有个照顾。</li>
+<li>迟早会回武汉，如果以后回武汉，那在深圳积累的人脉关系就又断了，在武汉还得重新开始。</li>
+<li>既然在那边两个月 感情的起色也不大，再下去作用感觉也就那样了。</li>
+</ul>
+<p>后来出乎意料的是，武汉出台了300万大学生留汉的政策，放宽了落户标准，很快就落户武汉了。然后经过一些波折看中了武昌理工学院的一套房子，虽说交通现在不太方便，但距离光谷，软件园和金融港不远，价格相对不贵性价比很高，但很难买到，武汉现在楼市万象，各种内定的，不给茶水费基本拿不到房子。刚好有一个同学再做个，找了帮了个忙，但由于出了点问题，现在还是没有没有拿到房子，开盘秒，内定的也都没有拿到，现在等待后续的预留房源在。</p>
+<h3 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h3><p>在住的附近办了健身卡，并买了会员。基本每周三四次，工作日晚上九点过去，周末抽时间去上两节课，从以前的57kg，到现在68kg，这会另外写一个健身记录~</p>
+<h3 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h3><p>今年定的目标是<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>达到2000start，算是超额完成了，帮助了很多人感到非常高兴，但发现MVVM架构不规范，只是使用了databinding而已，与之前自己理解的有出入，于是决定结合官方的demo规范一下，现在正在进行中。</p>
+<blockquote>
+<p>未完待续 2018.01.02 23:53</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;2017年终总结&quot;&gt;&lt;a href=&quot;#2017年终总结&quot; class=&quot;headerlink&quot; title=&quot;2017年终总结&quot;&gt;&lt;/a&gt;2017年终总结&lt;/h3&gt;&lt;p&gt;2016年也准备写年终总结，忙着写云阅就没有写，之后写了&lt;a href=&quot;http://jingbin.me/2017/02/27/%E5%9C%A8%E5%B8%9D%E9%83%BD%E7%8B%AC%E5%B1%85%E4%B8%80%E5%B9%B4%E5%A4%9A%EF%BC%8C%E8%AE%A9%E6%88%91%E4%BD%93%E4%BC%9A%E5%88%B0%E4%BB%80%E4%B9%88/&quot;&gt;《在帝都独居一年多，让我体会到什么&lt;br&gt;》&lt;/a&gt;,算了离开和年终总结一起了。&lt;br&gt;2017年发生太多的事，真的需要好好的回想梳理一下。工作，身体都有很大的改变。&lt;br&gt;本打算在2018年之前，将CloudReader架构规范一下，看来要延期了，不过也是最近一端时间的事。&lt;br&gt;很庆幸自己当初选择这份职业，工作了近三年，现在依然对它非常热爱，前面的路也越来越清晰。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://jingbin.me/categories/life/"/>
+    
+    
+      <category term="life" scheme="http://jingbin.me/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android 记一次清除缓存所导致的bug</title>
     <link href="http://jingbin.me/2017/12/21/Android-%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84bug/"/>
     <id>http://jingbin.me/2017/12/21/Android-记一次清除缓存所导致的bug/</id>
@@ -2105,69 +2172,6 @@
       <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
     
       <category term="webview" scheme="http://jingbin.me/tags/webview/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 关于Glide的拓展使用(高斯模糊、加载监听、圆角图片)</title>
-    <link href="http://jingbin.me/2016/11/29/Android%20%E5%85%B3%E4%BA%8EGlide%E7%9A%84%E4%BD%BF%E7%94%A8(%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A%E3%80%81%E5%8A%A0%E8%BD%BD%E7%9B%91%E5%90%AC%E3%80%81%E5%9C%86%E8%A7%92%E5%9B%BE%E7%89%87)/"/>
-    <id>http://jingbin.me/2016/11/29/Android 关于Glide的使用(高斯模糊、加载监听、圆角图片)/</id>
-    <published>2016-11-29T04:07:32.000Z</published>
-    <updated>2017-01-10T04:29:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040" alt="stackblur_default.png"></p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
-<p>引入的库应为如下，将官方的额外扩展了，使其可以支持高斯模糊。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'jp.wasabeef:glide-transformations:2.0.1'</span></div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="加载图片"><a href="#加载图片" class="headerlink" title="加载图片"></a>加载图片</h2><h3 id="基本加载"><a href="#基本加载" class="headerlink" title="基本加载"></a>基本加载</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.into(imageView);</div></pre></td></tr></table></figure>
-<h3 id="设置加载中和加载失败的情况"><a href="#设置加载中和加载失败的情况" class="headerlink" title="设置加载中和加载失败的情况"></a>设置加载中和加载失败的情况</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading) <span class="comment">//占位符 也就是加载中的图片，可放个gif</span></div><div class="line">	.error(R.drawable.failed) <span class="comment">//失败图片</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
-<h3 id="只加载动画"><a href="#只加载动画" class="headerlink" title="只加载动画"></a>只加载动画</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.asGif() <span class="comment">// 只能加载gif文件</span></div><div class="line">	.into(imageView);</div></pre></td></tr></table></figure>
-<h3 id="添加图片淡入加载的效果"><a href="#添加图片淡入加载的效果" class="headerlink" title="添加图片淡入加载的效果"></a>添加图片淡入加载的效果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading)</div><div class="line">	.error(R.drawable.failed) </div><div class="line">	.crossFade(<span class="number">1000</span>) <span class="comment">// 可设置时长，默认“300ms”</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
-<h3 id="加载高斯模糊图"><a href="#加载高斯模糊图" class="headerlink" title="加载高斯模糊图"></a>加载高斯模糊图</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Glide.with(context)</div><div class="line">	.load(url)</div><div class="line">	.placeholder(R.drawable.loading)</div><div class="line">	.error(R.drawable.failed) </div><div class="line">	.crossFade(<span class="number">1000</span>)</div><div class="line">	.bitmapTransform(<span class="keyword">new</span> BlurTransformation(context,<span class="number">23</span>,<span class="number">4</span>))  <span class="comment">// “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。</span></div><div class="line">	.into(view);</div></pre></td></tr></table></figure>
-<h3 id="加载监听器RequestListener"><a href="#加载监听器RequestListener" class="headerlink" title="加载监听器RequestListener"></a>加载监听器RequestListener</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Glide.with(<span class="keyword">this</span>).load(internetUrl).listener(<span class="keyword">new</span> RequestListener&lt;String, GlideDrawable&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onException</span><span class="params">(Exception e, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">                Toast.makeText(getApplicationContext(),<span class="string">"资源加载异常"</span>,Toast.LENGTH_SHORT).show();</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//这个用于监听图片是否加载完成</span></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFromMemoryCache, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">                Toast.makeText(getApplicationContext(),<span class="string">"图片加载完成"</span>,Toast.LENGTH_SHORT).show();</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;).into(imageView);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：如果需要加载完成后设置图片透明度为0，则不能设置<code>.placeholder(R.drawable.url)</code>，否则达不到你想要的效果。</p>
-</blockquote>
-<h3 id="图片缓存机制"><a href="#图片缓存机制" class="headerlink" title="图片缓存机制"></a>图片缓存机制</h3><p>Glide缓存策略</p>
-<p>Glide默认开启磁盘缓存和内存缓存，当然也可以对单张图片进行设置特定的缓存策略。<br>设置图片不加入到内存缓存</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with( context )</div><div class="line">	.load( eatFoodyImages[<span class="number">0</span>] )</div><div class="line">	.skipMemoryCache( <span class="keyword">true</span> )</div><div class="line">	.into( imageViewInternet );</div></pre></td></tr></table></figure>
-<p>设置图片不加入到磁盘缓存</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with( context )</div><div class="line">	.load( eatFoodyImages[<span class="number">0</span>] )</div><div class="line">	.diskCacheStrategy( DiskCacheStrategy.NONE )</div><div class="line">	.into( imageViewInternet );</div></pre></td></tr></table></figure>
-<p>Glide支持多种磁盘缓存策略：</p>
-<p>DiskCacheStrategy.NONE :不缓存图片<br>DiskCacheStrategy.SOURCE :缓存图片源文件<br>DiskCacheStrategy.RESULT:缓存修改过的图片<br>DiskCacheStrategy.ALL:缓存所有的图片，默认</p>
-<h3 id="加载圆角图片"><a href="#加载圆角图片" class="headerlink" title="加载圆角图片"></a>加载圆角图片</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlideCircleTransform</span> <span class="keyword">extends</span> <span class="title">BitmapTransformation</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GlideCircleTransform</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Bitmap <span class="title">transform</span><span class="params">(BitmapPool pool, Bitmap toTransform, <span class="keyword">int</span> outWidth, <span class="keyword">int</span> outHeight)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> circleCrop(pool, toTransform);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Bitmap <span class="title">circleCrop</span><span class="params">(BitmapPool pool, Bitmap source)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (source == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">int</span> size = Math.min(source.getWidth(), source.getHeight());</div><div class="line">        <span class="keyword">int</span> x = (source.getWidth() - size) / <span class="number">2</span>;</div><div class="line">        <span class="keyword">int</span> y = (source.getHeight() - size) / <span class="number">2</span>;</div><div class="line">        <span class="comment">// TODO this could be acquired from the pool too</span></div><div class="line">        Bitmap squared = Bitmap.createBitmap(source, x, y, size, size);</div><div class="line">        Bitmap result = pool.get(size, size, Bitmap.Config.ARGB_8888);</div><div class="line">        <span class="keyword">if</span> (result == <span class="keyword">null</span>) &#123;</div><div class="line">            result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);</div><div class="line">        &#125;</div><div class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(result);</div><div class="line">        Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">        paint.setShader(<span class="keyword">new</span> BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));</div><div class="line">        paint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">        <span class="keyword">float</span> r = size / <span class="number">2f</span>;</div><div class="line">        canvas.drawCircle(r, r, r, paint);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getClass().getName();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Glide.with(mContext)</div><div class="line">    .load(imageUrl)</div><div class="line">    .transform(<span class="keyword">new</span> GlideCircleTransform(mContext))</div><div class="line">    .into(holder.imageView);</div></pre></td></tr></table></figure>
-<h3 id="获得图片缓存路径"><a href="#获得图片缓存路径" class="headerlink" title="获得图片缓存路径"></a>获得图片缓存路径</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getImagePath</span><span class="params">(String imgUrl)</span> </span>&#123;    </div><div class="line">      String path = <span class="keyword">null</span>;    </div><div class="line">      FutureTarget&lt;File&gt; future = Glide.with(ViewBigImageActivity.<span class="keyword">this</span>)</div><div class="line">             .load(imgUrl)</div><div class="line">             .downloadOnly(<span class="number">500</span>, <span class="number">500</span>);    </div><div class="line">     <span class="keyword">try</span> &#123;        </div><div class="line">            File cacheFile = future.get();        </div><div class="line">            path = cacheFile.getAbsolutePath();    </div><div class="line">     &#125; <span class="keyword">catch</span> (InterruptedException | ExecutionException e) &#123; </div><div class="line">            e.printStackTrace();    </div><div class="line">     &#125;    </div><div class="line">     <span class="keyword">return</span> path;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：应在子线程中执行。</p>
-</blockquote>
-<p>使用：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 子线程获得图片路径</span></div><div class="line">        <span class="keyword">final</span> String imagePath = getImagePath(imageUrl);</div><div class="line">        <span class="comment">// 主线程更新</span></div><div class="line">        MainActivity.<span class="keyword">this</span>.runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// 操作代码</span></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;).start();</div></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="http://blog.csdn.net/zhihui_520/article/details/51822336" target="_blank" rel="external">http://blog.csdn.net/zhihui_520/article/details/51822336</a></li>
-<li><a href="http://blog.csdn.net/u010694658/article/details/52689317" target="_blank" rel="external">http://blog.csdn.net/u010694658/article/details/52689317</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1354448-c373098272fca1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1040&quot; alt=&quot;stackblur_default.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot; title=&quot;引用&quot;&gt;&lt;/a&gt;引用&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;引入的库应为如下，将官方的额外扩展了，使其可以支持高斯模糊。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;compile &lt;span class=&quot;string&quot;&gt;&#39;jp.wasabeef:glide-transformations:2.0.1&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
-    
-      <category term="开源库使用" scheme="http://jingbin.me/tags/%E5%BC%80%E6%BA%90%E5%BA%93%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
