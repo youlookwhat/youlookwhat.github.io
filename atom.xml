@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2018-01-23T16:48:16.820Z</updated>
+  <updated>2018-01-23T16:59:23.414Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Toolbar去除标题与返回键间的间距</title>
+    <link href="http://jingbin.me/2018/01/22/Toolbar%E5%8E%BB%E9%99%A4%E6%A0%87%E9%A2%98%E4%B8%8E%E8%BF%94%E5%9B%9E%E9%94%AE%E9%97%B4%E7%9A%84%E9%97%B4%E8%B7%9D/"/>
+    <id>http://jingbin.me/2018/01/22/Toolbar去除标题与返回键间的间距/</id>
+    <published>2018-01-21T18:36:44.000Z</published>
+    <updated>2018-01-23T16:59:23.414Z</updated>
+    
+    <content type="html"><![CDATA[<p>很早就遇到一个问题，如下图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距过大"></p>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-72bee3d8782a0948.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距正常"></p>
+<p>标题和左侧的返回键间距过大，之前在做<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>的时候就遇到了，一直没有解决，由于自身强迫症，心里始终和这个过不去，就研究了很久终于解决了。</p>
+<p>之前在网上找了各种解决方法，比如给ToolBar设置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:contentInsetLeft=<span class="string">"0dp"</span></div><div class="line">app:contentInsetStart=<span class="string">"0dp"</span></div></pre></td></tr></table></figure></p>
+<p>不直接给ToolBar设置字体，在ToolBar里面包裹TextView，还是不行。<br>等等…</p>
+<p>最后：<br>将<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mTitleToolBar.setNavigationIcon(R.drawable.icon_back);</div></pre></td></tr></table></figure></p>
+<p>去掉后，发现标题顶格了，于是怀疑是NavigationIcon的问题。将<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app:navigationIcon=<span class="string">"@drawable/icon_back"</span></div></pre></td></tr></table></figure></p>
+<p>设置在ToolBar属性上后可以直接看到效果，开始考虑是不是有一个属性是设置NavigationIcon与title之间的间距，果然发现了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app:contentInsetStartWithNavigation=<span class="string">"0dp"</span></div></pre></td></tr></table></figure></p>
+<p>附上完整代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;android.support.v7.widget.Toolbar xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">            android:id=<span class="string">"@+id/title_tool_bar"</span></div><div class="line">            android:layout_width=<span class="string">"match_parent"</span></div><div class="line">            android:layout_height=<span class="string">"?attr/actionBarSize"</span></div><div class="line">            android:background=<span class="string">"@color/colorTheme"</span></div><div class="line">            app:contentInsetLeft=<span class="string">"0dp"</span></div><div class="line">            app:contentInsetStart=<span class="string">"0dp"</span></div><div class="line">            app:contentInsetStartWithNavigation=<span class="string">"0dp"</span></div><div class="line">            app:layout_scrollFlags=<span class="string">"enterAlways|scroll"</span></div><div class="line">            app:navigationIcon=<span class="string">"@drawable/icon_back"</span></div><div class="line">            app:popupTheme=<span class="string">"@style/ThemeOverlay.AppCompat.Light"</span></div><div class="line">            app:theme=<span class="string">"@style/ToolbarStyle"</span></div><div class="line">            app:title=<span class="string">"标题"</span></div><div class="line">            app:titleTextColor=<span class="string">"@color/colorWhite"</span>&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<p>后来直接搜了这个属性查了一下，发现之前还是有很多人遇到过，只不过我没检索出来，推荐一个分析的很好的：</p>
+<ul>
+<li><a href="http://blog.qiji.tech/archives/15899" target="_blank" rel="external">关于Toolbar中navigationIcon和title之间距离及展开</a></li>
+<li><a href="https://stackoverflow.com/questions/40155239/appcontentinsetstartwithnavigation-0dp-isnt-working-in-toolbar" target="_blank" rel="external">app:contentInsetStartWithNavigation=“0dp” isn’t working in ToolBar</a> - 在外面包裹<code>AppBarLayout</code>应该也能达到效果</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很早就遇到一个问题，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;间距过大&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Android 阿里百川cps SDK接入流程</title>
@@ -1939,153 +1979,6 @@
       <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
     
       <category term="cloudreader" scheme="http://jingbin.me/tags/cloudreader/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>更新日志-云阅</title>
-    <link href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/"/>
-    <id>http://jingbin.me/2016/12/30/更新日志-云阅/</id>
-    <published>2016-12-30T09:45:31.000Z</published>
-    <updated>2017-11-14T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p><strong><em>最后更新：2017-3-30　13：02</em></strong><br>可以在<code>develop</code>分支上查看最新的提交，最后会合到<code>master</code>分支上。</p>
-</blockquote>
-<h3 id="版本-V1-8-3（11-14）"><a href="#版本-V1-8-3（11-14）" class="headerlink" title="版本 V1.8.3（11-14）"></a>版本 V1.8.3（11-14）</h3><ul>
-<li>1、[修复] 已选择分类退出App再次进入,type失效的问题</li>
-<li>2、[修复] 跳转B站视频显示网页错误的问题</li>
-</ul>
-<h3 id="版本-V1-8-2（3-30）"><a href="#版本-V1-8-2（3-30）" class="headerlink" title="版本 V1.8.2（3-30）"></a>版本 V1.8.2（3-30）</h3><ul>
-<li>1、[修复] 首页轮播图显示异常问题</li>
-<li>2、[修复] 干货订制页，刷新内容到底无内容后切换到其他类别，无法上拉加载的情况</li>
-</ul>
-<h3 id="版本-V1-8-1（3-7）"><a href="#版本-V1-8-1（3-7）" class="headerlink" title="版本 V1.8.1（3-7）"></a>版本 V1.8.1（3-7）</h3><ul>
-<li>1、[修复]修复首页有六个以上item时，图片显示不出的bug</li>
-</ul>
-<h3 id="版本-V1-8-0（3-3）"><a href="#版本-V1-8-0（3-3）" class="headerlink" title="版本 V1.8.0（3-3）"></a>版本 V1.8.0（3-3）</h3><ul>
-<li>1、[新增] 侧边栏增加“<strong>登录GitHub账号</strong>”和“<strong>退出应用</strong>”功能</li>
-<li>2、[新增] WebView新增“<strong>分享到</strong>”、“<strong>复制链接</strong>”、“<strong>打开链接</strong>”功能</li>
-<li>3、[新增] 使其系统更改字体无效</li>
-<li>4、[改进] 网络请求更换成<code>retrofit 2.x</code></li>
-<li>5、[改进] 首页轮播图更换显示链接</li>
-<li>6、[优化] 进入主界面动画优化</li>
-<li><p>7、[优化] 兼容至7.0、升级关联库和代码优化等</p>
-<a id="more"></a>
-</li>
-</ul>
-<blockquote>
-<p><strong><em>由于换肤模块内存泄漏严重，已移除。以下不用看！</em></strong><br>包里面包含换肤相关文件。如要删除其文件可按下面步骤逐一删除。</p>
-</blockquote>
-<h4 id="换肤相关"><a href="#换肤相关" class="headerlink" title="换肤相关"></a>换肤相关</h4><p>换肤由于关联的资源较多，正在完善中，但不影响正常的使用。<br>如需查看换肤调试详情，可去菜单栏布局景“夜间模式”部分显示出来。<br>植入夜间模式步骤与注意事项：<br>步骤：<br>1.关联：<br>　　compile ‘skin.support:skin-support:1.0.1’<br>　　compile ‘skin.support:skin-support-design:0.0.2’<br>　　<br>2.“CloudReaderApplication.java”<br>// 皮肤<br>SkinMaterialManager.init(this);<br>SkinCompatManager.init(this).loadSkin();</p>
-<p>3.BaseActivity和MainActivity继承“SkinCompatActivity.java”</p>
-<p>4.新建”assets”，里面再建文件夹:”skins”，里面放置“night.skin”<br>“night.skin”：是一个单独的app，只是改了后缀名，里面只存放<strong><em>要替换的资源文件。</em></strong></p>
-<p>5.加入开关和相关逻辑：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getNightMode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> SPUtils.getNightMode();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNightModeClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!SPUtils.getNightMode()) &#123;</div><div class="line">            SkinCompatManager.getInstance().loadSkin(Constants.NIGHT_SKIN);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 恢复应用默认皮肤</span></div><div class="line">            SkinCompatManager.getInstance().restoreDefaultTheme();</div><div class="line">        &#125;</div><div class="line">        SPUtils.setNightMode(!SPUtils.getNightMode());</div><div class="line">        bind.dayNightSwitch.setChecked(SPUtils.getNightMode());</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>6.由于不支持状态栏切换，所以需要手动加状态块，布局文件里已加入，但隐藏了，因为这样长按搜索图标提示会在下面不美观。暂时不实现此功能。</p>
-<p>7.暂不支持TabLayout:tabBackground属性<br>所以此部分的点击效果使用的是系统的，但觉得可以优化，没有这样做，还是想使用自己的选择器。</p>
-<h4 id="待更新内容（部分）"><a href="#待更新内容（部分）" class="headerlink" title="待更新内容（部分）"></a>待更新内容（部分）</h4><ul>
-<li>1、完善换肤功能</li>
-<li>2、更换轮播图显示控件</li>
-<li>3、新增段子和文章内容</li>
-</ul>
-<hr>
-<h3 id="版本-V1-5-0（1-29）"><a href="#版本-V1-5-0（1-29）" class="headerlink" title="版本 V1.5.0（1-29）"></a>版本 V1.5.0（1-29）</h3><ul>
-<li>1、<strong>App体积大小从16M降到5.8M！</strong></li>
-<li>2、将App里固定的图片以移动到七牛。</li>
-<li>3、更改项目主页透明状态栏显示方式。</li>
-<li>4、更改每日推荐图片显示规则，使其不重复显示。</li>
-<li>5、更换过渡图图片。</li>
-<li>6、代码优化；删除多余资源。</li>
-</ul>
-<hr>
-<h3 id="版本-V1-2-0（1-18）"><a href="#版本-V1-2-0（1-18）" class="headerlink" title="版本 V1.2.0（1-18）"></a>版本 V1.2.0（1-18）</h3><ul>
-<li>1、更改每日推荐逻辑，使其一定有数据</li>
-<li>2、干货集中营的item改为CardView展示</li>
-<li>3、代码优化</li>
-</ul>
-<hr>
-<h3 id="版本-V1-1-0（1-15）"><a href="#版本-V1-1-0（1-15）" class="headerlink" title="版本 V1.1.0（1-15）"></a>版本 V1.1.0（1-15）</h3><ul>
-<li>1.书籍详情页面增加自定义元素共享切换动画，并可简单添加需要支持的详情页</li>
-<li>2.代码优化</li>
-<li>3.其他</li>
-</ul>
-<hr>
-<h3 id="版本-V1-0-0（1-1）"><a href="#版本-V1-0-0（1-1）" class="headerlink" title="版本 V1.0.0（1-1）"></a>版本 V1.0.0（1-1）</h3><blockquote>
-<p>此版的具体说明请见项目主页：<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">点击这里</a>。</p>
-</blockquote>
-<h4 id="干货区（gank-io）"><a href="#干货区（gank-io）" class="headerlink" title="干货区（gank.io）"></a>干货区（gank.io）</h4><ul>
-<li>每日推荐</li>
-<li>福利</li>
-<li>干货订制</li>
-<li>大安卓</li>
-</ul>
-<h4 id="电影区（豆瓣）"><a href="#电影区（豆瓣）" class="headerlink" title="电影区（豆瓣）"></a>电影区（豆瓣）</h4><ul>
-<li>电影热映区 &amp; 豆瓣电影Top250</li>
-</ul>
-<h4 id="书籍区（豆瓣）"><a href="#书籍区（豆瓣）" class="headerlink" title="书籍区（豆瓣）"></a>书籍区（豆瓣）</h4><ul>
-<li>综合</li>
-<li>文学</li>
-<li>生活</li>
-</ul>
-<h4 id="抽屉界面"><a href="#抽屉界面" class="headerlink" title="抽屉界面"></a>抽屉界面</h4><ul>
-<li>项目主页</li>
-<li>扫码下载</li>
-<li>问题反馈</li>
-<li>关于云阅</li>
-</ul>
-<hr>
-<h3 id="待完善"><a href="#待完善" class="headerlink" title="待完善"></a>待完善</h3><blockquote>
-<p>不一定更新，依重要性而定。</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-fb01487f2b010800.gif?imageMogr2/auto-orient/strip" alt="乱世佳人.gif"></p>
-<ul>
-<li>每日推荐可输入日期来显示当日内容</li>
-<li>保存图片按钮UI优化</li>
-<li>toolbar标题栏文字滚动显示</li>
-<li>增加干货、电影、书籍搜索功能。</li>
-<li>书籍部分增加多个类别供更多数据选择，样式参考网易云音乐歌单筛选页</li>
-<li>书籍部分adapter优化</li>
-<li>每日推荐使用固定图是否太追求UI效果，改为一般的item阅读效果更佳？</li>
-</ul>
-<blockquote>
-<p>感谢您的关注~</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;最后更新：2017-3-30　13：02&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;可以在&lt;code&gt;develop&lt;/code&gt;分支上查看最新的提交，最后会合到&lt;code&gt;master&lt;/code&gt;分支上。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;版本-V1-8-3（11-14）&quot;&gt;&lt;a href=&quot;#版本-V1-8-3（11-14）&quot; class=&quot;headerlink&quot; title=&quot;版本 V1.8.3（11-14）&quot;&gt;&lt;/a&gt;版本 V1.8.3（11-14）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;1、[修复] 已选择分类退出App再次进入,type失效的问题&lt;/li&gt;
-&lt;li&gt;2、[修复] 跳转B站视频显示网页错误的问题&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;版本-V1-8-2（3-30）&quot;&gt;&lt;a href=&quot;#版本-V1-8-2（3-30）&quot; class=&quot;headerlink&quot; title=&quot;版本 V1.8.2（3-30）&quot;&gt;&lt;/a&gt;版本 V1.8.2（3-30）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;1、[修复] 首页轮播图显示异常问题&lt;/li&gt;
-&lt;li&gt;2、[修复] 干货订制页，刷新内容到底无内容后切换到其他类别，无法上拉加载的情况&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;版本-V1-8-1（3-7）&quot;&gt;&lt;a href=&quot;#版本-V1-8-1（3-7）&quot; class=&quot;headerlink&quot; title=&quot;版本 V1.8.1（3-7）&quot;&gt;&lt;/a&gt;版本 V1.8.1（3-7）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;1、[修复]修复首页有六个以上item时，图片显示不出的bug&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;版本-V1-8-0（3-3）&quot;&gt;&lt;a href=&quot;#版本-V1-8-0（3-3）&quot; class=&quot;headerlink&quot; title=&quot;版本 V1.8.0（3-3）&quot;&gt;&lt;/a&gt;版本 V1.8.0（3-3）&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;1、[新增] 侧边栏增加“&lt;strong&gt;登录GitHub账号&lt;/strong&gt;”和“&lt;strong&gt;退出应用&lt;/strong&gt;”功能&lt;/li&gt;
-&lt;li&gt;2、[新增] WebView新增“&lt;strong&gt;分享到&lt;/strong&gt;”、“&lt;strong&gt;复制链接&lt;/strong&gt;”、“&lt;strong&gt;打开链接&lt;/strong&gt;”功能&lt;/li&gt;
-&lt;li&gt;3、[新增] 使其系统更改字体无效&lt;/li&gt;
-&lt;li&gt;4、[改进] 网络请求更换成&lt;code&gt;retrofit 2.x&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;5、[改进] 首页轮播图更换显示链接&lt;/li&gt;
-&lt;li&gt;6、[优化] 进入主界面动画优化&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;7、[优化] 兼容至7.0、升级关联库和代码优化等&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="开源项目" scheme="http://jingbin.me/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-      <category term="cloudreader" scheme="http://jingbin.me/tags/cloudreader/"/>
-    
-      <category term="开源项目" scheme="http://jingbin.me/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
