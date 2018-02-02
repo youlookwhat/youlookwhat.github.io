@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2018-01-23T16:59:23.414Z</updated>
+  <updated>2018-02-02T09:58:25.299Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -14,6 +14,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>京东CPS商品推广接入流程</title>
+    <link href="http://jingbin.me/2018/02/02/%E4%BA%AC%E4%B8%9CCPS%E5%95%86%E5%93%81%E6%8E%A8%E5%B9%BF%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/"/>
+    <id>http://jingbin.me/2018/02/02/京东CPS商品推广接入流程/</id>
+    <published>2018-02-02T09:55:11.000Z</published>
+    <updated>2018-02-02T09:58:25.299Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>京东CPS与阿里百川CPS有很大不同，认清基本概念后集成时就容易的多。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h4><p>京东CPS，只需要一个链接足以，这条链接放在自身的WebViewActivity中，如果设置了唤起App，则链接会返回一个打开京东App的规则字符串，我们获取到后跳转到京东App就可以了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-3e1438db83abe8c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="京东cps，设置推广位"></p>
+<p>设置后得到一个链接，然后用自身的<code>WebView</code>请求，当然也可以用系统自带的浏览器打开，可以直接唤起App。有时候我们不想用户离开自己的应用，使用自身的App的<code>WebView</code>控件打开就成了首选，这里就需要配置一些参数。</p>
+<p><a href="https://github.com/youlookwhat/WebViewStudy/blob/master/app/src/main/java/com/example/jingbin/webviewstudy/config/MyWebViewClient.java" target="_blank" rel="external">继承<code>WebViewClient</code>复写里面的<code>shouldOverrideUrlLoading</code>方法：</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</div><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>&#123;</div><div class="line"><span class="comment">//        DebugUtil.error("----url:"+url);</span></div><div class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(url)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (url.startsWith(<span class="string">"http:"</span>) || url.startsWith(<span class="string">"https:"</span>)) &#123;</div><div class="line">            <span class="comment">// 可能有提示下载Apk文件</span></div><div class="line">            <span class="keyword">if</span> (url.contains(<span class="string">".apk"</span>)) &#123;</div><div class="line">                startActivity(url);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        startActivity(url);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(String url)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Intent intent1 = <span class="keyword">new</span> Intent();</div><div class="line">            intent1.setAction(<span class="string">"android.intent.action.VIEW"</span>);</div><div class="line">            Uri uri = Uri.parse(url);</div><div class="line">            intent1.setData(uri);</div><div class="line">            intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</div><div class="line">            mActivity.startActivity(intent1);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>请求京东的推广url后，会返回一串这样的URL SCHEME：<code>openApp.jdMobile://virtual?params={参数}</code><br>这就是跳转京东页面的SCHEME</p>
+<h4 id="另外其他App的URL-SCHEME"><a href="#另外其他App的URL-SCHEME" class="headerlink" title="另外其他App的URL SCHEME"></a>另外其他App的URL SCHEME</h4><blockquote>
+<p>淘宝： taobao://<br>微博： weibo://qrcode<br>微信： weixin://scanqrcode<br>支付宝： alipayqr://platformapi/startapp?saId=10000007<br>豆瓣： douban://<br>京东： openApp.jdMobile://virtual?params={参数}<br>电话： mobilephone://<br>备忘录： mobilenotes://<br>Chrome谷歌浏览器： googlechrome://<br>12306订票助手： trainassist://<br>飞信： fetion://<br>豆瓣FM： doubanradio://<br>爱奇艺PPS： ppstream://<br>哔哩哔哩动画： bilibili://<br>56视频： com.56Video://<br>365日历： rili365://<br>58同城： wbmain://<br>遇见： iaround://<br>陌陌： momochat://<br>有道词典： yddict://<br>优酷： youku://<br>掌阅iReader： iReader://<br>天涯社区： tianya://<br>天气通Pro： sinaweatherpro://<br>天气通： sinaweather://<br>墨迹天气： rm434209233MojiWeather://<br>腾讯新闻： qqnews://<br>腾讯微云： weiyun://<br>腾讯地图： sosomap://<br>淘宝旅行： taobaotravel://<br>人人： renrenios://</p>
+</blockquote>
+<h4 id="阿里百川CPS与京东CPS两者对比："><a href="#阿里百川CPS与京东CPS两者对比：" class="headerlink" title="阿里百川CPS与京东CPS两者对比："></a>阿里百川CPS与京东CPS两者对比：</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">CPS类别</th>
+<th style="text-align:center">是否需要SDK</th>
+<th style="text-align:center">WebView处理</th>
+<th style="text-align:center">打开App方式</th>
+<th style="text-align:center">App左侧是否有标识</th>
+<th style="text-align:center">接入复杂程度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">阿里百川</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">无需处理</td>
+<td style="text-align:center">通过SDK打开</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">相对复杂</td>
+</tr>
+<tr>
+<td style="text-align:center">京东</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">要处理</td>
+<td style="text-align:center">使用规则协议打开</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">简单</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>联系我：<a href="https://github.com/youlookwhat" target="_blank" rel="external">GitHub</a>、<a href="https://www.jianshu.com/u/e43c6e979831" target="_blank" rel="external">简书</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;京东CPS与阿里百川CPS有很大不同，认清基本概念后集成时就容易的多。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Toolbar去除标题与返回键间的间距</title>
@@ -628,7 +697,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2017-12-25T16:16:25.071Z</updated>
+    <updated>2018-01-25T04:04:18.457Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -837,6 +906,10 @@
 <li><p>popuwindow显示有两个方法，每个方法只能在Android7.0之前或之后适应，需要辨别版本使用两和方法。<a href="https://www.oschina.net/question/588216_2210921" target="_blank" rel="external">链接</a></p>
 </li>
 <li><p>mac更新后git出错<strong>can’t start git:usr/bin/git</strong>（Android Studio2.3.3版本）出现这个问题是因为该目录下的git无法执行，解决方法：在终端界面输入<code>sudo /usr/bin/git</code>这个命令，时候会提示<code>invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</code>,然后再输入<code>xcode-select --install</code>就解决了！</p>
+</li>
+<li><p>阿里百川CPS上传apk包，只能使用编译环境为gradle3.0以下的包</p>
+</li>
+<li><p>selector 里 <code>android:drawable=&quot;@color/color_theme&quot;</code>这样使用可能导致颜色变色，应使用<code>android:color=&quot;@color/color_theme&quot;</code>。</p>
 </li>
 </ul>
 ]]></content>
@@ -1909,76 +1982,6 @@
       <category term="markdown" scheme="http://jingbin.me/tags/markdown/"/>
     
       <category term="html" scheme="http://jingbin.me/tags/html/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android - 仿网易云音乐歌单详情页</title>
-    <link href="http://jingbin.me/2017/01/13/Android%20-%20%E4%BB%BF%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%AD%8C%E5%8D%95%E8%AF%A6%E6%83%85%E9%A1%B5/"/>
-    <id>http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/</id>
-    <published>2017-01-13T04:55:23.000Z</published>
-    <updated>2017-01-14T13:49:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>前段时间模仿网易云音乐UI使用DataBinding做了一个App：<a href="http://www.jianshu.com/p/69a229fb6e1d" target="_blank" rel="external">CloudReader</a>，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，关联到的知识点还比较有价值，而且也有很多需要注意的地方。</p>
-<p>本次项目地址：<a href="https://github.com/youlookwhat/ScrollShapeUI" target="_blank" rel="external">ScrollShapeUI</a></p>
-<a id="more"></a>
-<h3 id="效果图对比："><a href="#效果图对比：" class="headerlink" title="效果图对比："></a>效果图对比：</h3><ul>
-<li><p>网易云音乐App原图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip" alt="网易云音乐App原图.gif"></p>
-</li>
-<li><p>模仿的效果图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-9aeef33cf3721aa6.gif?imageMogr2/auto-orient/strip" alt="模仿的效果图.gif"></p>
-</li>
-</ul>
-<p>建议大家直接看<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader项目应用</a>里的效果，里面的内容部分有加载中的loading图，效果更逼真。</p>
-<h3 id="基本布局："><a href="#基本布局：" class="headerlink" title="基本布局："></a>基本布局：</h3><p>FrameLayout　<br>　—– MyNestedScrollView // 为了Api23下的滑动兼容<br>　　　—- LinearLayout // 内容部分<br>　—– RelativeLayout<br>　　　—- ImageView // Toolbar后面的背景图<br>　　　—- Toolbar // 标题栏</p>
-<p>由于篇幅原因，不能做详细的介绍，这里就简单介绍实现这种效果的思路：</p>
-<h3 id="实现思路："><a href="#实现思路：" class="headerlink" title="实现思路："></a>实现思路：</h3><ul>
-<li>1、Activity设置自定义Shared Element切换动画</li>
-<li>2、透明状态栏（透明Toolbar,使背景图上移）</li>
-<li>3、Toolbar底部增加和背景一样的高斯模糊图，并上移图片（为了使背景图的底部作为Toolbar的背景）</li>
-<li>4、上下滑动，通过NestedScrollView拿到移动的高度，同时调整Toolbar的背景图透明度</li>
-</ul>
-<h4 id="1、Activity设置自定义元素共享切换动画"><a href="#1、Activity设置自定义元素共享切换动画" class="headerlink" title="1、Activity设置自定义元素共享切换动画"></a>1、Activity设置自定义元素共享切换动画</h4><p>大家可以发现页面跳转时图片移动的是一个<strong>曲线路径</strong>，我们可以定制View的过渡切换效果，这是Material Design中比较常见的用法，Api21以上才有效。需要在开启页面时使用<code>ActivityOptions.makeSceneTransitionAnimation()</code>，其中定义共享的view和transitionName。然后在对应的Activity里创建<code>ArcMotion</code>对象。ArcMotion是<code>PathMotion</code>子类，是个曲线路径，对应代码片：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// Activity设置自定义 Shared Element切换动画</span></div><div class="line"> <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">        <span class="comment">//定义ArcMotion</span></div><div class="line">        ArcMotion arcMotion = <span class="keyword">new</span> ArcMotion();</div><div class="line">        arcMotion.setMinimumHorizontalAngle(<span class="number">50f</span>);</div><div class="line">        arcMotion.setMinimumVerticalAngle(<span class="number">50f</span>);</div><div class="line">        <span class="comment">//插值器，控制速度</span></div><div class="line">        Interpolator interpolator = AnimationUtils.loadInterpolator(<span class="keyword">this</span>, android.R.interpolator.fast_out_slow_in);</div><div class="line">        <span class="comment">//实例化自定义的ChangeBounds</span></div><div class="line">        CustomChangeBounds changeBounds = <span class="keyword">new</span> CustomChangeBounds();</div><div class="line">        changeBounds.setPathMotion(arcMotion);</div><div class="line">        changeBounds.setInterpolator(interpolator);</div><div class="line">        changeBounds.addTarget(binding.include.ivOnePhoto);</div><div class="line">        <span class="comment">//将切换动画应用到当前的Activity的进入和返回</span></div><div class="line">        getWindow().setSharedElementEnterTransition(changeBounds);</div><div class="line">        getWindow().setSharedElementReturnTransition(changeBounds);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">// 开启</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(context, MovieDetailActivity.class);</div><div class="line">intent.putExtra(<span class="string">"bean"</span>, positionData);</div><div class="line">ActivityOptionsCompat options =</div><div class="line">			ActivityOptionsCompat.makeSceneTransitionAnimation(context,imageView, CommonUtils.getString(R.string.transition_book_img));<span class="comment">//与xml文件对应</span></div><div class="line"> ActivityCompat.startActivity(context, intent, options.toBundle());</div></pre></td></tr></table></figure>
-<blockquote>
-<p>值得注意的是：因为加载图片要一点时间，切换页面时就会出现闪烁的情况，而如果取的是缓存就不会有这样的问题，所以这里有个小技巧，就是起初Glide加载的图片就指定固定的大小（<code>.override(120,120)</code>），这样图片就会被缓存起来，等到跳转时就取缓存。具体还请大家看项目源码。</p>
-</blockquote>
-<h4 id="2、透明状态栏"><a href="#2、透明状态栏" class="headerlink" title="2、透明状态栏"></a>2、透明状态栏</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为头部是View的界面设置状态栏透明</span></div><div class="line">StatusBarUtil.setTranslucentImageHeader(<span class="keyword">this</span>, <span class="number">0</span>, binding.titleToolBar);</div></pre></td></tr></table></figure>
-<p>其中内容根布局不要设置<code>android:fitsSystemWindows=&quot;true&quot;</code>,这样会额外添加一个状态栏。其中<a href="https://github.com/youlookwhat/ScrollShapeUI/blob/master/app/src/main/java/com/example/jingbin/scrollshapeui/utils/StatusBarUtil.java" target="_blank" rel="external">StatusBarUtil</a>，是一个为Android App 设置状态栏的工具类。这里向大家推荐郭霖大神的一篇文章：<a href="http://blog.csdn.net/guolin_blog/article/details/51763825" target="_blank" rel="external">Android状态栏微技巧，带你真正理解沉浸式模式</a>，里面讲解了透明状态栏和沉浸式状态栏的渊源和有关设置用法。</p>
-<h4 id="3、Toolbar的背景图"><a href="#3、Toolbar的背景图" class="headerlink" title="3、Toolbar的背景图"></a>3、Toolbar的背景图</h4><p>仔细分析后发现网易云音乐的Toolbar的背景其实显示的是高斯模糊图的底部，所以这里基本套路是Toolbar是透明的，后面背景图取的是高斯模糊图的底部一部分。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-fb6286fe506cadcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt=""></p>
-<h5 id="调整Toolbar背景图位置"><a href="#调整Toolbar背景图位置" class="headerlink" title="调整Toolbar背景图位置"></a>调整Toolbar背景图位置</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Toolbar的高度</span></div><div class="line"><span class="keyword">int</span> toolbarHeight = binding.titleToolBar.getLayoutParams().height;</div><div class="line"><span class="comment">// Toolbar+状态栏的高度　</span></div><div class="line"><span class="keyword">final</span> <span class="keyword">int</span> headerBgHeight = toolbarHeight + StatusBarUtil.getStatusBarHeight(<span class="keyword">this</span>);</div><div class="line">    </div><div class="line"><span class="comment">// 使背景图向上移动到图片的最底端，保留Toolbar+状态栏的高度</span></div><div class="line">binding.ivTitleHeadBg.setVisibility(View.VISIBLE);</div><div class="line">ViewGroup.LayoutParams params = binding.ivTitleHeadBg.getLayoutParams();</div><div class="line">ViewGroup.MarginLayoutParams ivTitleHeadBgParams = (ViewGroup.MarginLayoutParams) binding.ivTitleHeadBg.getLayoutParams();</div><div class="line"><span class="keyword">int</span> marginTop = params.height - headerBgHeight;</div><div class="line">ivTitleHeadBgParams.setMargins(<span class="number">0</span>, -marginTop, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">binding.ivTitleHeadBg.setImageAlpha(<span class="number">0</span>);</div></pre></td></tr></table></figure>
-<h5 id="显示Toolbar背景图"><a href="#显示Toolbar背景图" class="headerlink" title="显示Toolbar背景图"></a>显示Toolbar背景图</h5><p>监听图片显示，在显示之后将其设置为透明色，然后在滑动的时候渐变。这里值得注意的是在设置图片时不要设置加载中的图片，不然初始化时达不到透明的效果。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 高斯模糊背景，加载后将背景设为透明</span></div><div class="line"> Glide.with(<span class="keyword">this</span>).load(NeteasePlaylistActivity.IMAGE_URL_MEDIUM)</div><div class="line">         <span class="comment">//.placeholder(R.drawable.stackblur_default)</span></div><div class="line">         .error(R.drawable.stackblur_default)</div><div class="line">         .bitmapTransform(<span class="keyword">new</span> BlurTransformation(<span class="keyword">this</span>, <span class="number">14</span>, <span class="number">3</span>))<span class="comment">// 设置高斯模糊</span></div><div class="line">         .listener(<span class="keyword">new</span> RequestListener&lt;String, GlideDrawable&gt;() &#123;<span class="comment">//监听加载状态</span></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onException</span><span class="params">(Exception e, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFromMemoryCache, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">         <span class="comment">// Toolbar背景设为透明</span></div><div class="line">         binding.titleToolBar.setBackgroundColor(Color.TRANSPARENT);</div><div class="line">         <span class="comment">// 背景图初始化为全透明</span></div><div class="line">         binding.ivTitleHeadBg.setImageAlpha(<span class="number">0</span>);</div><div class="line">         binding.ivTitleHeadBg.setVisibility(View.VISIBLE);</div><div class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     &#125;</div><div class="line"> &#125;).into(binding.ivTitleHeadBg);</div></pre></td></tr></table></figure>
-<p>其中引入的库应为如下，将官方Glide的额外扩展了，使其可以支持高斯模糊。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'jp.wasabeef:glide-transformations:2.0.1'</span></div></pre></td></tr></table></figure></p>
-<h4 id="4、上下滑动，渐变背景图透明度"><a href="#4、上下滑动，渐变背景图透明度" class="headerlink" title="4、上下滑动，渐变背景图透明度"></a>4、上下滑动，渐变背景图透明度</h4><p>由于<code>NestedScrollView</code>滚动监听只能在API23以上才能使用，这里为了兼容需要额外处理，定义滚动接口，具体：<a href="https://github.com/youlookwhat/ScrollShapeUI/blob/master/app/src/main/java/com/example/jingbin/scrollshapeui/view/MyNestedScrollView.java" target="_blank" rel="external">MyNestedScrollView</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 根据页面滑动距离改变Header透明度方法</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">scrollChangeHeader</span><span class="params">(<span class="keyword">int</span> scrolledY)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (scrolledY &lt; <span class="number">0</span>) &#123;</div><div class="line">        scrolledY = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">float</span> alpha = Math.abs(scrolledY) * <span class="number">1.0f</span> / (slidingDistance);</div><div class="line">    Drawable drawable = binding.ivTitleHeadBg.getDrawable();</div><div class="line">    <span class="keyword">if</span> (drawable != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (scrolledY &lt;= slidingDistance) &#123;</div><div class="line">            <span class="comment">// title部分的渐变</span></div><div class="line">            drawable.mutate().setAlpha((<span class="keyword">int</span>) (alpha * <span class="number">255</span>));</div><div class="line">            binding.ivTitleHeadBg.setImageDrawable(drawable);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            drawable.mutate().setAlpha(<span class="number">255</span>);</div><div class="line">            binding.ivTitleHeadBg.setImageDrawable(drawable);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样基本的效果就实现啦，其中如有需要还可以做些额外的处理，如当背景图不透明时切换标题等~</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a href="http://www.jianshu.com/p/37e94f8b6f59" target="_blank" rel="external">http://www.jianshu.com/p/37e94f8b6f59</a></li>
-<li><a href="https://github.com/pinguo-zhouwei/YunMusicUI" target="_blank" rel="external">https://github.com/pinguo-zhouwei/YunMusicUI</a></li>
-<li><a href="http://blog.csdn.net/u011734444/article/details/51471182" target="_blank" rel="external">http://blog.csdn.net/u011734444/article/details/51471182</a></li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本人思考并实践了很多实现这个页面的方法，目前为止这个方案是最好的，效果体验几乎是一样，其中涉及到的知识点有：1、页面跳转共享元素曲线动画；2、透明状态栏；3、Glide监听图片加载状态和加载固定大小图片等；4、NestedScrollView在Api23下的滑动兼容。如果有更好的方案还请联系我，本次项目的源代码：<a href="https://github.com/youlookwhat/ScrollShapeUI" target="_blank" rel="external">https://github.com/youlookwhat/ScrollShapeUI</a>。</p>
-<blockquote>
-<p>欢迎关注我的<a href="http://www.jianshu.com/u/e43c6e979831" target="_blank" rel="external">简书</a>和<a href="https://github.com/youlookwhat" target="_blank" rel="external">Gayhub</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前段时间模仿网易云音乐UI使用DataBinding做了一个App：&lt;a href=&quot;http://www.jianshu.com/p/69a229fb6e1d&quot;&gt;CloudReader&lt;/a&gt;，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，关联到的知识点还比较有价值，而且也有很多需要注意的地方。&lt;/p&gt;
-&lt;p&gt;本次项目地址：&lt;a href=&quot;https://github.com/youlookwhat/ScrollShapeUI&quot;&gt;ScrollShapeUI&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
-    
-      <category term="cloudreader" scheme="http://jingbin.me/tags/cloudreader/"/>
     
   </entry>
   

@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2017-12-25T16:16:25.071Z">
+<meta property="og:updated_time" content="2018-01-25T04:04:18.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -372,8 +372,8 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-26T00:16:25+08:00">
-                2017-12-26
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T12:04:18+08:00">
+                2018-01-25
               </time>
             
           </span>
@@ -639,6 +639,10 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 </li>
 <li><p>mac更新后git出错<strong>can’t start git:usr/bin/git</strong>（Android Studio2.3.3版本）出现这个问题是因为该目录下的git无法执行，解决方法：在终端界面输入<code>sudo /usr/bin/git</code>这个命令，时候会提示<code>invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</code>,然后再输入<code>xcode-select --install</code>就解决了！</p>
 </li>
+<li><p>阿里百川CPS上传apk包，只能使用编译环境为gradle3.0以下的包</p>
+</li>
+<li><p>selector 里 <code>android:drawable=&quot;@color/color_theme&quot;</code>这样使用可能导致颜色变色，应使用<code>android:color=&quot;@color/color_theme&quot;</code>。</p>
+</li>
 </ul>
 
       
@@ -766,7 +770,7 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
