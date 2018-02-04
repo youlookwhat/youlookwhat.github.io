@@ -205,6 +205,20 @@
     </entry>
 
     
+    <entry>
+      <title><![CDATA[Mac Android开发环境变量的配置(java、sdk、ndk、gradle)]]></title>
+      <url>%2F2016%2F10%2F13%2FMac-Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE-java%E3%80%81sdk%E3%80%81ndk%E3%80%81gradle%2F</url>
+      <content type="text"><![CDATA[很多文章说了mac下怎样配置环境变量的问题，但大都很杂，在此总结一下，目的是使Android开发者看一篇博客就可以配置好AndroidStudio开发下的环境变量。 楼主的JDK版本是：1.8.0_40； AndroidStudio版本：2.2； ndk版本：android-ndk-r10e 1.打开terminal2.然后输入 vi .bash_profile 后按“e”进入编辑模式 3.输入想要配置的环境变量(java、sdk、ndk、gradle)： export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Homeexport PATH=$JAVA_HOME/bin:$PATHexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar export ANDROID_HOME=/Users/jingbin/Documents/AndroidStudio/sdkexport PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools export PATH=$PATH:/Users/jingbin/Documents/AndroidStudio/ndk/android-ndk-r10eexport A_NDK_ROOT=/Users/jingbin/Documents/AndroidStudio/ndk/android-ndk-r10e export GRADLE_HOME=/Applications/Android\ Studio\ 2.app/Contents/gradle/gradle-2.14.1export PATH=$PATH:$GRADLE_HOME/bin 4.在vi编辑器使用 esc:wq保存并退出(注意有“:”号) 5.更新设置 source .bash_profile 6.检查对应配置是否成功 echo $PATH（查看路径）java -versionadbndk-buildgradle -version]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Linux与几种电脑系统的区别]]></title>
+      <url>%2F2016%2F04%2F16%2FLinux%E4%B8%8E%E5%87%A0%E7%A7%8D%E7%94%B5%E8%84%91%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+      <content type="text"><![CDATA[Linux之父：”我之所以能够看得更远，是因为我站在巨人肩膀上的缘故。”如有不当，还请指正。 Unix 创始人为肯·汤普逊、丹尼斯·里奇等。肯·汤普逊设计出了C语言，他的Unix的设计思想甚为宝贵。 Unix的前身为Multics，贝尔实验室参与了这个操作系统的研发，但因为开发速度太慢，贝尔实验室决定放弃这个计划。贝尔实验室的工程师，汤普逊和里奇，在此时自行开发了Unix。 Multics是由麻省理工学院，AT&amp;T贝尔实验室和通用电气合作进行的操作系统项目，被设计运行在GE-645大型主机上，但是由于整个目标过于庞大，糅合了太多的特性，Multics虽然发布了一些产品，但是性能都很低，AT&amp;T最终撤出了投入Multics项目的资源，中止这项合作计划。 Linux 当时芬兰大学林纳斯·托瓦兹学生创造。在移动设备上广泛使用的Android操作系统就是创建在Linux内核之上。 2005年，为了管理Linux内核的源代码，开发了Git。林纳斯·托瓦兹自嘲地取了这个名字“git”，该词源自英国俚语，意思大约是“混账”。 Linux与Unix的区别 Linux是Unix的养子。 硬件范围： Linux支持的硬件范围和商业Unix不一样。一般来说，商业Unix支持的硬件多一些，可是Linux支持的硬件也在不断扩大。突出的是，Linux至少和商用Unix一样稳定。 价格 Linux是免费软件，用户可以从Internet网上下载。 商业Unix的价值不应被贬低。除了软件本身的价格外，用户还需支付文档、售后支持和质保费。对于较大的机构，这些都很重要，但是PC机用户也许从中得不到什么好处。 -正是这样，这两种产品存在着严重的概念上和设计上的差别：Linux的目标是从头开始开发一个完整的Unix系统；386BSD的目标则是对现有的BSD做些修改，以适合80386系统。 Linux和Windows的区别 和Linux一样，Windows系列是完全的多任务操作系统。(MS-DOS是单任务的操作系统)它们支持同样的用户接口、网络和安全性。 Linux事实上是Unix的一种版本，而且来自Unix的贡献非常巨大。 是什么使得Unix如此重要？ 不仅在于对多用户机器来说，Unix是最流行的操作系统，而且在于它是免费软件的基础。在Internet上，大量免费软件都是针对Unix系统编写的。由于有众多的Unix厂商，所以Unix也有许多实现方法。没有一个单独的组织负责Unix的分发。现在，存在一股巨大的力量推动Unix社团以开放系统的形式走向标准化。另一方面Windows系列是专用系统，由开发操作系统的公司控制接口和设计。在这个意义上这种公司利润很高，因为它对程序设计和用户接口设计建立了严格的标准，和那些开放系统社团完全不一样。一些组织正在试图完成标准化Unix程序设计接口的任务。特别要指出的是，Linux完全兼容POSIX.1标准。 Linux 和 OS X 的区别 2001年新推出的OS X，结合BSD Unix、OpenStep和Mac OS 9的元素。它的最底层建基于Unix基础，其核心代码被称为Darwin，实行的是部分开放源代码。 都是基于类Unix的，不过Mac OS X属于Unix的直接衍生产品，OSX的内核是基于FreeBSD的内核。 都有开源部分，Linux自然不必说了，Mac OS X的底层——Darwin也是基于BSD协议开源的。 Linux就是这样一个东西，除了内核的稳定版本，所有的东西都可以任意更改和编写，并组成不同口味的发行包，只要源码公开，谁都可以从中获益，甚至包括收费发行。 二者的差别在系统架构上实际不大，都是类UNIX内核和GUI，但一个封闭一个开放。注意MACOSX也由开放版本，符合GNU。 Linux与其他操作系统的区别 Linux可以与MS-DOS、OS/2、Windows等其他操作系统共存于同一台机器上。它们均为操作系统，具有一些共性，但是互相之间各有特色，有所区别。 目前运行在PC机上的操作系统主要有Microsoft的MS-DOS、Windows、Windows NT、IBM的OS/2等。 早期的PC机用户普遍使用MS-DOS，因为这种操作系统对机器的硬件配置要求不高，而随着计算机硬件技术的飞速发展，硬件设备价格越来越低，人们可以相对容易地提高计算机的硬件配置，于是现在开始使用Windows、Windows NT等具有图形界面的操作系统。 a.Linux与MS－DOS之间: Linux可以直接访问计算机内的所有可用内存，提供完整的Unix接口。而MS-DOS只支持部分Unix的接口。 就使用费用而言，Linux和MS-DOS是两种完全不同的实体。与其他商业操作系统相比，MS-DOS价格比较便宜，而且在PC机用户中有很大的占有率。Linux是免费的，用户可以从internet上或者其他途径获得它的版本，而且可以任意使用，不用考虑费用问题。 就操作系统的功能来说，MS-DOS是单任务的操作系统，一旦用户运行了一个MS-DOS的应用程序，它就独占了系统的资源，用户不可能再同时运行其他应用程序。而Linux是多任务的操作系统，用户可以同时运行多个应用程序。 b.Linux与OS/2、Windows、Windows NT之间的区别 从发展的背景看，Linux与其他操作系统的区别是，Linux是从一个比较成熟的操作系统发展而来的，而其他操作系统，如Windows NT等，都是自成体系，无对应的相依托的操作系统。Linux做为Unix的一个克隆，同样会得到相应的支持和帮助，直接拥有Unix在用户中建立的牢固的地位。 从使用费用上看，Linux与其他操作系统的区别在于Linux是一种开放、免费的操作系统，而其他操作系统都是封闭的系统，需要有偿使用。OS/2和Windows NT等操作系统是具有版权的产品，其接口和设计均由某一公司控制，而且只有这些公司才有权实现其设计，它们是在封闭的环境下发展的。 参考 [1]: LINUX与UNIX区别在哪 [2]: Unix 起源及详细历程 [3]: Linux 和 OS X 的具体差异有哪些？]]></content>
+    </entry>
+
+    
   
   
 </search>
