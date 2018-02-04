@@ -1995,9 +1995,9 @@
       <category term="music" scheme="http://jingbin.me/categories/music/"/>
     
     
-      <category term="music" scheme="http://jingbin.me/tags/music/"/>
-    
       <category term="markdown" scheme="http://jingbin.me/tags/markdown/"/>
+    
+      <category term="music" scheme="http://jingbin.me/tags/music/"/>
     
       <category term="html" scheme="http://jingbin.me/tags/html/"/>
     
