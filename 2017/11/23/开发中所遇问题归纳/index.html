@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2018-01-25T04:04:18.457Z">
+<meta property="og:updated_time" content="2018-02-24T08:48:44.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -372,8 +372,8 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-25T12:04:18+08:00">
-                2018-01-25
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-24T16:48:44+08:00">
+                2018-02-24
               </time>
             
           </span>
@@ -511,6 +511,7 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">导入：&lt;<span class="keyword">import</span> type=<span class="string">"android.text.TextUtils"</span> /&gt;</div><div class="line">使用：android:text=<span class="string">'@&#123;TextUtils.isEmpty(resultsBean.who)?"佚名":resultsBean.who&#125;'</span></div><div class="line">也可以直接使用这时返回为<span class="keyword">null</span>会不显示。</div></pre></td></tr></table></figure>
 </li>
 </ol>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure>
 <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
 <li><p>✔️ <code>NestedScrollView</code>里嵌套 RecyclerView 官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：(<strong>这样不推荐，会把内容全部一次性的加载进内存，造成卡顿</strong>)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
