@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2018-02-24T08:48:44.005Z">
+<meta property="og:updated_time" content="2018-03-19T16:05:47.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -387,8 +387,8 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2018-02-24T16:48:44+08:00">
-                2018-02-24
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-20T00:05:47+08:00">
+                2018-03-20
               </time>
             
           </span>
@@ -475,7 +475,7 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 </li>
 <li><p>更改包名之后（rename – gradle.applicationId）， databinding 相关文件会报错，进入<code>Build --&gt; Rebuild Project</code>就好了！</p>
 </li>
-<li><p>AS里更改包名：保险的方法(费了几个小时的时间的总结)：在目录下新建想要的工程目录，把<code>activity</code>等包拖到新建的目录底下，然后修改<code>gradle</code>下的<code>applicationId</code>。这时候已经好了，可以跑起来了。但是<code>AndroidManifest.xml</code>未更改<code>package</code>，更改后你会发现项目中的<code>databinding</code>会报错，需要使用全局替换，将之前的包名替换成想要的包名，然后进入<code>Build --&gt; Rebuild Project</code>就好了！</p>
+<li><p><a href="http://blog.csdn.net/zuiwuyuan/article/details/48201171" target="_blank" rel="external"><strong>AS里更改包名</strong></a>：保险的方法(费了几个小时的时间的总结)：在目录下新建想要的工程目录，把<code>activity</code>等包拖到新建的目录底下，然后修改<code>gradle</code>下的<code>applicationId</code>。这时候已经好了，可以跑起来了。但是<code>AndroidManifest.xml</code>未更改<code>package</code>，更改后你会发现项目中的<code>databinding</code>会报错，需要使用全局替换，将之前的包名替换成想要的包名，然后进入<code>Build --&gt; Rebuild Project</code>就好了！</p>
 </li>
 <li><p>注意：引用如：android:showImg=’@{bean.images.large}’时，里面的<code>bean</code>写错会造成编译错误！</p>
 </li>
