@@ -304,12 +304,12 @@
     <link href="http://jingbin.me/2018/01/22/Toolbar%E5%8E%BB%E9%99%A4%E6%A0%87%E9%A2%98%E4%B8%8E%E8%BF%94%E5%9B%9E%E9%94%AE%E9%97%B4%E7%9A%84%E9%97%B4%E8%B7%9D/"/>
     <id>http://jingbin.me/2018/01/22/Toolbar去除标题与返回键间的间距/</id>
     <published>2018-01-21T18:36:44.000Z</published>
-    <updated>2018-01-23T16:59:23.414Z</updated>
+    <updated>2018-03-19T16:10:58.011Z</updated>
     
     <content type="html"><![CDATA[<p>很早就遇到一个问题，如下图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距过大"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距过大"></p>
 <a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-72bee3d8782a0948.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距正常"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1354448-72bee3d8782a0948.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距正常"></p>
 <p>标题和左侧的返回键间距过大，之前在做<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>的时候就遇到了，一直没有解决，由于自身强迫症，心里始终和这个过不去，就研究了很久终于解决了。</p>
 <p>之前在网上找了各种解决方法，比如给ToolBar设置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:contentInsetLeft=<span class="string">"0dp"</span></div><div class="line">app:contentInsetStart=<span class="string">"0dp"</span></div></pre></td></tr></table></figure></p>
 <p>不直接给ToolBar设置字体，在ToolBar里面包裹TextView，还是不行。<br>等等…</p>
@@ -328,7 +328,7 @@
     <summary type="html">
     
       &lt;p&gt;很早就遇到一个问题，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;间距过大&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;间距过大&quot;&gt;&lt;/p&gt;
     
     </summary>
     
