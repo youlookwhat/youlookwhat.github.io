@@ -930,7 +930,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2018-03-19T16:32:11.505Z</updated>
+    <updated>2018-03-19T16:35:30.362Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -1101,12 +1101,21 @@
 <h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><ul>
 <li><p>给域名加上https,有的页面没有显示【安全】的绿色标识，是因为页面内有“http”的链接，给相关链接全改为https就好了！</p>
 </li>
-<li><figure class="highlight plain"><figcaption><span>用```hexo d```上传时会报错，因为中间的_原因。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">---</div><div class="line"></div><div class="line">## Material Desgin</div><div class="line">- 兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，[详情](http://blog.csdn.net/u012156512/article/details/50585193)。</div><div class="line"></div><div class="line">- Android 5.1的SDK把``Button``的默认Style改了，使Button上显示因为全为大写，加上属性``android:textAllCaps=&quot;false&quot;``就好了,[详情](http://blog.csdn.net/u010746364/article/details/50378056)。</div><div class="line"></div><div class="line">- ``toolbar``中设置标题和副标题文字颜色和大小时，在**xml**文件配置``app:titleTextAppearance=&quot;@style/ToolBar.Title&quot;``可以，其中</div><div class="line"></div><div class="line">  ```java</div><div class="line">  &lt;style name=&quot;ToolBar.Title&quot; parent=&quot;@style/TextAppearance.Widget.AppCompat.Toolbar.Title&quot;&gt;</div><div class="line">        &lt;item name=&quot;android:textSize&quot;&gt;18.0sp&lt;/item&gt;</div><div class="line">        &lt;item name=&quot;android:textColor&quot;&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
-<p>也可以在activity中设置：<br><code>binding.titleToolBar.setTitleTextAppearance(this, R.style.ToolBar_Title);</code></p>
+<li><p><code>[Jingbin_](http://blog.csdn.net/jingbin_)</code> 用<code>hexo d</code>上传时会报错，因为中间的<code>_</code>原因。</p>
 </li>
 </ul>
-<ul>
-<li>如何删除默认 button 中的样式android? 加上属性：<code>style=&quot;?android:attr/borderlessButtonStyle&quot;</code></li>
+<hr>
+<h2 id="Material-Desgin"><a href="#Material-Desgin" class="headerlink" title="Material Desgin"></a>Material Desgin</h2><ul>
+<li><p>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</p>
+</li>
+<li><p>Android 5.1的SDK把<code>Button</code>的默认Style改了，使Button上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</p>
+</li>
+<li><p><code>toolbar</code>中设置标题和副标题文字颜色和大小时，在<strong>xml</strong>文件配置<code>app:titleTextAppearance=&quot;@style/ToolBar.Title&quot;</code>可以，其中</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name="ToolBar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"&gt;</div><div class="line">      &lt;item name="android:textSize"&gt;18.0sp&lt;/item&gt;</div><div class="line">      &lt;item name="android:textColor"&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>也可以在activity中设置：<br><code>binding.titleToolBar.setTitleTextAppearance(this, R.style.ToolBar_Title);</code></p>
+</li>
+<li><p>如何删除默认 button 中的样式android? 加上属性：<code>style=&quot;?android:attr/borderlessButtonStyle&quot;</code></p>
+</li>
 </ul>
 <hr>
 <h2 id="Android7-0"><a href="#Android7-0" class="headerlink" title="Android7.0"></a>Android7.0</h2><ul>
