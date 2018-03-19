@@ -304,12 +304,12 @@
     <link href="http://jingbin.me/2018/01/22/Toolbar%E5%8E%BB%E9%99%A4%E6%A0%87%E9%A2%98%E4%B8%8E%E8%BF%94%E5%9B%9E%E9%94%AE%E9%97%B4%E7%9A%84%E9%97%B4%E8%B7%9D/"/>
     <id>http://jingbin.me/2018/01/22/Toolbar去除标题与返回键间的间距/</id>
     <published>2018-01-21T18:36:44.000Z</published>
-    <updated>2018-01-23T16:59:23.414Z</updated>
+    <updated>2018-03-19T16:10:58.011Z</updated>
     
     <content type="html"><![CDATA[<p>很早就遇到一个问题，如下图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距过大"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距过大"></p>
 <a id="more"></a>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-72bee3d8782a0948.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距正常"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1354448-72bee3d8782a0948.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="间距正常"></p>
 <p>标题和左侧的返回键间距过大，之前在做<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>的时候就遇到了，一直没有解决，由于自身强迫症，心里始终和这个过不去，就研究了很久终于解决了。</p>
 <p>之前在网上找了各种解决方法，比如给ToolBar设置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:contentInsetLeft=<span class="string">"0dp"</span></div><div class="line">app:contentInsetStart=<span class="string">"0dp"</span></div></pre></td></tr></table></figure></p>
 <p>不直接给ToolBar设置字体，在ToolBar里面包裹TextView，还是不行。<br>等等…</p>
@@ -328,7 +328,7 @@
     <summary type="html">
     
       &lt;p&gt;很早就遇到一个问题，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;间距过大&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1354448-13ece64c14c7ace4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;间距过大&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -930,7 +930,7 @@
     <link href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/"/>
     <id>http://jingbin.me/2017/11/23/开发中所遇问题归纳/</id>
     <published>2017-11-23T14:36:23.000Z</published>
-    <updated>2018-02-24T08:48:44.005Z</updated>
+    <updated>2018-03-19T16:35:30.362Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>持续更新，主要记录<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>及工作上所遇到的问题。</p>
@@ -961,7 +961,7 @@
 </li>
 <li><p>更改包名之后（rename – gradle.applicationId）， databinding 相关文件会报错，进入<code>Build --&gt; Rebuild Project</code>就好了！</p>
 </li>
-<li><p>AS里更改包名：保险的方法(费了几个小时的时间的总结)：在目录下新建想要的工程目录，把<code>activity</code>等包拖到新建的目录底下，然后修改<code>gradle</code>下的<code>applicationId</code>。这时候已经好了，可以跑起来了。但是<code>AndroidManifest.xml</code>未更改<code>package</code>，更改后你会发现项目中的<code>databinding</code>会报错，需要使用全局替换，将之前的包名替换成想要的包名，然后进入<code>Build --&gt; Rebuild Project</code>就好了！</p>
+<li><p><a href="http://blog.csdn.net/zuiwuyuan/article/details/48201171" target="_blank" rel="external"><strong>AS里更改包名</strong></a>：保险的方法(费了几个小时的时间的总结)：在目录下新建想要的工程目录，把<code>activity</code>等包拖到新建的目录底下，然后修改<code>gradle</code>下的<code>applicationId</code>。这时候已经好了，可以跑起来了。但是<code>AndroidManifest.xml</code>未更改<code>package</code>，更改后你会发现项目中的<code>databinding</code>会报错，需要使用全局替换，将之前的包名替换成想要的包名，然后进入<code>Build --&gt; Rebuild Project</code>就好了！</p>
 </li>
 <li><p>注意：引用如：android:showImg=’@{bean.images.large}’时，里面的<code>bean</code>写错会造成编译错误！</p>
 </li>
@@ -1012,7 +1012,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">导入：&lt;<span class="keyword">import</span> type=<span class="string">"android.text.TextUtils"</span> /&gt;</div><div class="line">使用：android:text=<span class="string">'@&#123;TextUtils.isEmpty(resultsBean.who)?"佚名":resultsBean.who&#125;'</span></div><div class="line">也可以直接使用这时返回为<span class="keyword">null</span>会不显示。</div></pre></td></tr></table></figure>
 </li>
 </ol>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"> </div></pre></td></tr></table></figure>
+<hr>
 <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
 <li><p>✔️ <code>NestedScrollView</code>里嵌套 RecyclerView 官方后期已经解决了显示不全问题！看引用的包是什么版本的！还需要加上这两行代码：(<strong>这样不推荐，会把内容全部一次性的加载进内存，造成卡顿</strong>)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">recyclerView.setNestedScrollingEnabled(<span class="keyword">false</span>);</div><div class="line">recyclerView.setHasFixedSize(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
@@ -1047,6 +1047,7 @@
 </ul>
 </li>
 </ul>
+<hr>
 <h2 id="ViewPager-与-Fragment"><a href="#ViewPager-与-Fragment" class="headerlink" title="ViewPager 与 Fragment"></a>ViewPager 与 Fragment</h2><ul>
 <li><p>父布局使用<code>FrameLayout</code>或<code>Scrollview</code>下拉会有阴影效果，颜色是你配置的主题上指定的颜色。</p>
 </li>
@@ -1063,6 +1064,7 @@
 <li><p>如从子页面回到主页面并切到对应type的fragment里，这里的<code>.commit()</code>要改为<code>.commitAllowingStateLoss()</code>，不然会出现<code>Can not perform this action after onSaveInstanceState</code>错误。</p>
 </li>
 </ul>
+<hr>
 <h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2><ul>
 <li><p>使用<code>retrofit</code>请求时，Bean里如有<code>Drawable</code>字段，而且没有赋值，会数据解析异常，出现<code>StackOverflowError</code>错误。</p>
 </li>
@@ -1077,12 +1079,14 @@
   <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"&#123;user&#125;/setDeviceName"</span>)</div><div class="line"><span class="meta">@Headers</span>(<span class="string">"Content-Type:application/x-www-form-urlencoded; charset=utf-8"</span>) <span class="comment">//添加</span></div><div class="line"><span class="function">Observable&lt;String&gt; <span class="title">updateName</span><span class="params">(@Header(<span class="string">"Authorization"</span>)</span> String header,@<span class="title">Path</span><span class="params">(<span class="string">"user"</span>)</span> String user</span></div><div class="line">, @<span class="title">Field</span><span class="params">(<span class="string">"deviceMac"</span>)</span> String mac, @<span class="title">Field</span><span class="params">(<span class="string">"type"</span>)</span> String type, @<span class="title">Field</span><span class="params">(<span class="string">"name"</span>)</span> String name);</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<hr>
 <h2 id="ACache"><a href="#ACache" class="headerlink" title="ACache"></a>ACache</h2><ul>
 <li><p>使用<code>ACache</code>工具缓存时，如果缓存的<code>bean</code>类名一致，或类里面的内部类一致，这时logcat会提示有两个相同bean的id，就是<strong>无效的类</strong>，或<strong>找不到该类</strong>。所以：<strong><em>缓存的文件里的类名最好不要一样！</em></strong></p>
 </li>
 <li><p>使用<code>ACache</code>工具缓存时，subList没有实现序列化！缓存<code>List</code>时会出错！<a href="http://liyin-rookie.iteye.com/blog/1147284" target="_blank" rel="external">详情</a></p>
 </li>
 </ul>
+<hr>
 <h2 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h2><ul>
 <li><p>使<code>TextView</code>实现长按复制文本的功能，加上属性：<code>android:textIsSelectable=&quot;true&quot;</code></p>
 </li>
@@ -1093,12 +1097,16 @@
 <li><p><code>TextView</code>增加属性<code>maxEms、maxLines=1、ellipsize</code>这样会出现”…”。</p>
 </li>
 </ul>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<hr>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><ul>
+<li><p>给域名加上https,有的页面没有显示【安全】的绿色标识，是因为页面内有“http”的链接，给相关链接全改为https就好了！</p>
+</li>
+<li><p><code>[Jingbin_](http://blog.csdn.net/jingbin_)</code> 用<code>hexo d</code>上传时会报错，因为中间的<code>_</code>原因。</p>
+</li>
+</ul>
+<hr>
+<h2 id="Material-Desgin"><a href="#Material-Desgin" class="headerlink" title="Material Desgin"></a>Material Desgin</h2><ul>
 <li><p>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</p>
-</li>
-<li><p><code>listview</code>某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。</p>
-</li>
-<li><p>当ScrollView里的元素想填满ScrollView时，使用 fill_parent 是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</p>
 </li>
 <li><p>Android 5.1的SDK把<code>Button</code>的默认Style改了，使Button上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</p>
 </li>
@@ -1106,6 +1114,25 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name="ToolBar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"&gt;</div><div class="line">      &lt;item name="android:textSize"&gt;18.0sp&lt;/item&gt;</div><div class="line">      &lt;item name="android:textColor"&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
 <p>也可以在activity中设置：<br><code>binding.titleToolBar.setTitleTextAppearance(this, R.style.ToolBar_Title);</code></p>
 </li>
+<li><p>如何删除默认 button 中的样式android? 加上属性：<code>style=&quot;?android:attr/borderlessButtonStyle&quot;</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="Android7-0"><a href="#Android7-0" class="headerlink" title="Android7.0"></a>Android7.0</h2><ul>
+<li><p>WebView在Android7.0中会显示不全，这是WebView本身的控件大小应<code>wrap_content</code>，父布局为<code>match_parent</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;LinearLayout</div><div class="line">        android:layout_width=<span class="string">"match_parent"</span></div><div class="line">        android:layout_height=<span class="string">"match_parent"</span></div><div class="line">        android:descendantFocusability=<span class="string">"blocksDescendants"</span></div><div class="line">        android:orientation=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">        &lt;WebView</div><div class="line">            android:id=<span class="string">"@+id/wv_apply"</span></div><div class="line">            android:layout_width=<span class="string">"match_parent"</span></div><div class="line">            android:layout_height=<span class="string">"wrap_content"</span> /&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>太大的数据不要通过Intent之间传递，传递的数据最好不要超过1M,不然会报错，报错的地方不一定是当前传值的地方，可能是下一个页面。<code>Do not exchange huge data (&gt;1MB) between services and application</code>，可以通过<code>SharedPreferences</code>转json转bean来解决。</p>
+</li>
+<li><p>popuwindow显示有两个方法，每个方法只能在Android7.0之前或之后适应，需要辨别版本使用两和方法。<a href="https://www.oschina.net/question/588216_2210921" target="_blank" rel="external">链接</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><code>listview</code>某图标显示亮或不亮的问题：先全部不亮，再根据条件变亮。</li>
+<li>当ScrollView里的元素想填满ScrollView时，使用 fill_parent 是不管用的，必需为ScrollView设置：<code>android:fillViewport=&quot;true&quot;</code>。</li>
+</ul>
+<ul>
 <li><p>设置透明状态栏时，布局根节点不要设置<code>android:fitsSystemWindows=&quot;true&quot;</code>否则状态栏会一直存在，被这个问题坑了一整天！！还有整块布局也不要给设置颜色。 </p>
 </li>
 <li><p><code>ImageView</code>图片直接<code>src</code>会内存泄漏，图片宽高大时会很严重，建议代码设置。</p>
@@ -1120,8 +1147,6 @@
 </li>
 <li><p>adapter使用多种类别的item时，<code>getItemViewType</code>要从0开始，不然会出现<a href="http://www.jianshu.com/p/e441c0362364" target="_blank" rel="external">角标越界异常</a>。</p>
 </li>
-<li><p>如何删除默认 button 中的样式android? 加上属性：<code>style=&quot;?android:attr/borderlessButtonStyle&quot;</code></p>
-</li>
 <li><p><code>RatingBar</code>不设置半星:<code>android:stepSize=&quot;1&quot;</code>,不可滑动:<code>android:isIndicator=&quot;true&quot;</code></p>
 </li>
 <li><p>后台返回值为<code>Integer</code>类型的话，不能直接以<code>!=0</code>判断，而是以<code>!=null</code>判断，不然会调用请求失败的方法<code>showErr()</code>。</p>
@@ -1132,19 +1157,19 @@
 </li>
 <li><p>webview与js交互中，“遍历所有的a节点,将节点里的属性传递过去(属性自定义,用于页面跳转) ”，如果遍历两次a节点，最后一次的会覆盖前面的。</p>
 </li>
-<li><p>WebView在Android7.0中会显示不全，这是WebView本身的控件大小应<code>wrap_content</code>，父布局为<code>match_parent</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;LinearLayout</div><div class="line">        android:layout_width=<span class="string">"match_parent"</span></div><div class="line">        android:layout_height=<span class="string">"match_parent"</span></div><div class="line">        android:descendantFocusability=<span class="string">"blocksDescendants"</span></div><div class="line">        android:orientation=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">        &lt;WebView</div><div class="line">            android:id=<span class="string">"@+id/wv_apply"</span></div><div class="line">            android:layout_width=<span class="string">"match_parent"</span></div><div class="line">            android:layout_height=<span class="string">"wrap_content"</span> /&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>太大的数据不要通过Intent之间传递，传递的数据最好不要超过1M,不然会报错，报错的地方不一定是当前传值的地方，可能是下一个页面。<code>Do not exchange huge data (&gt;1MB) between services and application</code>，可以通过<code>SharedPreferences</code>转json转bean来解决。</p>
-</li>
-<li><p>popuwindow显示有两个方法，每个方法只能在Android7.0之前或之后适应，需要辨别版本使用两和方法。<a href="https://www.oschina.net/question/588216_2210921" target="_blank" rel="external">链接</a></p>
-</li>
+</ul>
+<ul>
 <li><p>mac更新后git出错<strong>can’t start git:usr/bin/git</strong>（Android Studio2.3.3版本）出现这个问题是因为该目录下的git无法执行，解决方法：在终端界面输入<code>sudo /usr/bin/git</code>这个命令，时候会提示<code>invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</code>,然后再输入<code>xcode-select --install</code>就解决了！</p>
 </li>
 <li><p>阿里百川CPS上传apk包，只能使用编译环境为gradle3.0以下的包</p>
 </li>
 <li><p>selector 里 <code>android:drawable=&quot;@color/color_theme&quot;</code>这样使用可能导致颜色变色，应使用<code>android:color=&quot;@color/color_theme&quot;</code>。</p>
 </li>
+</ul>
+<hr>
+<h2 id="About-me"><a href="#About-me" class="headerlink" title="About me"></a>About me</h2><ul>
+<li>Blog：<a href="http://jingbin.me">http://jingbin.me</a></li>
+<li>GitHub：<a href="https://github.com/youlookwhat" target="_blank" rel="external">https://github.com/youlookwhat</a></li>
 </ul>
 ]]></content>
     
@@ -1370,7 +1395,7 @@
     <link href="http://jingbin.me/2017/03/08/%E3%80%8A%E9%86%92%E4%B8%96%E6%81%92%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%C2%B7%E4%B8%8A/"/>
     <id>http://jingbin.me/2017/03/08/《醒世恒言》读书笔记·上/</id>
     <published>2017-03-08T04:18:35.000Z</published>
-    <updated>2017-03-08T04:57:16.000Z</updated>
+    <updated>2018-03-17T09:03:31.400Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>《<a href="http://baike.baidu.com/link?url=mBaaNbPZcizu0OVXJHy2ZYk3NegA12qOIpmRoFLuPZ2Rp9XIXR5G8fgUZp6Kt5oF2vhR5DUWlKEkt83iYTK3saF9MNfYIXFoY8vlQCwNjeSJEfV1r0lOHKWiwKR3mGdb" target="_blank" rel="external">醒世恒言</a>》同作者之前刊行的《喻世明言》、《警世通言》一起，合称《三言》，是最重要的中国古代白话短篇笔记集之一。通常亦与凌濛初的《初刻拍案惊奇》、《二刻拍案惊奇》并称，称为“三言二拍”。</p>
