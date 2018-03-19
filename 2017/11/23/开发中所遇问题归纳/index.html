@@ -102,7 +102,7 @@ DataBinding
 DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方法的使用类似。在对应的Bean里，可自动生成@Bindable和notifyPropertyChanged(BR.title);。此杰作是同事做的。网上也有类似的插件可以使用。
 
 神坑！windows下databindi">
-<meta property="og:updated_time" content="2018-03-19T16:29:26.930Z">
+<meta property="og:updated_time" content="2018-03-19T16:32:11.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发中所遇问题归纳">
 <meta name="twitter:description" content="持续更新，主要记录CloudReader及工作上所遇到的问题。
@@ -387,7 +387,7 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-20T00:29:26+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-20T00:32:11+08:00">
                 2018-03-20
               </time>
             
@@ -613,20 +613,14 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
 </ul>
 <hr>
 <h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><ul>
-<li>给域名加上https,有的页面没有显示【安全】的绿色标识，是因为页面内有“http”的链接，给相关链接全改为https就好了！</li>
-</ul>
-<hr>
-<h2 id="Material-Desgin"><a href="#Material-Desgin" class="headerlink" title="Material Desgin"></a>Material Desgin</h2><ul>
-<li><p>兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，<a href="http://blog.csdn.net/u012156512/article/details/50585193" target="_blank" rel="external">详情</a>。</p>
+<li><p>给域名加上https,有的页面没有显示【安全】的绿色标识，是因为页面内有“http”的链接，给相关链接全改为https就好了！</p>
 </li>
-<li><p>Android 5.1的SDK把<code>Button</code>的默认Style改了，使Button上显示因为全为大写，加上属性<code>android:textAllCaps=&quot;false&quot;</code>就好了,<a href="http://blog.csdn.net/u010746364/article/details/50378056" target="_blank" rel="external">详情</a>。</p>
-</li>
-<li><p><code>toolbar</code>中设置标题和副标题文字颜色和大小时，在<strong>xml</strong>文件配置<code>app:titleTextAppearance=&quot;@style/ToolBar.Title&quot;</code>可以，其中</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style name="ToolBar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"&gt;</div><div class="line">      &lt;item name="android:textSize"&gt;18.0sp&lt;/item&gt;</div><div class="line">      &lt;item name="android:textColor"&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">  &lt;/style&gt;</div></pre></td></tr></table></figure>
+<li><figure class="highlight plain"><figcaption><span>用```hexo d```上传时会报错，因为中间的_原因。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">---</div><div class="line"></div><div class="line">## Material Desgin</div><div class="line">- 兼容5.0以下水波纹效果：新建drawable-21文件，里面放ripple文件，其他正常，[详情](http://blog.csdn.net/u012156512/article/details/50585193)。</div><div class="line"></div><div class="line">- Android 5.1的SDK把``Button``的默认Style改了，使Button上显示因为全为大写，加上属性``android:textAllCaps=&quot;false&quot;``就好了,[详情](http://blog.csdn.net/u010746364/article/details/50378056)。</div><div class="line"></div><div class="line">- ``toolbar``中设置标题和副标题文字颜色和大小时，在**xml**文件配置``app:titleTextAppearance=&quot;@style/ToolBar.Title&quot;``可以，其中</div><div class="line"></div><div class="line">  ```java</div><div class="line">  &lt;style name=&quot;ToolBar.Title&quot; parent=&quot;@style/TextAppearance.Widget.AppCompat.Toolbar.Title&quot;&gt;</div><div class="line">        &lt;item name=&quot;android:textSize&quot;&gt;18.0sp&lt;/item&gt;</div><div class="line">        &lt;item name=&quot;android:textColor&quot;&gt;@color/colorWhite&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div></pre></td></tr></table></figure>
 <p>也可以在activity中设置：<br><code>binding.titleToolBar.setTitleTextAppearance(this, R.style.ToolBar_Title);</code></p>
 </li>
-<li><p>如何删除默认 button 中的样式android? 加上属性：<code>style=&quot;?android:attr/borderlessButtonStyle&quot;</code></p>
-</li>
+</ul>
+<ul>
+<li>如何删除默认 button 中的样式android? 加上属性：<code>style=&quot;?android:attr/borderlessButtonStyle&quot;</code></li>
 </ul>
 <hr>
 <h2 id="Android7-0"><a href="#Android7-0" class="headerlink" title="Android7.0"></a>Android7.0</h2><ul>
@@ -958,7 +952,7 @@ DataBindingHelper.jar的使用：作为插件导入后，和生成Get、Set方�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataBinding"><span class="nav-number">1.</span> <span class="nav-text">DataBinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPager-与-Fragment"><span class="nav-number">3.</span> <span class="nav-text">ViewPager 与 Fragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrofit"><span class="nav-number">4.</span> <span class="nav-text">Retrofit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACache"><span class="nav-number">5.</span> <span class="nav-text">ACache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextView"><span class="nav-number">6.</span> <span class="nav-text">TextView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo"><span class="nav-number">7.</span> <span class="nav-text">hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Material-Desgin"><span class="nav-number">8.</span> <span class="nav-text">Material Desgin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android7-0"><span class="nav-number">9.</span> <span class="nav-text">Android7.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">10.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#About-me"><span class="nav-number">11.</span> <span class="nav-text">About me</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DataBinding"><span class="nav-number">1.</span> <span class="nav-text">DataBinding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RecyclerView"><span class="nav-number">2.</span> <span class="nav-text">RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPager-与-Fragment"><span class="nav-number">3.</span> <span class="nav-text">ViewPager 与 Fragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrofit"><span class="nav-number">4.</span> <span class="nav-text">Retrofit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACache"><span class="nav-number">5.</span> <span class="nav-text">ACache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextView"><span class="nav-number">6.</span> <span class="nav-text">TextView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo"><span class="nav-number">7.</span> <span class="nav-text">hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android7-0"><span class="nav-number">8.</span> <span class="nav-text">Android7.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">9.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#About-me"><span class="nav-number">10.</span> <span class="nav-text">About me</span></a></li></ol></div>
             
 
           </div>
