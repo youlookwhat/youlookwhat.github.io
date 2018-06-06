@@ -1,0 +1,1492 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Books," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JingBin's Home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="《Android开发艺术探索》 - 一本Android进阶类书籍，采用理论、源码和实践相结合的方式来阐述高水准的Android应用开发要点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Android开发艺术探索》读书笔记">
+<meta property="og:url" content="http://jingbin.me/2018/04/13/《Android开发艺术探索》读书笔记/index.html">
+<meta property="og:site_name" content="JingBin's Home">
+<meta property="og:description" content="《Android开发艺术探索》 - 一本Android进阶类书籍，采用理论、源码和实践相结合的方式来阐述高水准的Android应用开发要点。">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-cfaabc5b421c5945.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/540">
+<meta property="og:updated_time" content="2018-05-08T08:13:20.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Android开发艺术探索》读书笔记">
+<meta name="twitter:description" content="《Android开发艺术探索》 - 一本Android进阶类书籍，采用理论、源码和实践相结合的方式来阐述高水准的Android应用开发要点。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1354448-cfaabc5b421c5945.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/540">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7NR95R0WHT',
+      apiKey: '',
+      indexName: 'jing_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jingbin.me/2018/04/13/《Android开发艺术探索》读书笔记/"/>
+
+
+
+
+
+  <title> 《Android开发艺术探索》读书笔记 | JingBin's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4bf05054dba6aed3e35f11764b201341";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">JingBin's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2018/04/13/《Android开发艺术探索》读书笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《Android开发艺术探索》读书笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-13T22:29:31+08:00">
+                2018-04-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-08T16:13:20+08:00">
+                2018-05-08
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/04/13/《Android开发艺术探索》读书笔记/" class="leancloud_visitors" data-flag-title="《Android开发艺术探索》读书笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://book.douban.com/subject/26599538/" target="_blank" rel="external">《Android开发艺术探索》</a> - 一本Android进阶类书籍，采用理论、源码和实践相结合的方式来阐述高水准的Android应用开发要点。</p>
+</blockquote>
+<a id="more"></a>
+<p>《Android开发艺术探索》从三个方面来组织内容。第一，介绍Android开发者不容易掌握的一些知识点；第二，结合Android源代码和应用层开发过程，融会贯通，介绍一些比较深入的知识点；第三，介绍一些核心技术和Android的性能优化思想。</p>
+<p>《Android开发艺术探索》侧重于Android知识的体系化和系统工作机制的分析，通过《Android开发艺术探索》的学习可以极大地提高开发者的Android技术水平，从而更加高效地成为高级开发者。而对于高级开发者来说，仍然可以从《Android开发艺术探索》的知识体系中获益。</p>
+<blockquote>
+<p>完善中，借鉴了他人的读书笔记。</p>
+</blockquote>
+<h2 id="Activity的生命周期和启动模式"><a href="#Activity的生命周期和启动模式" class="headerlink" title="Activity的生命周期和启动模式"></a>Activity的生命周期和启动模式</h2><p>用户正常使用情况下的生命周期 &amp; 由于Activity被系统回收或者设备配置改变导致Activity被销毁重建情况下的生命周期。</p>
+<h3 id="Activity的生命周期全面分析"><a href="#Activity的生命周期全面分析" class="headerlink" title="Activity的生命周期全面分析"></a>Activity的生命周期全面分析</h3><h4 id="典型情况下的生命周期分析"><a href="#典型情况下的生命周期分析" class="headerlink" title="典型情况下的生命周期分析"></a>典型情况下的生命周期分析</h4><p>  <img src="https://upload-images.jianshu.io/upload_images/1354448-cfaabc5b421c5945.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/540" alt="Activity生命周期.png"></p>
+<ul>
+<li>1.Activity第一次启动：onCreate-&gt;onStart-&gt;onResume。</li>
+<li>2.Activity切换到后台（ 用户打开新的Activity或者切换到桌面）,onPause-&gt;onStop。</li>
+<li>3.Activity从后台到前台，重新可见，onRestart-&gt;onStart-&gt;onResume。</li>
+<li>4.用户退出Activity，onPause-&gt;onStop-&gt;onDestroy。</li>
+<li>5.onStart开始到onStop之前，Activity可见。onResume到onPause之前，Activity可以接受用户交互。</li>
+<li>6.在新Activity启动之前，栈顶的Activity需要先onPause后，新Activity才能启动。所以不能在onPause执行耗时操作。</li>
+</ul>
+<h4 id="异常情况下的生命周期分析"><a href="#异常情况下的生命周期分析" class="headerlink" title="异常情况下的生命周期分析"></a>异常情况下的生命周期分析</h4><h5 id="系统配置变化导致Activity销毁重建"><a href="#系统配置变化导致Activity销毁重建" class="headerlink" title="系统配置变化导致Activity销毁重建"></a>系统配置变化导致Activity销毁重建</h5><p>例如Activity处于竖屏状态，<strong><em>如果突然旋转屏幕</em></strong>，由于系统配置发生了改变，Activity就会被销毁并重新创建。</p>
+<ul>
+<li>在异常情况下系统会在onStop之前调用onSaveInstanceState来保存状态。Activity重新创建后，会在onStart之后调用onRestoreInstanceState来恢复之前保存的数据。</li>
+<li>保存数据的流程： Activity被意外终止，调用onSaveIntanceState保存数据-&gt; Activity委托Window，Window委托它上面的顶级容器一个ViewGroup（ 书上说很可能就是DecorView） 。然后顶层容器在通知所有子元素来保存数据。 每个View都有 onSaveInstanceState 和 onRestoreInstanceState 方法。查看TextView 源码可以发现保存了文本选中状态和文本内容。</li>
+<li>系统只在Activity异常终止的时候才会调用 onSaveInstanceState 和onRestoreInstanceState 方法。其他情况不会触发。</li>
+</ul>
+<h5 id="资源内存不足导致低优先级的Activity被回收"><a href="#资源内存不足导致低优先级的Activity被回收" class="headerlink" title="资源内存不足导致低优先级的Activity被回收"></a>资源内存不足导致低优先级的Activity被回收</h5><ul>
+<li>1.前台- 可见非前台（ 被对话框遮挡的Activity） -后台，这三种Activity优先级从高到低。</li>
+<li>2.android:configChanges=”orientation” 在manifest中指定 configChanges 在系统配置变化后不重新创建Activity，也不会执行onSaveInstanceState 和 onRestoreInstanceState 方法，而是调用 onConfigurationChnaged 方法。</li>
+<li>3.configChanges 一般常用三个选项：<ul>
+<li>locale 系统语言变化</li>
+<li>keyborardHidden 键盘的可访问性发生了变化，比如用户调出了键盘</li>
+<li>orientation 屏幕方向变化</li>
+</ul>
+</li>
+</ul>
+<h3 id="Activity的启动模式"><a href="#Activity的启动模式" class="headerlink" title="Activity的启动模式"></a>Activity的启动模式</h3><h4 id="Activity的LaunchMode"><a href="#Activity的LaunchMode" class="headerlink" title="Activity的LaunchMode"></a>Activity的LaunchMode</h4><p>Android使用栈来管理Activity。</p>
+<h5 id="standard"><a href="#standard" class="headerlink" title="standard"></a>standard</h5><ul>
+<li>每次启动都会重新创建一个实例，不管这个Activity在栈中是否已经存在。</li>
+<li>谁启动了这个Activity，那么Activity就运行在启动它的那个Activity所在的栈中。</li>
+<li>用Application去启动Activity时会报错，提示非Activity的Context没有所谓的任务栈。解决<br>办法是为待启动Activity制定FLAG_ACTIVITY_NEW_TASH标志位，这样就会为它创建<br>一个新的任务栈。</li>
+</ul>
+<h5 id="singleTop"><a href="#singleTop" class="headerlink" title="singleTop"></a>singleTop</h5><ul>
+<li>如果新Activity位于任务栈的栈顶，那么此Activity不会被重新创建，同时回调 onNewIntent 方法。</li>
+<li>如果新Activity已经存在但不是位于栈顶，那么新Activity仍然会被创建。</li>
+</ul>
+<h5 id="singleTask"><a href="#singleTask" class="headerlink" title="singleTask"></a>singleTask</h5><ul>
+<li>这是一种单实例模式</li>
+<li>只要Activity在栈中存在，那么多次启动这个Activity都不会重新创建实例，同时也会回调 onNewIntent 方法。</li>
+<li>同时会导致在Activity之上的栈内Activity出栈。</li>
+</ul>
+<h5 id="singleIntance"><a href="#singleIntance" class="headerlink" title="singleIntance"></a>singleIntance</h5><ul>
+<li>具有singleTask模式的所有特性，同时具有此模式的Activity只能单独的位于一个任务栈中</li>
+</ul>
+<h5 id="TaskAffinity属性"><a href="#TaskAffinity属性" class="headerlink" title="TaskAffinity属性"></a>TaskAffinity属性</h5><p>TaskAffinity参数标识了一个Activity所需要的任务栈的名字。为字符串，且中间必须包含包名分隔符“.”。默认情况下，所有Activity所需的任务栈名字为应用包名。TashAffinity属性主要和singleTask启动模式或者 allowTaskReparenting 属性配对使用，其他情况下没有意义。 应用A启动了应用B的某个Activity后，如果Activity的allowTaskReparenting属性为true的话，那么当应用B被启动后，此Activity会直接从应用A的任务栈转移到应用B的任务栈中。 打个比方就是，应用A启动了应用B的ActivityX，然后按Home回到桌面，单击应用B的图标，这时并不会启动B的主Activity，而是重新显示已经被应用A启动的ActivityX。这是因为ActivityX的TaskAffinity值肯定不和应用A的任务栈相同（ 因为包名不同） 。所以当应用B被启动以后，发现ActivityX原本所需的任务栈已经被创建了，所以把ActivityX从A的任务栈中转移过来了。</p>
+<p>设置启动模式:</p>
+<ul>
+<li>1.manifest中 设置下的 android:launchMode 属性。</li>
+<li>2.启动Activity的 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 。</li>
+<li>3.两种同时存在时，以第二种为准。第一种方式无法直接为Activity添加FLAG_ACTIVITY_CLEAR_TOP标识，第二种方式无法指定singleInstance模式。</li>
+<li>4.可以通过命令行 adb shell dumpsys activity 命令查看栈中的Activity信息。</li>
+</ul>
+<h4 id="Activity的Flags"><a href="#Activity的Flags" class="headerlink" title="Activity的Flags"></a>Activity的Flags</h4><p>这些FLAG可以设定启动模式、可以影响Activity的运行状态。</p>
+<ul>
+<li>FLAG_ACTIVITY_CLEAR_TOP 具有此标记位的Activity启动时，同一个任务栈中位于它上面的Activity都要出栈，一般和FLAG_ACTIVITY_NEW_TASK配合使用。效果和singleTask一样。</li>
+<li>FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS 如果设置，新的Activity不会在最近启动的Activity的列表(就是安卓手机里显示最近打开的Activity那个系统级的UI)中保存。</li>
+</ul>
+<h3 id="IntentFilter的匹配规则"><a href="#IntentFilter的匹配规则" class="headerlink" title="IntentFilter的匹配规则"></a>IntentFilter的匹配规则</h3><p>启动Activity分为两种：</p>
+<ul>
+<li>1.显示调用 明确指定被启动对象的组件信息，包括包名和类名</li>
+<li>2.隐式调用 不需要明确指定组件信息，需要Intent能够匹配目标组件中的IntentFilter中所设置的过滤信息。</li>
+<li>3.IntentFilter中的过滤信息有action、category、data。</li>
+<li>4.只有一个Intent同时匹配action类别、category类别、data类别才能成功启动目标Activity。</li>
+<li>5.一个Activity可以有多个intent-filter，一个Intent只要能匹配任何一组intent-filter即可成功启动对应的Activity。</li>
+</ul>
+<h4 id="action"><a href="#action" class="headerlink" title="action"></a>action</h4><ul>
+<li>1.action是一个字符串。</li>
+<li>2.一个intent-filter可以有多个aciton，只要Intent中的action能够和任何一个action相同即可成功匹配。匹配是指与action的字符串完全一样。</li>
+<li>3.Intent中如果没有指定action，那么匹配失败。</li>
+</ul>
+<h4 id="category"><a href="#category" class="headerlink" title="category"></a>category</h4><ul>
+<li>category是一个字符串。</li>
+<li>2.Intent可以没有category，但是如果你一旦有category，不管有几个，每个都能够与<br>intent-filter中的其中一个category相同。</li>
+<li>3.系统在<code>startActivity</code>和<code>startActivityForResult</code>的时候，会默认为Intent加上 android.intent.category.DEFAULT 这个category，所以为了我们的activity能够接收隐式调用，就必须在intent-filter中加上 android.intent.category.DEFAULT 这个category。</li>
+</ul>
+<h4 id="data"><a href="#data" class="headerlink" title="data"></a>data</h4><ul>
+<li>1.data的匹配规则与action一样，如果intent-filter中定义了data，那么Intent中必须要定义可匹配的data。</li>
+<li><p>2.intent-filter中data的语法：</p>
+<pre><code>&lt;data android:scheme=&quot;string&quot;
+    android:host=&quot;string&quot;
+    android:port=&quot;string&quot;
+    android:path=&quot;string&quot;
+    android:pathPattern=&quot;string&quot;
+    android:pathPrefix=&quot;string&quot;
+    android:mimeType=&quot;string&quot;/&gt;
+</code></pre></li>
+<li><p>3.Intent中的data有两部分组成：mimeType和URI。mimeType是指媒体类型，比如<br>image/jpeg、audio/mpeg4-generic和video/等，可以表示图片、文本、视频等不同的媒<br>体格式。</p>
+<ul>
+<li>URI的结构：<code>&lt;scheme&gt;://&lt;host&gt;:&lt;port&gt;/[&lt;path&gt;|&lt;pathPrefix&gt;|&lt;pathPattern&gt;]</code><br>//实际例子<br>content://com.example.project:200/folder/subfolder/etc<br><a href="http://www.baidu.com:80/search/info" target="_blank" rel="external">http://www.baidu.com:80/search/info</a><ul>
+<li>scheme：URI的模式，比如http、file、content等，默认值是 file 。</li>
+<li>host：URI的主机名</li>
+<li>port：URI的端口号</li>
+<li>path、pathPattern和pathPrefix：这三个参数描述路径信息。<ul>
+<li>path、pathPattern可以表示完整的路径信息，其中pathPattern可以包含通配符 * ，表示0个或者多个任意字符。</li>
+<li>pathPrefix只表示路径的前缀信息。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Intent指定data时，必须调用 setDataAndType 方法， setData 和 setType 会清除另一方的值。</li>
+</ul>
+</li>
+</ul>
+<p><strong>隐式调用需注意:</strong></p>
+<ul>
+<li><p>1.当通过隐式调用启动Activity时，没找到对应的Activity系统就会抛出 android.content.ActivityNotFoundException 异常，所以需要判断是否有Activity能够匹配我们的隐式Intent。</p>
+<ul>
+<li>i. 采用 PackageManager 的 resloveActivity 方法<br>public abstract List<resolveinfo> queryIntentActivityies(Intent intent,int flags);<br>public abstract ResolveInfo resloveActivity(Intent intent,int flags);<br>以上的第二个参数使用 MATCH_DEFAULT_ONLY ，这个标志位的含义是仅仅匹配那些在intent-filter中声明了 android.intent.category.DEFAULT 这个category的Activity。因为如果把不含这个category的Activity匹配出来了，由于不含DEFAULT这个category的Activity是无法接受隐式Intent的从而导致startActivity失败。</resolveinfo></li>
+<li>ii. 采用 Intent 的 resloveActivity 方法</li>
+</ul>
+</li>
+<li><p>2.下面的action和category用来表明这是一个入口Activity并且会出现在系统的应用列表中，二者缺一不可。<br><action android:name="android.intent.action.MAIN"></action></p>
+<category android:name="android.intent.category.LAUNCHER">
+
+</category></li>
+</ul>
+<hr>
+<h2 id="理解RemoteViews"><a href="#理解RemoteViews" class="headerlink" title="理解RemoteViews"></a>理解RemoteViews</h2><p>RemoteViews提供了一组基础的操作，用于跨进程更新它的界面。RemoteViews在Andriod中的使用场景有两种：通知栏和桌面小部件(都运行在SystemServer进程)。</p>
+<h3 id="RemoteViews的应用"><a href="#RemoteViews的应用" class="headerlink" title="RemoteViews的应用"></a>RemoteViews的应用</h3><p>通知栏主要通过NotificationManager的notify方法来实现，除了默认效果外还可以自定义布局。<br>桌面小工具主要通过AppWidgetProvider来实现，AppWidgetProvider本质上是一个广播。<br>两者都会用到RemoteViews，两者都运行在其他进程中，准确的说是系统的SystemServer进程。</p>
+<h4 id="RemoteViews在通知栏上的应用"><a href="#RemoteViews在通知栏上的应用" class="headerlink" title="RemoteViews在通知栏上的应用"></a>RemoteViews在通知栏上的应用</h4><p>关于PendingIntent，它表示的是一种特定的Intent，这个Intent中所包含的意图必须由用户来触发。</p>
+<h4 id="RemoteViews在桌面小部件上的应用"><a href="#RemoteViews在桌面小部件上的应用" class="headerlink" title="RemoteViews在桌面小部件上的应用"></a>RemoteViews在桌面小部件上的应用</h4><p>AppWidgetProvider实现桌面小工具的类，本质是一个广播即BroadcastReceiver。<br>具体使用看系统自动生成的桌面小工具。<br>桌面小部件上不管是初始化界面还是后续的更新界面都必须使用RemoteViews来完成。</p>
+<h4 id="PendingIntent概述"><a href="#PendingIntent概述" class="headerlink" title="PendingIntent概述"></a>PendingIntent概述</h4><p>PendingIntent和Intent的区别在于，PendingIntent是在将来的某个环节的不确定的时刻发生，而Intent是立刻发生。</p>
+<h3 id="RemoteViews的内部机制"><a href="#RemoteViews的内部机制" class="headerlink" title="RemoteViews的内部机制"></a>RemoteViews的内部机制</h3><ul>
+<li>大部分的set方法的确是通过发射来完成的。</li>
+<li>NotificationManager和AppWidgetProvider通过Binder分别和SystemServer进程中的NotificationManagerService以及AppWidgetServer进行通信。</li>
+<li>RemoteViews会通过Binder传递到SystemServer进程中，这是因为RemoteViews实现了Parcelable接口，因此它可以跨进程传输，系统会根据RemoteViews中的包名等信息去得到该应用的资源。</li>
+</ul>
+<h3 id="RemoteViews的意义"><a href="#RemoteViews的意义" class="headerlink" title="RemoteViews的意义"></a>RemoteViews的意义</h3><p>模拟通知栏效果实现跨进程跨进程的UI更新。<br>我们可以像系统一样使用Binder来实现，但是为了简单起见就采用广播。<br>实际：</p>
+<ul>
+<li>现在用两个应用，一个应用需要能够更新另一个应用的某个界面，这个时候我们当然可以选择AIDL去实现（<strong>跨应用更新UI</strong>），但是如果对界面的更新比较频繁，这个时候就会有效率的问题，如果采用RemoteViews来实现就没有这个问题了。（RemoteViews只支持一些常用的View,对于自定义的View是不支持的。）</li>
+</ul>
+<hr>
+<h2 id="Android动画深入分析"><a href="#Android动画深入分析" class="headerlink" title="Android动画深入分析"></a>Android动画深入分析</h2><p>Android动画分为三种：</p>
+<ul>
+<li>1.View动画（平移、缩放、旋转、透明度）</li>
+<li>2.帧动画（图片切换动画）</li>
+<li>3.属性动画（动态的改变对象的属性从而达到动画的效果）</li>
+</ul>
+<h3 id="View动画"><a href="#View动画" class="headerlink" title="View动画"></a>View动画</h3><p>View动画的作用对象是View，支持四种动画效果：</p>
+<ul>
+<li>1.平移</li>
+<li>2.缩放</li>
+<li>3.旋转</li>
+<li>4.透明</li>
+</ul>
+<h4 id="View动画的种类"><a href="#View动画的种类" class="headerlink" title="View动画的种类"></a>View动画的种类</h4><p>上述四种变换效果对应着Animation四个子类： TranslateAnimation 、 ScaleAnimation 、 RotateAnimation 和 AlphaAnimation 。这四种动画皆可以通过XML定义，也可以通过代码来动态创建。</p>
+<p><strong>xml定义动画:</strong></p>
+<ul>
+<li><p>1.<set> 标签表示动画集合，对应AnimationSet类，可以包含一个或若干个动画，内部还可以嵌套其他动画集合。两个属性：</set></p>
+<ul>
+<li>i. android:interpolator 表示动画集合所采用的插值器，插值器影响动画速度，比如非匀速动画就需要通过插值器来控制动画的播放过程。</li>
+<li>ii. android:shareInterpolator 表示集合中的动画是否和集合共享同一个插值器，如果集合不指定插值器，那么子动画就需要单独指定所需的插值器或默认值。</li>
+</ul>
+</li>
+<li><p>2.<code>&lt;translate&gt;</code>、<code>&lt;scale&gt;</code>、<code>&lt;rotate&gt;</code>、<code>&lt;alpha&gt;</code>这几个子标签分别代表四种变换效果。</p>
+</li>
+<li><p>3.定义完View动画的xml后，通过以下代码应用动画：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Aniamation anim = AnimationUtils.loadAnimation(context,R.anim.animation_test);</div><div class="line">view.startAnimation(anim);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>代码动态创建动画：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AlphaAnimation alphaAnimation = <span class="keyword">new</span> AlphaAnimation(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">alphaAnimation.setDuration(<span class="number">1500</span>);</div><div class="line">view.startAnimation(alphaAnimation);</div></pre></td></tr></table></figure>
+<h4 id="自定义View动画"><a href="#自定义View动画" class="headerlink" title="自定义View动画"></a>自定义View动画</h4><p>需要继承 Animation 这个抽象类，重写它的 initialize 和 applyTransformation 方法。在 initialize 方法中做一些初始化工作，在 applyTransformation 中进行相应的矩阵变换即可，很多时候需要采用 Camera 来简化矩阵变换的过程。自定义View动画的过程主要是矩阵变换的过程。</p>
+<h4 id="帧动画"><a href="#帧动画" class="headerlink" title="帧动画"></a>帧动画</h4><p>帧动画是顺序播放一组预先定义好的图片，使用简单，但容易引起OOM，所以在使用帧动画时应尽量避免使用过多尺寸较大的图片。</p>
+<h3 id="View动画的特殊使用场景"><a href="#View动画的特殊使用场景" class="headerlink" title="View动画的特殊使用场景"></a>View动画的特殊使用场景</h3><h4 id="LayoutAnimation"><a href="#LayoutAnimation" class="headerlink" title="LayoutAnimation"></a>LayoutAnimation</h4><p>作用于ViewGroup，为ViewGroup指定一个动画，当它的子元素出场时都会具有这种动画效果，一般用在ListView上。</p>
+<h4 id="Activity的切换效果"><a href="#Activity的切换效果" class="headerlink" title="Activity的切换效果"></a>Activity的切换效果</h4><p>我们可以自定义Activity的切换效果，主要通过在 startActivity 或者 finish 的后面增加<code>overridePendingTransition(int enterAnim , int exitAnim)</code>方法</p>
+<h3 id="属性动画"><a href="#属性动画" class="headerlink" title="属性动画"></a>属性动画</h3><p>API 11后加入，可以在一个时间间隔内完成对象从一个属性值到另一个属性值的改变。因此与<br>View动画相比，属性动画几乎无所不能，只要对象有这个属性，它都能实现动画效果。API11<br>以下可以通过 nineoldandroids 库来兼容以前版本。</p>
+<h4 id="属性动画有以下三种使用方法："><a href="#属性动画有以下三种使用方法：" class="headerlink" title="属性动画有以下三种使用方法："></a><strong>属性动画有以下三种使用方法：</strong></h4><ul>
+<li>ObjectAnimator:<ul>
+<li><code>ObjectAnimator.ofFloat(view,&quot;translationY&quot;,values).start();</code></li>
+</ul>
+</li>
+<li><p>ValueAnimator</p>
+<ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ValueAnimator colorAnim = ObjectAnimator.ofInt(view,<span class="string">"backgroundColor"</span>,<span class="comment">/*red*/</span><span class="number">0xffff8080</span>,<span class="comment">/*blue*/</span><span class="number">0xff8080ff</span>);</div><div class="line">colorAnim.setDuration(<span class="number">2000</span>);</div><div class="line">colorAnim.setEvaluator(<span class="keyword">new</span> ArgbEvaluator());</div><div class="line">colorAnim.setRepeatCount(ValueAnimator.INFINITE);</div><div class="line">colorAnim.setRepeatMode(ValueAnimator.REVERSE);</div><div class="line">colorAnim.start();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>AnimatorSet</p>
+<ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AnimatorSet set = <span class="keyword">new</span> AnimatorSet();</div><div class="line">set.playTogether(animator1,animator2,animator3);</div><div class="line">set.setDuration(<span class="number">3</span>*<span class="number">1000</span>).start();</div></pre></td></tr></table></figure>
+</li>
+<li><p>也可以通过在xml中定义在 res/animator/ 目录下。具体如下:</p>
+<ul>
+<li><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;set xmlns:android="http://schemas.android.com/apk/res/android"&gt;</div><div class="line">&lt;objectAnimator</div><div class="line">....../&gt;</div><div class="line">&lt;animator</div><div class="line">....../&gt;</div><div class="line">&lt;/set&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">AnimatorSet set = (AnimatorSet)AnimatorInflater.loadAnimator(context , R.animator.anim);</div><div class="line">set.setTarget(view);</div><div class="line">set.start();</div><div class="line">&lt;set&gt; 标签对应 AnimatorSet,&lt;animator&gt;对应ValueAnimator,</div><div class="line">而&lt;objectAnimator&gt;则对应 ObjectAnimator。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="理解差值器和估值器"><a href="#理解差值器和估值器" class="headerlink" title="理解差值器和估值器"></a>理解差值器和估值器</h4><ul>
+<li><p>时间插值器（ TimeInterpolator） 的作用是根据时间流逝的百分比来计算出当前属性值改变的百分比，系统预置的有LinearInterpolator（<strong>线性插值器：匀速动画</strong>),AccelerateDecelerateInterpolator（<strong>加速减速插值器：动画两头慢中间快</strong>）,DecelerateInterpolator(<strong>减速插值器：动画越来越慢</strong>）。</p>
+</li>
+<li><p>估值器（ TypeEvaluator） 的作用是根据当前属性改变的百分比来计算改变后的属性值。<br>系统预置有IntEvaluator 、FloatEvaluator 、ArgbEvaluator。</p>
+</li>
+<li><p>具体来说 对于一个作用在view上改变其宽度属性、持续40ms的属性动画来说，就是当时间t=20ms时，时间流逝了50%，那么view的宽度属性应该改变了多少呢？这个就由Interpolator和Evaluator的算法来决定。</p>
+</li>
+</ul>
+<h4 id="属性动画的监听器"><a href="#属性动画的监听器" class="headerlink" title="属性动画的监听器"></a>属性动画的监听器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">interface</span> <span class="title">AnimatorListener</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span></span>; <span class="comment">//动画开始</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span></span>; <span class="comment">//动画结束</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onAnimationCancel</span><span class="params">(Animator animation)</span></span>; <span class="comment">//动画取消</span></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator animation)</span></span>; <span class="comment">//动画重复播放</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为了方便开发，系统提供了AnimatorListenerAdapter类，它是AnimatorListener的适配器类，可以有选择的实现以上4个方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Implementors of this interface can add themselves as update listeners</div><div class="line">* to an &lt;code&gt;ValueAnimator&lt;/code&gt; instance to receive callbacks on every animation</div><div class="line">* frame, after the current frame's values have been calculated for that</div><div class="line">* &lt;code&gt;ValueAnimator&lt;/code&gt;.</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">interface</span> <span class="title">AnimatorUpdateListener</span> </span>&#123;</div><div class="line">	<span class="comment">/**</span></div><div class="line">	* &lt;p&gt;Notifies the occurrence of another frame of the animation.&lt;/p&gt;</div><div class="line">	* *</div><div class="line">	<span class="doctag">@param</span> animation The animation which was repeated.</div><div class="line">	*/</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animation)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>AnimatorUpdateListener会监听整个动画的过程，动画由许多帧组成的，每播放一帧，onAnimationUpdate就会调用一次。</p>
+<h4 id="对任意属性做动画"><a href="#对任意属性做动画" class="headerlink" title="对任意属性做动画"></a>对任意属性做动画</h4><ul>
+<li><p>1.属性动画要求作用的对象提供该属性的get和set方法，属性动画根据外界传递的该属性的初始值和最终值，通过多次调用set方法来实现动画效果。</p>
+</li>
+<li><p>2.如果被作用的对象没有set/get方法，可以：</p>
+<ul>
+<li>i.请给你的对象加上get和set方法，如果你有权限的话（ 对于SDK或者其他第三方类库<br>的类无法加上的） </li>
+<li>ii.用一个类来包装原始对象，间接为其提供get和set方法</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//包装View类 用于给属性动画调用 从而包装了set get</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewWrapper</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> View target;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ViewWrapper</span><span class="params">(View target)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.target = target;</div><div class="line">	&#125; </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getWidth</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> target.getLayoutParams().width;</div><div class="line">	&#125; </div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWidth</span><span class="params">(<span class="keyword">int</span> width)</span> </span>&#123;</div><div class="line">		target.getLayoutParams().width = width;</div><div class="line">		target.requestLayout();</div><div class="line">	&#125;</div><div class="line">&#125; </div><div class="line"><span class="comment">//使用：</span></div><div class="line">ViewWrapper wrapper = <span class="keyword">new</span> ViewWrapper(mButton);</div><div class="line">ObjectAnimator.ofInt(mButton,<span class="string">"width"</span>,<span class="number">500</span>).setDuration(<span class="number">3000</span>).start();</div></pre></td></tr></table></figure>
+</li>
+<li><p>iii.采用ValueAnimator，监听动画过程，自己实现属性的改变；</p>
+<ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">performAnimate</span><span class="params">(<span class="keyword">final</span> View target, <span class="keyword">final</span> <span class="keyword">int</span> start, <span class="keyword">final</span> <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">	ValueAnimator valueAnimator = ValueAnimator.ofInt(<span class="number">1</span>, <span class="number">100</span>);</div><div class="line">	valueAnimator.addUpdateListener(<span class="keyword">new</span> AnimatorUpdateListener() &#123;</div><div class="line">		<span class="comment">// 持有一个IntEvaluator对象，方便下面估值的时候使用</span></div><div class="line">		<span class="keyword">private</span> IntEvaluator mEvaluator = <span class="keyword">new</span> IntEvaluator();</div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animator)</span> </span>&#123;</div><div class="line">			<span class="comment">// 获得当前动画的进度值，整型，1-100之间</span></div><div class="line">			<span class="keyword">int</span> currentValue = (Integer) animator.getAnimatedValue();</div><div class="line">			Log.d(TAG, <span class="string">"current value: "</span> + currentValue);</div><div class="line">			<span class="comment">// 获得当前进度占整个动画过程的比例，浮点型，0-1之间</span></div><div class="line">			<span class="keyword">float</span> fraction = animator.getAnimatedFraction();</div><div class="line">			<span class="comment">// 直接调用整型估值器通过比例计算出宽度，然后再设给Button</span></div><div class="line">			target.getLayoutParams().width = mEvaluator.evaluate(fraction, start, end);</div><div class="line">			target.requestLayout();</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	valueAnimator.setDuration(<span class="number">5000</span>).start();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="属性动画的工作原理"><a href="#属性动画的工作原理" class="headerlink" title="属性动画的工作原理"></a>属性动画的工作原理</h4><p>属性动画需要运行在有Looper的线程中，系统通过反射调用被作用对象get/set方法。</p>
+<h3 id="使用动画的注意事项"><a href="#使用动画的注意事项" class="headerlink" title="使用动画的注意事项"></a>使用动画的注意事项</h3><ul>
+<li>1.使用帧动画时，当图片数量较多且图片分辨率较大的时候容易出现OOM，需注意，尽量<br>避免使用帧动画。</li>
+<li>2.使用无限循环的属性动画时，在Activity退出时即使停止，否则将导致Activity无法释放从而造成内存泄露。</li>
+<li>3.动画在3.0以下的系统存在兼容性问题，特殊场景可能无法正常工作，需做好适配工作。</li>
+<li>4.View动画是对View的影像做动画，并不是真正的改变了View的状态，因此有时候会出现动画完成后View无法隐藏（ setVisibility(View.GONE） 失效）,这时候调用 view.clearAnimation() 清理View动画即可解决。</li>
+<li>5.不要使用px，使用px会导致不同设备上有不同的效果。</li>
+<li>6.View动画是对View的影像做动画，View的真实位置没有变动，动画完成后的新位置是无法触发点击事件的。属性动画是真实改变了View的属性，所以动画完成后的位置可以接受触摸事件。</li>
+<li>7.使用动画的过程中，使用硬件加速可以提高动画的流畅度。</li>
+</ul>
+<hr>
+<h2 id="Android的线程和线程池"><a href="#Android的线程和线程池" class="headerlink" title="Android的线程和线程池"></a>Android的线程和线程池</h2><ul>
+<li>1.在Android系统，线程主要分为主线程和子线程，主线程处理和界面相关的事情，而子线程一般用于执行耗时操作。</li>
+<li>2.在Android中，线程的形态有很多种：<ul>
+<li>i.AsyncTask封装了线程池和Handler。</li>
+<li>ii.HandlerThread是具有消息循环的线程，内部可以使用handler</li>
+<li>iii.IntentService是一种Service，内部采用HandlerThread来执行任务，当任务执行完毕后IntentService会自动退出。由于它是一种Service，所以不容易被系统杀死</li>
+</ul>
+</li>
+<li>3.操作系统中，线程是操作系统调度的最小单元，同时线程又是一种受限的系统资源，其创建和销毁都会有相应的开销。同时当系统存在大量线程时，系统会通过时间片轮转的方式调度每个线程，因此线程不可能做到绝对的并发，除非线程数量小于等于CPU的核心数。</li>
+<li>4.频繁创建销毁线程不明智，使用线程池是正确的做法。线程池会缓存一定数量的线程，通过线程池就可以避免因为频繁创建和销毁线程所带来的系统开销。</li>
+</ul>
+<h3 id="主线程和子线程"><a href="#主线程和子线程" class="headerlink" title="主线程和子线程"></a>主线程和子线程</h3><ul>
+<li>1.主线程主要处理界面交互逻辑，由于用户随时会和界面交互，所以主线程在任何时候都需要有较高响应速度，则不能执行耗时的任务；</li>
+<li>2.android3.0开始，网络访问将会失败并抛出NetworkOnMainThreadException这个异常，这样做是为了避免主线程由于被耗时操作所阻塞从而现ANR现象。</li>
+</ul>
+<h3 id="Android中的线程形态"><a href="#Android中的线程形态" class="headerlink" title="Android中的线程形态"></a>Android中的线程形态</h3><h4 id="AsyncTask"><a href="#AsyncTask" class="headerlink" title="AsyncTask"></a>AsyncTask</h4><p>1.三个参数（都可为Void)：</p>
+<ul>
+<li>i. Params：参数</li>
+<li>ii. Progress：执行进度</li>
+<li>iii. Result：返回值</li>
+</ul>
+<p>2.四个方法 ：</p>
+<ul>
+<li>i. onPreExecute() 主线程执行，异步方法执行前调用。</li>
+<li>ii. doInBackground(Params…params) 线程池中执行，用于执行异步任务；在方法内部用publishProgress 来更新任务进度。</li>
+<li>iii. onProgressUpdate(Progress…value) 主线程执行，后台任务进度状态改变时被调用。</li>
+<li>iv. onPostExecute(Result result) 主线程执行，异步任务执行之后被调用执行顺序： onPreExecute-&gt;doInBackground-&gt;onPostExecute 如果取消了异步任务，会回调onCancelled()，onPostExecute则不会被调用。</li>
+</ul>
+<p>AsyncTask的类必须在主线程加载，Android4.1及以上已经被系统自动完成了；AsyncTask对象必须在主线程创建；execute方法需要在UI线程调用；一个AsyncTask对象只能调用一次；Android1.6之前串行执行，Android1.6采用线程池并行处理任务，Android3.0开始，又采用一个线程来串行执行任务，但也可以通过 executeOnExecutor() 方法来并行执行任务。</p>
+<h4 id="AsyncTask的工作原理"><a href="#AsyncTask的工作原理" class="headerlink" title="AsyncTask的工作原理"></a>AsyncTask的工作原理</h4><ul>
+<li>1.AsyncTask中有两个线程池（ SerialExecutor 和 THREAD_POOL_EXECUTOR ）和一个 InternalHandler ，其中线程池SerialExecutor用于任务排队，THREAD_POOL_EXECUTOR用于真正执行任务，InternalHandler用于将执行环境切换到主线程。</li>
+<li>2.AsyncTask的排队过程：系统首先会把AsyncTask的Params参数封装成FutureTask对象，它充当Runnable的作用，接下来这个FutureTask会交给SerialExecutor的 execute() 方法处理，execute()方法首先会把FutereTask对象插入到任务队列 mTasks 中去；如果没有正在活动的AsyncTask任务，就会执行下一个AsyncTask任务；同时当一个AsyncTask任务执行完成后，AsyncTask会继续执行其他任务直到所有任务都执行为止，可以看出默认情况，AsyncTask是串行执行的（Android3.0后）。</li>
+</ul>
+<h4 id="HandlerThread"><a href="#HandlerThread" class="headerlink" title="HandlerThread"></a>HandlerThread</h4><ul>
+<li>1.HandlerThread继承了Thread,是一种可以使用Handler的Thread</li>
+<li>2.在run方法中通过 looper.prepare() 来开启消息循环，这样就可以在HandlerThread中创建Handler了</li>
+<li>3.外界可以通过一个Handler的消息方式来通知HandlerThread来执行具体任务；确定不使用之后，可以通过 quit 或 quitSafely 方法来终止线程执行</li>
+<li>4.具体使用场景是IntentService</li>
+</ul>
+<h4 id="IntentService"><a href="#IntentService" class="headerlink" title="IntentService"></a>IntentService</h4><p>IntentSercie是一种特殊的Service，继承了Service并且是抽象类，任务执行完成后会自动停止，优先级远高于普通线程，适合执行一些高优先级的后台任务； IntentService封装了 HandlerThread 和 Handler。</p>
+<ul>
+<li>1.onCreate 方法自动创建一个HandlerThread</li>
+<li>2.然后用它的Looper构造了一个Handler对象 mServiceHandler ，这样通过mServiceHandlerAndroid的线程和线程池发送的消息都会在HandlerThread执行；</li>
+<li>3.IntentServiced的 onHandlerIntent 方法是一个抽象方法，需要在子类实现，onHandlerIntent方法执行后，stopSelt(int startId)就会停止服务，如果存在多个后台任务，执行完最后一个stopSelf(int startId)才会停止服务。</li>
+</ul>
+<h3 id="Android线程池"><a href="#Android线程池" class="headerlink" title="Android线程池"></a>Android线程池</h3><p>优点：</p>
+<ol>
+<li>重用线程池的线程，减少线程创建和销毁带来的性能开销</li>
+<li>控制线程池的最大并发数，避免大量线程互相抢系统资源导致阻塞</li>
+<li>提供定时执行和间隔循环执行功能</li>
+</ol>
+<h4 id="ThreadPoolExecutor（熟悉后可自定义线程池）"><a href="#ThreadPoolExecutor（熟悉后可自定义线程池）" class="headerlink" title="ThreadPoolExecutor（熟悉后可自定义线程池）"></a>ThreadPoolExecutor（熟悉后可自定义线程池）</h4><p>Executor是一个接口，线程池的具体实现在ThreadPoolExecutor；它提供了一系列的参数来配置线程池；Android的线程池 大部分都是通 过Executor提供的工厂方法创建的。</p>
+<h5 id="ThreadPoolExecutor常见构造参数"><a href="#ThreadPoolExecutor常见构造参数" class="headerlink" title="ThreadPoolExecutor常见构造参数"></a>ThreadPoolExecutor常见构造参数</h5><ol>
+<li>corePoolSize： 线程池的核心线程数，默认情况下，核心线程会一直存活(设置了超时机制除外， allowCoreThreadTimeOut属性为true时开启）</li>
+<li>maxinmumPoolSize： 线程池能容纳的最大线程数，当活动的线程达到这个数值之后，后续新任务会被阻塞</li>
+<li>keepAliveTime： 非核心线程闲置的超时时长，超过这个时长，非核心线程就会被回收,当allowCoreThreadTimeOut为true时，keepAliveTime同样作用于核心线程。</li>
+<li>unit：keepAliveTime的时间单位，这是一个枚举，常用TimeUnit.MILLISECONDS(毫秒)、TimeUnit.SECONDS（秒）、TimeUnit.MINUTES(分钟)</li>
+<li>workQueue： 线程池中的任务队列，通过execute方法提交的Runnable对象会存储在这个参数中</li>
+<li>threadFactory： 线程工厂，为线程池提供创建线程的功能，是个接口，提供ThreadnewThread(Runnable r)方法</li>
+<li>RejectedExecutionHandle：当线程池无法执行新任务时，可能由于线程队列已满或无法成功执行任务，这时候 ThreadPoolExecutor会调用handler的 rejectedExecution的方法，默认会抛出RejectedExecutionException</li>
+</ol>
+<h5 id="ThreadPoolExecutor执行任务大致遵循如下规则"><a href="#ThreadPoolExecutor执行任务大致遵循如下规则" class="headerlink" title="ThreadPoolExecutor执行任务大致遵循如下规则:"></a>ThreadPoolExecutor执行任务大致遵循如下规则:</h5><ol>
+<li>如果线程池中的线程数量未达到核心线程的数量，那么会直接启动一个核心线程来执行任务Android的线程和线程池</li>
+<li>如果线程池中的线程数量已经达到或超过核心线程数量，那么任务会被插入到任务队列中排队等待执行</li>
+<li>如果步骤2中无法将任务插入到任务队列中，往往是因为任务队列已满，这个时候如果线程数量未达到线程池规定的最大值，那么会立刻启动一个非核心线程来执行任务</li>
+<li>如果步骤3中线程数量达到线程池规定的最大值，线程池会拒绝执行任务，并会调用RejectedExecutionHandler的rejectedExecution方法来通知调用者</li>
+</ol>
+<h5 id="AsyncTask的THREAD-POOL-EXECUTOR线程池配置"><a href="#AsyncTask的THREAD-POOL-EXECUTOR线程池配置" class="headerlink" title="AsyncTask的THREAD_POOL_EXECUTOR线程池配置:"></a>AsyncTask的THREAD_POOL_EXECUTOR线程池配置:</h5><ol>
+<li>核心线程数等于CPU核心数+1</li>
+<li>线程池最大线程数为CPU核心数的2倍+1</li>
+<li>核心线程无超时机制，非核心线程的闲置超时时间为1秒</li>
+<li>任务队列容量是128</li>
+</ol>
+<h4 id="常见的4个线程池"><a href="#常见的4个线程池" class="headerlink" title="常见的4个线程池"></a>常见的4个线程池</h4><ul>
+<li>1、FixedThreadPool ：线程数量固定的线程池，当所有线程都处于活动状态时，新任务会处于等待状态，只有核心线程并且不会回收（无超时机制），能快速的响应外界请求。</li>
+<li>2、CachedThreadPool ：线程数量不定的线程池，最大线程数Integer.MAX_VALUE(相当于任意大),当所有线程都处于活动状态时，会创建新线程来处理任务；线程池的空闲进程超时时长为60秒，超过就会被回收；任何任务都会被立即执行，适合执行大量的耗时较少的任务。</li>
+<li>3、ScheduledThreadPool ：核心线程数量固定，非核心线程数量无限制，非核心线程闲置时会被立刻回收，用于执行定时任务和具有固定周期的重复任务。</li>
+<li>4、SingleThreadExecutor ：只有一个核心线程，所有任务都在这个线程中串行执行，不需要处理线程同步问题。</li>
+</ul>
+<hr>
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><ul>
+<li><a href="https://github.com/zhuyongit/AndroidDevelopmentArt" target="_blank" rel="external">Android开发艺术探索，脑图笔记</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Books/" rel="tag"># Books</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/04/《Android群英传-神兵利器》读书笔记/" rel="next" title="《Android群英传 神兵利器》读书笔记">
+                <i class="fa fa-chevron-left"></i> 《Android群英传 神兵利器》读书笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/28/《第一行代码：Android（第2版）》读书笔记/" rel="prev" title="《第一行代码：Android（第2版）》读书笔记">
+                《第一行代码：Android（第2版）》读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JingBin" />
+          <p class="site-author-name" itemprop="name">JingBin</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/youlookwhat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3121694927/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/jingbin_" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wanandroid.com/index" title="玩Android" target="_blank">玩Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://p.codekk.com/" title="CodeKK" target="_blank">CodeKK</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/sinyu890807/" title="郭霖" target="_blank">郭霖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791" title="鸿洋" target="_blank">鸿洋</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me/" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hukai.me/" title="胡凯" target="_blank">胡凯</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <!--
+-->
+        <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26237342&auto=0&height=66"></iframe>-->
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity的生命周期和启动模式"><span class="nav-number">1.</span> <span class="nav-text">Activity的生命周期和启动模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity的生命周期全面分析"><span class="nav-number">1.1.</span> <span class="nav-text">Activity的生命周期全面分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#典型情况下的生命周期分析"><span class="nav-number">1.1.1.</span> <span class="nav-text">典型情况下的生命周期分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常情况下的生命周期分析"><span class="nav-number">1.1.2.</span> <span class="nav-text">异常情况下的生命周期分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#系统配置变化导致Activity销毁重建"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">系统配置变化导致Activity销毁重建</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#资源内存不足导致低优先级的Activity被回收"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">资源内存不足导致低优先级的Activity被回收</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity的启动模式"><span class="nav-number">1.2.</span> <span class="nav-text">Activity的启动模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity的LaunchMode"><span class="nav-number">1.2.1.</span> <span class="nav-text">Activity的LaunchMode</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#standard"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">standard</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#singleTop"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">singleTop</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#singleTask"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">singleTask</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#singleIntance"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">singleIntance</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TaskAffinity属性"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">TaskAffinity属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity的Flags"><span class="nav-number">1.2.2.</span> <span class="nav-text">Activity的Flags</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IntentFilter的匹配规则"><span class="nav-number">1.3.</span> <span class="nav-text">IntentFilter的匹配规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#action"><span class="nav-number">1.3.1.</span> <span class="nav-text">action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#category"><span class="nav-number">1.3.2.</span> <span class="nav-text">category</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#data"><span class="nav-number">1.3.3.</span> <span class="nav-text">data</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解RemoteViews"><span class="nav-number">2.</span> <span class="nav-text">理解RemoteViews</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RemoteViews的应用"><span class="nav-number">2.1.</span> <span class="nav-text">RemoteViews的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RemoteViews在通知栏上的应用"><span class="nav-number">2.1.1.</span> <span class="nav-text">RemoteViews在通知栏上的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RemoteViews在桌面小部件上的应用"><span class="nav-number">2.1.2.</span> <span class="nav-text">RemoteViews在桌面小部件上的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PendingIntent概述"><span class="nav-number">2.1.3.</span> <span class="nav-text">PendingIntent概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RemoteViews的内部机制"><span class="nav-number">2.2.</span> <span class="nav-text">RemoteViews的内部机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RemoteViews的意义"><span class="nav-number">2.3.</span> <span class="nav-text">RemoteViews的意义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android动画深入分析"><span class="nav-number">3.</span> <span class="nav-text">Android动画深入分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#View动画"><span class="nav-number">3.1.</span> <span class="nav-text">View动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#View动画的种类"><span class="nav-number">3.1.1.</span> <span class="nav-text">View动画的种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义View动画"><span class="nav-number">3.1.2.</span> <span class="nav-text">自定义View动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#帧动画"><span class="nav-number">3.1.3.</span> <span class="nav-text">帧动画</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View动画的特殊使用场景"><span class="nav-number">3.2.</span> <span class="nav-text">View动画的特殊使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LayoutAnimation"><span class="nav-number">3.2.1.</span> <span class="nav-text">LayoutAnimation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Activity的切换效果"><span class="nav-number">3.2.2.</span> <span class="nav-text">Activity的切换效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性动画"><span class="nav-number">3.3.</span> <span class="nav-text">属性动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性动画有以下三种使用方法："><span class="nav-number">3.3.1.</span> <span class="nav-text">属性动画有以下三种使用方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#理解差值器和估值器"><span class="nav-number">3.3.2.</span> <span class="nav-text">理解差值器和估值器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性动画的监听器"><span class="nav-number">3.3.3.</span> <span class="nav-text">属性动画的监听器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对任意属性做动画"><span class="nav-number">3.3.4.</span> <span class="nav-text">对任意属性做动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性动画的工作原理"><span class="nav-number">3.3.5.</span> <span class="nav-text">属性动画的工作原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用动画的注意事项"><span class="nav-number">3.4.</span> <span class="nav-text">使用动画的注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android的线程和线程池"><span class="nav-number">4.</span> <span class="nav-text">Android的线程和线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主线程和子线程"><span class="nav-number">4.1.</span> <span class="nav-text">主线程和子线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android中的线程形态"><span class="nav-number">4.2.</span> <span class="nav-text">Android中的线程形态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AsyncTask"><span class="nav-number">4.2.1.</span> <span class="nav-text">AsyncTask</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AsyncTask的工作原理"><span class="nav-number">4.2.2.</span> <span class="nav-text">AsyncTask的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HandlerThread"><span class="nav-number">4.2.3.</span> <span class="nav-text">HandlerThread</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IntentService"><span class="nav-number">4.2.4.</span> <span class="nav-text">IntentService</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android线程池"><span class="nav-number">4.3.</span> <span class="nav-text">Android线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ThreadPoolExecutor（熟悉后可自定义线程池）"><span class="nav-number">4.3.1.</span> <span class="nav-text">ThreadPoolExecutor（熟悉后可自定义线程池）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ThreadPoolExecutor常见构造参数"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">ThreadPoolExecutor常见构造参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ThreadPoolExecutor执行任务大致遵循如下规则"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">ThreadPoolExecutor执行任务大致遵循如下规则:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AsyncTask的THREAD-POOL-EXECUTOR线程池配置"><span class="nav-number">4.3.1.3.</span> <span class="nav-text">AsyncTask的THREAD_POOL_EXECUTOR线程池配置:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的4个线程池"><span class="nav-number">4.3.2.</span> <span class="nav-text">常见的4个线程池</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关资料"><span class="nav-number">5.</span> <span class="nav-text">相关资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JingBin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cJ3qzFUAP7IbAMdtTT9gEmsd-gzGzoHsz", "Lb9yad0PMHUjs66NrAQqRT3A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

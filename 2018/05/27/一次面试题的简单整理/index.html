@@ -1,0 +1,1287 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JingBin's Home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="牛客网：https://www.nowcoder.com/9070733">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一次面试题的简单整理">
+<meta property="og:url" content="http://jingbin.me/2018/05/27/一次面试题的简单整理/index.html">
+<meta property="og:site_name" content="JingBin's Home">
+<meta property="og:description" content="牛客网：https://www.nowcoder.com/9070733">
+<meta property="og:image" content="https://uploadfiles.nowcoder.net/images/20161103/7327747_1478142515011_5191CAD3158E038AE9D09ED7CF1D5165">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-99a43b3f7496fa2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-26afa9803cdfc340.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-05-27T09:21:14.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一次面试题的简单整理">
+<meta name="twitter:description" content="牛客网：https://www.nowcoder.com/9070733">
+<meta name="twitter:image" content="https://uploadfiles.nowcoder.net/images/20161103/7327747_1478142515011_5191CAD3158E038AE9D09ED7CF1D5165">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7NR95R0WHT',
+      apiKey: '',
+      indexName: 'jing_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jingbin.me/2018/05/27/一次面试题的简单整理/"/>
+
+
+
+
+
+  <title> 一次面试题的简单整理 | JingBin's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4bf05054dba6aed3e35f11764b201341";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">JingBin's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2018/05/27/一次面试题的简单整理/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                一次面试题的简单整理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T00:35:00+08:00">
+                2018-05-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-27T17:21:14+08:00">
+                2018-05-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/05/27/一次面试题的简单整理/" class="leancloud_visitors" data-flag-title="一次面试题的简单整理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>牛客网：<a href="https://www.nowcoder.com/9070733" target="_blank" rel="external">https://www.nowcoder.com/9070733</a><br><a id="more"></a></p>
+<h3 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h3><p>1、广播的注册方式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!--广播注册--&gt;  </div><div class="line">   &lt;receiver android:name=".SmsBroadCastReceiver"&gt;  </div><div class="line">       &lt;intent-filter android:priority="20"&gt;  </div><div class="line">          &lt;action android:name="android.provider.Telephony.SMS_RECEIVED"/&gt;  </div><div class="line">       &lt;/intent-filter&gt;  </div><div class="line">   &lt;/receiver&gt;</div></pre></td></tr></table></figure>
+<p>2、android 关于service生命周期的onCreate()和onStart()说法正确的是?(<a href="https://www.nowcoder.com/questionTerminal/ed1d86767b314513916228a38014789f?from=14pdf" target="_blank" rel="external">AD</a>)</p>
+<ul>
+<li>A.当第一次启动的时候先后调用onCreate()和onStart()方法</li>
+<li>B.当第一次启动的时候只会调用onCreate()方法</li>
+<li>C.如果service已经启动，将先后调用onCreate()和onStart()方法</li>
+<li>D.如果service已经启动，只会执行onStart()方法，不在执行onCreate()方法</li>
+</ul>
+<p><img src="https://uploadfiles.nowcoder.net/images/20161103/7327747_1478142515011_5191CAD3158E038AE9D09ED7CF1D5165" alt=""></p>
+<p>3.在android中使用Menu时可能需要重写的方法有?（<a href="https://www.nowcoder.com/questionTerminal/9a4add5a37434be0a5f28e5c371609be" target="_blank" rel="external">AC</a>）</p>
+<ul>
+<li>A.onCreateOptionsMenu()</li>
+<li>B.onCreateMenu()</li>
+<li>C.onOptionsItemSelected()</li>
+<li>D.onItemSelected()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;  </div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </div><div class="line">        setContentView(R.layout.activity_main);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu)</span> </span>&#123;  </div><div class="line">        <span class="comment">// Inflate the menu; this adds items to the action bar if it is present.  </span></div><div class="line">        getMenuInflater().inflate(R.menu.activity_main, menu);  </div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;  </div><div class="line">        <span class="comment">// TODO Auto-generated method stub  </span></div><div class="line">        <span class="keyword">switch</span>(item.getItemId())&#123;  </div><div class="line">           <span class="keyword">case</span> R.id.menu_about:             </div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">""</span>+<span class="string">"关于"</span>, Toast.LENGTH_SHORT).show();  </div><div class="line">               <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> R.id.menu_settings:  </div><div class="line">                 </div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">""</span>+<span class="string">"设置"</span>, Toast.LENGTH_SHORT).show();  </div><div class="line">               <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> R.id.menu_quit:  </div><div class="line">                 </div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">""</span>+<span class="string">"退出"</span>, Toast.LENGTH_SHORT).show();  </div><div class="line">               <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">default</span>:  </div><div class="line">               <span class="keyword">break</span>;  </div><div class="line">           &#125;  </div><div class="line"><span class="comment">//         Toast.makeText(MainActivity.this, ""+item.getItemId(), Toast.LENGTH_SHORT).show();  </span></div><div class="line">      </div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onOptionsItemSelected(item);  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>4.android中下列属于intent的作用是(<a href="https://www.nowcoder.com/questionTerminal/e261e82aee5248d2939f251318ae11c4" target="_blank" rel="external">C</a>)</p>
+<ul>
+<li>A.实现应用程序间的数据共享</li>
+<li>B.是一段长的生命周期，没有用户界面的程序，可以保持应用在后台运行，而不会因为切换页面而消失</li>
+<li>C.可以实现界面间的切换，可以包含动作和动作数据，连接四大组件的纽带</li>
+<li>D.处理一个应用程序整体性的工作</li>
+</ul>
+<blockquote>
+<p>不同activity间的数据共享</p>
+</blockquote>
+<p>5.如果在Activity中对一些资源以及状态进行保存操作，最好是在生命周期的哪个函数中进行呢？（A）</p>
+<ul>
+<li>A.onPause()</li>
+<li>B.onCreat()</li>
+<li>C.onResume()</li>
+<li>D.onStart() </li>
+</ul>
+<blockquote>
+<p>暂停的时候保存。在onPause()时候保存状态，才能保存用户最终的使用状态。</p>
+</blockquote>
+<p>6.android 工程最后生成的工程文件是？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app\build\intermediates文件夹里是也</div><div class="line">intermediates：是一个中间人，调节人的意思，</div><div class="line">java源文件转为class文件后再转为dex文件，最后生成apk</div><div class="line">这里面class文件夹就被存放在intermediates文件夹里面</div></pre></td></tr></table></figure>
+<h3 id="填空题"><a href="#填空题" class="headerlink" title="填空题"></a>填空题</h3><p>1.android常用的五种布局FrameLayout(框架布局)，LinearLayout(线性布局)，RelativeLayout(相对布局)，AbsoluteLayout(绝对布局)，TableLayout(表格布局)</p>
+<p>2.Android四大基本组件分别是Activity，Service服务,Content Provider内容提供者，BroadcastReceiver广播接收器。</p>
+<p>3.android 中 service 的实现方法是： <strong><strong><em>__</em></strong></strong> 和 <strong><strong><strong>_</strong></strong></strong> 。<br>start 和 bind</p>
+<p>4.Android的系统体系结构分为四层，自顶向下分别是</p>
+<ul>
+<li>应用程序(Applications)</li>
+<li>应用程序框架(Application Frameworks)</li>
+<li>系统运行库与Android运行环境(Libraris &amp; Android Runtime)</li>
+<li>Linux内核(Linux Kernel)</li>
+</ul>
+<p>5.AsyncTask是什么？AsyncTask的使用方法？<br>android的类AsyncTask对线程间通讯进行了包装，提供了简易的编程方式来使后台线程和UI线程进行通讯：后台线程执行异步任务，并把操作结果通知UI线程。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Integer</span>, <span class="title">Integer</span>, <span class="title">String</span>&gt;</span>&#123;  </div><div class="line">        <span class="comment">//后面尖括号内分别是参数（例子里是线程休息时间），进度(publishProgress用到)，返回值 类型  </span></div><div class="line">          </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span><span class="params">()</span> </span>&#123;  </div><div class="line">            <span class="comment">//第一个执行方法  </span></div><div class="line">            <span class="keyword">super</span>.onPreExecute();  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">protected</span> String <span class="title">doInBackground</span><span class="params">(Integer... params)</span> </span>&#123;  </div><div class="line">            <span class="comment">//第二个执行方法,onPreExecute()执行完后执行  </span></div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;  </div><div class="line">                pb.setProgress(i);  </div><div class="line">                publishProgress(i);  </div><div class="line">                <span class="keyword">try</span> &#123;  </div><div class="line">                    Thread.sleep(params[<span class="number">0</span>]);  </div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">return</span> <span class="string">"执行完毕"</span>;  </div><div class="line">        &#125;  </div><div class="line">  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Integer... progress)</span> </span>&#123;  </div><div class="line">            <span class="comment">//这个函数在doInBackground调用publishProgress时触发，虽然调用时只有一个参数  </span></div><div class="line">            <span class="comment">//但是这里取到的是一个数组,所以要用progesss[0]来取值  </span></div><div class="line">            <span class="comment">//第n个参数就用progress[n]来取值  </span></div><div class="line">            tv.setText(progress[<span class="number">0</span>]+<span class="string">"%"</span>);  </div><div class="line">            <span class="keyword">super</span>.onProgressUpdate(progress);  </div><div class="line">        &#125;  </div><div class="line">  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(String result)</span> </span>&#123;  </div><div class="line">            <span class="comment">//doInBackground返回时触发，换句话说，就是doInBackground执行完后触发  </span></div><div class="line">            <span class="comment">//这里的result就是上面doInBackground执行后的返回值，所以这里是"执行完毕"  </span></div><div class="line">            setTitle(result);  </div><div class="line">            <span class="keyword">super</span>.onPostExecute(result);  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://allenwu.itscoder.com/Arts-Development-of-Android-11-1" target="_blank" rel="external">AsyncTask 的使用方法和工作原理</a></p>
+</blockquote>
+<p>6.什么是AIDL？AIDL是如何工作的？</p>
+<blockquote>
+<p>AIDL: Android Interface Definition Language</p>
+</blockquote>
+<p>AIDL是一种IDL语言，用于生成可以在Android设备上两个进程之间进行进程间通信(interprocess communication, IPC)的代码。如果在一个进程中（例如Activity）要调用另一个进程中（例如Service）对象的操作，就可以使用AIDL生成可序列化的参数。</p>
+<p>AIDL是一种接口定义语言，用于生成可在Android设备上两个进程之间进行进程间通信(IPC)的代码。<br>高度概括AIDL的用法，就是服务端里有一个Service，给与之绑定(bindService)的特定客户端进程提供Binder对象。客户端通过AIDL接口的静态方法asInterface 将Binder对象转化成AIDL接口的代理对象，通过这个代理对象就可以发起远程调用请求了。</p>
+<blockquote>
+<p>引：<a href="https://blog.csdn.net/tellh/article/details/55100167" target="_blank" rel="external">https://blog.csdn.net/tellh/article/details/55100167</a></p>
+</blockquote>
+<p>7.Android中如何避免OOM异常？</p>
+<blockquote>
+<p>Java.lang.OutOfMemoryError : bitmap size exceeds VM budget。</p>
+</blockquote>
+<p>OOM 内存溢出，想要避免OOM 异常首先我们要知道什么情况下会导致OOM 异常。<br>1、图片过大导致OOM<br>2、界面切换导致OOM<br>3、在页面切换时尽可能少地重复使用一些代码<br>3、查询数据库没有关闭游标<br>4、构造Adapter 时，没有使用缓存的convertView<br>5、Bitmap 对象不再使用时调用recycle()释放内存<br>6、其他<br>Android 应用程序中最典型的需要注意释放资源的情况是在Activity 的生命周期中，在onPause()、onStop()、onDestroy()方法中需要适当的释放资源的情况。使用广播没有注销也会产生OOM。</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/jiayi_yao/article/details/51107960" target="_blank" rel="external">https://blog.csdn.net/jiayi_yao/article/details/51107960</a></p>
+</blockquote>
+<p>8.什么是ANR 如何避免它？</p>
+<blockquote>
+<p>ANR：Application Not Responding</p>
+</blockquote>
+<p>不同的组件发生ANR的时间不一样，Activity是5秒，BroadCastReceiver是10秒，Service是20秒。<br>解决方案：<br>1、将所有耗时操作，比如访问网络，Socket 通信，查询大量SQL 语句，复杂逻辑计算等都放在子线程中去，然后通过handler.sendMessage、runonUITread、AsyncTask 等方式更新UI，以确保用户界面操作的流畅度。<br>2、如果耗时操作需要让用户等待，那么可以在界面上显示进度条。</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/m_xiaoer/article/details/62438802" target="_blank" rel="external">https://blog.csdn.net/m_xiaoer/article/details/62438802</a></p>
+</blockquote>
+<hr>
+<p>9.NDK 与 JNI 是什么？</p>
+<blockquote>
+<p>JNI: Java Native Interface，即 Java本地接口<br>NDK: Native Development Kit，是 Android的一个工具开发包 </p>
+</blockquote>
+<p>JNI介绍<br>定义：Java Native Interface，即 Java本地接口<br>作用： 使得Java 与 本地其他类型语言（如C、C++）交互<br>即在 Java代码 里调用 C、C++等语言的代码 或 C、C++代码调用 Java 代码</p>
+<p>特别注意：<br>JNI是 Java 调用 Native 语言的一种特性<br>JNI 是属于 Java 的，与 Android 无直接关系</p>
+<p>实现步骤:<br>1.在Java中声明Native方法（即需要调用的本地方法）<br>2.编译上述 Java源文件javac（得到 .class文件）<br>3.通过 javah 命令导出JNI的头文件（.h文件）<br>使用 Java需要交互的本地代码 实现在 Java中声明的Native方法<br>如 Java 需要与 C++ 交互，那么就用C++实现 Java的Native方法<br>4.编译.so库文件<br>5.通过Java命令执行 Java程序，最终实现Java调用本地代码</p>
+<p>NDK介绍<br>定义：Native Development Kit，是 Android的一个工具开发包<br>NDK是属于 Android 的，与Java并无直接关系</p>
+<p>作用：快速开发C、 C++的动态库，并自动将so和应用一起打包成 APK<br>即可通过 NDK在 Android中 使用 JNI与本地代码（如C、C++）交互</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/carson_ho/article/details/73250163" target="_blank" rel="external">https://blog.csdn.net/carson_ho/article/details/73250163</a></p>
+</blockquote>
+<p>10.Android Fragment 生命周期图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1354448-99a43b3f7496fa2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Fragment生命周期图.png"></p>
+<p>fragments的大部分状态都和activitie很相似，但fragment有一些新的状态。</p>
+<p>onAttached() —— 当fragment被加入到activity时调用（在这个方法中可以获得所在的activity）。<br>onCreateView() —— 当activity要得到fragment的layout时，调用此方法，fragment在其中创建自己的layout(界面)。<br>onActivityCreated() —— 当activity的onCreated()方法返回后调用此方法<br>onDestroyView() —— 当fragment中的视图被移除的时候，调用这个方法。<br>onDetach() —— 当fragment和activity分离的时候，调用这个方法。</p>
+<p>一旦activity进入resumed状态（也就是running状态），你就可以自由地添加和删除fragment了。因此，只有当activity在resumed状态时，fragment的生命周期才能独立的运转，其它时候是依赖于activity的生命周期变化的。</p>
+<blockquote>
+<p><a href="http://www.cnblogs.com/purediy/p/3276545.html" target="_blank" rel="external">http://www.cnblogs.com/purediy/p/3276545.html</a></p>
+</blockquote>
+<p>11.Android5.0和6.0之后有哪些新控件？<br>Android5.0和6.0之后新增的控件，在项目中使用的时候，可分为三大类：</p>
+<ul>
+<li><p>1、第一类是内核提供的控件，位于SDK的android.jar中。<br>这个与系统版本有关，每个版本的android.jar是固定的，有在该内核中定义的控件才能正常调用，没在内核中定义的控件在运行时会扔出类找不到的异常。比如水波图形RippleDrawable和矢量图形VectorDrawable，这两个控件在Android5.0之后的系统内核中提供，所以只有系统版本不低于5.0的手机才能使用它们，运行4.*系统的手机是无法正常调用这两个控件的。</p>
+</li>
+<li><p>2、第二类是v4兼容库提供的控件，位于SDK的android-support-v4.jar中。<br>v4库默认会被编译进App的安装包，所以它不需要系统内核支持，可直接运行在4.0之后的所有系统上，并且App工程无需手工导入v4库。使用v4控件唯一需要注意的地方，是布局文件中要引用完整路径的控件名称，如抽屉布局android.support.v4.widget.DrawerLayout、下拉刷新布局android.support.v4.widget.SwipeRefreshLayout等等。</p>
+</li>
+<li><p>3、第三类是v7兼容库和design库，它们有各自的库工程，开发者要在App工程中手工导入用到的兼容库。<br>v7与design库导入App工程后，编译出来的App即可兼容4.*的系统。使用v7与design库的控件，类似于使用自定义控件，不但要在布局文件中引用完整路径的控件名称，还要在根布局声明命名空间（即添加属性<code>xmlns:app=http://schemas.android.com/apk/res-auto</code>），然后方可使用这些控件的自定义属性。这部分控件数量最多，实现的界面特效最丰富，而且互相之间存在依赖关系，如design库依赖于appcompat-v7库，部分design控件如NavigationView还依赖于recyclerview-v7库，所以若要正确使用design库的控件，往往得同时导入好几个相关的兼容库。</p>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://blog.csdn.net/aqi00/article/details/59108336" target="_blank" rel="external">https://blog.csdn.net/aqi00/article/details/59108336</a></p>
+</blockquote>
+<h3 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h3><p>1.<a href="https://blog.csdn.net/zhangke3016/article/details/75923323" target="_blank" rel="external">写一个自己的Handler，对消息进行处理</a></p>
+<p>2.写一个冒泡排序<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">bubbleSort</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span>	<span class="title">bubbleSort</span><span class="params">()</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> a[]=&#123;<span class="number">49</span>,<span class="number">38</span>,<span class="number">65</span>,<span class="number">97</span>,<span class="number">76</span>,<span class="number">13</span>,<span class="number">27</span>,<span class="number">49</span>,<span class="number">78</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">64</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">62</span>,<span class="number">99</span>,<span class="number">98</span>,<span class="number">54</span>,<span class="number">56</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">23</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">53</span>,<span class="number">51</span>&#125;;</div><div class="line">	<span class="keyword">int</span> temp=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length-<span class="number">1</span>;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;a.length-<span class="number">1</span>-i;j++)&#123;</div><div class="line">		<span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])&#123;</div><div class="line">			temp=a[j];</div><div class="line">			a[j]=a[j+<span class="number">1</span>];</div><div class="line">			a[j+<span class="number">1</span>]=temp;</div><div class="line">		&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length;i++)</div><div class="line">		System.out.println(a[i]);	</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.快速排序<br>基本思想：选择一个基准元素,通常选择第一个元素或者最后一个元素,通过一趟扫描，将待排序列分成两部分,一部分比基准元素小,一部分大于等于基准元素,此时基准元素在其排好序后的正确位置,然后再用同样的方法递归地排序划分的两部分。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">quickSort</span> </span>&#123;</div><div class="line"></div><div class="line">inta[]=&#123;<span class="number">49</span>,<span class="number">38</span>,<span class="number">65</span>,<span class="number">97</span>,<span class="number">76</span>,<span class="number">13</span>,<span class="number">27</span>,<span class="number">49</span>,<span class="number">78</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">64</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">62</span>,<span class="number">99</span>,<span class="number">98</span>,<span class="number">54</span>,<span class="number">56</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">23</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">53</span>,<span class="number">51</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">quickSort</span><span class="params">()</span></span>&#123;</div><div class="line">    quick(a);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length;i++)</div><div class="line">       System.out.println(a[i]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMiddle</span><span class="params">(<span class="keyword">int</span>[] list, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;   </div><div class="line">            <span class="keyword">int</span> tmp = list[low];    <span class="comment">//数组的第一个作为中轴   </span></div><div class="line">            <span class="keyword">while</span> (low &lt; high) &#123;</div><div class="line">                <span class="keyword">while</span> (low &lt; high &amp;&amp; list[high] &gt;= tmp) &#123;   </div><div class="line">                    high--;   </div><div class="line">                &#125;   </div><div class="line">                list[low] = list[high];   <span class="comment">//比中轴小的记录移到低端   </span></div><div class="line">                <span class="keyword">while</span> (low &lt; high &amp;&amp; list[low] &lt;= tmp) &#123;   </div><div class="line">                    low++;   </div><div class="line">                &#125;</div><div class="line">                list[high] = list[low];   <span class="comment">//比中轴大的记录移到高端   </span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">           list[low] = tmp;              <span class="comment">//中轴记录到尾   </span></div><div class="line">           <span class="keyword">return</span> low;                   <span class="comment">//返回中轴的位置   </span></div><div class="line">        &#125;  </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">_quickSort</span><span class="params">(<span class="keyword">int</span>[] list, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;   </div><div class="line">            <span class="keyword">if</span> (low &lt; high) &#123;</div><div class="line">               <span class="keyword">int</span> middle = getMiddle(list, low, high);  <span class="comment">//将list数组进行一分为二</span></div><div class="line">                _quickSort(list, low, middle - <span class="number">1</span>);        <span class="comment">//对低字表进行递归排序</span></div><div class="line">               _quickSort(list, middle + <span class="number">1</span>, high);       <span class="comment">//对高字表进行递归排序</span></div><div class="line">            &#125;   </div><div class="line">        &#125; </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quick</span><span class="params">(<span class="keyword">int</span>[] a2)</span> </span>&#123;   </div><div class="line">            <span class="keyword">if</span> (a2.length &gt; <span class="number">0</span>) &#123;    <span class="comment">//查看数组是否为空   </span></div><div class="line">                _quickSort(a2, <span class="number">0</span>, a2.length - <span class="number">1</span>);   </div><div class="line">        &#125;   </div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://blog.csdn.net/pzhtpf/article/details/7560294" target="_blank" rel="external">https://blog.csdn.net/pzhtpf/article/details/7560294</a></p>
+</blockquote>
+<h3 id="kotlin了解一下"><a href="#kotlin了解一下" class="headerlink" title="kotlin了解一下"></a>kotlin了解一下</h3><p><a href="https://kotlintc.com/" target="_blank" rel="external">kotlin中国</a><br><img src="https://upload-images.jianshu.io/upload_images/1354448-26afa9803cdfc340.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="kotlin.jpg"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/20/Android 水波纹效果的探究/" rel="next" title="Android 水波纹效果的探究">
+                <i class="fa fa-chevron-left"></i> Android 水波纹效果的探究
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JingBin" />
+          <p class="site-author-name" itemprop="name">JingBin</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/youlookwhat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3121694927/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/jingbin_" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wanandroid.com/index" title="玩Android" target="_blank">玩Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://p.codekk.com/" title="CodeKK" target="_blank">CodeKK</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/sinyu890807/" title="郭霖" target="_blank">郭霖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791" title="鸿洋" target="_blank">鸿洋</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me/" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hukai.me/" title="胡凯" target="_blank">胡凯</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <!--
+-->
+        <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26237342&auto=0&height=66"></iframe>-->
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择题"><span class="nav-number">1.</span> <span class="nav-text">选择题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填空题"><span class="nav-number">2.</span> <span class="nav-text">填空题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程题"><span class="nav-number">3.</span> <span class="nav-text">编程题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kotlin了解一下"><span class="nav-number">4.</span> <span class="nav-text">kotlin了解一下</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JingBin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cJ3qzFUAP7IbAMdtTT9gEmsd-gzGzoHsz", "Lb9yad0PMHUjs66NrAQqRT3A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1294 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="cloudreader,开源项目," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JingBin's Home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="CloudReader一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在这里。
+github地址：CloudReader
+
+版本更新日志">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云阅：一个基于网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目">
+<meta property="og:url" content="http://jingbin.me/2018/01/03/云阅：一个基于网易云音乐UI，使用Gank-Io及豆瓣Api开发的开源项目/index.html">
+<meta property="og:site_name" content="JingBin's Home">
+<meta property="og:description" content="CloudReader一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在这里。
+github地址：CloudReader
+
+版本更新日志">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-6d119cdf55036fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-d3c4ed3d57d58db7.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-71e53682c8ce9706.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-502cceae1674e70a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/340">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-c282b9a84637ea73.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2018-04-21T15:48:50.685Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="云阅：一个基于网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目">
+<meta name="twitter:description" content="CloudReader一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在这里。
+github地址：CloudReader
+
+版本更新日志">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-6d119cdf55036fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7NR95R0WHT',
+      apiKey: '',
+      indexName: 'jing_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jingbin.me/2018/01/03/云阅：一个基于网易云音乐UI，使用Gank-Io及豆瓣Api开发的开源项目/"/>
+
+
+
+
+
+  <title> 云阅：一个基于网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目 | JingBin's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4bf05054dba6aed3e35f11764b201341";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">JingBin's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2018/01/03/云阅：一个基于网易云音乐UI，使用Gank-Io及豆瓣Api开发的开源项目/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                云阅：一个基于网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-03T18:33:07+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-21T23:48:50+08:00">
+                2018-04-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/开源项目/" itemprop="url" rel="index">
+                    <span itemprop="name">开源项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/01/03/云阅：一个基于网易云音乐UI，使用Gank-Io及豆瓣Api开发的开源项目/" class="leancloud_visitors" data-flag-title="云阅：一个基于网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="CloudReader"><a href="#CloudReader" class="headerlink" title="CloudReader"></a>CloudReader</h2><p>一款基于网易云音乐UI，使用GankIo及豆瓣api开发的符合Google Material Desgin阅读类的开源项目。项目采取的是Retrofit + RxJava + MVVM-DataBinding架构开发。开发中所遇到的各种问题已归纳在<a href="http://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/">这里</a>。</p>
+<p>github地址：<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a></p>
+<blockquote>
+<p><a href="http://jingbin.me/2016/12/30/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E4%BA%91%E9%98%85/">版本更新日志</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><ul>
+<li>部分效果图</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-6d119cdf55036fce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="cloudreader.png"></p>
+<ul>
+<li>gif演示</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-d3c4ed3d57d58db7.gif?imageMogr2/auto-orient/strip" alt="cloudreader.gif"></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>网易云音乐于2013年4月23日正式发布，是一款主打发现和分享，带有浓厚社交基因的网络音乐产品。相信用过的人都知道它给人的体验是极好的，我看过了绝大多数仿写的案例，基本UI都不够细致，于是决定自己动手写一个，起初也不知道具体它是怎么布局的，后来使用SDK提供的工具<code>uiautomatorviewer</code>慢慢分析后再逐渐完善的，争取效果一致~ </p>
+<h2 id="模块分析"><a href="#模块分析" class="headerlink" title="模块分析"></a>模块分析</h2><h3 id="干货（gank-io）"><a href="#干货（gank-io）" class="headerlink" title="干货（gank.io）"></a>干货（gank.io）</h3><blockquote>
+<p>API使用的是动听（轮播图）和代码家的Gank.Io。</p>
+</blockquote>
+<ul>
+<li><p><strong>每日推荐：</strong> 干货集中营推送的每日内容，包括每天一个妹子图，相关Android、IOS等其他干货。每天第12：30之后更新，因为双休不更新所以内容缓存三天网络取不到就取缓存。</p>
+</li>
+<li><p><strong>福利：</strong> Glide加载图片，点击查看大图，支持双指缩放，一下可查看列表的所有图片，再也不用逐个点击每张图啦。</p>
+</li>
+<li><p><strong>干货订制：</strong> 可以筛选自己喜欢干货的类别，有全部、IOS、App、前端、休息视频和拓展资源。</p>
+</li>
+<li><p><strong>大安卓：</strong> 显示安卓的全部资讯。支持下拉刷新方便查看最新的资源。</p>
+</li>
+</ul>
+<h3 id="电影（豆瓣）"><a href="#电影（豆瓣）" class="headerlink" title="电影（豆瓣）"></a>电影（豆瓣）</h3><blockquote>
+<p>API是豆瓣提供的，因为限制了每个ip每分钟请求的次数，所以请酌情使用，由此带来的不便请见谅。</p>
+</blockquote>
+<ul>
+<li><strong>电影热映区：</strong> 每日更新，展示最新上映的电影热度排行榜。</li>
+<li><strong>豆瓣电影Top250：</strong> 豆瓣高分电影集锦，让你放心找好片~</li>
+</ul>
+<h3 id="书籍（豆瓣）"><a href="#书籍（豆瓣）" class="headerlink" title="书籍（豆瓣）"></a>书籍（豆瓣）</h3><blockquote>
+<p>使用的是豆瓣的搜索API。更多订制内容由于时间原因第一版还未添加，第二版会加上。</p>
+</blockquote>
+<ul>
+<li><strong>综合：</strong> 检索豆瓣综合类的书籍并展示。</li>
+<li><strong>文学：</strong> 检索豆瓣文学类的书籍并展示。</li>
+<li><strong>生活：</strong> 检索豆瓣生活类的书籍并展示。</li>
+</ul>
+<h3 id="抽屉界面"><a href="#抽屉界面" class="headerlink" title="抽屉界面"></a>抽屉界面</h3><blockquote>
+<p>完全仿网易云音乐抽屉界面，包括诸多细节如透明标题栏，背景透明度，水波纹颜色等。</p>
+</blockquote>
+<ul>
+<li><strong>项目主页：</strong>展示项目介绍信息，及内容说明，可以分享给你的好友哦。</li>
+<li><strong>扫码下载：</strong>扫码即可下载App，帮助您快速试用~</li>
+<li><strong>问题反馈：</strong>常见问题归纳，反馈地方，联系方式都在这里哦！</li>
+<li><strong>关于云阅：</strong>更新日志在这里可见，主人是利用工作外时间做的，周期较长，满意的小伙伴给个Star吧，这将是我继续迭代的动力，谢谢~</li>
+</ul>
+<h2 id="Features-特性"><a href="#Features-特性" class="headerlink" title="Features 特性"></a>Features 特性</h2><ul>
+<li>1、干货集中营内容与豆瓣电影书籍内容。</li>
+<li>2、高仿网易云音乐歌单详情页。</li>
+<li>3、<code>NavigationView</code>搭配<code>DrawerLayout</code>的具体使用。</li>
+<li>4、MvvM-DataBing的项目应用。</li>
+<li>5、RxBus代替EventBus进行组件之间通讯。</li>
+<li>6、<code>ToolBar</code>及<code>TabLayout</code>的使用姿势。</li>
+<li>7、<code>Glide</code>加载监听，获取缓存，圆角图片，高斯模糊。</li>
+<li>8、水波纹点击效果详细使用与适配。</li>
+<li>9、<code>RecyclerView</code>下拉刷新上拉加载。</li>
+<li>10、基于<code>DataBinding</code>的<code>ViewHolder</code>。</li>
+<li>11、基于<code>DataBinding</code>的<code>BaseActivity</code>和<code>BaseFragment</code>。</li>
+<li>12、<code>Fragment</code>懒加载模式。</li>
+<li>13、透明状态栏使用与版本适配。</li>
+<li>14、<code>SwipeRefreshLayout</code>结合<code>RecyclerView</code>下拉刷新上拉加载。</li>
+<li>15、<code>CoordinatorLayout + Behavior</code>实现标题栏渐变。</li>
+<li>16、<code>NestedScrollView</code>嵌套<code>RecyclerView</code>的使用。</li>
+</ul>
+<h2 id="细节分析-ToolBar-上的按钮点击效果"><a href="#细节分析-ToolBar-上的按钮点击效果" class="headerlink" title="细节分析 - ToolBar 上的按钮点击效果"></a>细节分析 - ToolBar 上的按钮点击效果</h2><p>仔细研究的人知道，网易云音乐的UI做的很精致，就拿一个<code>ToolBar</code>为例，上面的每个按钮的点击操作都有各自的效果。这给了用户一个很好的反馈，就是如下的效果：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-71e53682c8ce9706.gif?imageMogr2/auto-orient/strip" alt="toolbar_click.gif"></p>
+<p>上图是在android 5.1系统下的效果图。在6.0上搜索的点击效果有些许改变，其他基本类似；5.0以下点击则都表现出一般选择器的效果。</p>
+<p>然而做到以上的效果并不容易，需要你对<code>ToolBar</code>有深入的了解；不仅如此，水波纹的点击效果在不同的主题下是有不同的表现。下面一起来谈谈如何达到以上的效果。</p>
+<h3 id="关于ToolBar的布局"><a href="#关于ToolBar的布局" class="headerlink" title="关于ToolBar的布局"></a>关于ToolBar的布局</h3><p>看到上图我们了解到一个<code>ToolBar</code>上有三种点击效果..</p>
+<p>这就有点尴尬了..不急，我们慢慢来分析。利用SDK下的工具<code>uiautomatorviewer</code>可得知：左边的<strong>菜单</strong>按钮是<code>ToolBar</code>内部包裹的一个<code>Fragment</code>,其中是一个<code>ImageView</code>和一个小红点；然后中间是<code>HorizontalScrollView</code>，其中是三个<code>ImageView</code>；右边的搜索键则是通过设置<code>Menu</code>菜单而来，这样会有长按弹出“搜索”二字的提示。</p>
+<p>现总结出两个问题：1、<code>ToolBar</code>上按钮的设置；2、不同按钮点击的水波纹效果</p>
+<p><strong>对于1：</strong> <code>ToolBar</code>上按钮的设置</p>
+<p>些许研究了<code>ToolBar</code>的使用后得知，可以直接在其内部包裹<code>Imageview</code>外，还可以通过菜单文件设置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu)</span> </span>&#123;</div><div class="line">    getMenuInflater().inflate(R.menu.main, menu);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中，<code>main.xml</code>内容如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;menu xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    xmlns:app="http://schemas.android.com/apk/res-auto"&gt;</div><div class="line">    &lt;item</div><div class="line">        android:id="@+id/action_search"</div><div class="line">        android:icon="@drawable/actionbar_search"// 显示图标</div><div class="line">        android:orderInCategory="100"// 菜单显示优先级</div><div class="line">        android:title="@string/actionbar_search"// Toast文字“搜索”</div><div class="line">        app:showAsAction="always" /&gt;// 总是显示，其中还有"never"点击后弹出显示；``ifRoom``根据空间判断是否显示</div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure>
+<p>然后再找到菜单相应的<code>id</code>处理点击事件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (item.getItemId()) &#123;</div><div class="line">            <span class="keyword">case</span> R.id.action_search:</div><div class="line"><span class="comment">//                Toast.makeText(this, "打开搜索页面", Toast.LENGTH_SHORT).show();</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">super</span>.onOptionsItemSelected(item);</div><div class="line">        &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>这样就完成了两者点击效果不同的处理。</p>
+<p><strong>对于2：</strong>不同按钮点击的水波纹效果</p>
+<p>这里不是使用<code>ripple</code>属性了，而是使用系统自带的点击水波纹选择器，给要产生点击效果的控件设置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:background=<span class="string">"?attr/selectableItemBackgroundBorderless"</span></div></pre></td></tr></table></figure>
+<p>然而设置后你会发现所有点击的颜色都是一致的，如果你使用主题：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme=<span class="string">"@style/Theme.AppCompat.Light.NoActionBar"</span></div></pre></td></tr></table></figure></p>
+<p>点击效果就会全部是黑灰的，就是中间三个按钮的那种效果，如果想要点击效果是白色的话，需要设置主题：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme=<span class="string">"@style/ThemeOverlay.AppCompat.Dark.ActionBar"</span></div></pre></td></tr></table></figure></p>
+<p>知道这样后我们给不同的布局设置不同的主题就解决了这个问题。最终布局文件：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&lt;android.support.v7.widget.Toolbar</div><div class="line">	    android:id="@+id/toolbar"</div><div class="line">	    android:layout_width="match_parent"</div><div class="line">	    android:layout_height="?attr/actionBarSize"</div><div class="line">	    android:background="@color/colorTheme"</div><div class="line">	    app:contentInsetStart="0.0dp"</div><div class="line">	    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"</div><div class="line">	    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"&gt;</div><div class="line">	</div><div class="line">	    &lt;FrameLayout</div><div class="line">	        android:id="@+id/ll_title_menu"</div><div class="line">	        android:layout_width="wrap_content"</div><div class="line">	        android:layout_height="match_parent"</div><div class="line">	        android:background="?attr/selectableItemBackgroundBorderless"</div><div class="line">	        android:paddingLeft="15dp"</div><div class="line">	        android:paddingRight="15dp"&gt;</div><div class="line">	</div><div class="line">	        &lt;ImageView</div><div class="line">	            android:id="@+id/iv_title_menu"</div><div class="line">	            android:layout_width="23dp"</div><div class="line">	            android:layout_height="wrap_content"</div><div class="line">	            android:layout_gravity="center"</div><div class="line">	            android:src="@drawable/titlebar_menu" /&gt;</div><div class="line">	    &lt;/FrameLayout&gt;</div><div class="line">	</div><div class="line">	    &lt;HorizontalScrollView</div><div class="line">	        android:layout_width="wrap_content"</div><div class="line">	        android:layout_height="match_parent"</div><div class="line">	        android:layout_gravity="center"&gt;</div><div class="line">	</div><div class="line">	        &lt;LinearLayout</div><div class="line">	            android:layout_width="wrap_content"</div><div class="line">	            android:layout_height="match_parent"</div><div class="line">	            android:background="?attr/selectableItemBackgroundBorderless"</div><div class="line">	            app:theme="@style/Theme.AppCompat.Light.NoActionBar"&gt;</div><div class="line">	</div><div class="line">	            &lt;ImageView</div><div class="line">	                android:id="@+id/iv_title_gank"</div><div class="line">	                android:layout_width="55dp"</div><div class="line">	                android:layout_height="wrap_content"</div><div class="line">	                android:layout_gravity="center"</div><div class="line">	                android:background="?attr/selectableItemBackgroundBorderless"</div><div class="line">	                android:src="@drawable/titlebar_disco" /&gt;</div><div class="line">	</div><div class="line">	            &lt;ImageView</div><div class="line">	                android:id="@+id/iv_title_one"</div><div class="line">	                android:layout_width="55dp"</div><div class="line">	                android:layout_height="match_parent"</div><div class="line">	                android:background="?attr/selectableItemBackgroundBorderless"</div><div class="line">	                android:src="@drawable/titlebar_music" /&gt;</div><div class="line">	</div><div class="line">	            &lt;ImageView</div><div class="line">	                android:id="@+id/iv_title_dou"</div><div class="line">	                android:layout_width="55dp"</div><div class="line">	                android:layout_height="match_parent"</div><div class="line">	                android:background="?attr/selectableItemBackgroundBorderless"</div><div class="line">	                android:src="@drawable/titlebar_friends" /&gt;</div><div class="line">	</div><div class="line">	        &lt;/LinearLayout&gt;</div><div class="line">	</div><div class="line">	    &lt;/HorizontalScrollView&gt;</div><div class="line"></div><div class="line"> &lt;/android.support.v7.widget.Toolbar&gt;</div></pre></td></tr></table></figure>
+<p>这样就得到了我们想要的效果~<br>更多细节优化我会慢慢整理在<a href="https://github.com/youlookwhat/CloudReader/wiki" target="_blank" rel="external">Wiki文档</a>，或你也可以直接查看源代码。</p>
+<h2 id="DownLoad"><a href="#DownLoad" class="headerlink" title="DownLoad"></a>DownLoad</h2><p>　<a href="https://fir.im/cloudreader" target="_blank" rel="external">火速跳转</a><br><img src="http://upload-images.jianshu.io/upload_images/1354448-502cceae1674e70a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/340" alt="download.png"></p>
+<h2 id="宝贵意见"><a href="#宝贵意见" class="headerlink" title="宝贵意见"></a>宝贵意见</h2><p>如果有任何问题，请到github的<a href="https://github.com/youlookwhat/CloudReader/issues" target="_blank" rel="external">issue处</a>写上你不明白的地方，也可以通过下面提供的方式联系我，我会及时给予帮助。另外常见的问题已总结在<a href="http://jingbin.me/2016/12/25/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-%E4%BA%91%E9%98%85/">这里</a>。</p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><ul>
+<li><p>图片来源：<a href="http://www.iconfont.cn/plus" target="_blank" rel="external">iconfont</a>、UI工程师<a href="https://github.com/Sandawang" target="_blank" rel="external">Sandawang</a>和网易云音乐App。</p>
+</li>
+<li><p>参考项目：<a href="https://github.com/GiitSmile/ImitateNetEasyCloud" target="_blank" rel="external">ImitateNetEasyCloud</a>、<a href="https://github.com/forezp/banya" target="_blank" rel="external">banya</a>；主要数据来源：<a href="https://gank.io/api" target="_blank" rel="external">Gank.Io</a>、<a href="https://developers.douban.com/wiki/?title=terms" target="_blank" rel="external">豆瓣Api</a>。</p>
+</li>
+<li><p>使用到的开源库：<a href="https://github.com/bumptech/glide" target="_blank" rel="external">glide</a>、<a href="https://github.com/Flipboard/bottomsheet" target="_blank" rel="external">bottomsheet</a>、<a href="https://github.com/JakeWharton/NineOldAndroids" target="_blank" rel="external">nineoldandroids</a>、<a href="https://github.com/ReactiveX/RxAndroid" target="_blank" rel="external">rxandroid</a>等等。</p>
+</li>
+<li><p>感谢<a href="https://github.com/daimajia" target="_blank" rel="external">代码家</a>、<a href="https://github.com/hongyangAndroid" target="_blank" rel="external">张鸿洋</a>、<a href="https://github.com/drakeet" target="_blank" rel="external">drakeet</a>、<a href="https://github.com/yang747046912" target="_blank" rel="external">yang747046912</a>、<a href="https://github.com/GiitSmile" target="_blank" rel="external">GiitSmile</a>、<a href="https://github.com/forezp" target="_blank" rel="external">forezp</a>等众多开发者贡献的开源项目，让我从中学到了很多!</p>
+</li>
+</ul>
+<h3 id="Statement"><a href="#Statement" class="headerlink" title="Statement"></a>Statement</h3><p>感谢<a href="https://play.google.com/store/apps/details?id=com.netease.cloudmusic" target="_blank" rel="external">网易云音乐App</a>提供参考，附上<a href="http://www.25xt.com/appdesign/12385.html" target="_blank" rel="external">《网易云音乐Android 3.0视觉设计规范文档》</a>。本人是网易云音乐的粉丝，使用了其中的部分素材，并非攻击，如构成侵权请及时通知我修改或删除。大部分数据来自于干货集中营和豆瓣APIV2.0，一切数据解释权都归代码家和豆瓣所有。</p>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>如果你觉得不错，对你有帮助，可以帮忙分享给你更多的朋友，这是给我们最大的动力与支持，同时希望你多多fork，star，follow，我将贡献更多的开源项目O(∩_∩)O~。开源使生活更美好！</p>
+<h2 id="About-me"><a href="#About-me" class="headerlink" title="About me"></a>About me</h2><ul>
+<li><strong>CSDN：</strong><a href="http://blog.csdn.net/jingbin_" target="_blank" rel="external">Jingbin_</a></li>
+<li><strong>Blog：</strong><a href="http://jingbin.me">http://jingbin.me</a></li>
+<li><strong>Email：</strong>jingbin127@163.com</li>
+<li><strong>GitHub：</strong><a href="https://github.com/youlookwhat" target="_blank" rel="external">https://github.com/youlookwhat</a></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-c282b9a84637ea73.gif?imageMogr2/auto-orient/strip" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cloudreader/" rel="tag"># cloudreader</a>
+          
+            <a href="/tags/开源项目/" rel="tag"># 开源项目</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/02/2018不畏将来 | 2017不念过往/" rel="next" title="2018不畏将来 | 2017不念过往">
+                <i class="fa fa-chevron-left"></i> 2018不畏将来 | 2017不念过往
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/07/《前任3：再见前任》观后感/" rel="prev" title="《前任3:再见前任》观后感">
+                《前任3:再见前任》观后感 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JingBin" />
+          <p class="site-author-name" itemprop="name">JingBin</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/youlookwhat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3121694927/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/jingbin_" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wanandroid.com/index" title="玩Android" target="_blank">玩Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://p.codekk.com/" title="CodeKK" target="_blank">CodeKK</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/sinyu890807/" title="郭霖" target="_blank">郭霖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791" title="鸿洋" target="_blank">鸿洋</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me/" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hukai.me/" title="胡凯" target="_blank">胡凯</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <!--
+-->
+        <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26237342&auto=0&height=66"></iframe>-->
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CloudReader"><span class="nav-number">1.</span> <span class="nav-text">CloudReader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图"><span class="nav-number">2.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">3.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块分析"><span class="nav-number">4.</span> <span class="nav-text">模块分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#干货（gank-io）"><span class="nav-number">4.1.</span> <span class="nav-text">干货（gank.io）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电影（豆瓣）"><span class="nav-number">4.2.</span> <span class="nav-text">电影（豆瓣）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#书籍（豆瓣）"><span class="nav-number">4.3.</span> <span class="nav-text">书籍（豆瓣）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽屉界面"><span class="nav-number">4.4.</span> <span class="nav-text">抽屉界面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Features-特性"><span class="nav-number">5.</span> <span class="nav-text">Features 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细节分析-ToolBar-上的按钮点击效果"><span class="nav-number">6.</span> <span class="nav-text">细节分析 - ToolBar 上的按钮点击效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于ToolBar的布局"><span class="nav-number">6.1.</span> <span class="nav-text">关于ToolBar的布局</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DownLoad"><span class="nav-number">7.</span> <span class="nav-text">DownLoad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宝贵意见"><span class="nav-number">8.</span> <span class="nav-text">宝贵意见</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thanks"><span class="nav-number">9.</span> <span class="nav-text">Thanks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Statement"><span class="nav-number">9.1.</span> <span class="nav-text">Statement</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#End"><span class="nav-number">10.</span> <span class="nav-text">End</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#About-me"><span class="nav-number">11.</span> <span class="nav-text">About me</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JingBin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cJ3qzFUAP7IbAMdtTT9gEmsd-gzGzoHsz", "Lb9yad0PMHUjs66NrAQqRT3A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1472 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Design pattern," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JingBin's Home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。
+
+GitHub地址DesignPattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java 常用十种设计模式示例归纳 | 已打包请带走">
+<meta property="og:url" content="http://jingbin.me/2016/11/14/java-常用十种设计模式示例归纳-已打包请带走/index.html">
+<meta property="og:site_name" content="JingBin's Home">
+<meta property="og:description" content="设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。
+
+GitHub地址DesignPattern">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-75e0400e5030b406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/340">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-e24cff0135c9deaa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-756908a3ca147593.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-3e5bac8177b40d8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240">
+<meta property="og:updated_time" content="2018-02-04T14:56:06.400Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java 常用十种设计模式示例归纳 | 已打包请带走">
+<meta name="twitter:description" content="设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。
+
+GitHub地址DesignPattern">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-75e0400e5030b406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/340">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7NR95R0WHT',
+      apiKey: '',
+      indexName: 'jing_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jingbin.me/2016/11/14/java-常用十种设计模式示例归纳-已打包请带走/"/>
+
+
+
+
+
+  <title> java 常用十种设计模式示例归纳 | 已打包请带走 | JingBin's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4bf05054dba6aed3e35f11764b201341";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">JingBin's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2016/11/14/java-常用十种设计模式示例归纳-已打包请带走/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                java 常用十种设计模式示例归纳 | 已打包请带走
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-14T23:50:00+08:00">
+                2016-11-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2018-02-04T22:56:06+08:00">
+                2018-02-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-pattern/" itemprop="url" rel="index">
+                    <span itemprop="name">Design pattern</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/14/java-常用十种设计模式示例归纳-已打包请带走/" class="leancloud_visitors" data-flag-title="java 常用十种设计模式示例归纳 | 已打包请带走">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。</p>
+</blockquote>
+<h2 id="GitHub地址"><a href="#GitHub地址" class="headerlink" title="GitHub地址"></a>GitHub地址</h2><p><strong><a href="https://github.com/youlookwhat/DesignPattern" target="_blank" rel="external">DesignPattern</a></strong></p>
+<a id="more"></a>
+<h2 id="文章说明"><a href="#文章说明" class="headerlink" title="文章说明"></a>文章说明</h2><p>一个Demo，集合常用的十种设计模式，每个模式使用易被人们接受的案例讲述，按模式分包，使用设计模式前后对比，界面显示定义讲解，让你更深刻的了解每种设计模式。<br>大部分案例来自张鸿洋的博客。如有错误欢迎指正，如有侵权，请联系我删除。</p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p><img src="http://upload-images.jianshu.io/upload_images/1354448-75e0400e5030b406.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/340" alt="包结构.png"></p>
+<h2 id="设计模式分为三种类型，共23种："><a href="#设计模式分为三种类型，共23种：" class="headerlink" title="设计模式分为三种类型，共23种："></a>设计模式分为三种类型，共23种：</h2><ul>
+<li><strong>创建型模式</strong>：<a href="https://github.com/youlookwhat/DesignPattern#3-%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">单例模式</a>、抽象工厂模式、建造者模式、<a href="https://github.com/youlookwhat/DesignPattern#2-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">工厂模式</a>、原型模式。</li>
+<li><strong>结构型模式</strong>：<a href="https://github.com/youlookwhat/DesignPattern#5-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">适配器模式</a>、桥接模式、<a href="https://github.com/youlookwhat/DesignPattern#7-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">装饰模式</a>、组合模式、<a href="https://github.com/youlookwhat/DesignPattern#8-%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">外观模式</a>、享元模式、代理模式。</li>
+<li><strong>行为型模式</strong>：<a href="https://github.com/youlookwhat/DesignPattern#9-%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">模版方法模式</a>、<a href="https://github.com/youlookwhat/DesignPattern#6-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">命令模式</a>、迭代器模式、<a href="https://github.com/youlookwhat/DesignPattern#1-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">观察者模式</a>、中介者模式、备忘录模式、解释器模式、<a href="https://github.com/youlookwhat/DesignPattern#10-%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">状态模式</a>、<a href="https://github.com/youlookwhat/DesignPattern#4-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">策略模式</a>、职责链模式(责任链模式)、访问者模式。</li>
+</ul>
+<blockquote>
+<p>上面链接点击直接跳转到GitHub对应模式解析内</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-e24cff0135c9deaa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="MainActivity.png"></p>
+<h2 id="博客目录"><a href="#博客目录" class="headerlink" title="博客目录"></a>博客目录</h2><ul>
+<li>1 . <a href="http://blog.csdn.net/lmj623565791/article/details/24179699" target="_blank" rel="external">设计模式 观察者模式(Observer Pattern) 以微信公众服务为例</a></li>
+<li>2 . <a href="http://blog.csdn.net/lmj623565791/article/details/24460585" target="_blank" rel="external">设计模式 工厂模式(Factory Pattern) 从卖肉夹馍说起</a></li>
+<li>3 . <a href="http://blog.csdn.net/dmk877/article/details/50311791" target="_blank" rel="external">设计模式 单例设计模式(Singleton Pattern) 完全解析</a></li>
+<li>4 . <a href="http://blog.csdn.net/lmj623565791/article/details/24116745" target="_blank" rel="external">设计模式 策略模式(Strategy Pattern) 以角色游戏为背景</a></li>
+<li>5 . <a href="http://blog.csdn.net/lmj623565791/article/details/25833393" target="_blank" rel="external">设计模式 适配器模式(Adapter Pattern) 以手机充电器为例</a></li>
+<li>6 . <a href="http://blog.csdn.net/lmj623565791/article/details/24602057" target="_blank" rel="external">设计模式 命令模式(Command Pattern) 管理智能家电</a></li>
+<li>7 . <a href="http://blog.csdn.net/lmj623565791/article/details/24269409" target="_blank" rel="external">设计模式 装饰者模式(Decorator Pattern) 带你重回传奇世界</a></li>
+<li>8 . <a href="http://blog.csdn.net/lmj623565791/article/details/25837275" target="_blank" rel="external">设计模式 外观模式(Facade Pattern) 一键电影模式</a></li>
+<li>9 . <a href="http://blog.csdn.net/lmj623565791/article/details/26276093" target="_blank" rel="external">设计模式 模版方法模式(TemplateMethod Pattern) 展现程序员的一天</a></li>
+<li>10 . <a href="http://blog.csdn.net/lmj623565791/article/details/26350617" target="_blank" rel="external">设计模式 状态模式(State Pattern) 以自动售货机为例</a></li>
+</ul>
+<h2 id="对应模式所在的包"><a href="#对应模式所在的包" class="headerlink" title="对应模式所在的包"></a>对应模式所在的包</h2><blockquote>
+<ul>
+<li>1 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/observer" target="_blank" rel="external">Observer</a></li>
+<li>2 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/factory" target="_blank" rel="external">Factory</a></li>
+<li>3 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/singleton" target="_blank" rel="external">Singleton</a></li>
+<li>4 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/strategy" target="_blank" rel="external">Strategy</a></li>
+<li>5 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/adapter" target="_blank" rel="external">Adapter</a></li>
+<li>6 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/command" target="_blank" rel="external">Command</a></li>
+<li>7 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/decorator" target="_blank" rel="external">Decorator</a></li>
+<li>8 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/facade" target="_blank" rel="external">Facade</a></li>
+<li>9 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/templatemethod" target="_blank" rel="external">Template Method</a></li>
+<li>10 . <a href="https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/state" target="_blank" rel="external">State</a></li>
+</ul>
+</blockquote>
+<h2 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h2><h3 id="1-观察者模式"><a href="#1-观察者模式" class="headerlink" title="1. 观察者模式"></a>1. 观察者模式</h3><blockquote>
+<p>定义了对象之间的一对多的依赖，这样一来，当一个对象改变时，它的所有的依赖者都会收到通知并自动更新。</p>
+</blockquote>
+<ul>
+<li><p>对于JDK或者Andorid中都有很多地方实现了观察者模式，比如XXXView.addXXXListenter ， 当然了 XXXView.setOnXXXListener不一定是观察者模式，因为观察者模式是一种一对多的关系，对于setXXXListener是1对1的关系，应该叫回调。</p>
+</li>
+<li><p>专题接口：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/observer/interfaces/Subject.java" target="_blank" rel="external">Subject.java</a> ;  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line">  * 注册一个观察者</div><div class="line">  */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer observer)</span></span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * 移除一个观察者</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer observer)</span></span>;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * 通知所有观察者</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>3D服务号的实现类：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/observer/classs/ObjectFor3D.java" target="_blank" rel="external">ObjectFor3D.java</a></p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer observer)</span> </span>&#123;</div><div class="line">      observers.add(observer);</div><div class="line">  &#125;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer observer)</span> </span>&#123;</div><div class="line">      <span class="keyword">int</span> index = observers.indexOf(observer);</div><div class="line">      <span class="keyword">if</span> (index &gt;= <span class="number">0</span>) &#123;</div><div class="line">          observers.remove(index);</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>&#123;</div><div class="line">      <span class="keyword">for</span> (Observer observer : observers) &#123;</div><div class="line">          observer.update(msg);</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">/**</span></div><div class="line">   * 主题更新信息</div><div class="line">   */</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMsg</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">      <span class="keyword">this</span>.msg = msg;</div><div class="line">      notifyObservers();</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>所有观察者需要实现此接口:<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/observer/interfaces/Observer.java" target="_blank" rel="external">Observer.java</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">ObserverUser1</span><span class="params">(Subject subject)</span> </span>&#123;</div><div class="line">       subject.registerObserver(<span class="keyword">this</span>);</div><div class="line">   &#125;</div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">       Log.e(<span class="string">"-----ObserverUser1 "</span>, <span class="string">"得到 3D 号码:"</span> + msg + <span class="string">", 我要记下来。 "</span>);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>最后测试：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/observer/ObserverActivity.java" target="_blank" rel="external">ObserverActivity.java</a></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建服务号</span></div><div class="line">   objectFor3D = <span class="keyword">new</span> ObjectFor3D();</div><div class="line">   <span class="comment">// 创建两个订阅者</span></div><div class="line">   observerUser1 = <span class="keyword">new</span> ObserverUser1(objectFor3D);</div><div class="line">   observerUser2 = <span class="keyword">new</span> ObserverUser2(objectFor3D);</div><div class="line">   <span class="comment">// 两个观察者,发送两条信息</span></div><div class="line">   objectFor3D.setMsg(<span class="string">"201610121 的3D号为:127"</span>);</div><div class="line">   objectFor3D.setMsg(<span class="string">"20161022 的3D号为:000"</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-工厂模式"><a href="#2-工厂模式" class="headerlink" title="2. 工厂模式"></a>2. 工厂模式</h3><p>简单列一下这个模式的家族：</p>
+<ul>
+<li><p><strong>1、静态工厂模式</strong></p>
+<ul>
+<li>这个最常见了，项目中的辅助类，TextUtil.isEmpty等，类+静态方法。</li>
+</ul>
+</li>
+<li><p><strong>2、简单工厂模式（店里买肉夹馍）</strong></p>
+<ul>
+<li>定义：通过专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。</li>
+<li><p>根据类型直接创建肉夹馍：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/jdgc/SimpleRoujiaMoFactory.java" target="_blank" rel="external">SimpleRoujiaMoFactory.java</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> RoujiaMo <span class="title">creatRoujiaMo</span><span class="params">(String type)</span> </span>&#123;</div><div class="line">       RoujiaMo roujiaMo = <span class="keyword">null</span>;</div><div class="line">       <span class="keyword">switch</span> (type) &#123;</div><div class="line">           <span class="keyword">case</span> <span class="string">"Suan"</span>:</div><div class="line">               roujiaMo = <span class="keyword">new</span> ZSuanRoujiaMo();</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           <span class="keyword">case</span> <span class="string">"La"</span>:</div><div class="line">               roujiaMo = <span class="keyword">new</span> ZLaRoujiaMo();</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           <span class="keyword">case</span> <span class="string">"Tian"</span>:</div><div class="line">               roujiaMo = <span class="keyword">new</span> ZTianRoujiaMo();</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           <span class="keyword">default</span>:<span class="comment">// 默认为酸肉夹馍</span></div><div class="line">               roujiaMo = <span class="keyword">new</span> ZSuanRoujiaMo();</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> roujiaMo;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>3、工厂方法模式（开分店）</strong></p>
+<ul>
+<li>定义：定义一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法模式把类实例化的过程推迟到子类。</li>
+<li><p>对比定义：</p>
+<ul>
+<li>1、定义了创建对象的一个接口：public abstract RouJiaMo sellRoujiaMo(String type);</li>
+<li>2、由子类决定实例化的类，可以看到我们的馍是子类生成的。</li>
+<li>提供创建肉夹馍店抽象方法：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/gcff/RoujiaMoStore.java" target="_blank" rel="external">RoujiaMoStore.java</a></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> RoujiaMo <span class="title">sellRoujiaMo</span><span class="params">(String type)</span></span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>具体实现抽象方法：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/gcff/XianRoujiaMoStore.java" target="_blank" rel="external">XianRoujiaMoStore.java</a></li>
+<li>分店依旧使用简单工厂模式：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/gcff/XianSimpleRoujiaMoFactory.java" target="_blank" rel="external">XianSimpleRoujiaMoFactory.java</a></li>
+</ul>
+<ul>
+<li><p><strong>4、抽象工厂模式（使用官方提供的原料）</strong></p>
+<ul>
+<li>定义：提供一个接口，用于创建相关的或依赖对象的家族，而不需要明确指定具体类。</li>
+<li>对比定义：<ul>
+<li>1、提供一个接口：public interface RouJiaMoYLFactroy</li>
+<li>2、用于创建相关的或依赖对象的家族 public Meat createMeat();public YuanLiao createYuanliao();我们接口用于创建一系列的原材料。</li>
+</ul>
+</li>
+<li>创建用于提供原料的接口工厂：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/cxgc/RoujiaMoYLFactory.java" target="_blank" rel="external">RoujiaMoYLFactory.java</a></li>
+<li>各自分店实现接口，完成原料提供：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/cxgc/XianRoujiaMoYLFoctory.java" target="_blank" rel="external">XianRoujiaMoYLFoctory.java</a></li>
+<li><p>准备时，使用官方的原料：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/cxgc/RoujiaMo.java" target="_blank" rel="external">RoujiaMo.java</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">      * 准备工作</div><div class="line">      */</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">(RoujiaMoYLFactory roujiaMoYLFactory)</span> </span>&#123;</div><div class="line">      	Meet meet = roujiaMoYLFactory.creatMeet();</div><div class="line">      	YuanLiao yuanLiao = roujiaMoYLFactory.creatYuanLiao();</div><div class="line">      	Log.e(<span class="string">"---RoujiaMo:"</span>, <span class="string">"使用官方的原料 ---"</span> + name + <span class="string">": 揉面-剁肉-完成准备工作 yuanLiao:"</span>+meet+<span class="string">"yuanLiao:"</span>+yuanLiao);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-单例设计模式"><a href="#3-单例设计模式" class="headerlink" title="3. 单例设计模式"></a>3. 单例设计模式</h3><blockquote>
+<p> 单例模式主要是为了避免因为创建了多个实例造成资源的浪费，且多个实例由于多次调用容易导致结果出现错误，而<strong>使用单例模式能够保证整个应用中有且只有一个实例</strong>。</p>
+</blockquote>
+<ul>
+<li>定义：只需要三步就可以保证对象的唯一性<ul>
+<li>(1) 不允许其他程序用new对象</li>
+<li>(2) 在该类中创建对象</li>
+<li>(3) 对外提供一个可以让其他程序获取该对象的方法</li>
+</ul>
+</li>
+<li>对比定义：<ul>
+<li>(1) 私有化该类的构造函数</li>
+<li>(2) 通过new在本类中创建一个本类对象</li>
+<li>(3) 定义一个公有的方法，将在该类中所创建的对象返回</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>饿汉式[可用]：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/singleton/ehan/SingletonEHan.java" target="_blank" rel="external">SingletonEHan.java</a></li>
+<li><p>含懒汉式[双重校验锁 推荐用]：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/singleton/lanhan/SingletonLanHan.java" target="_blank" rel="external">SingletonLanHan.java</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">private</span> <span class="title">SingletonLanHan</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line"> <span class="keyword">private</span> <span class="keyword">static</span> SingletonLanHan singletonLanHanFour;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingletonLanHan <span class="title">getSingletonLanHanFour</span><span class="params">()</span> </span>&#123;</div><div class="line">	    <span class="keyword">if</span> (singletonLanHanFour == <span class="keyword">null</span>) &#123;</div><div class="line">	        <span class="keyword">synchronized</span> (SingletonLanHan.class) &#123;</div><div class="line">	            <span class="keyword">if</span> (singletonLanHanFour == <span class="keyword">null</span>) &#123;</div><div class="line">	                singletonLanHanFour = <span class="keyword">new</span> SingletonLanHan();</div><div class="line">	            &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">return</span> singletonLanHanFour;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>内部类[推荐用]：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/singleton/inclass/SingletonIn.java" target="_blank" rel="external">SingletonIn.java</a></li>
+<li>枚举[推荐用]：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/singleton/enums/SingletonEnum.java" target="_blank" rel="external">SingletonEnum.java</a></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-756908a3ca147593.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="单例设计模式.png"></p>
+<h3 id="4-策略模式"><a href="#4-策略模式" class="headerlink" title="4. 策略模式"></a>4. 策略模式</h3><blockquote>
+<p>策略模式：定义了算法族，分别封装起来，让它们之间可相互替换，此模式让算法的变化独立于使用算法的客户。</p>
+</blockquote>
+<ul>
+<li>以创建游戏角色为例子：<ul>
+<li>最初的游戏角色的父类：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/strategy/old/Role.java" target="_blank" rel="external">Role.java</a></li>
+<li>发现有重复代码后，重构后的父类：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/strategy/better/Role.java" target="_blank" rel="external">Role.java</a></li>
+</ul>
+</li>
+<li>总结：<ul>
+<li>1、封装变化（把可能变化的代码封装起来）</li>
+<li>2、多用组合，少用继承（我们使用组合的方式，为客户设置了算法）</li>
+<li>3、针对接口编程，不针对实现（对于Role类的设计完全的针对角色，和技能的实现没有关系）</li>
+</ul>
+</li>
+<li><p>最后测试：创建角色：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">RoleA roleA = <span class="keyword">new</span> RoleA(<span class="string">"---A"</span>);</div><div class="line">roleA.setiDisplayBehavior(<span class="keyword">new</span> DisplayYZ())</div><div class="line">      .setiAttackBehavior(<span class="keyword">new</span> AttackXL())</div><div class="line">      .setiDefendBehavior(<span class="keyword">new</span> DefendTMS())</div><div class="line">      .setiRunBehavior(<span class="keyword">new</span> RunJCTQ());</div><div class="line">roleA.display();<span class="comment">// 样子</span></div><div class="line">roleA.attack();<span class="comment">// 攻击</span></div><div class="line">roleA.run();<span class="comment">// 逃跑</span></div><div class="line">roleA.defend();<span class="comment">// 防御</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5-适配器模式"><a href="#5-适配器模式" class="headerlink" title="5. 适配器模式"></a>5. 适配器模式</h3><blockquote>
+<p>定义：将一个类的接口转换成客户期望的另一个接口，适配器让原本接口不兼容的类可以相互合作。这个定义还好，说适配器的功能就是把一个接口转成另一个接口。</p>
+</blockquote>
+<ul>
+<li>以充电器为实例: 手机充电器一般都是5V左右吧，咱天朝的家用交流电压220V，所以手机充电需要一个适配器（降压器）</li>
+<li>一部手机: <a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/adapter/Mobile.java" target="_blank" rel="external">Mobile.java</a></li>
+<li>手机依赖一个提供5V电压的接口: <a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/adapter/V5Power.java" target="_blank" rel="external">V5Power.java</a></li>
+<li>我们拥有的是220V家用交流电: <a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/adapter/V200Power.java" target="_blank" rel="external">V220Power.java</a></li>
+<li><strong>适配器，完成220V转5V的作用</strong>：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/adapter/V5PowerAdapter.java" target="_blank" rel="external">V5PowerAdapter.java</a></li>
+<li><p>最后测试：给手机冲个电：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Mobile mobile = <span class="keyword">new</span> Mobile();</div><div class="line"> V5Power v5Power = <span class="keyword">new</span> V5PowerAdapter(<span class="keyword">new</span> V200Power());</div><div class="line"> mobile.inputPower(v5Power);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="6-命令模式"><a href="#6-命令模式" class="headerlink" title="6. 命令模式"></a>6. 命令模式</h3><blockquote>
+<p>定义：将“请求”封装成对象，以便使用不同的请求、队列或者日志来参数化其他对象。命令模式也支持可撤销的操作。(简化: 将请求封装成对象，将动作请求者和动作执行者解耦。)</p>
+</blockquote>
+<ul>
+<li>需求：最近智能家电很火热，假设现在有电视、电脑、电灯等家电，现在需要你做个遥控器控制所有家电的开关，要求做到每个按钮对应的功能供用户个性化，对于新买入家电要有非常强的扩展性。</li>
+<li>1、家电的API：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/Door.java" target="_blank" rel="external">Door.java</a></li>
+<li>2、把命令封装成类： <ul>
+<li>统一的命令接口：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/Command.java" target="_blank" rel="external">Command.java</a></li>
+<li>家电实现该接口：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/DoorOpenCommand.java" target="_blank" rel="external">DoorOpenCommand.java</a></li>
+</ul>
+</li>
+<li>3、遥控器：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/ControlPanel.java" target="_blank" rel="external">ControlPanel.java</a></li>
+<li><p>4、定义一个命令，可以干一系列的事情：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/QuickCommand.java" target="_blank" rel="external">QuickCommand.java</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">QuickCommand quickCloseCommand = <span class="keyword">new</span> QuickCommand(<span class="keyword">new</span> Command[]&#123;<span class="keyword">new</span> LightOffCommand(light), <span class="keyword">new</span> ComputerOffCommand(computer), <span class="keyword">new</span> DoorCloseCommand(door)&#125;);</div><div class="line">controlPanel.setCommands(<span class="number">6</span>, quickOpenCommand);</div><div class="line">controlPanel.keyPressed(<span class="number">6</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>5、遥控器面板执行：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/CommandActivity.java" target="_blank" rel="external">CommandActivity.java</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">controlPanel.setCommands(<span class="number">0</span>, <span class="keyword">new</span> DoorOpenCommand(door));<span class="comment">// 开门</span></div><div class="line">controlPanel.keyPressed(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-3e5bac8177b40d8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="命令模式"></p>
+<h3 id="7-装饰者模式"><a href="#7-装饰者模式" class="headerlink" title="7. 装饰者模式"></a>7. 装饰者模式</h3><blockquote>
+<p>装饰者模式：若要扩展功能，装饰者提供了比集成更有弹性的替代方案，动态地将责任附加到对象上。</p>
+</blockquote>
+<ul>
+<li><p>先简单描述下装饰者模式发挥作用的地方，当我们设计好了一个类，我们需要给这个类添加一些辅助的功能，并且不希望改变这个类的代码，这时候就是装饰者模式大展雄威的时候了。这里还体现了一个<strong>原则：类应该对扩展开放，对修改关闭。</strong></p>
+</li>
+<li><p>需求：设计游戏的装备系统，基本要求，要可以计算出每种装备在镶嵌了各种宝石后的攻击力和描述：</p>
+</li>
+<li>1、装备的超类：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/decorator/IEquip.java" target="_blank" rel="external">IEquip.java</a></li>
+<li>2、各个装备的实现类：<ul>
+<li>eg：<strong>武器</strong>的实现类: <a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/decorator/equip/ArmEquip.java" target="_blank" rel="external">ArmEquip.java</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>3、装饰品的超类（装饰品也属于装备）：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/decorator/gem/IEuipDecotator.java" target="_blank" rel="external">IEquipDecorator.java</a></li>
+<li><p>4、装饰品的实现类：</p>
+<ul>
+<li>eg：<strong>蓝宝石</strong>的实现类(可累加): <a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/decorator/gem/BlueGemDecotator.java" target="_blank" rel="external">BlueGemDecorator.java</a> </li>
+</ul>
+</li>
+<li><p>5、最后测试：计算攻击力和查看描述：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Log.e(<span class="string">"---"</span>, <span class="string">"一个镶嵌2颗红宝石,1颗蓝宝石的靴子: "</span>);</div><div class="line">   IEquip iEquip = <span class="keyword">new</span> RedGemDecotator(<span class="keyword">new</span> RedGemDecotator(<span class="keyword">new</span> BlueGemDecotator(<span class="keyword">new</span> ShoeEquip())));</div><div class="line">   Log.e(<span class="string">"---"</span>, <span class="string">"攻击力:"</span> + iEquip.caculateAttack());</div><div class="line">   Log.e(<span class="string">"---"</span>, <span class="string">"描述语:"</span> + iEquip.description());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8-外观模式"><a href="#8-外观模式" class="headerlink" title="8. 外观模式"></a>8. 外观模式</h3><blockquote>
+<p>定义：提供一个统一的接口，用来访问子系统中的一群接口，外观定义了一个高层的接口，让子系统更容易使用。<strong>其实就是为了方便客户的使用，把一群操作，封装成一个方法。</strong></p>
+</blockquote>
+<ul>
+<li>需求：我比较喜欢看电影，于是买了投影仪、电脑、音响、设计了房间的灯光、买了爆米花机，然后我想看电影的时候，我需要一键观影和一键关闭。</li>
+<li>每个设备类的开关等操作：<ul>
+<li>eg: 爆米花机：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/facade/device/PopcornPopper.java" target="_blank" rel="external">PopcornPopper.java</a></li>
+</ul>
+</li>
+<li><p>电影院类：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/facade/theater/HomeTheaterFacade.java" target="_blank" rel="external">HomeTheaterFacade.java</a></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> 	<span class="comment">/**</span></div><div class="line">     * 一键观影</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">watchMovie</span><span class="params">()</span> </span>&#123;</div><div class="line">        computer.on();</div><div class="line">        light.down();</div><div class="line">        popcornPopper.on();</div><div class="line">        popcornPopper.makePopcorn();</div><div class="line">        projector.on();</div><div class="line">        projector.open();</div><div class="line">        player.on();</div><div class="line">        player.make3DListener();</div><div class="line">    &#125;</div><div class="line">	``` </div><div class="line">- 最后测试：一键观影：</div><div class="line">	</div><div class="line">	```<span class="function">java</span></div><div class="line">	new <span class="title">HomeTheaterFacade</span><span class="params">(computer, light, player, popcornPopper, projector)</span>.<span class="title">watchMovie</span><span class="params">()</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="9-模板方法模式"><a href="#9-模板方法模式" class="headerlink" title="9. 模板方法模式"></a>9. 模板方法模式</h3><blockquote>
+<p>定义：定义了一个算法的骨架，而将一些步骤延迟到子类中，模版方法使得子类可以在不改变算法结构的情况下，重新定义算法的步骤。</p>
+</blockquote>
+<ul>
+<li>需求：简单描述一下：本公司有程序猿、测试、HR、项目经理等人，下面使用模版方法模式，记录下所有人员的上班情况</li>
+<li>模板方法模式中的三类角色<ul>
+<li>1、具体方法(Concrete Method)</li>
+<li>2、抽象方法(Abstract Method)</li>
+<li>3、钩子方法(Hook Method)</li>
+</ul>
+</li>
+<li><p>工人的超类：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/templatemethod/Worker.java" target="_blank" rel="external">Worker.java</a></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 具体方法</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">workOneDay</span><span class="params">()</span> </span>&#123;</div><div class="line">       Log.e(<span class="string">"workOneDay"</span>, <span class="string">"-----------------work start----------------"</span>);</div><div class="line">       enterCompany();</div><div class="line">       work();</div><div class="line">       exitCompany();</div><div class="line">       Log.e(<span class="string">"workOneDay"</span>, <span class="string">"-----------------work end----------------"</span>);</div><div class="line">   &#125;</div><div class="line">   <span class="comment">// 工作  抽象方法</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>;</div><div class="line">   <span class="comment">// 钩子方法</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNeedPrintDate</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">exitCompany</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (isNeedPrintDate()) &#123;</div><div class="line">           Log.e(<span class="string">"exitCompany"</span>, <span class="string">"---"</span> + <span class="keyword">new</span> Date().toLocaleString() + <span class="string">"---&gt;"</span>);</div><div class="line">       &#125;</div><div class="line">       Log.e(<span class="string">"exitCompany"</span>, name + <span class="string">"---离开公司"</span>);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>程序员实现类（可得知时间）：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/templatemethod/worker/ITWorker.java" target="_blank" rel="external">ITWorker.java</a></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">    * 重写父类的此方法,使可以查看离开公司时间</div><div class="line">    */</div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNeedPrintDate</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后测试：</p>
+<ul>
+<li><p>查看所有人员的工作情况：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">QAWorker qaWorker = <span class="keyword">new</span> QAWorker(<span class="string">"测试人员"</span>);</div><div class="line">   qaWorker();</div><div class="line">   HRWorker hrWorker = <span class="keyword">new</span> HRWorker(<span class="string">"莉莉姐"</span>);</div><div class="line">   hrWorker.workOneDay();</div><div class="line">   ...</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看程序猿离开公司的时间:</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ITWorker itWorker = <span class="keyword">new</span> ITWorker(<span class="string">"jingbin"</span>);</div><div class="line">     itWorker.workOneDay();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="10-状态模式"><a href="#10-状态模式" class="headerlink" title="10. 状态模式"></a>10. 状态模式</h3><blockquote>
+<p>定义：允许对象在内部状态改变时改变它的行为，对象看起来好像修改了它的类。</p>
+</blockquote>
+<ul>
+<li><p>定义又开始模糊了，理一下，当对象的内部状态改变时，它的行为跟随状态的改变而改变了，看起来好像重新初始化了一个类似的。</p>
+</li>
+<li><p>需求：已自动售货机为例（有已投币、未投币等状态和投币、投币等方法）</p>
+</li>
+<li>最初实现待改进的售货机：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/state/old/VendingMachine.java" target="_blank" rel="external">VendingMachine.java</a></li>
+<li><p>改进后的售货机（更具有延展性）:<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/state/better/VendingMachineBetter.java" target="_blank" rel="external">VendingMachineBetter.java</a></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 放钱</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertMoney</span><span class="params">()</span> </span>&#123;</div><div class="line">      currentState.insertMoney();</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 退钱</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">backMoney</span><span class="params">()</span> </span>&#123;</div><div class="line">      currentState.backMoney();</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 转动曲柄</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">turnCrank</span><span class="params">()</span> </span>&#123;</div><div class="line">      currentState.turnCrank();</div><div class="line">      <span class="keyword">if</span> (currentState == soldState || currentState == winnerState) &#123;</div><div class="line">          currentState.dispense();<span class="comment">//两种情况会出货</span></div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 出商品</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dispense</span><span class="params">()</span> </span>&#123;</div><div class="line">      Log.e(<span class="string">"VendingMachineBetter"</span>, <span class="string">"---发出一件商品"</span>);</div><div class="line">      <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</div><div class="line">          count--;</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 设置对应状态</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setState</span><span class="params">(State state)</span> </span>&#123;</div><div class="line">      <span class="keyword">this</span>.currentState = state;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>状态的接口：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/state/better/State.java" target="_blank" rel="external">State.java</a></li>
+<li>对应状态的接口实现类：<ul>
+<li>eg: 中奖状态：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/state/better/WinnerState.java" target="_blank" rel="external">WinnerState.java</a></li>
+<li>eg: 售卖状态：<a href="https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/state/better/SoldState.java" target="_blank" rel="external">SoldState.java</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>改进后的售货机测试：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 初始化售货机,且里面有3个商品</span></div><div class="line">  VendingMachineBetter machineBetter = <span class="keyword">new</span> VendingMachineBetter(<span class="number">3</span>);</div><div class="line">  machineBetter.insertMoney();</div><div class="line">  machineBetter.turnCrank();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://blog.csdn.net/lmj623565791/article/category/2206597" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/category/2206597</a></li>
+</ul>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><ul>
+<li><a href="http://blog.csdn.net/lmj623565791" target="_blank" rel="external">CSDN：张鸿洋</a></li>
+<li><a href="http://blog.csdn.net/dmk877/article/details/50311791" target="_blank" rel="external">CSDN：dmk877</a></li>
+</ul>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2><p>感兴趣的小伙伴可以Star哦~</p>
+<p>GitHub：<strong><a href="https://github.com/youlookwhat/DesignPattern" target="_blank" rel="external">DesignPattern</a></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Design-pattern/" rel="tag"># Design pattern</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/28/MarkDown-readme图片尺寸固定且居中/" rel="next" title="MarkDown readme图片尺寸固定且居中">
+                <i class="fa fa-chevron-left"></i> MarkDown readme图片尺寸固定且居中
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/" rel="prev" title="Mac搭建Hexo博客流程记录，排雷完成">
+                Mac搭建Hexo博客流程记录，排雷完成 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JingBin" />
+          <p class="site-author-name" itemprop="name">JingBin</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/youlookwhat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3121694927/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/jingbin_" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wanandroid.com/index" title="玩Android" target="_blank">玩Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://p.codekk.com/" title="CodeKK" target="_blank">CodeKK</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/sinyu890807/" title="郭霖" target="_blank">郭霖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791" title="鸿洋" target="_blank">鸿洋</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me/" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hukai.me/" title="胡凯" target="_blank">胡凯</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <!--
+-->
+        <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26237342&auto=0&height=66"></iframe>-->
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub地址"><span class="nav-number">1.</span> <span class="nav-text">GitHub地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章说明"><span class="nav-number">2.</span> <span class="nav-text">文章说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构"><span class="nav-number">3.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式分为三种类型，共23种："><span class="nav-number">4.</span> <span class="nav-text">设计模式分为三种类型，共23种：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客目录"><span class="nav-number">5.</span> <span class="nav-text">博客目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对应模式所在的包"><span class="nav-number">6.</span> <span class="nav-text">对应模式所在的包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式分析"><span class="nav-number">7.</span> <span class="nav-text">模式分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-观察者模式"><span class="nav-number">7.1.</span> <span class="nav-text">1. 观察者模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-工厂模式"><span class="nav-number">7.2.</span> <span class="nav-text">2. 工厂模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-单例设计模式"><span class="nav-number">7.3.</span> <span class="nav-text">3. 单例设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-策略模式"><span class="nav-number">7.4.</span> <span class="nav-text">4. 策略模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-适配器模式"><span class="nav-number">7.5.</span> <span class="nav-text">5. 适配器模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-命令模式"><span class="nav-number">7.6.</span> <span class="nav-text">6. 命令模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-装饰者模式"><span class="nav-number">7.7.</span> <span class="nav-text">7. 装饰者模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-外观模式"><span class="nav-number">7.8.</span> <span class="nav-text">8. 外观模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-模板方法模式"><span class="nav-number">7.9.</span> <span class="nav-text">9. 模板方法模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-状态模式"><span class="nav-number">7.10.</span> <span class="nav-text">10. 状态模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">8.</span> <span class="nav-text">参考链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thanks"><span class="nav-number">9.</span> <span class="nav-text">Thanks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#End"><span class="nav-number">10.</span> <span class="nav-text">End</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JingBin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cJ3qzFUAP7IbAMdtTT9gEmsd-gzGzoHsz", "Lb9yad0PMHUjs66NrAQqRT3A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>

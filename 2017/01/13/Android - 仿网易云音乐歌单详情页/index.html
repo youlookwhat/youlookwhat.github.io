@@ -1,0 +1,1217 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,cloudreader," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JingBin's Home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前段时间模仿网易云音乐UI使用DataBinding做了一个App：CloudReader，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，关联到的知识点还比较有价值，而且也有很多需要注意的地方。
+本次项目地址：ScrollShapeUI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android - 仿网易云音乐歌单详情页">
+<meta property="og:url" content="http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/index.html">
+<meta property="og:site_name" content="JingBin's Home">
+<meta property="og:description" content="前段时间模仿网易云音乐UI使用DataBinding做了一个App：CloudReader，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，关联到的知识点还比较有价值，而且也有很多需要注意的地方。
+本次项目地址：ScrollShapeUI">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-9aeef33cf3721aa6.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-fb6286fe506cadcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:updated_time" content="2018-04-21T15:38:44.736Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android - 仿网易云音乐歌单详情页">
+<meta name="twitter:description" content="前段时间模仿网易云音乐UI使用DataBinding做了一个App：CloudReader，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，关联到的知识点还比较有价值，而且也有很多需要注意的地方。
+本次项目地址：ScrollShapeUI">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7NR95R0WHT',
+      apiKey: '',
+      indexName: 'jing_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/"/>
+
+
+
+
+
+  <title> Android - 仿网易云音乐歌单详情页 | JingBin's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4bf05054dba6aed3e35f11764b201341";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">JingBin's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2017/01/13/Android - 仿网易云音乐歌单详情页/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android - 仿网易云音乐歌单详情页
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-13T12:55:23+08:00">
+                2017-01-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-21T23:38:44+08:00">
+                2018-04-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/13/Android - 仿网易云音乐歌单详情页/" class="leancloud_visitors" data-flag-title="Android - 仿网易云音乐歌单详情页">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前段时间模仿网易云音乐UI使用DataBinding做了一个App：<a href="http://www.jianshu.com/p/69a229fb6e1d" target="_blank" rel="external">CloudReader</a>，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，关联到的知识点还比较有价值，而且也有很多需要注意的地方。</p>
+<p>本次项目地址：<a href="https://github.com/youlookwhat/ScrollShapeUI" target="_blank" rel="external">ScrollShapeUI</a></p>
+<a id="more"></a>
+<h3 id="效果图对比："><a href="#效果图对比：" class="headerlink" title="效果图对比："></a>效果图对比：</h3><ul>
+<li><p>网易云音乐App原图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip" alt="网易云音乐App原图.gif"></p>
+</li>
+<li><p>模仿的效果图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-9aeef33cf3721aa6.gif?imageMogr2/auto-orient/strip" alt="模仿的效果图.gif"></p>
+</li>
+</ul>
+<p>建议大家直接看<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader项目应用</a>里的效果，里面的内容部分有加载中的loading图，效果更逼真。</p>
+<h3 id="基本布局："><a href="#基本布局：" class="headerlink" title="基本布局："></a>基本布局：</h3><p>FrameLayout　<br>　—– MyNestedScrollView // 为了Api23下的滑动兼容<br>　　　—- LinearLayout // 内容部分<br>　—– RelativeLayout<br>　　　—- ImageView // Toolbar后面的背景图<br>　　　—- Toolbar // 标题栏</p>
+<p>由于篇幅原因，不能做详细的介绍，这里就简单介绍实现这种效果的思路：</p>
+<h3 id="实现思路："><a href="#实现思路：" class="headerlink" title="实现思路："></a>实现思路：</h3><ul>
+<li>1、Activity设置自定义Shared Element切换动画</li>
+<li>2、透明状态栏（透明Toolbar,使背景图上移）</li>
+<li>3、Toolbar底部增加和背景一样的高斯模糊图，并上移图片（为了使背景图的底部作为Toolbar的背景）</li>
+<li>4、上下滑动，通过NestedScrollView拿到移动的高度，同时调整Toolbar的背景图透明度</li>
+</ul>
+<h4 id="1、Activity设置自定义元素共享切换动画"><a href="#1、Activity设置自定义元素共享切换动画" class="headerlink" title="1、Activity设置自定义元素共享切换动画"></a>1、Activity设置自定义元素共享切换动画</h4><p>大家可以发现页面跳转时图片移动的是一个<strong>曲线路径</strong>，我们可以定制View的过渡切换效果，这是Material Design中比较常见的用法，Api21以上才有效。需要在开启页面时使用<code>ActivityOptions.makeSceneTransitionAnimation()</code>，其中定义共享的view和transitionName。然后在对应的Activity里创建<code>ArcMotion</code>对象。ArcMotion是<code>PathMotion</code>子类，是个曲线路径，对应代码片：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// Activity设置自定义 Shared Element切换动画</span></div><div class="line"> <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">        <span class="comment">//定义ArcMotion</span></div><div class="line">        ArcMotion arcMotion = <span class="keyword">new</span> ArcMotion();</div><div class="line">        arcMotion.setMinimumHorizontalAngle(<span class="number">50f</span>);</div><div class="line">        arcMotion.setMinimumVerticalAngle(<span class="number">50f</span>);</div><div class="line">        <span class="comment">//插值器，控制速度</span></div><div class="line">        Interpolator interpolator = AnimationUtils.loadInterpolator(<span class="keyword">this</span>, android.R.interpolator.fast_out_slow_in);</div><div class="line">        <span class="comment">//实例化自定义的ChangeBounds</span></div><div class="line">        CustomChangeBounds changeBounds = <span class="keyword">new</span> CustomChangeBounds();</div><div class="line">        changeBounds.setPathMotion(arcMotion);</div><div class="line">        changeBounds.setInterpolator(interpolator);</div><div class="line">        changeBounds.addTarget(binding.include.ivOnePhoto);</div><div class="line">        <span class="comment">//将切换动画应用到当前的Activity的进入和返回</span></div><div class="line">        getWindow().setSharedElementEnterTransition(changeBounds);</div><div class="line">        getWindow().setSharedElementReturnTransition(changeBounds);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">// 开启</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(context, MovieDetailActivity.class);</div><div class="line">intent.putExtra(<span class="string">"bean"</span>, positionData);</div><div class="line">ActivityOptionsCompat options =</div><div class="line">			ActivityOptionsCompat.makeSceneTransitionAnimation(context,imageView, CommonUtils.getString(R.string.transition_book_img));<span class="comment">//与xml文件对应</span></div><div class="line"> ActivityCompat.startActivity(context, intent, options.toBundle());</div></pre></td></tr></table></figure>
+<blockquote>
+<p>值得注意的是：因为加载图片要一点时间，切换页面时就会出现闪烁的情况，而如果取的是缓存就不会有这样的问题，所以这里有个小技巧，就是起初Glide加载的图片就指定固定的大小（<code>.override(120,120)</code>），这样图片就会被缓存起来，等到跳转时就取缓存。具体还请大家看项目源码。</p>
+</blockquote>
+<h4 id="2、透明状态栏"><a href="#2、透明状态栏" class="headerlink" title="2、透明状态栏"></a>2、透明状态栏</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为头部是View的界面设置状态栏透明</span></div><div class="line">StatusBarUtil.setTranslucentImageHeader(<span class="keyword">this</span>, <span class="number">0</span>, binding.titleToolBar);</div></pre></td></tr></table></figure>
+<p>其中内容根布局不要设置<code>android:fitsSystemWindows=&quot;true&quot;</code>,这样会额外添加一个状态栏。其中<a href="https://github.com/youlookwhat/ScrollShapeUI/blob/master/app/src/main/java/com/example/jingbin/scrollshapeui/utils/StatusBarUtil.java" target="_blank" rel="external">StatusBarUtil</a>，是一个为Android App 设置状态栏的工具类。这里向大家推荐郭霖大神的一篇文章：<a href="http://blog.csdn.net/guolin_blog/article/details/51763825" target="_blank" rel="external">Android状态栏微技巧，带你真正理解沉浸式模式</a>，里面讲解了透明状态栏和沉浸式状态栏的渊源和有关设置用法。</p>
+<h4 id="3、Toolbar的背景图"><a href="#3、Toolbar的背景图" class="headerlink" title="3、Toolbar的背景图"></a>3、Toolbar的背景图</h4><p>仔细分析后发现网易云音乐的Toolbar的背景其实显示的是高斯模糊图的底部，所以这里基本套路是Toolbar是透明的，后面背景图取的是高斯模糊图的底部一部分。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1354448-fb6286fe506cadcc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt=""></p>
+<h5 id="调整Toolbar背景图位置"><a href="#调整Toolbar背景图位置" class="headerlink" title="调整Toolbar背景图位置"></a>调整Toolbar背景图位置</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Toolbar的高度</span></div><div class="line"><span class="keyword">int</span> toolbarHeight = binding.titleToolBar.getLayoutParams().height;</div><div class="line"><span class="comment">// Toolbar+状态栏的高度　</span></div><div class="line"><span class="keyword">final</span> <span class="keyword">int</span> headerBgHeight = toolbarHeight + StatusBarUtil.getStatusBarHeight(<span class="keyword">this</span>);</div><div class="line">    </div><div class="line"><span class="comment">// 使背景图向上移动到图片的最底端，保留Toolbar+状态栏的高度</span></div><div class="line">binding.ivTitleHeadBg.setVisibility(View.VISIBLE);</div><div class="line">ViewGroup.LayoutParams params = binding.ivTitleHeadBg.getLayoutParams();</div><div class="line">ViewGroup.MarginLayoutParams ivTitleHeadBgParams = (ViewGroup.MarginLayoutParams) binding.ivTitleHeadBg.getLayoutParams();</div><div class="line"><span class="keyword">int</span> marginTop = params.height - headerBgHeight;</div><div class="line">ivTitleHeadBgParams.setMargins(<span class="number">0</span>, -marginTop, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">binding.ivTitleHeadBg.setImageAlpha(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+<h5 id="显示Toolbar背景图"><a href="#显示Toolbar背景图" class="headerlink" title="显示Toolbar背景图"></a>显示Toolbar背景图</h5><p>监听图片显示，在显示之后将其设置为透明色，然后在滑动的时候渐变。这里值得注意的是在设置图片时不要设置加载中的图片，不然初始化时达不到透明的效果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 高斯模糊背景，加载后将背景设为透明</span></div><div class="line"> Glide.with(<span class="keyword">this</span>).load(NeteasePlaylistActivity.IMAGE_URL_MEDIUM)</div><div class="line">         <span class="comment">//.placeholder(R.drawable.stackblur_default)</span></div><div class="line">         .error(R.drawable.stackblur_default)</div><div class="line">         .bitmapTransform(<span class="keyword">new</span> BlurTransformation(<span class="keyword">this</span>, <span class="number">14</span>, <span class="number">3</span>))<span class="comment">// 设置高斯模糊</span></div><div class="line">         .listener(<span class="keyword">new</span> RequestListener&lt;String, GlideDrawable&gt;() &#123;<span class="comment">//监听加载状态</span></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onException</span><span class="params">(Exception e, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFromMemoryCache, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</div><div class="line">         <span class="comment">// Toolbar背景设为透明</span></div><div class="line">         binding.titleToolBar.setBackgroundColor(Color.TRANSPARENT);</div><div class="line">         <span class="comment">// 背景图初始化为全透明</span></div><div class="line">         binding.ivTitleHeadBg.setImageAlpha(<span class="number">0</span>);</div><div class="line">         binding.ivTitleHeadBg.setVisibility(View.VISIBLE);</div><div class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">     &#125;</div><div class="line"> &#125;).into(binding.ivTitleHeadBg);</div></pre></td></tr></table></figure>
+<p>其中引入的库应为如下，将官方Glide的额外扩展了，使其可以支持高斯模糊。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'jp.wasabeef:glide-transformations:2.0.1'</span></div></pre></td></tr></table></figure></p>
+<h4 id="4、上下滑动，渐变背景图透明度"><a href="#4、上下滑动，渐变背景图透明度" class="headerlink" title="4、上下滑动，渐变背景图透明度"></a>4、上下滑动，渐变背景图透明度</h4><p>由于<code>NestedScrollView</code>滚动监听只能在API23以上才能使用，这里为了兼容需要额外处理，定义滚动接口，具体：<a href="https://github.com/youlookwhat/ScrollShapeUI/blob/master/app/src/main/java/com/example/jingbin/scrollshapeui/view/MyNestedScrollView.java" target="_blank" rel="external">MyNestedScrollView</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 根据页面滑动距离改变Header透明度方法</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">scrollChangeHeader</span><span class="params">(<span class="keyword">int</span> scrolledY)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (scrolledY &lt; <span class="number">0</span>) &#123;</div><div class="line">        scrolledY = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">float</span> alpha = Math.abs(scrolledY) * <span class="number">1.0f</span> / (slidingDistance);</div><div class="line">    Drawable drawable = binding.ivTitleHeadBg.getDrawable();</div><div class="line">    <span class="keyword">if</span> (drawable != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (scrolledY &lt;= slidingDistance) &#123;</div><div class="line">            <span class="comment">// title部分的渐变</span></div><div class="line">            drawable.mutate().setAlpha((<span class="keyword">int</span>) (alpha * <span class="number">255</span>));</div><div class="line">            binding.ivTitleHeadBg.setImageDrawable(drawable);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            drawable.mutate().setAlpha(<span class="number">255</span>);</div><div class="line">            binding.ivTitleHeadBg.setImageDrawable(drawable);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样基本的效果就实现啦，其中如有需要还可以做些额外的处理，如当背景图不透明时切换标题等~</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="http://www.jianshu.com/p/37e94f8b6f59" target="_blank" rel="external">http://www.jianshu.com/p/37e94f8b6f59</a></li>
+<li><a href="https://github.com/pinguo-zhouwei/YunMusicUI" target="_blank" rel="external">https://github.com/pinguo-zhouwei/YunMusicUI</a></li>
+<li><a href="http://blog.csdn.net/u011734444/article/details/51471182" target="_blank" rel="external">http://blog.csdn.net/u011734444/article/details/51471182</a></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本人思考并实践了很多实现这个页面的方法，目前为止这个方案是最好的，效果体验几乎是一样，其中涉及到的知识点有：1、页面跳转共享元素曲线动画；2、透明状态栏；3、Glide监听图片加载状态和加载固定大小图片等；4、NestedScrollView在Api23下的滑动兼容。如果有更好的方案还请联系我，本次项目的源代码：<a href="https://github.com/youlookwhat/ScrollShapeUI" target="_blank" rel="external">https://github.com/youlookwhat/ScrollShapeUI</a>。</p>
+<blockquote>
+<p>欢迎关注我的<a href="http://www.jianshu.com/u/e43c6e979831" target="_blank" rel="external">简书</a>和<a href="https://github.com/youlookwhat" target="_blank" rel="external">Gayhub</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/cloudreader/" rel="tag"># cloudreader</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/30/更新日志-云阅/" rel="next" title="更新日志-云阅">
+                <i class="fa fa-chevron-left"></i> 更新日志-云阅
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/17/♪ Music 如何在个人主页里插入音乐/" rel="prev" title="♪ Music 如何在个人主页里插入音乐">
+                ♪ Music 如何在个人主页里插入音乐 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JingBin" />
+          <p class="site-author-name" itemprop="name">JingBin</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/youlookwhat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3121694927/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/jingbin_" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wanandroid.com/index" title="玩Android" target="_blank">玩Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://p.codekk.com/" title="CodeKK" target="_blank">CodeKK</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/sinyu890807/" title="郭霖" target="_blank">郭霖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791" title="鸿洋" target="_blank">鸿洋</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me/" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hukai.me/" title="胡凯" target="_blank">胡凯</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <!--
+-->
+        <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26237342&auto=0&height=66"></iframe>-->
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#效果图对比："><span class="nav-number">1.</span> <span class="nav-text">效果图对比：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本布局："><span class="nav-number">2.</span> <span class="nav-text">基本布局：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现思路："><span class="nav-number">3.</span> <span class="nav-text">实现思路：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、Activity设置自定义元素共享切换动画"><span class="nav-number">3.1.</span> <span class="nav-text">1、Activity设置自定义元素共享切换动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、透明状态栏"><span class="nav-number">3.2.</span> <span class="nav-text">2、透明状态栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、Toolbar的背景图"><span class="nav-number">3.3.</span> <span class="nav-text">3、Toolbar的背景图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#调整Toolbar背景图位置"><span class="nav-number">3.3.1.</span> <span class="nav-text">调整Toolbar背景图位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#显示Toolbar背景图"><span class="nav-number">3.3.2.</span> <span class="nav-text">显示Toolbar背景图</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、上下滑动，渐变背景图透明度"><span class="nav-number">3.4.</span> <span class="nav-text">4、上下滑动，渐变背景图透明度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JingBin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cJ3qzFUAP7IbAMdtTT9gEmsd-gzGzoHsz", "Lb9yad0PMHUjs66NrAQqRT3A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>
