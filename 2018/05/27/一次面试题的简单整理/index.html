@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://uploadfiles.nowcoder.net/images/20161103/7327747_1478142515011_5191CAD3158E038AE9D09ED7CF1D5165">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-99a43b3f7496fa2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-26afa9803cdfc340.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-05-27T09:21:14.986Z">
+<meta property="og:updated_time" content="2018-06-06T13:30:57.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一次面试题的简单整理">
 <meta name="twitter:description" content="牛客网：https://www.nowcoder.com/9070733">
@@ -376,8 +376,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-27T17:21:14+08:00">
-                2018-05-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-06T21:30:57+08:00">
+                2018-06-06
               </time>
             
           </span>
@@ -438,6 +438,7 @@
         <p>牛客网：<a href="https://www.nowcoder.com/9070733" target="_blank" rel="external">https://www.nowcoder.com/9070733</a><br><a id="more"></a></p>
 <h3 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h3><p>1、广播的注册方式</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!--广播注册--&gt;  </div><div class="line">   &lt;receiver android:name=".SmsBroadCastReceiver"&gt;  </div><div class="line">       &lt;intent-filter android:priority="20"&gt;  </div><div class="line">          &lt;action android:name="android.provider.Telephony.SMS_RECEIVED"/&gt;  </div><div class="line">       &lt;/intent-filter&gt;  </div><div class="line">   &lt;/receiver&gt;</div></pre></td></tr></table></figure>
+<hr>
 <p>2、android 关于service生命周期的onCreate()和onStart()说法正确的是?(<a href="https://www.nowcoder.com/questionTerminal/ed1d86767b314513916228a38014789f?from=14pdf" target="_blank" rel="external">AD</a>)</p>
 <ul>
 <li>A.当第一次启动的时候先后调用onCreate()和onStart()方法</li>
@@ -446,6 +447,7 @@
 <li>D.如果service已经启动，只会执行onStart()方法，不在执行onCreate()方法</li>
 </ul>
 <p><img src="https://uploadfiles.nowcoder.net/images/20161103/7327747_1478142515011_5191CAD3158E038AE9D09ED7CF1D5165" alt=""></p>
+<hr>
 <p>3.在android中使用Menu时可能需要重写的方法有?（<a href="https://www.nowcoder.com/questionTerminal/9a4add5a37434be0a5f28e5c371609be" target="_blank" rel="external">AC</a>）</p>
 <ul>
 <li>A.onCreateOptionsMenu()</li>
@@ -454,6 +456,7 @@
 <li>D.onItemSelected()</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;  </div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </div><div class="line">        setContentView(R.layout.activity_main);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu)</span> </span>&#123;  </div><div class="line">        <span class="comment">// Inflate the menu; this adds items to the action bar if it is present.  </span></div><div class="line">        getMenuInflater().inflate(R.menu.activity_main, menu);  </div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="meta">@Override</span>  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;  </div><div class="line">        <span class="comment">// TODO Auto-generated method stub  </span></div><div class="line">        <span class="keyword">switch</span>(item.getItemId())&#123;  </div><div class="line">           <span class="keyword">case</span> R.id.menu_about:             </div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">""</span>+<span class="string">"关于"</span>, Toast.LENGTH_SHORT).show();  </div><div class="line">               <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> R.id.menu_settings:  </div><div class="line">                 </div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">""</span>+<span class="string">"设置"</span>, Toast.LENGTH_SHORT).show();  </div><div class="line">               <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">case</span> R.id.menu_quit:  </div><div class="line">                 </div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">""</span>+<span class="string">"退出"</span>, Toast.LENGTH_SHORT).show();  </div><div class="line">               <span class="keyword">break</span>;  </div><div class="line">           <span class="keyword">default</span>:  </div><div class="line">               <span class="keyword">break</span>;  </div><div class="line">           &#125;  </div><div class="line"><span class="comment">//         Toast.makeText(MainActivity.this, ""+item.getItemId(), Toast.LENGTH_SHORT).show();  </span></div><div class="line">      </div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onOptionsItemSelected(item);  </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<hr>
 <p>4.android中下列属于intent的作用是(<a href="https://www.nowcoder.com/questionTerminal/e261e82aee5248d2939f251318ae11c4" target="_blank" rel="external">C</a>)</p>
 <ul>
 <li>A.实现应用程序间的数据共享</li>
@@ -464,6 +467,7 @@
 <blockquote>
 <p>不同activity间的数据共享</p>
 </blockquote>
+<hr>
 <p>5.如果在Activity中对一些资源以及状态进行保存操作，最好是在生命周期的哪个函数中进行呢？（A）</p>
 <ul>
 <li>A.onPause()</li>
@@ -474,11 +478,15 @@
 <blockquote>
 <p>暂停的时候保存。在onPause()时候保存状态，才能保存用户最终的使用状态。</p>
 </blockquote>
+<hr>
 <p>6.android 工程最后生成的工程文件是？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app\build\intermediates文件夹里是也</div><div class="line">intermediates：是一个中间人，调节人的意思，</div><div class="line">java源文件转为class文件后再转为dex文件，最后生成apk</div><div class="line">这里面class文件夹就被存放在intermediates文件夹里面</div></pre></td></tr></table></figure>
 <h3 id="填空题"><a href="#填空题" class="headerlink" title="填空题"></a>填空题</h3><p>1.android常用的五种布局FrameLayout(框架布局)，LinearLayout(线性布局)，RelativeLayout(相对布局)，AbsoluteLayout(绝对布局)，TableLayout(表格布局)</p>
+<hr>
 <p>2.Android四大基本组件分别是Activity，Service服务,Content Provider内容提供者，BroadcastReceiver广播接收器。</p>
+<hr>
 <p>3.android 中 service 的实现方法是： <strong><strong><em>__</em></strong></strong> 和 <strong><strong><strong>_</strong></strong></strong> 。<br>start 和 bind</p>
+<hr>
 <p>4.Android的系统体系结构分为四层，自顶向下分别是</p>
 <ul>
 <li>应用程序(Applications)</li>
@@ -486,11 +494,13 @@
 <li>系统运行库与Android运行环境(Libraris &amp; Android Runtime)</li>
 <li>Linux内核(Linux Kernel)</li>
 </ul>
+<hr>
 <p>5.AsyncTask是什么？AsyncTask的使用方法？<br>android的类AsyncTask对线程间通讯进行了包装，提供了简易的编程方式来使后台线程和UI线程进行通讯：后台线程执行异步任务，并把操作结果通知UI线程。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DownloadTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Integer</span>, <span class="title">Integer</span>, <span class="title">String</span>&gt;</span>&#123;  </div><div class="line">        <span class="comment">//后面尖括号内分别是参数（例子里是线程休息时间），进度(publishProgress用到)，返回值 类型  </span></div><div class="line">          </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span><span class="params">()</span> </span>&#123;  </div><div class="line">            <span class="comment">//第一个执行方法  </span></div><div class="line">            <span class="keyword">super</span>.onPreExecute();  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">protected</span> String <span class="title">doInBackground</span><span class="params">(Integer... params)</span> </span>&#123;  </div><div class="line">            <span class="comment">//第二个执行方法,onPreExecute()执行完后执行  </span></div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">100</span>;i++)&#123;  </div><div class="line">                pb.setProgress(i);  </div><div class="line">                publishProgress(i);  </div><div class="line">                <span class="keyword">try</span> &#123;  </div><div class="line">                    Thread.sleep(params[<span class="number">0</span>]);  </div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">            <span class="keyword">return</span> <span class="string">"执行完毕"</span>;  </div><div class="line">        &#125;  </div><div class="line">  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(Integer... progress)</span> </span>&#123;  </div><div class="line">            <span class="comment">//这个函数在doInBackground调用publishProgress时触发，虽然调用时只有一个参数  </span></div><div class="line">            <span class="comment">//但是这里取到的是一个数组,所以要用progesss[0]来取值  </span></div><div class="line">            <span class="comment">//第n个参数就用progress[n]来取值  </span></div><div class="line">            tv.setText(progress[<span class="number">0</span>]+<span class="string">"%"</span>);  </div><div class="line">            <span class="keyword">super</span>.onProgressUpdate(progress);  </div><div class="line">        &#125;  </div><div class="line">  </div><div class="line">        <span class="meta">@Override</span>  </div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(String result)</span> </span>&#123;  </div><div class="line">            <span class="comment">//doInBackground返回时触发，换句话说，就是doInBackground执行完后触发  </span></div><div class="line">            <span class="comment">//这里的result就是上面doInBackground执行后的返回值，所以这里是"执行完毕"  </span></div><div class="line">            setTitle(result);  </div><div class="line">            <span class="keyword">super</span>.onPostExecute(result);  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="https://allenwu.itscoder.com/Arts-Development-of-Android-11-1" target="_blank" rel="external">AsyncTask 的使用方法和工作原理</a></p>
 </blockquote>
+<hr>
 <p>6.什么是AIDL？AIDL是如何工作的？</p>
 <blockquote>
 <p>AIDL: Android Interface Definition Language</p>
@@ -500,6 +510,7 @@
 <blockquote>
 <p>引：<a href="https://blog.csdn.net/tellh/article/details/55100167" target="_blank" rel="external">https://blog.csdn.net/tellh/article/details/55100167</a></p>
 </blockquote>
+<hr>
 <p>7.Android中如何避免OOM异常？</p>
 <blockquote>
 <p>Java.lang.OutOfMemoryError : bitmap size exceeds VM budget。</p>
@@ -508,6 +519,7 @@
 <blockquote>
 <p><a href="https://blog.csdn.net/jiayi_yao/article/details/51107960" target="_blank" rel="external">https://blog.csdn.net/jiayi_yao/article/details/51107960</a></p>
 </blockquote>
+<hr>
 <p>8.什么是ANR 如何避免它？</p>
 <blockquote>
 <p>ANR：Application Not Responding</p>
@@ -516,6 +528,7 @@
 <blockquote>
 <p><a href="https://blog.csdn.net/m_xiaoer/article/details/62438802" target="_blank" rel="external">https://blog.csdn.net/m_xiaoer/article/details/62438802</a></p>
 </blockquote>
+<hr>
 <hr>
 <p>9.NDK 与 JNI 是什么？</p>
 <blockquote>
@@ -529,6 +542,7 @@
 <blockquote>
 <p><a href="https://blog.csdn.net/carson_ho/article/details/73250163" target="_blank" rel="external">https://blog.csdn.net/carson_ho/article/details/73250163</a></p>
 </blockquote>
+<hr>
 <p>10.Android Fragment 生命周期图</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1354448-99a43b3f7496fa2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Fragment生命周期图.png"></p>
 <p>fragments的大部分状态都和activitie很相似，但fragment有一些新的状态。</p>
@@ -537,6 +551,7 @@
 <blockquote>
 <p><a href="http://www.cnblogs.com/purediy/p/3276545.html" target="_blank" rel="external">http://www.cnblogs.com/purediy/p/3276545.html</a></p>
 </blockquote>
+<hr>
 <p>11.Android5.0和6.0之后有哪些新控件？<br>Android5.0和6.0之后新增的控件，在项目中使用的时候，可分为三大类：</p>
 <ul>
 <li><p>1、第一类是内核提供的控件，位于SDK的android.jar中。<br>这个与系统版本有关，每个版本的android.jar是固定的，有在该内核中定义的控件才能正常调用，没在内核中定义的控件在运行时会扔出类找不到的异常。比如水波图形RippleDrawable和矢量图形VectorDrawable，这两个控件在Android5.0之后的系统内核中提供，所以只有系统版本不低于5.0的手机才能使用它们，运行4.*系统的手机是无法正常调用这两个控件的。</p>
@@ -550,7 +565,9 @@
 <p><a href="https://blog.csdn.net/aqi00/article/details/59108336" target="_blank" rel="external">https://blog.csdn.net/aqi00/article/details/59108336</a></p>
 </blockquote>
 <h3 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h3><p>1.<a href="https://blog.csdn.net/zhangke3016/article/details/75923323" target="_blank" rel="external">写一个自己的Handler，对消息进行处理</a></p>
+<hr>
 <p>2.写一个冒泡排序<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">bubbleSort</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span>	<span class="title">bubbleSort</span><span class="params">()</span></span>&#123;</div><div class="line">	 <span class="keyword">int</span> a[]=&#123;<span class="number">49</span>,<span class="number">38</span>,<span class="number">65</span>,<span class="number">97</span>,<span class="number">76</span>,<span class="number">13</span>,<span class="number">27</span>,<span class="number">49</span>,<span class="number">78</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">64</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">62</span>,<span class="number">99</span>,<span class="number">98</span>,<span class="number">54</span>,<span class="number">56</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">23</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">53</span>,<span class="number">51</span>&#125;;</div><div class="line">	<span class="keyword">int</span> temp=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length-<span class="number">1</span>;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;a.length-<span class="number">1</span>-i;j++)&#123;</div><div class="line">		<span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])&#123;</div><div class="line">			temp=a[j];</div><div class="line">			a[j]=a[j+<span class="number">1</span>];</div><div class="line">			a[j+<span class="number">1</span>]=temp;</div><div class="line">		&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length;i++)</div><div class="line">		System.out.println(a[i]);	</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
 <p>3.快速排序<br>基本思想：选择一个基准元素,通常选择第一个元素或者最后一个元素,通过一趟扫描，将待排序列分成两部分,一部分比基准元素小,一部分大于等于基准元素,此时基准元素在其排好序后的正确位置,然后再用同样的方法递归地排序划分的两部分。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">quickSort</span> </span>&#123;</div><div class="line"></div><div class="line">inta[]=&#123;<span class="number">49</span>,<span class="number">38</span>,<span class="number">65</span>,<span class="number">97</span>,<span class="number">76</span>,<span class="number">13</span>,<span class="number">27</span>,<span class="number">49</span>,<span class="number">78</span>,<span class="number">34</span>,<span class="number">12</span>,<span class="number">64</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">62</span>,<span class="number">99</span>,<span class="number">98</span>,<span class="number">54</span>,<span class="number">56</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">23</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">35</span>,<span class="number">25</span>,<span class="number">53</span>,<span class="number">51</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">quickSort</span><span class="params">()</span></span>&#123;</div><div class="line">    quick(a);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length;i++)</div><div class="line">       System.out.println(a[i]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMiddle</span><span class="params">(<span class="keyword">int</span>[] list, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;   </div><div class="line">            <span class="keyword">int</span> tmp = list[low];    <span class="comment">//数组的第一个作为中轴   </span></div><div class="line">            <span class="keyword">while</span> (low &lt; high) &#123;</div><div class="line">                <span class="keyword">while</span> (low &lt; high &amp;&amp; list[high] &gt;= tmp) &#123;   </div><div class="line">                    high--;   </div><div class="line">                &#125;   </div><div class="line">                list[low] = list[high];   <span class="comment">//比中轴小的记录移到低端   </span></div><div class="line">                <span class="keyword">while</span> (low &lt; high &amp;&amp; list[low] &lt;= tmp) &#123;   </div><div class="line">                    low++;   </div><div class="line">                &#125;</div><div class="line">                list[high] = list[low];   <span class="comment">//比中轴大的记录移到高端   </span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">           list[low] = tmp;              <span class="comment">//中轴记录到尾   </span></div><div class="line">           <span class="keyword">return</span> low;                   <span class="comment">//返回中轴的位置   </span></div><div class="line">        &#125;  </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">_quickSort</span><span class="params">(<span class="keyword">int</span>[] list, <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;   </div><div class="line">            <span class="keyword">if</span> (low &lt; high) &#123;</div><div class="line">               <span class="keyword">int</span> middle = getMiddle(list, low, high);  <span class="comment">//将list数组进行一分为二</span></div><div class="line">                _quickSort(list, low, middle - <span class="number">1</span>);        <span class="comment">//对低字表进行递归排序</span></div><div class="line">               _quickSort(list, middle + <span class="number">1</span>, high);       <span class="comment">//对高字表进行递归排序</span></div><div class="line">            &#125;   </div><div class="line">        &#125; </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quick</span><span class="params">(<span class="keyword">int</span>[] a2)</span> </span>&#123;   </div><div class="line">            <span class="keyword">if</span> (a2.length &gt; <span class="number">0</span>) &#123;    <span class="comment">//查看数组是否为空   </span></div><div class="line">                _quickSort(a2, <span class="number">0</span>, a2.length - <span class="number">1</span>);   </div><div class="line">        &#125;   </div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
