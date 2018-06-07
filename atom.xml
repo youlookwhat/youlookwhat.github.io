@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2018-06-06T16:25:03.656Z</updated>
+  <updated>2018-06-07T16:00:46.275Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,14 +20,48 @@
     <link href="http://jingbin.me/2018/06/06/set-hexo-permalink/"/>
     <id>http://jingbin.me/2018/06/06/set-hexo-permalink/</id>
     <published>2018-06-06T15:25:20.000Z</published>
-    <updated>2018-06-06T16:25:03.656Z</updated>
+    <updated>2018-06-07T16:00:46.275Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>之前的文章有幸被鸿洋的公众号收录，其中引用了个人博客的一篇文章链接：<code>https://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/</code>；着实尴尬，因为默认生成的文章链接是<code>:year/:month/:day/:title/</code>，里面的汉字经过转义，导致了这样的结局。</p>
-  <a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>之前的文章有幸被鸿洋的公众号收录，文章内引用了博客中的一篇文章链接：<strong><a href="https://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/">https://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/</a></strong>；着实尴尬，因为默认生成的文章链接是<code>:year/:month/:day/:title/</code>，里面的汉字经过转义，导致了这样的结局。</p>
+<a id="more"></a>
+<h3 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h3><p>看一下<a href="https://hexo.io/zh-cn/docs/permalinks.html" target="_blank" rel="external">永久链接（Permalinks）</a>的解释，在站点的<code>_config.yml</code>中，生成的文章链接默认为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
+<p>因为<strong>title</strong>可能为中文，那生成的链接就可能为上面的情况，这时候我们希望自己在每篇文章的Front-matter中指定一个字段，然后替换<strong>title</strong>，这样就可以显示我们自己定义的url了，例如：</p>
+<ul>
+<li><code>permalink: :year/:month/:day/:urlname/</code></li>
+<li><code>permalink: post/:urlname/</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">permalink: :year/:month/:day/:urlname/</div><div class="line"># 当没有urlname时显示什么,写上 :title 也没有用，会作为字符串处理</div><div class="line">permalink_defaults:</div><div class="line">  urlname: index</div></pre></td></tr></table></figure>
+<p>因为之前文章的形式是<code>:year/:month/:day/:title/</code>，为了保留以前的文章阅读数，这里我使用第一种形式，然后在以前每篇文章的Front-matter中加上<strong>urlname</strong>，保持和以前的文章链接一致就可以了，例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: 《Android群英传 神兵利器》读书笔记</div><div class="line">urlname: 《Android群英传-神兵利器》读书笔记</div><div class="line">date: <span class="number">2018</span>-<span class="number">02</span>-<span class="number">04</span> <span class="number">23</span>:<span class="number">16</span>:<span class="number">31</span></div><div class="line">tags:</div><div class="line">- Android</div><div class="line">- Books</div><div class="line">- 工具</div><div class="line">categories: Android</div><div class="line">---</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：标题上的空格，有时候转义为“%20”，有时候则为“-”。其他的特殊字符也要注意，不然和以前的文章就不是一个链接了！</p>
+</blockquote>
+<p>为了每次<code>hexo new “my new blog title”</code>时就有<strong>urlname</strong>字段，我们可以在<code>scaffolds/post.md</code>里配上这个字段，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: &#123;&#123; title &#125;&#125;</div><div class="line">urlname: </div><div class="line">date: &#123;&#123; date &#125;&#125;</div><div class="line">tags:</div><div class="line">categories:</div><div class="line">---</div></pre></td></tr></table></figure>
+<p>这样生成的链接形式就是这样了：<a href="https://jingbin.me/2018/06/06/set-hexo-permalink/">https://jingbin.me/2018/06/06/set-hexo-permalink/</a></p>
+<h3 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h3><ul>
+<li>修改站点文件<code>_config.yml</code>中的<strong>permalink</strong>： <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">permalink: :year/:month/:day/:urlname/</div><div class="line">permalink_defaults:</div><div class="line">  urlname: index</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>在<code>scaffolds/post.md</code>里配上<strong>urlname</strong>字段：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: &#123;&#123; title &#125;&#125;</div><div class="line">urlname: </div><div class="line">date: &#123;&#123; date &#125;&#125;</div><div class="line">tags:</div><div class="line">categories:</div><div class="line">---</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="之前遇到的问题"><a href="#之前遇到的问题" class="headerlink" title="之前遇到的问题"></a>之前遇到的问题</h3><p>之前遇到的一个问题，折磨了几天，和这篇文章无关，现记录在这里：<br>用<code>hexo d</code>命令部署的时候总是会卡住很久，只用<code>hexo d -debug</code>查看日志发现信息一直在循环：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">▶ hexo d -debug</div><div class="line">INFO  Start processing</div><div class="line">INFO  Files loaded in <span class="number">620</span> ms</div><div class="line">INFO  Start processing</div><div class="line">INFO  Files loaded in <span class="number">342</span> ms</div><div class="line">...</div><div class="line">INFO  Start processing</div><div class="line">INFO  Files loaded in <span class="number">274</span> ms</div><div class="line">INFO  <span class="number">0</span> files generated in <span class="number">381</span> ms</div><div class="line">INFO  Start processing</div><div class="line">^C  </div><div class="line">Bye!</div></pre></td></tr></table></figure>
+<p>这里和另一个使用hexo的人情况一致，<a href="http://duanyifu.com/2016/08/23/hexo-deploy-problem/" target="_blank" rel="external">hexo deploy 命令卡住的奇怪问题</a>，参考他的解决方法还是没有解决，估计每个人产生的原因可能不一致，最后<code>删除db.json 文件</code>才好了。</p>
+<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><ul>
+<li><a href="https://jingbin.me/2016/11/19/Mac%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95%EF%BC%8C%E6%8E%92%E9%9B%B7%E5%AE%8C%E6%88%90/">Mac搭建Hexo博客流程记录，排雷完成</a></li>
+<li><a href="http://www.wuliaole.com/post/permalink_and_internal_link_in_hexo/" target="_blank" rel="external">HEXO的站内链接和永久链接</a></li>
+<li><a href="http://luanlouis.com/big-front-end/build-perfect-url-in-hexo.html" target="_blank" rel="external">在hexo博客中打造相对完美的URL</a></li>
+<li><a href="http://www.cnblogs.com/donglegend/p/5821052.html" target="_blank" rel="external">hexo问题篇(偶尔抽抽疯)</a></li>
+</ul>
+]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;之前的文章有幸被鸿洋的公众号收录，其中引用了个人博客的一篇文章链接：&lt;code&gt;https://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/&lt;/code&gt;；着实尴尬，因为默认生成的文章链接是&lt;code&gt;:year/:month/:day/:title/&lt;/code&gt;，里面的汉字经过转义，导致了这样的结局。&lt;/p&gt;
+      &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;之前的文章有幸被鸿洋的公众号收录，文章内引用了博客中的一篇文章链接：&lt;strong&gt;&lt;a href=&quot;https://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/&quot;&gt;https://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/&lt;/a&gt;&lt;/strong&gt;；着实尴尬，因为默认生成的文章链接是&lt;code&gt;:year/:month/:day/:title/&lt;/code&gt;，里面的汉字经过转义，导致了这样的结局。&lt;/p&gt;
     
     </summary>
     
