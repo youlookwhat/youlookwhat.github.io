@@ -1,0 +1,1278 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,性能优化," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JingBin's Home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="大范围借鉴及自己思考总结的内容，感谢各位博主的分享。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 内存泄漏分析与优化">
+<meta property="og:url" content="http://jingbin.me/2018/06/27/memory-leak-analysis/index.html">
+<meta property="og:site_name" content="JingBin's Home">
+<meta property="og:description" content="大范围借鉴及自己思考总结的内容，感谢各位博主的分享。">
+<meta property="og:updated_time" content="2018-06-27T16:37:55.874Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 内存泄漏分析与优化">
+<meta name="twitter:description" content="大范围借鉴及自己思考总结的内容，感谢各位博主的分享。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7NR95R0WHT',
+      apiKey: '',
+      indexName: 'jing_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jingbin.me/2018/06/27/memory-leak-analysis/"/>
+
+
+
+
+
+  <title> Android 内存泄漏分析与优化 | JingBin's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4bf05054dba6aed3e35f11764b201341";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">JingBin's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2018/06/27/memory-leak-analysis/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android 内存泄漏分析与优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-27T21:31:24+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-28T00:37:55+08:00">
+                2018-06-28
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/06/27/memory-leak-analysis/" class="leancloud_visitors" data-flag-title="Android 内存泄漏分析与优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>大范围借鉴及自己思考总结的内容，感谢各位博主的分享。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><h4 id="何为性能问题"><a href="#何为性能问题" class="headerlink" title="何为性能问题"></a>何为性能问题</h4><h5 id="1-响应时间"><a href="#1-响应时间" class="headerlink" title="(1). 响应时间"></a>(1). 响应时间</h5><p>指从用户操作开始到系统给用户以正确反馈的时间。一般包括逻辑处理时间 + 网络传输时间 + 展现时间。对于非网络类应用不包括网络传输时间。</p>
+<p>展现时间即：网页或 App 界面渲染时间。<br>响应时间是：用户对性能最直接的感受。</p>
+<h5 id="2-TPS-Transaction-Per-Second"><a href="#2-TPS-Transaction-Per-Second" class="headerlink" title="(2). TPS(Transaction Per Second)"></a>(2). TPS(Transaction Per Second)</h5><p>TPS为每秒处理的事务数，是系统吞吐量的指标，在搜索系统中也用QPS(Query Per Second)衡量。TPS一般与响应时间反相关。</p>
+<p>通常所说的性能问题就是指响应时间过长、系统吞吐量过低。</p>
+<p>对后台开发来说，也常将高并发下内存泄漏归为性能问题。<br>对移动开发来说，性能问题还包括电量、内存使用这两类较特殊情况。</p>
+<h4 id="性能调优方式"><a href="#性能调优方式" class="headerlink" title="性能调优方式"></a>性能调优方式</h4><p>明白了何为性能问题之后，就能明白性能优化实际就是优化系统的响应时间，提高TPS。优化响应时间，提高TPS。方式不外乎这三大类：</p>
+<ul>
+<li>(1) 降低执行时间，又包括几小类<ul>
+<li>a. 利用多线程并发或分布式提高 TPS</li>
+<li>b. 缓存(包括对象缓存、IO 缓存、网络缓存等)</li>
+<li>c. 数据结构和算法优化</li>
+<li>d. 性能更优的底层接口调用，如 JNI 实现</li>
+<li>e. 逻辑优化</li>
+<li>f. 需求优化</li>
+</ul>
+</li>
+<li>(2) 同步改异步，利用多线程提高TPS</li>
+<li>(3) 提前或延迟操作，错峰提高TPS</li>
+</ul>
+<h3 id="项目优化细节"><a href="#项目优化细节" class="headerlink" title="项目优化细节"></a>项目优化细节</h3><h4 id="内存泄漏问题"><a href="#内存泄漏问题" class="headerlink" title="内存泄漏问题"></a>内存泄漏问题</h4><h5 id="静态单例类引用Activity的context"><a href="#静态单例类引用Activity的context" class="headerlink" title="静态单例类引用Activity的context"></a>静态单例类引用Activity的context</h5><p>单例模式不正确的获取context:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginManager</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LoginManager manager;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LoginManager <span class="title">getInstance</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (manager == <span class="keyword">null</span>)</div><div class="line">            manager = <span class="keyword">new</span> LoginManager(context);</div><div class="line">        <span class="keyword">return</span> manager;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LoginManager</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.context = context;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>在LoginActivity中:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span>  </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> LoginManager loginManager;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_login);</div><div class="line">        loginManager = LoginManager.getInstance(<span class="keyword">this</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>在LoginManager的单例中context持有了LoginActivity的this对象，即使登录成功后我们跳转到了其他Activity页面，LoginActivity的对象仍然得不到回收因为他被单例所持有，而单例的生命周期是同Application保持一致的。</p>
+<p>正确的获取context的方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginManager</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LoginManager manager;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LoginManager <span class="title">getInstance</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (manager == <span class="keyword">null</span>)</div><div class="line">            manager = <span class="keyword">new</span> LoginManager(context);</div><div class="line">        <span class="keyword">return</span> manager;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LoginManager</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.context = context.getApplicationContext();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我们单例中context不再持有Activity的context而是持有Application的context即可，因为Application本来就是单例，所以这样就不会存在内存泄漏的的现象了。</p>
+</blockquote>
+<h5 id="单例模式中通过内部类持有activity对象"><a href="#单例模式中通过内部类持有activity对象" class="headerlink" title="单例模式中通过内部类持有activity对象"></a>单例模式中通过内部类持有activity对象</h5><p>下面是一个单例的类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestManager</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> TestManager INSTANCE = <span class="keyword">new</span> TestManager();</div><div class="line">    <span class="keyword">private</span> List&lt;MyListener&gt; mListenerList;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">TestManager</span><span class="params">()</span> </span>&#123;</div><div class="line">        mListenerList = <span class="keyword">new</span> ArrayList&lt;MyListener&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TestManager <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> INSTANCE;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerListener</span><span class="params">(MyListener listener)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!mListenerList.contains(listener)) &#123;</div><div class="line">            mListenerList.add(listener);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unregisterListener</span><span class="params">(MyListener listener)</span> </span>&#123;</div><div class="line">        mListenerList.remove(listener);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyListener</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSomeThingHappen</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后是activity:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> MyListener mMyListener=<span class="keyword">new</span> MyListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSomeThingHappen</span><span class="params">()</span> </span>&#123;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">private</span> TestManager testManager=TestManager.getInstance();</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_test);</div><div class="line">        testManager.registerListener(mMyListener);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们知道在java中，非静态的内部类的对象都是会持有指向外部类对象的引用的，因此我们将内部类对象mMyListener让单例所持有时，由于mMyListener引用了我们的activity对象，因此造成activity对象也不能被回收了，从而出现内存泄漏现象。</p>
+<p>修改以上代码，避免内存泄漏，在activity中添加以下代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">    testManager.unregisterListener(mMyListener);</div><div class="line">    <span class="keyword">super</span>.onDestroy();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>退出界面时，取消相关注册监听！</p>
+</blockquote>
+<h5 id="AsyncTask不正确使用造成的内存泄漏"><a href="#AsyncTask不正确使用造成的内存泄漏" class="headerlink" title="AsyncTask不正确使用造成的内存泄漏"></a>AsyncTask不正确使用造成的内存泄漏</h5><p>我们在来看一种更加容易被忽略的内存泄漏现象，对于AsyncTask不正确使用造成内存泄漏的问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mTask=<span class="keyword">new</span> AsyncTask&lt;String,Void,Void&gt;()</div><div class="line">        &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(String... params)</span> </span>&#123;</div><div class="line">                <span class="comment">//doSamething..</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;.execute(<span class="string">"a task"</span>);</div></pre></td></tr></table></figure>
+<p>我们在使用AsyncTask的时候不宜在其中执行太耗时的操作，假设activity已经退出了，然而AsyncTask里任务还没有执行完成或者是还在排队等待执行，就会造成我们的activity对象被回收的时间延后，一段时间内内存占有率变大。</p>
+<p>解决方法在activity退出的时候应该调用cancel()函数:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="comment">//mTask.cancel(false);</span></div><div class="line">       mTask.cancel(<span class="keyword">true</span>);</div><div class="line">       <span class="keyword">super</span>.onDestroy();</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>退出界面时，结束当前页面的线程。</p>
+</blockquote>
+<h5 id="内部Handler类引起内存泄露"><a href="#内部Handler类引起内存泄露" class="headerlink" title="内部Handler类引起内存泄露"></a>内部Handler类引起内存泄露</h5><p>原因：Handler在Android中用于消息的发送与异步处理，常常在Activity中作为一个匿名内部类来定义，此时Handler会隐式地持有一个外部类对象（通常是一个Activity）的引用。当Activity已经被用户关闭时，由于Handler持有Activity的引用造成Activity无法被GC回收，这样容易造成内存泄露。 正确的做法是将其定义成一个静态内部类（此时不会持有外部类对象的引用），在构造方法中传入Activity并对Activity对象增加一个弱引用，这样Activity被用户关闭之后，即便异步消息还未处理完毕，Activity也能够被GC回收，从而避免了内存泄露。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> WeakReference&lt;Activity&gt; reference;</div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyHandler</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">            reference = <span class="keyword">new</span> WeakReference&lt;Activity&gt;(activity);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (reference.get() != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">switch</span> (msg.what) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">                    <span class="comment">// do something...</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">default</span>:</div><div class="line">                    <span class="comment">// do something...</span></div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="webview导致的内存泄漏"><a href="#webview导致的内存泄漏" class="headerlink" title="webview导致的内存泄漏"></a>webview导致的内存泄漏</h5><p>用代码New一个WebView而不是在XML中静态写入(不过貌似不能设置进度条了，不需要进度条的可以忽略):</p>
+<p>在XML文件中用layout占位:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout</div><div class="line">    android:id=<span class="string">"@+id/base_web_view_container"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>接下来只需要在Activity中New一个WebView并且添加到我们的容器中就ok了:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">RelativeLayout webview_container = (RelativeLayout) findViewById(R.id.base_web_view_container);</div><div class="line">web_view_ = <span class="keyword">new</span> WebView(yourApplicationContext);</div><div class="line">web_view_.setLayoutParams(<span class="keyword">new</span> ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,</div><div class="line">                ViewGroup.LayoutParams.MATCH_PARENT));</div><div class="line">web_view_.setOnWebCallback(yourWebCallback);</div><div class="line">webview_container.addView(web_view_);</div></pre></td></tr></table></figure>
+<p>关于WebView的context应该用Activity还是Application的context，这里网上较为一致的观点都是采用Application的，理由是这样不会造成Activity的context的内存泄漏。</p>
+<p>销毁时的动作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clearWebViewResource</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (web_view_ != <span class="keyword">null</span>) &#123;</div><div class="line">        LogUtils.d(TAG,<span class="string">"Clear webview's resources"</span>);</div><div class="line">        web_view_.removeAllViews();</div><div class="line">        <span class="comment">// in android 5.1(sdk:21) we should invoke this to avoid memory leak</span></div><div class="line">        <span class="comment">// see (https://coolpers.github.io/webview/memory/leak/2015/07/16/</span></div><div class="line">        <span class="comment">// android-5.1-webview-memory-leak.html)</span></div><div class="line">        ((ViewGroup) web_view_.getParent()).removeView(web_view_);</div><div class="line">        web_view_.setTag(<span class="keyword">null</span>);</div><div class="line">        web_view_.clearHistory();</div><div class="line">        web_view_.destroy();</div><div class="line">        web_view_ = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Window-Leaked"><a href="#Window-Leaked" class="headerlink" title="Window Leaked"></a>Window Leaked</h5><p>按字面了解，Window Leaked大概就是说一个窗体泄漏了，也就是我们常说的内存泄漏，为什么窗体会泄漏呢？</p>
+<ul>
+<li><p>产生原因：<br> 我们知道Android的每一个Activity都有个WindowManager窗体管理器，同样，构建在某个Activity之上的对话框、PopupWindow也有相应的WindowManager窗体管理器。因为对话框、PopupWindown不能脱离Activity而单独存在着，所以当某个Dialog或者某个PopupWindow正在显示的时候我们去finish()了承载该Dialog(或PopupWindow)的Activity时，就会抛Window Leaked异常了，因为这个Dialog(或PopupWindow)的WindowManager已经没有谁可以附属了，所以它的窗体管理器已经泄漏了。</p>
+</li>
+<li><p>解决方法：<br>关闭(finish)某个Activity前，要确保附属在上面的Dialog或PopupWindow已经关闭(dismiss)了。</p>
+</li>
+</ul>
+<h5 id="避免内存流失"><a href="#避免内存流失" class="headerlink" title="避免内存流失"></a>避免内存流失</h5><p>内存流失可能会导致出现大量的 GC 事件，如自定义组件的 onDraw() ，避免大量创建临时对象，比如 String ，以免频繁触发 GC。GC 事件通常不影响您的 APP 的性能，然而在很短的时间段，发生许多垃圾收集事件可以快速地吃了您的帧时间，系统上时间的都花费在 GC ，就有很少时间做其他的东西像渲染或音频流。</p>
+<h5 id="监听器的注销"><a href="#监听器的注销" class="headerlink" title="监听器的注销"></a>监听器的注销</h5><ul>
+<li>对于观察者, 广播, Listener等, 注册和注销没有成对出现而导致的内存泄露.</li>
+<li>使用CountDownTimer倒计时时，退出activity要取消：<code>timer.cancel()</code></li>
+<li>使用LocationManager获取地理位置，及时取消注册：<code>locationManager.removeUpdates(mListener);</code></li>
+<li>使用dialog或BottomSheetDialog，消失时移除监听，对象置空</li>
+<li>使用RxBus，退出activity取消注册</li>
+<li>使用一些三方的库，仔细查看是否需要取消注册的情况</li>
+</ul>
+<h5 id="Bitmap处理"><a href="#Bitmap处理" class="headerlink" title="Bitmap处理"></a>Bitmap处理</h5><p>以<a href="https://www.fresco-cn.org/docs/troubleshooting.html" target="_blank" rel="external">fresco</a>为例：</p>
+<ul>
+<li>(最好是加载图片宽高大小的图片，多余的尺寸会导致内存浪费，不过webp后缀的图片无法设置宽高，这是个问题？)加载特别特别大的图片时最容易导致这种情况。如果你加载的图片比承载的View明显大出太多，那你应该考虑将它Resize一下。</li>
+<li>Android <strong><em>无法绘制长或宽大于2048像素的图片</em></strong>。这是由OpenGL渲染系统限制的，如果它超过了这个界限，Fresco会对它进行Resize。</li>
+<li>decode format：解码格式，选择ARGB_8888/RBG_565/ARGB_4444/ALPHA_8，存在很大差异。在不需要特别清晰的图片情况下，使用<strong><em>RBG_565</em></strong>为好。</li>
+</ul>
+<h5 id="SharedPreference-存储value"><a href="#SharedPreference-存储value" class="headerlink" title="SharedPreference 存储value"></a>SharedPreference 存储value</h5><p>sp在创建的时候会把整个文件全部加载进内存，如果你的sp文件比较大，那么会带来两个严重问题：</p>
+<ul>
+<li>第一次从sp中获取值的时候，有可能阻塞主线程，使界面卡顿、掉帧。</li>
+<li>解析sp的时候会产生大量的临时对象，导致频繁GC，引起界面卡顿。</li>
+<li>这些key和value会永远存在于内存之中，占用大量内存。</li>
+</ul>
+<h5 id="Cursor关闭"><a href="#Cursor关闭" class="headerlink" title="Cursor关闭"></a>Cursor关闭</h5><p>如查询数据库的操作，使用到Cursor，也要对Cursor对象及时关闭。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">     <span class="keyword">if</span> (cursor != <span class="keyword">null</span>) &#123;</div><div class="line">        cursor.moveToFirst();</div><div class="line">        <span class="comment">// do something.</span></div><div class="line">    &#125;</div><div class="line">&#125;<span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;<span class="keyword">finally</span> &#123;</div><div class="line">    <span class="keyword">if</span> (cursor != <span class="keyword">null</span>) &#123;</div><div class="line">        cursor.close();</div><div class="line">        cursor = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="有效使用内存的建议"><a href="#有效使用内存的建议" class="headerlink" title="有效使用内存的建议"></a>有效使用内存的建议</h4><h5 id="去掉bean里无用的字段"><a href="#去掉bean里无用的字段" class="headerlink" title="去掉bean里无用的字段"></a>去掉bean里无用的字段</h5><p>有时候我们通过GsonFormat直接生成返回的json的Bean，而有一些我们并未使用的字段也一并生成了，建议删除这些无用字段，不然将无可避免的占用一定的内存空间。</p>
+<h5 id="关闭页面，全局的list清空后置空"><a href="#关闭页面，全局的list清空后置空" class="headerlink" title="关闭页面，全局的list清空后置空"></a>关闭页面，全局的list清空后置空</h5><p>用完就清空，并设置为null，不要到处引用不然会导致不能及时释放。</p>
+<h5 id="谨慎使用服务Service"><a href="#谨慎使用服务Service" class="headerlink" title="谨慎使用服务Service"></a>谨慎使用服务Service</h5><p>离开了 APP 还在运行服务是最糟糕的内存管理错误之一，当 APP 处在后台，我们应该停止服务，除非它需要运行的任务。我们可以使用<a href="https://developer.android.google.cn/topic/performance/background-optimization" target="_blank" rel="external">JobScheduler</a>替代实现，JobScheduler把一些不是特别紧急的任务放到更合适的时机批量处理。如果必须使用一个服务，最佳方法是使用<a href="https://developer.android.google.cn/guide/components/services" target="_blank" rel="external">IntentService</a>，限制服务寿命，所有请求处理完成后，IntentService 会自动停止。</p>
+<h5 id="使用优化后的数据容器"><a href="#使用优化后的数据容器" class="headerlink" title="使用优化后的数据容器"></a>使用优化后的数据容器</h5><p>考虑使用优化过数据的容器 SparseArray / SparseBooleanArray / LongSparseArray 代替 HashMap 等传统数据结构，通用 HashMap 的实现可以说是相当低效的内存，因为它需要为每个映射一个单独的条目对象</p>
+<p>关于HashMap，ArrayMap，SparseArray, <a href="https://www.jianshu.com/p/7b9a1b386265" target="_blank" rel="external">这篇文章</a>有个比较直观的比较, 可以看下</p>
+<h5 id="少用枚举enum结构"><a href="#少用枚举enum结构" class="headerlink" title="少用枚举enum结构"></a>少用枚举enum结构</h5><p>枚举一般是用来列举一系列相同类型的常量，它是一种特殊的数据类型，使用枚举能够确保参数的安全性。但是Android开发文档上指出，使用枚举会比使用静态变量多消耗两倍的内存，应该尽量避免在Android中使用枚举。</p>
+<p>那么枚举为什么会更消耗内存呢？ - <a href="https://blog.csdn.net/xiao_nian/article/details/80002101" target="_blank" rel="external">分析链接</a></p>
+<h5 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h5><p>诸如一些临时对象, 特别是循环中的.</p>
+<h5 id="使用异步处理数据较多的情况"><a href="#使用异步处理数据较多的情况" class="headerlink" title="使用异步处理数据较多的情况"></a>使用异步处理数据较多的情况</h5><p>如果一些数据需要处理再显示在UI上，对于数据量比较大的情况强烈建议异步处理后再在主线程处理。</p>
+<h5 id="使用-nano-protobufs-序列化数据"><a href="#使用-nano-protobufs-序列化数据" class="headerlink" title="使用 nano protobufs 序列化数据"></a>使用 nano protobufs 序列化数据</h5><p>Protocol buffers 是一个语言中立，平台中立的，可扩展的机制，由谷歌进行序列化结构化数据，类似于 XML 设计的，但是更小，更快，更简单。如果需要为您的数据序列化与协议化，建议使用 nano protobufs。</p>
+<h5 id="使用ProGuard来剔除不需要的代码"><a href="#使用ProGuard来剔除不需要的代码" class="headerlink" title="使用ProGuard来剔除不需要的代码"></a>使用ProGuard来剔除不需要的代码</h5><p>使用 ProGuard 来剔除不需要的代码，移除任何冗余的，不必要的，或臃肿的组件，资源或库完善 APP 的内存消耗。</p>
+<h5 id="降低整体尺寸APK"><a href="#降低整体尺寸APK" class="headerlink" title="降低整体尺寸APK"></a>降低整体尺寸APK</h5><p>您可以通过减少 APP 的整体规模显著减少 APP 的内存使用情况。文章：<a href="http://wuxiaolong.me/2017/03/19/ReduceAPKSize/" target="_blank" rel="external">Android APK瘦身实践</a></p>
+<h5 id="优化布局层次"><a href="#优化布局层次" class="headerlink" title="优化布局层次"></a>优化布局层次</h5><p>通过优化视图层次结构，以减少重叠的 UI 对象的数量来提高性能。文章：<a href="http://wuxiaolong.me/2017/03/26/Rendering/" target="_blank" rel="external">Android 渲染优化</a></p>
+<h3 id="检测工具"><a href="#检测工具" class="headerlink" title="检测工具"></a>检测工具</h3><ul>
+<li><a href="https://github.com/square/leakcanary" target="_blank" rel="external">leakcanary</a></li>
+</ul>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
+<li><a href="http://www.trinea.cn/android/performance/" target="_blank" rel="external">性能优化系列总篇</a></li>
+<li><a href="https://blog.csdn.net/ys408973279/article/details/50389200" target="_blank" rel="external">Android内存优化之——static使用篇</a></li>
+<li><a href="https://gist.github.com/yangdm0209/ded1d6fe2d7724070b3af87caa5515c2" target="_blank" rel="external">Android 中handler的HandlerLeak问题</a></li>
+<li><a href="https://blog.csdn.net/sanjay_f/article/details/50208847" target="_blank" rel="external">源码探索系列1—Handler与HandlerLeak的那些事</a></li>
+<li><a href="http://lipeng1667.github.io/2016/08/06/memory-optimisation-for-webview-in-android/" target="_blank" rel="external">WebView内存泄漏优化之路</a></li>
+<li><a href="https://blog.csdn.net/u_xtian/article/details/6123945" target="_blank" rel="external">关于android.view.WindowLeaked的解决方案</a></li>
+<li><a href="http://wuxiaolong.me/2017/04/15/memory/" target="_blank" rel="external">Android 内存优化</a></li>
+<li><a href="http://weishu.me/2016/10/13/sharedpreference-advices/" target="_blank" rel="external">请不要滥用SharedPreference</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/性能优化/" rel="tag"># 性能优化</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/13/buying-a-house-in-wuhan/" rel="next" title="武汉购房经历 | 已结束">
+                <i class="fa fa-chevron-left"></i> 武汉购房经历 | 已结束
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JingBin" />
+          <p class="site-author-name" itemprop="name">JingBin</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/youlookwhat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3121694927/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/jingbin_" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wanandroid.com/index" title="玩Android" target="_blank">玩Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://p.codekk.com/" title="CodeKK" target="_blank">CodeKK</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/sinyu890807/" title="郭霖" target="_blank">郭霖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791" title="鸿洋" target="_blank">鸿洋</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me/" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hukai.me/" title="胡凯" target="_blank">胡凯</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <!--
+-->
+        <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26237342&auto=0&height=66"></iframe>-->
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础概念"><span class="nav-number">1.</span> <span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#何为性能问题"><span class="nav-number">1.1.</span> <span class="nav-text">何为性能问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-响应时间"><span class="nav-number">1.1.1.</span> <span class="nav-text">(1). 响应时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-TPS-Transaction-Per-Second"><span class="nav-number">1.1.2.</span> <span class="nav-text">(2). TPS(Transaction Per Second)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能调优方式"><span class="nav-number">1.2.</span> <span class="nav-text">性能调优方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目优化细节"><span class="nav-number">2.</span> <span class="nav-text">项目优化细节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存泄漏问题"><span class="nav-number">2.1.</span> <span class="nav-text">内存泄漏问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#静态单例类引用Activity的context"><span class="nav-number">2.1.1.</span> <span class="nav-text">静态单例类引用Activity的context</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单例模式中通过内部类持有activity对象"><span class="nav-number">2.1.2.</span> <span class="nav-text">单例模式中通过内部类持有activity对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AsyncTask不正确使用造成的内存泄漏"><span class="nav-number">2.1.3.</span> <span class="nav-text">AsyncTask不正确使用造成的内存泄漏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内部Handler类引起内存泄露"><span class="nav-number">2.1.4.</span> <span class="nav-text">内部Handler类引起内存泄露</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webview导致的内存泄漏"><span class="nav-number">2.1.5.</span> <span class="nav-text">webview导致的内存泄漏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Window-Leaked"><span class="nav-number">2.1.6.</span> <span class="nav-text">Window Leaked</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#避免内存流失"><span class="nav-number">2.1.7.</span> <span class="nav-text">避免内存流失</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#监听器的注销"><span class="nav-number">2.1.8.</span> <span class="nav-text">监听器的注销</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bitmap处理"><span class="nav-number">2.1.9.</span> <span class="nav-text">Bitmap处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SharedPreference-存储value"><span class="nav-number">2.1.10.</span> <span class="nav-text">SharedPreference 存储value</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cursor关闭"><span class="nav-number">2.1.11.</span> <span class="nav-text">Cursor关闭</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有效使用内存的建议"><span class="nav-number">2.2.</span> <span class="nav-text">有效使用内存的建议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#去掉bean里无用的字段"><span class="nav-number">2.2.1.</span> <span class="nav-text">去掉bean里无用的字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关闭页面，全局的list清空后置空"><span class="nav-number">2.2.2.</span> <span class="nav-text">关闭页面，全局的list清空后置空</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#谨慎使用服务Service"><span class="nav-number">2.2.3.</span> <span class="nav-text">谨慎使用服务Service</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用优化后的数据容器"><span class="nav-number">2.2.4.</span> <span class="nav-text">使用优化后的数据容器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#少用枚举enum结构"><span class="nav-number">2.2.5.</span> <span class="nav-text">少用枚举enum结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#避免创建不必要的对象"><span class="nav-number">2.2.6.</span> <span class="nav-text">避免创建不必要的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用异步处理数据较多的情况"><span class="nav-number">2.2.7.</span> <span class="nav-text">使用异步处理数据较多的情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-nano-protobufs-序列化数据"><span class="nav-number">2.2.8.</span> <span class="nav-text">使用 nano protobufs 序列化数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用ProGuard来剔除不需要的代码"><span class="nav-number">2.2.9.</span> <span class="nav-text">使用ProGuard来剔除不需要的代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#降低整体尺寸APK"><span class="nav-number">2.2.10.</span> <span class="nav-text">降低整体尺寸APK</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优化布局层次"><span class="nav-number">2.2.11.</span> <span class="nav-text">优化布局层次</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测工具"><span class="nav-number">3.</span> <span class="nav-text">检测工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JingBin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cJ3qzFUAP7IbAMdtTT9gEmsd-gzGzoHsz", "Lb9yad0PMHUjs66NrAQqRT3A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>
