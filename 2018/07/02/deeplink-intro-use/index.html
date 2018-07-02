@@ -68,6 +68,8 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Android,deeplink," />
+
 
 
 
@@ -84,15 +86,19 @@
 
 
 
-<meta name="description" content="路漫漫其修远兮">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JingBin's Home">
-<meta property="og:url" content="http://jingbin.me/tags/性能优化/index.html">
+<meta name="description" content="前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android DeepLink介绍与使用">
+<meta property="og:url" content="http://jingbin.me/2018/07/02/deeplink-intro-use/index.html">
 <meta property="og:site_name" content="JingBin's Home">
-<meta property="og:description" content="路漫漫其修远兮">
+<meta property="og:description" content="前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-a4fcbfe2740d1b8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240">
+<meta property="og:updated_time" content="2018-07-02T15:38:25.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JingBin's Home">
-<meta name="twitter:description" content="路漫漫其修远兮">
+<meta name="twitter:title" content="Android DeepLink介绍与使用">
+<meta name="twitter:description" content="前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://jingbin.me/tags/性能优化/"/>
+  <link rel="canonical" href="http://jingbin.me/2018/07/02/deeplink-intro-use/"/>
 
 
 
 
 
-  <title> 标签: 性能优化 | JingBin's Home </title>
+  <title> Android DeepLink介绍与使用 | JingBin's Home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -157,7 +163,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
@@ -308,74 +314,212 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        性能优化
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/27/memory-leak-analysis/" itemprop="url">
-              
-                <span itemprop="name">Android 内存泄漏分析与优化</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-27T21:31:24+08:00"
-              content="2018-06-27" >
-          06-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/17/性能优化之布局优化记录/" itemprop="url">
-              
-                <span itemprop="name">性能优化之布局优化记录</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-17T16:44:31+08:00"
-              content="2018-05-17" >
-          05-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2018/07/02/deeplink-intro-use/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android DeepLink介绍与使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-02T21:22:09+08:00">
+                2018-07-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-02T23:38:25+08:00">
+                2018-07-02
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/07/02/deeplink-intro-use/" class="leancloud_visitors" data-flag-title="Android DeepLink介绍与使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。</p>
+<a id="more"></a>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>Deep Link，又叫deep linking，中文翻译作深层链接。</p>
+<p>简单地从用户体验来讲，Deep Link，就是可以让你在手机的浏览器/Google Search上点击搜索的结果，便能直接跳转到已安装的应用中的某一个页面的技术。</p>
+<p>对于不懂技术的运营人员来说就是一个分享功能，而从技术层面上去简单理解是实现将某APP用户带到另外APP相对应的内容页面，实现APP之间无缝跳转！</p>
+<h3 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h3><p>相信大家或多或少看到过这样的页面：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1354448-a4fcbfe2740d1b8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="deeplink"></p>
+<p>底部有一个“App内打开”，点击后如果安装过应用直接跳到应用的对应页面，如果没安装则跳到下载应用页。</p>
+<h4 id="Deeplink（深度链接）"><a href="#Deeplink（深度链接）" class="headerlink" title="Deeplink（深度链接）"></a>Deeplink（深度链接）</h4><p>对于已经安装APP，指向特定的页面，和上面说的一致。</p>
+<h4 id="Deferred-deeplink（-延迟深度链接）"><a href="#Deferred-deeplink（-延迟深度链接）" class="headerlink" title="Deferred deeplink（ 延迟深度链接）"></a>Deferred deeplink（ 延迟深度链接）</h4><p>相比deeplink，它增加了判断APP是否被安装，用户匹配的2个功能；</p>
+<ul>
+<li>1.当用户点击链接的时候判断APP是否安装，如果用户没有安装时，引导用户跳转到应用商店下载应用。</li>
+<li>2.用户匹配功能，当用户点击链接时和用户启动APP时，分别将这两次用户Device Fingerprint（设备指纹信息）传到服务器进行模糊匹配，使用户下载且启动APP时，直接打开相应的指定页面。</li>
+</ul>
+<p>通过上面的2个技术方案，不仅：①可以让被分享者更快更便捷的回到APP，且回到指定的活动页面，而且：②可以引导未安装APP的用户下载APP、③分享者和被分享者的关系链会通过设备指纹信息记录下来，在业务场景中给出相应的奖励。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><blockquote>
+<p>后续更新</p>
+</blockquote>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://mp.weixin.qq.com/s/fWBDfd-7al7MsY0zwDn6dA" target="_blank" rel="external">深度链接（Deeplink）技术助力APP运营，实现病毒式用户增长</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/deeplink/" rel="tag"># deeplink</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/27/memory-leak-analysis/" rel="next" title="Android 内存泄漏分析与优化">
+                <i class="fa fa-chevron-left"></i> Android 内存泄漏分析与优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -383,6 +527,16 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
 
         </div>
         
@@ -402,8 +556,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -555,6 +718,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用处"><span class="nav-number">2.</span> <span class="nav-text">用处</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Deeplink（深度链接）"><span class="nav-number">2.1.</span> <span class="nav-text">Deeplink（深度链接）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deferred-deeplink（-延迟深度链接）"><span class="nav-number">2.2.</span> <span class="nav-text">Deferred deeplink（ 延迟深度链接）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -669,6 +848,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

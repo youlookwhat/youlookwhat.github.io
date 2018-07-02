@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2018-06-27T16:37:55.874Z</updated>
+  <updated>2018-07-02T15:38:25.481Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -16,11 +16,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android DeepLink介绍与使用</title>
+    <link href="http://jingbin.me/2018/07/02/deeplink-intro-use/"/>
+    <id>http://jingbin.me/2018/07/02/deeplink-intro-use/</id>
+    <published>2018-07-02T13:22:09.000Z</published>
+    <updated>2018-07-02T15:38:25.481Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。</p>
+<a id="more"></a>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>Deep Link，又叫deep linking，中文翻译作深层链接。</p>
+<p>简单地从用户体验来讲，Deep Link，就是可以让你在手机的浏览器/Google Search上点击搜索的结果，便能直接跳转到已安装的应用中的某一个页面的技术。</p>
+<p>对于不懂技术的运营人员来说就是一个分享功能，而从技术层面上去简单理解是实现将某APP用户带到另外APP相对应的内容页面，实现APP之间无缝跳转！</p>
+<h3 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h3><p>相信大家或多或少看到过这样的页面：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1354448-a4fcbfe2740d1b8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="deeplink"></p>
+<p>底部有一个“App内打开”，点击后如果安装过应用直接跳到应用的对应页面，如果没安装则跳到下载应用页。</p>
+<h4 id="Deeplink（深度链接）"><a href="#Deeplink（深度链接）" class="headerlink" title="Deeplink（深度链接）"></a>Deeplink（深度链接）</h4><p>对于已经安装APP，指向特定的页面，和上面说的一致。</p>
+<h4 id="Deferred-deeplink（-延迟深度链接）"><a href="#Deferred-deeplink（-延迟深度链接）" class="headerlink" title="Deferred deeplink（ 延迟深度链接）"></a>Deferred deeplink（ 延迟深度链接）</h4><p>相比deeplink，它增加了判断APP是否被安装，用户匹配的2个功能；</p>
+<ul>
+<li>1.当用户点击链接的时候判断APP是否安装，如果用户没有安装时，引导用户跳转到应用商店下载应用。</li>
+<li>2.用户匹配功能，当用户点击链接时和用户启动APP时，分别将这两次用户Device Fingerprint（设备指纹信息）传到服务器进行模糊匹配，使用户下载且启动APP时，直接打开相应的指定页面。</li>
+</ul>
+<p>通过上面的2个技术方案，不仅：①可以让被分享者更快更便捷的回到APP，且回到指定的活动页面，而且：②可以引导未安装APP的用户下载APP、③分享者和被分享者的关系链会通过设备指纹信息记录下来，在业务场景中给出相应的奖励。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><blockquote>
+<p>后续更新</p>
+</blockquote>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://mp.weixin.qq.com/s/fWBDfd-7al7MsY0zwDn6dA" target="_blank" rel="external">深度链接（Deeplink）技术助力APP运营，实现病毒式用户增长</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;br&gt;前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+    
+      <category term="deeplink" scheme="http://jingbin.me/tags/deeplink/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android 内存泄漏分析与优化</title>
     <link href="http://jingbin.me/2018/06/27/memory-leak-analysis/"/>
     <id>http://jingbin.me/2018/06/27/memory-leak-analysis/</id>
     <published>2018-06-27T13:31:24.000Z</published>
-    <updated>2018-06-27T16:37:55.874Z</updated>
+    <updated>2018-06-28T03:31:21.436Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>大范围借鉴及自己思考总结的内容，感谢各位博主的分享。</p>
@@ -111,6 +156,7 @@
 <li>解析sp的时候会产生大量的临时对象，导致频繁GC，引起界面卡顿。</li>
 <li>这些key和value会永远存在于内存之中，占用大量内存。</li>
 </ul>
+<p>储存数据量过大后，取值小屏手机vivoY23L,v4.4.4会取值失败。</p>
 <h5 id="Cursor关闭"><a href="#Cursor关闭" class="headerlink" title="Cursor关闭"></a>Cursor关闭</h5><p>如查询数据库的操作，使用到Cursor，也要对Cursor对象及时关闭。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">     <span class="keyword">if</span> (cursor != <span class="keyword">null</span>) &#123;</div><div class="line">        cursor.moveToFirst();</div><div class="line">        <span class="comment">// do something.</span></div><div class="line">    &#125;</div><div class="line">&#125;<span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;<span class="keyword">finally</span> &#123;</div><div class="line">    <span class="keyword">if</span> (cursor != <span class="keyword">null</span>) &#123;</div><div class="line">        cursor.close();</div><div class="line">        cursor = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="有效使用内存的建议"><a href="#有效使用内存的建议" class="headerlink" title="有效使用内存的建议"></a>有效使用内存的建议</h4><h5 id="去掉bean里无用的字段"><a href="#去掉bean里无用的字段" class="headerlink" title="去掉bean里无用的字段"></a>去掉bean里无用的字段</h5><p>有时候我们通过GsonFormat直接生成返回的json的Bean，而有一些我们并未使用的字段也一并生成了，建议删除这些无用字段，不然将无可避免的占用一定的内存空间。</p>
@@ -2417,47 +2463,6 @@
       <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
     
       <category term="databinding" scheme="http://jingbin.me/tags/databinding/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>看火影有感</title>
-    <link href="http://jingbin.me/2017/10/06/%E7%9C%8B%E7%81%AB%E5%BD%B1%E6%9C%89%E6%84%9F/"/>
-    <id>http://jingbin.me/2017/10/06/看火影有感/</id>
-    <published>2017-10-06T14:31:10.000Z</published>
-    <updated>2018-06-06T16:03:11.079Z</updated>
-    
-    <content type="html"><![CDATA[<object width="340" height="86" data="http://music.163.com/style/swf/widget.swf?sid=784555&type=2&auto=0&width=320&height=66" type="application/x-shockwave-flash"></object>
-
-<a id="more"></a>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>今天是十一长假的第六天，每年的十一基本都回家了除了2015年在北京外。因为下雨就一直在家窝着，把火影看到快100集。</p>
-<h4 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h4><p>鸣人、卡卡西、白有一个目标就是“为生命中重要的人而活”。</p>
-<p>卡卡西说过：我不会让我的伙伴受到伤害。就现在的剧情来看，卡卡西曾经能力也是很弱，而导致没有及时帮助队友，使队友丧生，所以很自责，一直秉承着这个理念。(还有个有趣的事就是卡卡西看的是《亲热天堂》，而好色仙人就是这本书的作者..)</p>
-<p>鸣人：和我爱罗决斗的时候，我爱罗说的是为自己而活，这样使他自己找到了活着的目标，他的目标是杀掉所有除他自己以外的人，因为小时候的悲伤故事使他一直在孤单中，而鸣人比较幸运，因为他的老师和他有相同的境遇，受到了他的老师的肯定。<br>之后还和卡卡西，佐助，小樱成为伙伴，这样才不那么痛苦。看到我爱罗后，使他更确定自己的生活目标，为保护自己的伙伴而战。而恰恰木叶村的宗旨就是，为保护自己最重要的人而活。通过师生教导使一个理念逐步传递下去。</p>
-<p>我曾几何时不是这样想的呢，找一个自己想保护一生的人，然后为之奋斗终生。这使我想到了结婚，而心乱如麻。</p>
-<h4 id="摘录网易云音乐评论"><a href="#摘录网易云音乐评论" class="headerlink" title="摘录网易云音乐评论"></a>摘录网易云音乐评论</h4><ul>
-<li><p>好色仙人死了，一个人呆在家里，泡面熟了，没有胃口的鸣人出了门，夜色中经过没关门的商店，买了一支双棍冰棒，坐在路灯下，想起师徒俩人的时光，……</p>
-</li>
-<li><p>第一集鸣人一个人坐在黄昏时的秋千上，旁边的小孩子都有父母来接。他一个人坐在旁边荡秋千，插入的就是这个曲子。名为孤独。</p>
-</li>
-</ul>
-<blockquote>
-<p>MV： <a href="http://music.163.com/#/mv?id=335176" target="_blank" rel="external">My ANSWER</a></p>
-</blockquote>
-<embed src="http://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=m0178qd1etl&auto=0" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
-
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;object width=&quot;340&quot; height=&quot;86&quot; data=&quot;http://music.163.com/style/swf/widget.swf?sid=784555&amp;type=2&amp;auto=0&amp;width=320&amp;height=66&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://jingbin.me/categories/life/"/>
-    
-    
-      <category term="life" scheme="http://jingbin.me/tags/life/"/>
     
   </entry>
   

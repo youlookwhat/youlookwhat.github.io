@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://jingbin.me/2018/06/27/memory-leak-analysis/index.html">
 <meta property="og:site_name" content="JingBin's Home">
 <meta property="og:description" content="大范围借鉴及自己思考总结的内容，感谢各位博主的分享。">
-<meta property="og:updated_time" content="2018-06-27T16:37:55.874Z">
+<meta property="og:updated_time" content="2018-06-28T03:31:21.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 内存泄漏分析与优化">
 <meta name="twitter:description" content="大范围借鉴及自己思考总结的内容，感谢各位博主的分享。">
@@ -372,7 +372,7 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-28T00:37:55+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-28T11:31:21+08:00">
                 2018-06-28
               </time>
             
@@ -520,6 +520,7 @@
 <li>解析sp的时候会产生大量的临时对象，导致频繁GC，引起界面卡顿。</li>
 <li>这些key和value会永远存在于内存之中，占用大量内存。</li>
 </ul>
+<p>储存数据量过大后，取值小屏手机vivoY23L,v4.4.4会取值失败。</p>
 <h5 id="Cursor关闭"><a href="#Cursor关闭" class="headerlink" title="Cursor关闭"></a>Cursor关闭</h5><p>如查询数据库的操作，使用到Cursor，也要对Cursor对象及时关闭。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">     <span class="keyword">if</span> (cursor != <span class="keyword">null</span>) &#123;</div><div class="line">        cursor.moveToFirst();</div><div class="line">        <span class="comment">// do something.</span></div><div class="line">    &#125;</div><div class="line">&#125;<span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;<span class="keyword">finally</span> &#123;</div><div class="line">    <span class="keyword">if</span> (cursor != <span class="keyword">null</span>) &#123;</div><div class="line">        cursor.close();</div><div class="line">        cursor = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="有效使用内存的建议"><a href="#有效使用内存的建议" class="headerlink" title="有效使用内存的建议"></a>有效使用内存的建议</h4><h5 id="去掉bean里无用的字段"><a href="#去掉bean里无用的字段" class="headerlink" title="去掉bean里无用的字段"></a>去掉bean里无用的字段</h5><p>有时候我们通过GsonFormat直接生成返回的json的Bean，而有一些我们并未使用的字段也一并生成了，建议删除这些无用字段，不然将无可避免的占用一定的内存空间。</p>
@@ -591,6 +592,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/02/deeplink-intro-use/" rel="prev" title="Android DeepLink介绍与使用">
+                Android DeepLink介绍与使用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -670,7 +675,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -687,7 +692,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
