@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2018-07-03T15:42:57.131Z</updated>
+  <updated>2018-07-03T15:58:23.590Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jingbin.me/2018/07/02/deeplink-intro-use/"/>
     <id>http://jingbin.me/2018/07/02/deeplink-intro-use/</id>
     <published>2018-07-02T13:22:09.000Z</published>
-    <updated>2018-07-03T15:42:57.131Z</updated>
+    <updated>2018-07-03T15:58:23.590Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。</p>
 <a id="more"></a>
