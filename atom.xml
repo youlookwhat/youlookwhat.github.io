@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2018-07-02T15:38:25.481Z</updated>
+  <updated>2018-07-03T15:42:57.131Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -20,28 +20,124 @@
     <link href="http://jingbin.me/2018/07/02/deeplink-intro-use/"/>
     <id>http://jingbin.me/2018/07/02/deeplink-intro-use/</id>
     <published>2018-07-02T13:22:09.000Z</published>
-    <updated>2018-07-02T15:38:25.481Z</updated>
+    <updated>2018-07-03T15:42:57.131Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。</p>
 <a id="more"></a>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>Deep Link，又叫deep linking，中文翻译作深层链接。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>Deep Link，又叫deep linking，中文翻译作深层链接。</p>
 <p>简单地从用户体验来讲，Deep Link，就是可以让你在手机的浏览器/Google Search上点击搜索的结果，便能直接跳转到已安装的应用中的某一个页面的技术。</p>
 <p>对于不懂技术的运营人员来说就是一个分享功能，而从技术层面上去简单理解是实现将某APP用户带到另外APP相对应的内容页面，实现APP之间无缝跳转！</p>
-<h3 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h3><p>相信大家或多或少看到过这样的页面：</p>
+<h2 id="商业价值"><a href="#商业价值" class="headerlink" title="商业价值"></a>商业价值</h2><p>相信大家或多或少看到过这样的页面：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/1354448-a4fcbfe2740d1b8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="deeplink"></p>
 <p>底部有一个“App内打开”，点击后如果安装过应用直接跳到应用的对应页面，如果没安装则跳到下载应用页。</p>
-<h4 id="Deeplink（深度链接）"><a href="#Deeplink（深度链接）" class="headerlink" title="Deeplink（深度链接）"></a>Deeplink（深度链接）</h4><p>对于已经安装APP，指向特定的页面，和上面说的一致。</p>
-<h4 id="Deferred-deeplink（-延迟深度链接）"><a href="#Deferred-deeplink（-延迟深度链接）" class="headerlink" title="Deferred deeplink（ 延迟深度链接）"></a>Deferred deeplink（ 延迟深度链接）</h4><p>相比deeplink，它增加了判断APP是否被安装，用户匹配的2个功能；</p>
+<h3 id="Deeplink（深度链接）"><a href="#Deeplink（深度链接）" class="headerlink" title="Deeplink（深度链接）"></a>Deeplink（深度链接）</h3><p>对于已经安装APP，指向特定的页面，和上面说的一致。</p>
+<h3 id="Deferred-deeplink（-延迟深度链接）"><a href="#Deferred-deeplink（-延迟深度链接）" class="headerlink" title="Deferred deeplink（ 延迟深度链接）"></a>Deferred deeplink（ 延迟深度链接）</h3><p>相比deeplink，它增加了判断APP是否被安装，用户匹配的2个功能；</p>
 <ul>
 <li>1.当用户点击链接的时候判断APP是否安装，如果用户没有安装时，引导用户跳转到应用商店下载应用。</li>
 <li>2.用户匹配功能，当用户点击链接时和用户启动APP时，分别将这两次用户Device Fingerprint（设备指纹信息）传到服务器进行模糊匹配，使用户下载且启动APP时，直接打开相应的指定页面。</li>
 </ul>
 <p>通过上面的2个技术方案，不仅：①可以让被分享者更快更便捷的回到APP，且回到指定的活动页面，而且：②可以引导未安装APP的用户下载APP、③分享者和被分享者的关系链会通过设备指纹信息记录下来，在业务场景中给出相应的奖励。</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><blockquote>
-<p>后续更新</p>
+<p>使用deeplink前后对比：<br><img src="https://upload-images.jianshu.io/upload_images/1354448-b4468f9f81f2e0b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="对比"></p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><blockquote>
+<p>具体见Demo：<a href="https://github.com/youlookwhat/WebViewStudy" target="_blank" rel="external">WebViewStudy</a></p>
 </blockquote>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<h3 id="HTML页面：deeplink-html"><a href="#HTML页面：deeplink-html" class="headerlink" title="HTML页面：deeplink.html"></a>HTML页面：<a href="https://github.com/youlookwhat/WebViewStudy/blob/master/app/src/main/assets/deeplink.html" target="_blank" rel="external">deeplink.html</a></h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"[scheme]://[host]/[path]?[query]"</span>&gt;</span>启动应用程序<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>示例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"will://link/testId"</span>&gt;</span>立即打开（直接打开）&amp;gt;&amp;gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a><a href="https://github.com/youlookwhat/WebViewStudy/blob/master/app/src/main/AndroidManifest.xml" target="_blank" rel="external">AndroidManifest.xml</a></h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--用于DeepLink，html跳到此页面  scheme_Adr: 'will://link/testid',--&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".DeepLinkActivity"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.VIEW"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.BROWSABLE"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">data</span></span></div><div class="line">                    <span class="attr">android:host</span>=<span class="string">"link"</span></div><div class="line">                    <span class="attr">android:scheme</span>=<span class="string">"will"</span> /&gt;</div><div class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="MyWebViewClient-class"><a href="#MyWebViewClient-class" class="headerlink" title="MyWebViewClient.class"></a><a href="https://github.com/youlookwhat/WebViewStudy/blob/master/app/src/main/java/com/example/jingbin/webviewstudy/config/MyWebViewClient.java" target="_blank" rel="external">MyWebViewClient.class</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (TextUtils.isEmpty(url)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="comment">// 用于DeepLink测试</span></div><div class="line">        <span class="keyword">if</span> (url.startsWith(<span class="string">"will://"</span>)) &#123;</div><div class="line">            Uri uri = Uri.parse(url);</div><div class="line">            Log.e(<span class="string">"---------scheme"</span>, uri.getScheme() + <span class="string">"；host: "</span> + uri.getHost() + <span class="string">"；Id: "</span> + uri.getPathSegments().get(<span class="number">0</span>));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Intent intent1 = <span class="keyword">new</span> Intent();</div><div class="line">        intent1.setAction(<span class="string">"android.intent.action.VIEW"</span>);</div><div class="line">        Uri uri = Uri.parse(url);</div><div class="line">        intent1.setData(uri);</div><div class="line">        intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</div><div class="line">        mActivity.startActivity(intent1);</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="DeepLinkActivity-java"><a href="#DeepLinkActivity-java" class="headerlink" title="DeepLinkActivity.java"></a><a href="https://github.com/youlookwhat/WebViewStudy/blob/master/app/src/main/java/com/example/jingbin/webviewstudy/DeepLinkActivity.java" target="_blank" rel="external">DeepLinkActivity.java</a></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">  * 从deep link中获取数据</div><div class="line">  * 'will://share/传过来的数据'</div><div class="line">  */</div><div class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getDataFromBrowser</span><span class="params">(TextView textView)</span> </span>&#123;</div><div class="line">     Uri data = getIntent().getData();</div><div class="line">     <span class="keyword">try</span> &#123;</div><div class="line">         String scheme = data.getScheme();</div><div class="line">         String host = data.getHost();</div><div class="line">         List&lt;String&gt; params = data.getPathSegments();</div><div class="line">         <span class="comment">// 从网页传过来的数据</span></div><div class="line">         String testId = params.get(<span class="number">0</span>);</div><div class="line">         String text = <span class="string">"Scheme: "</span> + scheme + <span class="string">"\n"</span> + <span class="string">"host: "</span> + host + <span class="string">"\n"</span> + <span class="string">"params: "</span> + testId;</div><div class="line">         Log.e(<span class="string">"ScrollingActivity"</span>, text);</div><div class="line">         textView.setText(text);</div><div class="line">     &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">         e.printStackTrace();</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>页面具体显示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Scheme：will</div><div class="line">host：link</div><div class="line">params：testId</div></pre></td></tr></table></figure></p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>DeepLink用到的核心技术就是：URL SCHEMES。不论是IOS还是Android。<br>URL Schemes 有两个单词：</p>
+<ul>
+<li>URL，我们都很清楚，<a href="http://www.apple.com" target="_blank" rel="external">http://www.apple.com</a> 就是个 URL，也叫它链接或网址；</li>
+<li>Schemes，表示的是一个 URL 中的一个位置——最初始的位置，即 ://之前的那段字符。比如 <a href="http://www.apple.com" target="_blank" rel="external">http://www.apple.com</a> 这个网址的 Schemes 是 http。</li>
+</ul>
+<p>我们可以像定位一个网页一样，用一种特殊的 URL 来定位一个应用甚至应用里某个具体的功能。而定位这个应用的，就应该这个应用的 URL 的 Schemes 部分，也就是开头儿那部分。但是需要注意的是应用的URL Schemes 并不唯一，也就是说一个应用可以“起多个名“，不同应用的URL Schemes也可能因为名字一样发生冲突。</p>
+<p>Android系统级应用，有一些已经定义了URL Schemes，比如短信是 sms:、通话是tel:、email是mailto:，在定义自己APP的URL Schemes的时候要避免跟系统应用名称一样。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"tel:15088888888"</span>&gt;</span>电话<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"sms:15088888888"</span>&gt;</span>短信<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:15088888888@qq.com"</span>&gt;</span>邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>与URL一样，URL Schemes也可以通过传参打开特定的APP界面。</p>
+<ul>
+<li>URL：<a href="http://images.google.com/images?q=关键字" target="_blank" rel="external">http://images.google.com/images?q=关键字</a></li>
+<li>URL Schemes：weixin://dl/moments（打开微信朋友圈）</li>
+</ul>
+<h2 id="Applink"><a href="#Applink" class="headerlink" title="Applink"></a>Applink</h2><h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><p>官网文档：<a href="https://developer.android.com/training/app-links/verify-site-associations#the-difference" target="_blank" rel="external">Verify Android App Links</a></p>
+<p>Android App Links是一种特殊的Deep Links，它使Android系统能够直接通过网站地址打开应用程序对应的内容页面，而不需要用户选择使用哪个应用来处理网站地址。</p>
+<p>要添加Android App Links到应用中，需要在应用里定义通过Http(s)地址打开应用的intent filter，并验证你确实拥有该应用和该网站。如果系统成功验证到你拥有该网站，那么系统会直接把URL对应的intent路由到你的应用。</p>
+<p>为了验证你对应用和网站的所有权，以下两个步骤是必须的：</p>
+<ul>
+<li>1.在AndroidManifest里要求系统自动进行App Links的所有权验证。这个配置会告诉Android系统去验证你的应用是否属于在intent filter内指定的URL域名。</li>
+<li>2.在以下链接地址里，放置一个数字资产链接的Json文件，声明你的网址和应用之间的关系：<ul>
+<li><code>https://domain.name/.well-known/assetlinks.json</code> </li>
+</ul>
+</li>
+</ul>
+<h3 id="与Deep-Links的区别"><a href="#与Deep-Links的区别" class="headerlink" title="与Deep Links的区别"></a>与Deep Links的区别</h3><ul>
+<li><p>Deep Links 是一种允许用户进入应用某个特定Activity的intent filter。点击这类链接时，系统可能会弹出一个选择列表，让用户在一堆能够处理这类链接的应用里(包括你的)选择一个来处理该链接。图一展示了这样一种情况：用户点击了一个地图相关的链接，系统弹出一个选择列表，让用户选择是要使用地图应用来处理，还是使用Chrome浏览器来处理。</p>
+</li>
+<li><p>App Links 是一种基于你的网站地址且验证通过的Deep Links。因此，点击一个这样的链接会直接打开你的应用(如果已经安装)，系统将不会弹出选择列表。当然，后续用户可以更改配好设置，来指定由哪个应用程序处理这类链接。</p>
+</li>
+</ul>
+<p>下面这个列表描述更多差异：</p>
+<table>
+<thead>
+<tr>
+<th>item</th>
+<th style="text-align:center">Deep Links</th>
+<th style="text-align:center">App Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intent URL Scheme</td>
+<td style="text-align:center">https, http，或者自定义</td>
+<td style="text-align:center">需为http或https</td>
+</tr>
+<tr>
+<td>Intent Action</td>
+<td style="text-align:center">任意Action</td>
+<td style="text-align:center">需为<code>android.intent.action.VIEW</code></td>
+</tr>
+<tr>
+<td>Intent Category</td>
+<td style="text-align:center">任意Category</td>
+<td style="text-align:center">需为<code>android.intent.category.BROWSABLE</code>和<code>android.intent.category.DEFAULT</code></td>
+</tr>
+<tr>
+<td>链接验证</td>
+<td style="text-align:center">不需要</td>
+<td style="text-align:center">需要在网站上放置一个数字资产链接，并能够通过HTTPS访问</td>
+</tr>
+<tr>
+<td>用户体验</td>
+<td style="text-align:center">可能会弹出一个选择列表给用户选择用哪个应用处理连接</td>
+<td style="text-align:center">没有弹框，系统直接打开你的应用处理网站连接</td>
+</tr>
+<tr>
+<td>兼容性</td>
+<td style="text-align:center">所有Android版本</td>
+<td style="text-align:center">Android 6.0及以上</td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h2><ul>
+<li>1.APP要想被其他APP直接打开，自身得支持，让自己具备被人打开的能力。（URL Schemes）</li>
+<li>2.APP要想打开其他的APP，自身也得支持。（判断设备是否安装、各种跳转的处理）</li>
+</ul>
+<p>应该来讲，deeplink技术比较适用于独立电商、金融理财APP，一方面这类APP的广告内容可以是平台的商品（产品），链接后直接进入相关商品（产品）的详情页，另一方面，这类APP在打开后是会产生后续的交易行为。</p>
+<p>这种方式只能用于系统处理URL的intent的情况，若URL本身没有抛给系统处理，而是直接在应用内打开了，那就无法直接拉起应用。</p>
+<p>由于大部分应用，如微博、微信、第三方浏览器(包括Chrome)，都不会将URL抛给系统处理(对scheme进行屏蔽)，因此App Links生效的情况就很有限了，比如只能从记事本应用、短信应用这些进行跳转。总体来说，实属鸡肋。</p>
+<blockquote>
+<p>京东及淘宝的CPS即是使用此方式实现的。<br><a href="https://jingbin.me/2018/02/02/%E4%BA%AC%E4%B8%9CCPS%E5%95%86%E5%93%81%E6%8E%A8%E5%B9%BF%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/">京东CPS商品推广接入流程</a><br><a href="https://jingbin.me/2018/01/19/Android-%E9%98%BF%E9%87%8C%E7%99%BE%E5%B7%9Dcps-SDK%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/">Android 阿里百川cps SDK接入流程</a></p>
+</blockquote>
+<h2 id="一些常用APP的URL-Schemes"><a href="#一些常用APP的URL-Schemes" class="headerlink" title="一些常用APP的URL Schemes"></a>一些常用APP的URL Schemes</h2><p>知乎：回答 zhihu://answers/{id}用户页 zhihu://people/{id}<br>微信：<br>weixin://dl/scan 扫一扫weixin://dl/feedback 反馈weixin://dl/moments 朋友圈weixin://dl/settings 设置weixin://dl/notifications 消息通知设置weixin://dl/chat 聊天设置weixin://dl/general 通用设置weixin://dl/officialaccounts 公众号weixin://dl/games 游戏weixin://dl/help 帮助weixin://dl/feedback 反馈weixin://dl/profile 个人信息weixin://dl/features 功能插件</p>
+<p>腾讯微博：TencentWeibo://<br>淘宝：taobao://<br>支付宝：alipay://<br>微博：sinaweibo://<br>weico微博：weico://<br>QQ浏览器：mqqbrowser://<br>uc浏览器：ucbrowser://<br>海豚浏览器：dolphin://<br>搜狗浏览器：SogouMSE://<br>百度地图：baidumap://<br>Chrome：googlechrome://<br>优酷：youku://<br>京东：openapp.jdmoble://<br>人人：renren://<br>美团：imeituan://<br>1号店：wccbyihaodian://<br>我查查：wcc://<br>有道词典：ddictproapp://<br>点评：dianping://<br>微盘：sinavdisk://<br>豆瓣fm：doubanradio://<br>网易公开课：ntesopen://<br>名片全能王：camcard://<br>淘宝宝贝搜索：taobao://<a href="http://s.taobao.com/?q=[prompt" target="_blank" rel="external">http://s.taobao.com/?q=[prompt</a>]<br>淘宝店铺搜索：taobao://<a href="http://shopsearch.t" target="_blank" rel="external">http://shopsearch.t</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://blog.zhaiyifan.cn/2016/02/04/deeplink-intro/" target="_blank" rel="external">Deep Link是什么</a></li>
 <li><a href="https://mp.weixin.qq.com/s/fWBDfd-7al7MsY0zwDn6dA" target="_blank" rel="external">深度链接（Deeplink）技术助力APP运营，实现病毒式用户增长</a></li>
+<li><a href="http://www.sohu.com/a/122694049_491343" target="_blank" rel="external">现在很火的app上的deeplink技术，到底是什么？</a></li>
+<li><a href="https://juejin.im/entry/590fe2d8ac502e006cf9e3e4" target="_blank" rel="external">5 分钟搞懂 Android DeepLink</a></li>
+<li><a href="https://juejin.im/post/59b3eab25188257e8d77c991#heading-16" target="_blank" rel="external">Android AppLinks 接入</a></li>
+<li><a href="https://github.com/hehonghui/android-tech-frontier/blob/master/issue-15/Android-M%E7%9A%84App-Links%E5%AE%9E%E7%8E%B0%E8%AF%A6%E8%A7%A3.md" target="_blank" rel="external">Android M的App Links实现详解</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/20694818" target="_blank" rel="external">移动DeepLink的前生今世</a></li>
 </ul>
 ]]></content>
     
