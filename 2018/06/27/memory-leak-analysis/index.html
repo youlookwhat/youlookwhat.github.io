@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://jingbin.me/2018/06/27/memory-leak-analysis/index.html">
 <meta property="og:site_name" content="JingBin's Home">
 <meta property="og:description" content="大范围借鉴及自己思考总结的内容，感谢各位博主的分享。">
-<meta property="og:updated_time" content="2018-06-28T03:31:21.436Z">
+<meta property="og:updated_time" content="2018-07-06T06:17:57.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 内存泄漏分析与优化">
 <meta name="twitter:description" content="大范围借鉴及自己思考总结的内容，感谢各位博主的分享。">
@@ -372,8 +372,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-28T11:31:21+08:00">
-                2018-06-28
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-06T14:17:57+08:00">
+                2018-07-06
               </time>
             
           </span>
@@ -492,6 +492,7 @@
 <p>关于WebView的context应该用Activity还是Application的context，这里网上较为一致的观点都是采用Application的，理由是这样不会造成Activity的context的内存泄漏。</p>
 <p>销毁时的动作：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clearWebViewResource</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (web_view_ != <span class="keyword">null</span>) &#123;</div><div class="line">        LogUtils.d(TAG,<span class="string">"Clear webview's resources"</span>);</div><div class="line">        web_view_.removeAllViews();</div><div class="line">        <span class="comment">// in android 5.1(sdk:21) we should invoke this to avoid memory leak</span></div><div class="line">        <span class="comment">// see (https://coolpers.github.io/webview/memory/leak/2015/07/16/</span></div><div class="line">        <span class="comment">// android-5.1-webview-memory-leak.html)</span></div><div class="line">        ((ViewGroup) web_view_.getParent()).removeView(web_view_);</div><div class="line">        web_view_.setTag(<span class="keyword">null</span>);</div><div class="line">        web_view_.clearHistory();</div><div class="line">        web_view_.destroy();</div><div class="line">        web_view_ = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>尽量不要将WebView作为listview的头部使用，这样的话WebView会被一次性加载到内存中。</p>
 <h5 id="Window-Leaked"><a href="#Window-Leaked" class="headerlink" title="Window Leaked"></a>Window Leaked</h5><p>按字面了解，Window Leaked大概就是说一个窗体泄漏了，也就是我们常说的内存泄漏，为什么窗体会泄漏呢？</p>
 <ul>
 <li><p>产生原因：<br> 我们知道Android的每一个Activity都有个WindowManager窗体管理器，同样，构建在某个Activity之上的对话框、PopupWindow也有相应的WindowManager窗体管理器。因为对话框、PopupWindown不能脱离Activity而单独存在着，所以当某个Dialog或者某个PopupWindow正在显示的时候我们去finish()了承载该Dialog(或PopupWindow)的Activity时，就会抛Window Leaked异常了，因为这个Dialog(或PopupWindow)的WindowManager已经没有谁可以附属了，所以它的窗体管理器已经泄漏了。</p>
