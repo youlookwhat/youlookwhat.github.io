@@ -674,7 +674,7 @@
     <link href="http://jingbin.me/2018/05/20/Android%20%E6%B0%B4%E6%B3%A2%E7%BA%B9%E6%95%88%E6%9E%9C%E7%9A%84%E6%8E%A2%E7%A9%B6/"/>
     <id>http://jingbin.me/2018/05/20/Android 水波纹效果的探究/</id>
     <published>2018-05-20T14:48:31.000Z</published>
-    <updated>2018-06-06T15:47:34.696Z</updated>
+    <updated>2018-12-07T14:43:42.608Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/1354448-8f11f2c691d43da9.gif?imageMogr2/auto-orient/strip" alt="长按水波纹扩展效果"></p>
 <a id="more"></a>
@@ -705,8 +705,12 @@
 </blockquote>
 <p>最后可以得到我们想要的效果：<br><img src="https://upload-images.jianshu.io/upload_images/1354448-9200fb6b1432db62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="长按水波纹扩散效果"><a href="#长按水波纹扩散效果" class="headerlink" title="长按水波纹扩散效果"></a>长按水波纹扩散效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/1354448-8f11f2c691d43da9.gif?imageMogr2/auto-orient/strip" alt="长按水波纹扩展效果"></p>
-<p>在使用小红书时，我们可以看到关于“笔记”的item长按会展示扩散的效果，其实原理也很简单。无边界的水波纹可以达到长按扩散的效果，只是它会超出边界，那我们就在对应的父布局加一层有边界的水波纹背景即可。就像这样：</p>
+<p>在使用小红书时，我们可以看到关于“笔记”的item长按会展示扩散的效果。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:foreground=<span class="string">"?attr/selectableItemBackgroundBorderless"</span></div></pre></td></tr></table></figure></p>
+<p>又或者，无边界的水波纹也可以达到长按扩散的效果，只是它会超出边界，那我们就在对应的父布局加一层有边界的水波纹背景即可。就像这样：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:background="?attr/selectableItemBackground"&gt;</div><div class="line"></div><div class="line">        &lt;RelativeLayout</div><div class="line">            android:layout_width="match_parent"</div><div class="line">            android:layout_height="wrap_content"</div><div class="line">            android:background="?attr/selectableItemBackgroundBorderless"</div><div class="line">            android:onClick="@&#123;()-&gt;adapter.openDetail(bean)&#125;"</div><div class="line">            android:padding="8dp"&gt;</div><div class="line">        &lt;/RelativeLayout&gt;</div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>两者的区别是：长按扩散时，前者的水波纹会在图片之上，而后者在图片之下。</p>
+</blockquote>
 <h2 id="Button点击的水波纹效果"><a href="#Button点击的水波纹效果" class="headerlink" title="Button点击的水波纹效果"></a>Button点击的水波纹效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/1354448-5d195c450d541d19.gif?imageMogr2/auto-orient/strip" alt="button阴影与点击效果"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;Button</div><div class="line">    style=<span class="string">"@style/Widget.AppCompat.Button.Colored"</span></div><div class="line">    android:layout_width=<span class="string">"0dp"</span></div><div class="line">    android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">    android:layout_marginLeft=<span class="string">"20dp"</span></div><div class="line">    android:layout_weight=<span class="string">"1"</span></div><div class="line">    android:onClick=<span class="string">"login"</span></div><div class="line">    android:text=<span class="string">"登陆"</span></div><div class="line">    android:textColor=<span class="string">"@android:color/white"</span></div><div class="line">    android:textStyle=<span class="string">"bold"</span> /&gt;</div></pre></td></tr></table></figure>
 <blockquote>
