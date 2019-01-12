@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jingbin.me/"/>
-  <updated>2018-12-07T14:58:18.247Z</updated>
+  <updated>2019-01-12T08:06:14.649Z</updated>
   <id>http://jingbin.me/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android-应用被作为第三方浏览器打开</title>
+    <link href="http://jingbin.me/2018/12/15/third-party-browser/"/>
+    <id>http://jingbin.me/2018/12/15/third-party-browser/</id>
+    <published>2018-12-15T13:27:31.000Z</published>
+    <updated>2019-01-12T08:06:14.649Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>微信里的文章页面，可以选择<strong>“在浏览器打开”</strong>。现在很多应用都内嵌了WebView，那是否可以使自己的应用作为第三方浏览器打开此文章呢？<br><a id="more"></a><br>如图：</p>
+<ul>
+<li><img src="https://upload-images.jianshu.io/upload_images/1354448-4a8b8f2956cfabdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信打开三方浏览器.png"></li>
+</ul>
+<p>就像图中这样，让自己的应用出现在列表里。<br>这篇文章就是为了实现这个功能。</p>
+<p>项目代码地址：<a href="https://github.com/youlookwhat/WebViewStudy" target="_blank" rel="external"><strong>WebViewStudy</strong></a></p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>实现其实很简单：<br>在Manifest文件中，给想要接收跳转的Activity添加<intent-filter>配置：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">     android:name=".WebViewActivity"</div><div class="line">     android:configChanges="orientation|screenSize"</div><div class="line">     android:hardwareAccelerated="true"</div><div class="line">     android:launchMode="singleTask"</div><div class="line">     android:screenOrientation="portrait"</div><div class="line">     android:theme="@style/WebViewTheme"&gt;</div><div class="line"></div><div class="line">     &lt;!--需要添加下面的intent-filter配置--&gt;</div><div class="line">     &lt;intent-filter tools:ignore="AppLinkUrlError"&gt;</div><div class="line">         &lt;action android:name="android.intent.action.VIEW" /&gt;</div><div class="line"></div><div class="line">         &lt;category android:name="android.intent.category.DEFAULT" /&gt;</div><div class="line">         &lt;category android:name="android.intent.category.BROWSABLE" /&gt;</div><div class="line">         &lt;!--使用http，则只能打开http开头的网页--&gt;</div><div class="line">         &lt;data android:scheme="https" /&gt;</div><div class="line">     &lt;/intent-filter&gt;</div><div class="line"></div><div class="line"> &lt;/activity&gt;</div></pre></td></tr></table></figure></intent-filter></p>
+<p>然后在 WebViewActivity 中获取相关传递数据：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebViewActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_web_view);</div><div class="line">        getIntentData();</div><div class="line">        initTitle();</div><div class="line">        initWebView();</div><div class="line">        webView.loadUrl(mUrl);</div><div class="line">       <span class="comment">// 处理 作为三方浏览器打开传过来的值</span></div><div class="line">        getDataFromBrowser(getIntent());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">     * 使用singleTask启动模式的Activity在系统中只会存在一个实例。</div><div class="line">     * 如果这个实例已经存在，intent就会通过onNewIntent传递到这个Activity。</div><div class="line">     * 否则新的Activity实例被创建。</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onNewIntent</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onNewIntent(intent);</div><div class="line">        getDataFromBrowser(intent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 作为三方浏览器打开传过来的值</div><div class="line">     * Scheme: https</div><div class="line">     * host: www.jianshu.com</div><div class="line">     * path: /p/1cbaf784c29c</div><div class="line">     * url = scheme + "://" + host + path;</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getDataFromBrowser</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">        Uri data = intent.getData();</div><div class="line">        <span class="keyword">if</span> (data != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                String scheme = data.getScheme();</div><div class="line">                String host = data.getHost();</div><div class="line">                String path = data.getPath();</div><div class="line">                String text = <span class="string">"Scheme: "</span> + scheme + <span class="string">"\n"</span> + <span class="string">"host: "</span> + host + <span class="string">"\n"</span> + <span class="string">"path: "</span> + path;</div><div class="line">                Log.e(<span class="string">"data"</span>, text);</div><div class="line">                String url = scheme + <span class="string">"://"</span> + host + path;</div><div class="line">                webView.loadUrl(url);</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>以上是核心代码，有几点需要说明的：</p>
+<ul>
+<li>1、设置启动模式：<code>launchMode=&quot;singleTask&quot;</code></li>
+<li>2、<code>getDataFromBrowser()</code>方法会在<code>onCreate</code>和<code>onNewIntent</code>方法中调用。</li>
+</ul>
+<h4 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h4><p>在实际使用中，有这样的场景：<br>我们在微信中“通过浏览器”打开自己的应用，然后将自己的应用切到后台。重复上面的操作，会一直创建应用的实例，这样肯定是不好的，为了避免这种情况我们设置启动模式为：<code>launchMode=&quot;singleTask&quot;</code>。</p>
+<blockquote>
+<p>使用singleTask启动模式的Activity在系统中只会存在一个实例。<br>如果这个实例不存在，新的Activity实例被创建。<br>如果这个实例已经存在，那么在Activity回退栈中，所有位于该Activity上面的Activity实例都将被销毁掉（销毁过程会调用Activity生命周期回调），这样使得singleTask Activity实例位于栈顶。与此同时，Intent会通过<code>onNewIntent</code>传递到这个SingleTask Activity实例。 - <a href="https://droidyue.com/blog/2015/08/16/dive-into-android-activity-launchmode/" target="_blank" rel="external">&lt;深入讲解Android中Activity launchMode&gt;</a></p>
+</blockquote>
+<p>这就是为什么要在<code>onNewIntent</code>中调用的原因，当此Activity已存在时，值会通过<code>onNewIntent</code>传递过来。</p>
+<h3 id="继续拓展"><a href="#继续拓展" class="headerlink" title="继续拓展"></a>继续拓展</h3><p>也许大家用<code>知乎</code>进行过类似的操作，会发现有这样一个效果：<br>当知乎没有开启时，在其他应用打开知乎后，关闭页面会回到知乎的<strong>主页面</strong>。正常是不会有出现这样的情况的，我们需要简单设置一下。</p>
+<p>1、在主页面设置静态变量，初始化时改变静态变量的值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span>  </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 是否开启了主页，没有开启则会返回主页</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> isLaunch = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        initView();</div><div class="line">        isLaunch = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        isLaunch = <span class="keyword">false</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>2、当<code>WebViewActivity</code>关闭时判断是否打开主页面<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 直接通过三方浏览器打开时，回退到首页</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleFinish</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">        finishAfterTransition();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        finish();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!MainActivity.isLaunch) &#123;</div><div class="line">        MainActivity.start(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>其实这相当于Activity隐式跳转，其中点击网页中的电话跳转到手机的拨号盘也是这样的原理，DeepLink也基本是这个逻辑。</p>
+<p>设想这样一种情况：<br>我们通过浏览器拉起自己的应用，不一定要打开WebView，也可以打开原生的页面，只需要传过来的数据里有此页面想要的数据即可。其实很多应用都这样做了。</p>
+<h4 id="End"><a href="#End" class="headerlink" title="End"></a>End</h4><ul>
+<li>下载体验：<a href="https://fir.im/webviewstudy" target="_blank" rel="external">https://fir.im/webviewstudy</a></li>
+<li>最后再附一遍项目地址😆：<strong><a href="https://github.com/youlookwhat/WebViewStudy" target="_blank" rel="external">WebViewStudy</a></strong></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;微信里的文章页面，可以选择&lt;strong&gt;“在浏览器打开”&lt;/strong&gt;。现在很多应用都内嵌了WebView，那是否可以使自己的应用作为第三方浏览器打开此文章呢？&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+    
+      <category term="Android基础知识点" scheme="http://jingbin.me/tags/Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    
+  </entry>
   
   <entry>
     <title>《云阅2.0》一款同时看玩安卓和干货集中营资讯的App</title>
@@ -2381,60 +2432,6 @@
     
     
       <category term="life" scheme="http://jingbin.me/tags/life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 记一次清除缓存所导致的bug</title>
-    <link href="http://jingbin.me/2017/12/21/Android-%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98%E6%89%80%E5%AF%BC%E8%87%B4%E7%9A%84bug/"/>
-    <id>http://jingbin.me/2017/12/21/Android-记一次清除缓存所导致的bug/</id>
-    <published>2017-12-21T07:45:10.000Z</published>
-    <updated>2018-06-06T16:18:07.644Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>Android五种数据存储方式：</p>
-<ol>
-<li>使用SharedPreferences存储数据</li>
-<li>文件存储数据</li>
-<li>SQLite存储数据</li>
-<li>ContentProvider</li>
-<li>网络存储</li>
-</ol>
-<p><a href="http://blog.csdn.net/zhangxichao100/article/details/52123396" target="_blank" rel="external">Android几种数据存储方式的应用场景</a></p>
-<a id="more"></a>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>前段时间由于很多人反馈页面无数据的bug，对此考究了一段时间，遂将结果记录于此。</p>
-<p><strong>之前：</strong><br>设计的是，一个存储在SharedPreferences的状态值，控制页面是否取本地页面缓存，本地页面缓存也存储在SharedPreferences里。</p>
-<p>这样如果用户清除了SharedPreferences的状态值，那就会请求网络数据，如果没有清除状态值，就会取本地页面缓存数据，也是取保存在SharedPreferences里的数据，这样是没有问题的。</p>
-<p><strong>之后：</strong><br>由于可能页面缓存数据有点多，将存储方式改为了<strong>文件存储</strong>方式，而没有做取不到缓存数据的措施。误认为用户清空本地页面缓存数据的同时也清空了SharedPreferences里的数据，而没有采取取不到数据时的措施。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-1b5c3ed2b91bebb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="应用信息"><br><strong>清除数据：</strong><br>清除数据主要是清除用户配置，比如SharedPreferences、数据库、文件储存等等，这些数据都是在程序运行过程中保存的用户配置信息，清除数据后，下次进入程序就和第一次进入程序时一样；</p>
-<p><strong>清除缓存：</strong><br>缓存是程序运行时的临时存储空间，只会清空文件存储数据。</p>
-<blockquote>
-<p><strong>文件缓存</strong>是不稳定的，手机存储空间不足时，可能会删除文件缓存中的内容。</p>
-</blockquote>
-<p>另外，如果需要持久化数据到本地且不可轻易更改的，还是使用数据库储存为宜。</p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a href="http://www.jianshu.com/p/536ca489a7f4" target="_blank" rel="external">Android五种数据存储方式</a></li>
-<li><a href="https://zmywly8866.github.io/2015/03/22/difference-between-clear-data-clear-cache-clean-up.html" target="_blank" rel="external">Android清除数据、清除缓存、一键清理的区别</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前提&quot;&gt;&lt;a href=&quot;#前提&quot; class=&quot;headerlink&quot; title=&quot;前提&quot;&gt;&lt;/a&gt;前提&lt;/h3&gt;&lt;p&gt;Android五种数据存储方式：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用SharedPreferences存储数据&lt;/li&gt;
-&lt;li&gt;文件存储数据&lt;/li&gt;
-&lt;li&gt;SQLite存储数据&lt;/li&gt;
-&lt;li&gt;ContentProvider&lt;/li&gt;
-&lt;li&gt;网络存储&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zhangxichao100/article/details/52123396&quot;&gt;Android几种数据存储方式的应用场景&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
     
   </entry>
   

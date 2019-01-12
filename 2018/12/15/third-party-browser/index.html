@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,性能优化," />
+  <meta name="keywords" content="Android,Android基础知识点," />
 
 
 
@@ -86,23 +86,18 @@
 
 
 
-<meta name="description" content="做开发时间长了之后，收集后台的bug，发现很多都是OOM(Out Of Memory Killer)。性能优化这时候成为了重点，下面是自己项目中布局优化的记录，希望对大家有所帮助。">
+<meta name="description" content="前言微信里的文章页面，可以选择“在浏览器打开”。现在很多应用都内嵌了WebView，那是否可以使自己的应用作为第三方浏览器打开此文章呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="性能优化之布局优化记录">
-<meta property="og:url" content="http://jingbin.me/2018/05/17/性能优化之布局优化记录/index.html">
+<meta property="og:title" content="Android-应用被作为第三方浏览器打开">
+<meta property="og:url" content="http://jingbin.me/2018/12/15/third-party-browser/index.html">
 <meta property="og:site_name" content="JingBin's Home">
-<meta property="og:description" content="做开发时间长了之后，收集后台的bug，发现很多都是OOM(Out Of Memory Killer)。性能优化这时候成为了重点，下面是自己项目中布局优化的记录，希望对大家有所帮助。">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-37ff47faeefa1837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-9eabb8928ef612f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-ee5b4e1a13244e97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-8b5d6f7c6cfefbfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-ac9f12fc0f737096.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-33a678ffc779709d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-06T15:48:02.991Z">
+<meta property="og:description" content="前言微信里的文章页面，可以选择“在浏览器打开”。现在很多应用都内嵌了WebView，那是否可以使自己的应用作为第三方浏览器打开此文章呢？">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-4a8b8f2956cfabdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-12T08:06:14.649Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="性能优化之布局优化记录">
-<meta name="twitter:description" content="做开发时间长了之后，收集后台的bug，发现很多都是OOM(Out Of Memory Killer)。性能优化这时候成为了重点，下面是自己项目中布局优化的记录，希望对大家有所帮助。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1354448-37ff47faeefa1837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Android-应用被作为第三方浏览器打开">
+<meta name="twitter:description" content="前言微信里的文章页面，可以选择“在浏览器打开”。现在很多应用都内嵌了WebView，那是否可以使自己的应用作为第三方浏览器打开此文章呢？">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1354448-4a8b8f2956cfabdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -130,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://jingbin.me/2018/05/17/性能优化之布局优化记录/"/>
+  <link rel="canonical" href="http://jingbin.me/2018/12/15/third-party-browser/"/>
 
 
 
 
 
-  <title> 性能优化之布局优化记录 | JingBin's Home </title>
+  <title> Android-应用被作为第三方浏览器打开 | JingBin's Home </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -328,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2018/05/17/性能优化之布局优化记录/">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2018/12/15/third-party-browser/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="JingBin">
@@ -352,7 +347,7 @@
             
             
               
-                性能优化之布局优化记录
+                Android-应用被作为第三方浏览器打开
               
             
           </h1>
@@ -365,8 +360,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-17T16:44:31+08:00">
-                2018-05-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-15T21:27:31+08:00">
+                2018-12-15
               </time>
             
 
@@ -379,8 +374,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-06T23:48:02+08:00">
-                2018-06-06
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-12T16:06:14+08:00">
+                2019-01-12
               </time>
             
           </span>
@@ -413,7 +408,7 @@
 
           
           
-             <span id="/2018/05/17/性能优化之布局优化记录/" class="leancloud_visitors" data-flag-title="性能优化之布局优化记录">
+             <span id="/2018/12/15/third-party-browser/" class="leancloud_visitors" data-flag-title="Android-应用被作为第三方浏览器打开">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -438,72 +433,32 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/1354448-37ff47faeefa1837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gpu绘制"></p>
-<p>做开发时间长了之后，收集后台的bug，发现很多都是OOM(Out Of Memory Killer)。性能优化这时候成为了重点，下面是自己项目中布局优化的记录，希望对大家有所帮助。</p>
-<a id="more"></a>
-<h3 id="父布局"><a href="#父布局" class="headerlink" title="父布局"></a>父布局</h3><ul>
-<li>对于ViewGroup的选择问题：推荐FrameLayout &gt; LinearLayout &gt; RelativeLayout(为了优化布局，RelativeLayout会调用childrenView 的onMeasure()两次)，推荐阅读：<a href="https://www.jianshu.com/p/8a7d059da746" target="_blank" rel="external">LinearLayout与RelativeLayout的性能比较</a></li>
-<li>尽量不要嵌套使用RelativeLayout.</li>
-<li>尽量不要在嵌套的LinearLayout中都使用weight属性.</li>
-<li>避免使用多重布局嵌套，层级能少就少</li>
-<li>善用TextView的Drawable减少布局层级</li>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>微信里的文章页面，可以选择<strong>“在浏览器打开”</strong>。现在很多应用都内嵌了WebView，那是否可以使自己的应用作为第三方浏览器打开此文章呢？<br><a id="more"></a><br>如图：</p>
+<ul>
+<li><img src="https://upload-images.jianshu.io/upload_images/1354448-4a8b8f2956cfabdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信打开三方浏览器.png"></li>
 </ul>
-<h3 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h3><ul>
-<li>去掉多余的布局背景色，比如ScrollView包裹的内容分为两段，第一段使用的是<code>match_parent</code>的宽，第二段是文字，只需要给文字部分加背景，则背景色属性就放在文字部分的节点属性里。</li>
-<li>RecyclerView及ViewPager等外部容器最好不要使用背景色，如果内容有背景色会导致重叠</li>
-<li>selector可使用系统自带的点击效果<code>android:background=&quot;?attr/selectableItemBackground&quot;</code>，因为初始值为透明色，不会重绘。如果需要使用对应的高亮色来作为ripple的背景色，那么就需要在styles-v21里面加这个加入：<br><code>&lt;item name = &quot;android:colorControlHighlight&quot;&gt;@color/colorAccent&lt;/item&gt;</code></li>
-<li>注：Navigation的background会影响4.4系统的状态栏</li>
-<li>CardView会自动加一层背景色</li>
-<li><code>ripple</code>里的默认颜色为<item>标签下设置，如果设置多个重复的<item>会导致多重绘制。</item></item></li>
-<li><code>ripple</code>里如要设置默认色为透明色，因为设置透明色不会导致重新绘制。直接设置<code>color=&quot;@android:color/transparent&quot;</code>点击会没有效果，加上一个掩码<item android:id="@android:id/mask">就好了</item></li>
-<li><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:color="@color/itemBackground"&gt;</div><div class="line">    &lt;item android:id="@android:id/mask"&gt;</div><div class="line">        &lt;color android:color="@android:color/white" /&gt;</div><div class="line">    &lt;/item&gt;</div><div class="line">&lt;/ripple&gt;</div></pre></td></tr></table></figure>
-</li>
+<p>就像图中这样，让自己的应用出现在列表里。<br>这篇文章就是为了实现这个功能。</p>
+<p>项目代码地址：<a href="https://github.com/youlookwhat/WebViewStudy" target="_blank" rel="external"><strong>WebViewStudy</strong></a></p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>实现其实很简单：<br>在Manifest文件中，给想要接收跳转的Activity添加<intent-filter>配置：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">     android:name=".WebViewActivity"</div><div class="line">     android:configChanges="orientation|screenSize"</div><div class="line">     android:hardwareAccelerated="true"</div><div class="line">     android:launchMode="singleTask"</div><div class="line">     android:screenOrientation="portrait"</div><div class="line">     android:theme="@style/WebViewTheme"&gt;</div><div class="line"></div><div class="line">     &lt;!--需要添加下面的intent-filter配置--&gt;</div><div class="line">     &lt;intent-filter tools:ignore="AppLinkUrlError"&gt;</div><div class="line">         &lt;action android:name="android.intent.action.VIEW" /&gt;</div><div class="line"></div><div class="line">         &lt;category android:name="android.intent.category.DEFAULT" /&gt;</div><div class="line">         &lt;category android:name="android.intent.category.BROWSABLE" /&gt;</div><div class="line">         &lt;!--使用http，则只能打开http开头的网页--&gt;</div><div class="line">         &lt;data android:scheme="https" /&gt;</div><div class="line">     &lt;/intent-filter&gt;</div><div class="line"></div><div class="line"> &lt;/activity&gt;</div></pre></td></tr></table></figure></intent-filter></p>
+<p>然后在 WebViewActivity 中获取相关传递数据：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebViewActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_web_view);</div><div class="line">        getIntentData();</div><div class="line">        initTitle();</div><div class="line">        initWebView();</div><div class="line">        webView.loadUrl(mUrl);</div><div class="line">       <span class="comment">// 处理 作为三方浏览器打开传过来的值</span></div><div class="line">        getDataFromBrowser(getIntent());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">     * 使用singleTask启动模式的Activity在系统中只会存在一个实例。</div><div class="line">     * 如果这个实例已经存在，intent就会通过onNewIntent传递到这个Activity。</div><div class="line">     * 否则新的Activity实例被创建。</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onNewIntent</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onNewIntent(intent);</div><div class="line">        getDataFromBrowser(intent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 作为三方浏览器打开传过来的值</div><div class="line">     * Scheme: https</div><div class="line">     * host: www.jianshu.com</div><div class="line">     * path: /p/1cbaf784c29c</div><div class="line">     * url = scheme + "://" + host + path;</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getDataFromBrowser</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">        Uri data = intent.getData();</div><div class="line">        <span class="keyword">if</span> (data != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                String scheme = data.getScheme();</div><div class="line">                String host = data.getHost();</div><div class="line">                String path = data.getPath();</div><div class="line">                String text = <span class="string">"Scheme: "</span> + scheme + <span class="string">"\n"</span> + <span class="string">"host: "</span> + host + <span class="string">"\n"</span> + <span class="string">"path: "</span> + path;</div><div class="line">                Log.e(<span class="string">"data"</span>, text);</div><div class="line">                String url = scheme + <span class="string">"://"</span> + host + path;</div><div class="line">                webView.loadUrl(url);</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>以上是核心代码，有几点需要说明的：</p>
+<ul>
+<li>1、设置启动模式：<code>launchMode=&quot;singleTask&quot;</code></li>
+<li>2、<code>getDataFromBrowser()</code>方法会在<code>onCreate</code>和<code>onNewIntent</code>方法中调用。</li>
 </ul>
+<h4 id="解释："><a href="#解释：" class="headerlink" title="解释："></a>解释：</h4><p>在实际使用中，有这样的场景：<br>我们在微信中“通过浏览器”打开自己的应用，然后将自己的应用切到后台。重复上面的操作，会一直创建应用的实例，这样肯定是不好的，为了避免这种情况我们设置启动模式为：<code>launchMode=&quot;singleTask&quot;</code>。</p>
 <blockquote>
-<p>Mask层(Mask Layer):<br>可以设置指定子层item的android:id=”@android:id/mask”来设定当前Ripple的Mask。<br>Mask的内容并不会被绘制到屏幕上，它的作用是限定Ripple效果的绘制区域。<br>mask所在的的子层限制了Ripple效果的最大范围只能是View的边界，不会扩散到父组件。</p>
+<p>使用singleTask启动模式的Activity在系统中只会存在一个实例。<br>如果这个实例不存在，新的Activity实例被创建。<br>如果这个实例已经存在，那么在Activity回退栈中，所有位于该Activity上面的Activity实例都将被销毁掉（销毁过程会调用Activity生命周期回调），这样使得singleTask Activity实例位于栈顶。与此同时，Intent会通过<code>onNewIntent</code>传递到这个SingleTask Activity实例。 - <a href="https://droidyue.com/blog/2015/08/16/dive-into-android-activity-launchmode/" target="_blank" rel="external">&lt;深入讲解Android中Activity launchMode&gt;</a></p>
 </blockquote>
-<h3 id="布局优化标签"><a href="#布局优化标签" class="headerlink" title="布局优化标签"></a>布局优化标签</h3><p>1、<code>&lt;include&gt;</code>：常用于将布局中的公共部分提取出来供其他layout共用，以实现布局模块化，这在布局编写方便提供了大大的便利。</p>
-<p>2、<code>&lt;viewstub&gt;</code>：viewstub标签同include标签一样可以用来引入一个外部布局，不同的是，viewstub引入的布局默认不会扩张，即既不会占用显示也不会占用位置，从而在解析layout时节省cpu和内存。<br>viewstub常用来引入那些默认不会显示，只在特殊情况下显示的布局，如进度布局、网络失败显示的刷新布局、信息出错出现的提示布局等。<br>比较直观的感觉是：在设置里打开显示布局边界后，如果不是使用<code>&lt;viewstub&gt;</code>标签，<code>GONE</code>掉后，<strong>加载中的布局</strong>还是会有颜色显示，而使用了此标签后颜色会消失。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">使用前</th>
-<th style="text-align:center">使用后</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/1354448-9eabb8928ef612f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="使用前"></td>
-<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/1354448-ee5b4e1a13244e97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="使用后"></td>
-</tr>
-</tbody>
-</table>
-<p>3、<code>&lt;merge&gt;</code>：在使用了include后可能导致布局嵌套过多，多余不必要的layout节点，从而导致解析变慢，不必要的节点和嵌套可通过hierarchy viewer(下面布局调优工具中有具体介绍)或设置-&gt;开发者选项-&gt;显示布局边界查看。</p>
-<h3 id="优化工具"><a href="#优化工具" class="headerlink" title="优化工具"></a>优化工具</h3><p>1、GPU过渡绘制：Graphic Processing Unit</p>
-<p>位置：设置/选择开发选项（Developer Options）/调试GPU 过度绘制（Debug GPU Overdraw），然后选择“显示过度绘制区域（Show overdraw area）”。</p>
-<p>定义：指在屏幕上的一个像素在单个帧中被重绘了多次。可以通过手机设置/开发者选项/调试GPU过渡绘制/，不同的颜色显示了渲染过渡程度<br><img src="https://upload-images.jianshu.io/upload_images/1354448-8b5d6f7c6cfefbfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="手机gpu绘制"></p>
-<p>2、Hierarchy Viewer<br>3、Lint tool</p>
-<h3 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">优化前</th>
-<th style="text-align:center">优化后</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/1354448-ac9f12fc0f737096.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="优化前"></td>
-<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/1354448-33a678ffc779709d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="优化后"></td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>对应项目：<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a></p>
-</blockquote>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
-<li><a href="http://www.trinea.cn/android/layout-performance/" target="_blank" rel="external">性能优化之布局优化</a></li>
-<li><a href="https://www.jianshu.com/p/af26dd165626" target="_blank" rel="external">[Android] 布局优化</a></li>
-<li><a href="https://www.jianshu.com/p/8030a8eeff1f" target="_blank" rel="external">Android性能优化–布局优化</a></li>
+<p>这就是为什么要在<code>onNewIntent</code>中调用的原因，当此Activity已存在时，值会通过<code>onNewIntent</code>传递过来。</p>
+<h3 id="继续拓展"><a href="#继续拓展" class="headerlink" title="继续拓展"></a>继续拓展</h3><p>也许大家用<code>知乎</code>进行过类似的操作，会发现有这样一个效果：<br>当知乎没有开启时，在其他应用打开知乎后，关闭页面会回到知乎的<strong>主页面</strong>。正常是不会有出现这样的情况的，我们需要简单设置一下。</p>
+<p>1、在主页面设置静态变量，初始化时改变静态变量的值<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span>  </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 是否开启了主页，没有开启则会返回主页</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> isLaunch = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        initView();</div><div class="line">        isLaunch = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        isLaunch = <span class="keyword">false</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>2、当<code>WebViewActivity</code>关闭时判断是否打开主页面<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 直接通过三方浏览器打开时，回退到首页</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleFinish</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">        finishAfterTransition();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        finish();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!MainActivity.isLaunch) &#123;</div><div class="line">        MainActivity.start(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>其实这相当于Activity隐式跳转，其中点击网页中的电话跳转到手机的拨号盘也是这样的原理，DeepLink也基本是这个逻辑。</p>
+<p>设想这样一种情况：<br>我们通过浏览器拉起自己的应用，不一定要打开WebView，也可以打开原生的页面，只需要传过来的数据里有此页面想要的数据即可。其实很多应用都这样做了。</p>
+<h4 id="End"><a href="#End" class="headerlink" title="End"></a>End</h4><ul>
+<li>下载体验：<a href="https://fir.im/webviewstudy" target="_blank" rel="external">https://fir.im/webviewstudy</a></li>
+<li>最后再附一遍项目地址😆：<strong><a href="https://github.com/youlookwhat/WebViewStudy" target="_blank" rel="external">WebViewStudy</a></strong></li>
 </ul>
 
       
@@ -530,7 +485,7 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
-            <a href="/tags/性能优化/" rel="tag"># 性能优化</a>
+            <a href="/tags/Android基础知识点/" rel="tag"># Android基础知识点</a>
           
         </div>
       
@@ -539,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/28/健身记录/" rel="next" title="健身记录">
-                <i class="fa fa-chevron-left"></i> 健身记录
+              <a href="/2018/11/06/cloudreader-app-introduce/" rel="next" title="《云阅2.0》一款同时看玩安卓和干货集中营资讯的App">
+                <i class="fa fa-chevron-left"></i> 《云阅2.0》一款同时看玩安卓和干货集中营资讯的App
               </a>
             
           </div>
@@ -548,10 +503,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/20/Android 水波纹效果的探究/" rel="prev" title="Android 水波纹效果的探究">
-                Android 水波纹效果的探究 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -781,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#父布局"><span class="nav-number">1.</span> <span class="nav-text">父布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景色"><span class="nav-number">2.</span> <span class="nav-text">背景色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局优化标签"><span class="nav-number">3.</span> <span class="nav-text">布局优化标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化工具"><span class="nav-number">4.</span> <span class="nav-text">优化工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化结果"><span class="nav-number">5.</span> <span class="nav-text">优化结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解释："><span class="nav-number">2.1.</span> <span class="nav-text">解释：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继续拓展"><span class="nav-number">3.</span> <span class="nav-text">继续拓展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#End"><span class="nav-number">4.1.</span> <span class="nav-text">End</span></a></li></ol></li></ol></div>
             
 
           </div>
