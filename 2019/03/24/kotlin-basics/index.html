@@ -1,0 +1,1224 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Kotlin," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JingBin's Home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="上篇：《Kotlin | 1.定义和目的》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin | 2.Kotlin基础">
+<meta property="og:url" content="http://jingbin.me/2019/03/24/kotlin-basics/index.html">
+<meta property="og:site_name" content="JingBin's Home">
+<meta property="og:description" content="上篇：《Kotlin | 1.定义和目的》">
+<meta property="og:updated_time" content="2019-04-10T14:08:44.769Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kotlin | 2.Kotlin基础">
+<meta name="twitter:description" content="上篇：《Kotlin | 1.定义和目的》">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7NR95R0WHT',
+      apiKey: '',
+      indexName: 'jing_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jingbin.me/2019/03/24/kotlin-basics/"/>
+
+
+
+
+
+  <title> Kotlin | 2.Kotlin基础 | JingBin's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4bf05054dba6aed3e35f11764b201341";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">JingBin's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2019/03/24/kotlin-basics/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Kotlin | 2.Kotlin基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T13:21:00+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-10T22:08:44+08:00">
+                2019-04-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
+                    <span itemprop="name">Kotlin</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2019/03/24/kotlin-basics/" class="leancloud_visitors" data-flag-title="Kotlin | 2.Kotlin基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上篇：<a href="https://jingbin.me/2019/03/22/kotlin-define/">《Kotlin | 1.定义和目的》</a></p>
+<a id="more"></a>
+<blockquote>
+<ul>
+<li>声明函数、变量、类、枚举以及类型</li>
+<li>Kotlin中的控制结构</li>
+<li>智能转换</li>
+<li>抛出和处理异常</li>
+</ul>
+</blockquote>
+<p><a href="https://github.com/youlookwhat/kotlin-learning/blob/master/kotlin/app/src/main/java/com/kotlin/jingbin/kotlinapp/MainActivity.kt" target="_blank" rel="external">函数学习</a></p>
+<h3 id="函数和变量"><a href="#函数和变量" class="headerlink" title="函数和变量"></a>函数和变量</h3><h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">    *  求最大值</div><div class="line">    * if是表达式而不是语句，表达式有值，语句没有。</div><div class="line">    * java中所有的控制结构都是语句</div><div class="line">    * kotlin中除了循环以外大多数控制结构都是表达式</div><div class="line">    */</div><div class="line">   <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">max</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">    * 如果函数体写在花括号中，我们说这个函数有代码块体。</div><div class="line">    * 如果直接返回了一个表达式体，他就有表达式体。</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">max2</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> = <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</div></pre></td></tr></table></figure>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><h5 id="可变变量和不可变变量"><a href="#可变变量和不可变变量" class="headerlink" title="可变变量和不可变变量"></a>可变变量和不可变变量</h5><ul>
+<li>val - 不可变引用。 相当于Java的final变量。</li>
+<li>var - 可变引用。   普通的Java变量。</li>
+</ul>
+<p>在定义了val变量的代码块执行期间，val变量只能进行唯一一次初始化。但是，如果编译器能确保只有唯一一条初始化语句被执行，可以根据条件使用不同的值来初始化它：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> message:String</div><div class="line"><span class="keyword">if</span> (CanPerformOperation())&#123;</div><div class="line">   message = <span class="string">"Success"</span></div><div class="line">   <span class="comment">// ...</span></div><div class="line">&#125; <span class="keyword">else</span>&#123;</div><div class="line">   message = <span class="string">"Failed"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意：尽管val引用自身是不可变的，但是它指向的对象可能是可变的。例如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> languages = arrayListOf(<span class="string">"Java"</span>)  <span class="comment">// 声明不可变引用</span></div><div class="line">languages.add(<span class="string">"Kotlin"</span>)              <span class="comment">// 改变引用指向的对象</span></div></pre></td></tr></table></figure>
+<p>错误：类型不匹配</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> answer = <span class="number">42</span></div><div class="line">answer = <span class="string">"no answer"</span></div></pre></td></tr></table></figure>
+<h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a1 = <span class="number">1</span></div><div class="line"><span class="keyword">val</span> s1 = <span class="string">"a is <span class="subst">$a1</span>"</span></div><div class="line">a1 = <span class="number">3</span></div><div class="line"><span class="comment">// 模板中的任意表达式</span></div><div class="line"><span class="keyword">val</span> s2 = <span class="string">"<span class="subst">$&#123;s1.replace("is", "was")&#125;</span>,but no is <span class="subst">$a1</span>"</span></div><div class="line"><span class="comment">// a was 1, but now is 3</span></div><div class="line">Log.e(<span class="string">"s2"</span>, s2)</div></pre></td></tr></table></figure>
+<p>和许多脚本语言一样，只需要在变量名称前加上 $ ，就可以在字符串字面值中引用局部变量。<br>引用”$”需要转义<code>“\$”</code></p>
+<h3 id="类和属性"><a href="#类和属性" class="headerlink" title="类和属性"></a>类和属性</h3><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>在Kotlin中，public是默认的可见性，所以你能省略它。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>—&gt;</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">class Person(private val name: String)</div></pre></td></tr></table></figure>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonProperty</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 只读属性：生成一个字段和一个简单的getter</span></div><div class="line">    val name: String = <span class="string">"kotlin_hahaha"</span></div><div class="line"></div><div class="line">    <span class="comment">// 可写属性：一个字段、一个getter和一个setter</span></div><div class="line">    var isMarried: Boolean = <span class="function"><span class="keyword">false</span></span></div><div class="line"></div><div class="line">    fun <span class="title">set</span><span class="params">()</span> &#123;</div><div class="line">        isMarried = <span class="keyword">true</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="自定义访问器"><a href="#自定义访问器" class="headerlink" title="自定义访问器"></a>自定义访问器</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Created by jingbin on 2018/11/18.</div><div class="line"> * 自定义访问器</div><div class="line"> * 也可以使用函数返回，实现和性能没有差别，唯一的差别是可读性</div><div class="line"> * 通常来说：</div><div class="line"> * 如果描述的是类的特征(属性)，应该把它声明成属性。</div><div class="line"> */</div><div class="line">class Rectangle(val height: Int, val width: Int) &#123;</div><div class="line"></div><div class="line">    // 函数表达式 可以赋值</div><div class="line">    val isSquare: Boolean</div><div class="line">    // 声明属性的getter</div><div class="line">        get() &#123;</div><div class="line">            return height == width</div><div class="line">        &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Kotlin源码布局：目录和包"><a href="#Kotlin源码布局：目录和包" class="headerlink" title="Kotlin源码布局：目录和包"></a>Kotlin源码布局：目录和包</h4><blockquote>
+<p>1.把类和函数的声明放在包中，可以同级</p>
+</blockquote>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span></span>(<span class="keyword">val</span> height: <span class="built_in">Int</span>, <span class="keyword">val</span> width: <span class="built_in">Int</span>) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 函数表达式 可以赋值</span></div><div class="line">    <span class="keyword">val</span> isSquare: <span class="built_in">Boolean</span></div><div class="line">    <span class="comment">// 声明属性的getter</span></div><div class="line">        <span class="keyword">get</span>() &#123;</div><div class="line">            <span class="keyword">return</span> height == width</div><div class="line">        &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">createRandomRectangle</span><span class="params">()</span></span>: Rectangle &#123;</div><div class="line">    <span class="keyword">val</span> random = Random()</div><div class="line">    <span class="keyword">return</span> Rectangle(random.nextInt(), random.nextInt())</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Kotlin不区分导入的是类还是函数，而且，它允许使用import关键字导入任何种类的声明。可以直接导入顶层函数的名称。</p>
+<blockquote>
+<p>2.导入其他包中的函数</p>
+</blockquote>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 导入函数的名称</span></div><div class="line"><span class="keyword">import</span> com.kotlin.jingbin.kotlinapp.classproperty.createRandomRectangle</div><div class="line"><span class="comment">// 导入其他包中的函数</span></div><div class="line">LogUtil.e(createRandomRectangle().isSquare)</div></pre></td></tr></table></figure>
+<p>包层级和java类似。</p>
+<h3 id="表示和处理选择-枚举和”when”"><a href="#表示和处理选择-枚举和”when”" class="headerlink" title="表示和处理选择: 枚举和”when”"></a>表示和处理选择: 枚举和”when”</h3><p>when结构，java中switch结构的替代品，但是更强大。智能转换。</p>
+<h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><h5 id="1-声明简单的枚举类"><a href="#1-声明简单的枚举类" class="headerlink" title="1.声明简单的枚举类"></a>1.声明简单的枚举类</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleColor</span> </span>&#123;</div><div class="line">    RED, ORANGE</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-声明一个带属性的枚举类"><a href="#2-声明一个带属性的枚举类" class="headerlink" title="2.声明一个带属性的枚举类"></a>2.声明一个带属性的枚举类</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Color</span></span>(</div><div class="line">        <span class="comment">// 声明枚举常量的属性</span></div><div class="line">        <span class="keyword">val</span> r: <span class="built_in">Int</span>, <span class="keyword">val</span> g: <span class="built_in">Int</span>, <span class="keyword">val</span> b: <span class="built_in">Int</span>) &#123;</div><div class="line">    <span class="comment">// 在每一个常量创建的时候指定属性值</span></div><div class="line">    RED(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>),</div><div class="line">    ORANGE(<span class="number">255</span>, <span class="number">165</span>, <span class="number">0</span>),</div><div class="line">    WELLOW(<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>),</div><div class="line">    GREEN(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>),</div><div class="line">    BULE(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>),</div><div class="line">    INDIGO(<span class="number">75</span>, <span class="number">0</span>, <span class="number">130</span>),</div><div class="line">    VIILET(<span class="number">238</span>, <span class="number">130</span>, <span class="number">238</span>);<span class="comment">// 分号</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">rgb</span><span class="params">()</span></span> = (r * <span class="number">256</span> + g) * <span class="number">256</span> + b</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-使用“when”处理枚举类"><a href="#3-使用“when”处理枚举类" class="headerlink" title="3.使用“when”处理枚举类"></a>3.使用“when”处理枚举类</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">    * 使用when处理枚举类:</div><div class="line">    * 直接返回一个“when"表达式</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">fun</span> <span class="title">getMnemonic</span><span class="params">(color: <span class="type">Color</span>)</span></span> = &#123;</div><div class="line">       <span class="keyword">when</span> (color) &#123;</div><div class="line">           RED -&gt; <span class="string">"Richard"</span></div><div class="line">           ORANGE -&gt; <span class="string">"Of"</span></div><div class="line">           WELLOW -&gt; <span class="string">"Haha"</span></div><div class="line">           <span class="comment">// 合并多个选项</span></div><div class="line">           BULE, GREEN -&gt; <span class="string">"望穿"</span></div><div class="line">           VIILET, INDIGO -&gt; <span class="string">"秋水"</span></div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h4 id="when"><a href="#when" class="headerlink" title="when"></a>when</h4><h5 id="1、在-when-结构中使用任意对象"><a href="#1、在-when-结构中使用任意对象" class="headerlink" title="1、在 when 结构中使用任意对象"></a>1、在 when 结构中使用任意对象</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">mix</span><span class="params">(c1: <span class="type">Color</span>, c2: <span class="type">Color</span>)</span></span> = &#123;</div><div class="line">        <span class="comment">// when 表达式的实参可以是任何对象，它被检查是否与分支条件对等</span></div><div class="line">        <span class="keyword">when</span> (setOf(c1, c2)) &#123;</div><div class="line">            setOf(Color.RED, Color.YELLOW) -&gt; Color.ORANGE</div><div class="line">            setOf(Color.BLUE, Color.YELLOW) -&gt; Color.GREEN</div><div class="line">            setOf(Color.BLUE, Color.VIOLET) -&gt; Color.INDIGO</div><div class="line">        <span class="comment">// 如果没有任何其他分支匹配这里就会执行</span></div><div class="line">            <span class="keyword">else</span> -&gt; <span class="keyword">throw</span> Exception(<span class="string">"Dirty color"</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="2、不带参数的-when"><a href="#2、不带参数的-when" class="headerlink" title="2、不带参数的 when"></a>2、不带参数的 when</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">minOptimized</span><span class="params">(c1: <span class="type">Color</span>, c2: <span class="type">Color</span>)</span></span> = &#123;</div><div class="line">        <span class="comment">// 没有实参传给 when</span></div><div class="line">        <span class="keyword">when</span> &#123;</div><div class="line">            (c1 == Color.RED &amp;&amp; c2 == Color.YELLOW) || (c2 == Color.RED &amp;&amp; c1 == Color.YELLOW) -&gt; Color.ORANGE</div><div class="line">            (c1 == Color.BLUE &amp;&amp; c2 == Color.YELLOW) || (c2 == Color.BLUE &amp;&amp; c1 == Color.YELLOW) -&gt; Color.GREEN</div><div class="line">            (c1 == Color.BLUE &amp;&amp; c2 == Color.VIOLET) || (c2 == Color.BLUE &amp;&amp; c1 == Color.VIOLET) -&gt; Color.INDIGO</div><div class="line"></div><div class="line">            <span class="keyword">else</span> -&gt; <span class="keyword">throw</span> Exception(<span class="string">"Dirty color"</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="3、智能转换：合并类型检查和转换"><a href="#3、智能转换：合并类型检查和转换" class="headerlink" title="3、智能转换：合并类型检查和转换"></a>3、智能转换：合并类型检查和转换</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 3.1表达式层次结构</span></div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Expr</span></span></div><div class="line"></div><div class="line">    <span class="comment">// 简单的值对象类，只有一个属性value，实现了Expr接口</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Num</span></span>(<span class="keyword">val</span> value: <span class="built_in">Int</span>) : Expr</div><div class="line"></div><div class="line">    <span class="comment">// sum运算的实参可以是任何Expr: Num或者另一个Sum</span></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Sum</span></span>(<span class="keyword">val</span> left: Expr, <span class="keyword">val</span> right: Expr) : Expr</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 3.2 使用 if 层叠对表达式求值</div><div class="line">     * 在 Kotlin 中，如果你检查过一个变量是某种类型，后面就不再需要转换它，可以就把它当作你检查过的类型使用。</div><div class="line">     * 事实上编译器为你执行了类型转换，我们把这种行为称为智能转换。</div><div class="line">     * */</div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">eval</span><span class="params">(e: <span class="type">Expr</span>)</span></span>: <span class="built_in">Int</span> &#123;</div><div class="line">        <span class="comment">// is - instanceOf</span></div><div class="line">        <span class="keyword">if</span> (e <span class="keyword">is</span> Num) &#123;</div><div class="line">            <span class="comment">// 显示的转换成类型 Num是多余的</span></div><div class="line">            <span class="keyword">val</span> num = e <span class="keyword">as</span> Num</div><div class="line">            <span class="keyword">return</span> num.value</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (e <span class="keyword">is</span> Sum) &#123;</div><div class="line">            <span class="comment">// 变量 e 被智能转换了类型</span></div><div class="line">            <span class="keyword">return</span> eval(e.left) + eval(e.right)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">throw</span> IllegalAccessException(<span class="string">"Unknown expression"</span>)</div></pre></td></tr></table></figure>
+<h5 id="4、重构：用“when”代替“if”"><a href="#4、重构：用“when”代替“if”" class="headerlink" title="4、重构：用“when”代替“if”"></a>4、重构：用“when”代替“if”</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * Kotlin 中没有三元运算符，因为if有返回值</div><div class="line">     * 意味着: 可以用表达式语法重写eval函数，去掉return语句和花括号，使用if表达式作为函数体</div><div class="line">     */</div><div class="line">    <span class="comment">// 4.1 使用用返回值的 if 表达式</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">eval2</span><span class="params">(e: <span class="type">Expr</span>)</span></span>: <span class="built_in">Int</span> =</div><div class="line">            <span class="keyword">if</span> (e <span class="keyword">is</span> Num) &#123;</div><div class="line">                e.value</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e <span class="keyword">is</span> Sum) &#123;</div><div class="line">                eval2(e.right) + eval2(e.left)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">throw</span> IllegalAccessException(<span class="string">"Unknown expression"</span>)</div><div class="line">            &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 4.2 使用 when 代替 if 层叠</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">eval3</span><span class="params">(e: <span class="type">Expr</span>)</span></span>: <span class="built_in">Int</span> =</div><div class="line">            <span class="keyword">when</span> (e) &#123;</div><div class="line">                <span class="keyword">is</span> Num -&gt; e.value</div><div class="line">                <span class="keyword">is</span> Sum -&gt; eval3(e.right) + eval3(e.left)</div><div class="line">                <span class="keyword">else</span> -&gt; <span class="keyword">throw</span> IllegalAccessException(<span class="string">"Unknown expression"</span>)</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+<h5 id="5、代码块作为-“if”-和-“when”-的分支"><a href="#5、代码块作为-“if”-和-“when”-的分支" class="headerlink" title="5、代码块作为 “if” 和 “when” 的分支"></a>5、代码块作为 “if” 和 “when” 的分支</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * 一个函数要么具有不是代码块的表达式函数体，</div><div class="line">     * 要么具有包含显示return语句的代码块函数体</div><div class="line">     */</div><div class="line">    <span class="comment">// 在分支中含有混合操作的 when</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">evalWithLogging</span><span class="params">(e: <span class="type">Expr</span>)</span></span>: <span class="built_in">Int</span> =</div><div class="line">            <span class="keyword">when</span> (e) &#123;</div><div class="line">                <span class="keyword">is</span> Num -&gt; &#123;</div><div class="line">                    LogUtil.e(<span class="string">"num: <span class="subst">$&#123;e.value&#125;</span>"</span>)</div><div class="line">                    e.value</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">is</span> Sum -&gt; &#123;</div><div class="line">                    <span class="keyword">val</span> left = <span class="keyword">this</span>.evalWithLogging(e.left)</div><div class="line">                    <span class="keyword">val</span> right = <span class="keyword">this</span>.evalWithLogging(e.right)</div><div class="line">                    LogUtil.e(<span class="string">"Sum: <span class="subst">$left</span> + <span class="subst">$right</span>"</span>)</div><div class="line">                    <span class="comment">// 代码块中最后的表达式就是结果</span></div><div class="line">                    left + right</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> -&gt; <span class="keyword">throw</span> IllegalAccessException(<span class="string">"Unknown expression"</span>)</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+<h3 id="迭代事物-“when”循环和“for”循环"><a href="#迭代事物-“when”循环和“for”循环" class="headerlink" title="迭代事物: “when”循环和“for”循环"></a>迭代事物: “when”循环和“for”循环</h3><h4 id="1、“while”-循环"><a href="#1、“while”-循环" class="headerlink" title="1、“while” 循环"></a>1、“while” 循环</h4><p>Kotlin 有 while 循环和 do-while 循环，他们的语法和Java中相应的循环没有什么区别</p>
+<h4 id="2、迭代数字：区间和数列"><a href="#2、迭代数字：区间和数列" class="headerlink" title="2、迭代数字：区间和数列"></a>2、迭代数字：区间和数列</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line">     * 区间：区间本质上就是两个值之间的间隔，这两个值通常是数字：一个起始值，一个结束值。</div><div class="line">     * 使用 .. 运算符来表示区间</div><div class="line">     * 数列：你能用整数区间做的最基本的事情就是循环迭代其中所有的值。</div><div class="line">     * 如果你能迭代区间中所有的值，这样的区间被称作数列。</div><div class="line">     * */</div><div class="line"></div><div class="line">    <span class="keyword">val</span> oneToTen = <span class="number">1.</span><span class="number">.10</span></div><div class="line"></div><div class="line">    <span class="comment">// 使用 when 实现 Fizz-Buzz 游戏</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">fizzBuzz</span><span class="params">(i: <span class="type">Int</span>)</span></span> = <span class="keyword">when</span> &#123;</div><div class="line">        i % <span class="number">15</span> == <span class="number">0</span> -&gt; <span class="string">"FizzBuzz"</span></div><div class="line">        i % <span class="number">3</span> == <span class="number">0</span> -&gt; <span class="string">"Fizz"</span></div><div class="line">        i % <span class="number">5</span> == <span class="number">0</span> -&gt; <span class="string">"Buzz"</span></div><div class="line">        <span class="keyword">else</span> -&gt; <span class="string">"<span class="subst">$i</span>"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.100</span>) &#123;</div><div class="line"><span class="comment">//            LogUtil.e(fizzBuzz(i))</span></div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 倒序 只计偶数 [使用 until 函数可以标识：不包含指定结束值的半闭合区间]</span></div><div class="line">        <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">100</span> downTo <span class="number">0</span> step <span class="number">2</span>) &#123;</div><div class="line">            LogUtil.e(fizzBuzz(i))</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<h4 id="3、迭代map"><a href="#3、迭代map" class="headerlink" title="3、迭代map"></a>3、迭代map</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用 TreeMap 让键排序</span></div><div class="line"> <span class="keyword">val</span> binaryReps = TreeMap&lt;<span class="built_in">Char</span>, String&gt;()</div><div class="line"> <span class="comment">// 创建字符区间 包括 F</span></div><div class="line"> <span class="keyword">for</span> (c <span class="keyword">in</span> <span class="string">'A'</span>..<span class="string">'F'</span>) &#123;</div><div class="line">     <span class="comment">// 把 ASCII 码转换成二进制</span></div><div class="line">     <span class="keyword">val</span> binaryString = Integer.toBinaryString(c.toInt())</div><div class="line">     binaryReps[c] = binaryString</div><div class="line"> &#125;</div><div class="line"> <span class="comment">// 迭代 map ，把键和值赋值给两个变量</span></div><div class="line"> <span class="keyword">for</span> ((letter, binary) <span class="keyword">in</span> binaryReps) &#123;</div><div class="line">     LogUtil.e(<span class="string">"<span class="subst">$letter</span> = <span class="subst">$binary</span>"</span>)</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">// 迭代集合时 使用下标</span></div><div class="line"> <span class="keyword">val</span> list = arrayListOf(<span class="string">"10"</span>, <span class="string">"11"</span>, <span class="string">"1001"</span>)</div><div class="line"> <span class="keyword">for</span> ((index, element) <span class="keyword">in</span> list.withIndex()) &#123;</div><div class="line">     LogUtil.e(<span class="string">"<span class="subst">$index</span> = <span class="subst">$element</span>"</span>)</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h4 id="4、使用-“in”-检查集合和区间的成员"><a href="#4、使用-“in”-检查集合和区间的成员" class="headerlink" title="4、使用 “in” 检查集合和区间的成员"></a>4、使用 “in” 检查集合和区间的成员</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">// 1.使用 in 检查区间的成员</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">isLetter</span><span class="params">(c: <span class="type">Char</span>)</span></span> = c <span class="keyword">in</span> <span class="string">'a'</span>..<span class="string">'z'</span> || c <span class="keyword">in</span> <span class="string">'A'</span>..<span class="string">'Z'</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">isNoDigitic</span><span class="params">(c: <span class="type">Char</span>)</span></span> = c !<span class="keyword">in</span> <span class="string">'0'</span>..<span class="string">'9'</span></div><div class="line"></div><div class="line">    <span class="comment">// 2.用 in 检查作为when分支</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">recognize</span><span class="params">(c: <span class="type">Char</span>)</span></span> = <span class="keyword">when</span> (c) &#123;</div><div class="line">        <span class="keyword">in</span> <span class="string">'0'</span>..<span class="string">'9'</span> -&gt; <span class="string">"In's a digit!"</span></div><div class="line">        <span class="keyword">in</span> <span class="string">'a'</span>..<span class="string">'z'</span>, <span class="keyword">in</span> <span class="string">'A'</span>..<span class="string">'Z'</span> -&gt; <span class="string">"In's a letter!"</span></div><div class="line">        <span class="keyword">else</span> -&gt; <span class="string">"I don't know.."</span></div><div class="line">    &#125;</div><div class="line">``` </div><div class="line"></div><div class="line">### Kotlin中的异常</div><div class="line">```kotlin</div><div class="line"><span class="comment">// val 不能再赋值，相当于 final</span></div><div class="line">        <span class="keyword">val</span> percentage = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> (percentage !<span class="keyword">in</span> <span class="number">0.</span><span class="number">.100</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> IllegalAccessException(<span class="string">"A percentage value must be between 0 and 100: <span class="subst">$percentage</span>"</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 和所有其他类一样，不必使用 new 关键字来创建异常实例。</div><div class="line">         * 和java不同的是，Kotlin中throw结构是一个表达式，能作为另一个表达式的一部分使用：</div><div class="line">         */</div><div class="line"></div><div class="line">        <span class="keyword">val</span> number = <span class="number">8</span></div><div class="line">        <span class="keyword">val</span> percentage2 =</div><div class="line">                <span class="keyword">if</span> (number <span class="keyword">in</span> <span class="number">0.</span><span class="number">.100</span>) &#123;</div><div class="line">                    number</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="comment">// throw 是一个表达式</span></div><div class="line">                    <span class="keyword">throw</span> IllegalAccessException(<span class="string">"A percentage value must be between 0 and 100: <span class="subst">$percentage</span>"</span>)</div><div class="line">                &#125;</div><div class="line"></div><div class="line">        <span class="keyword">val</span> bufferedReader = BufferedReader(StringReader(<span class="string">"239"</span>))</div></pre></td></tr></table></figure>
+<h4 id="1、try-catch-和-finally"><a href="#1、try-catch-和-finally" class="headerlink" title="1、try catch 和 finally"></a>1、try catch 和 finally</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 不必显式地知道这个函数可能抛出的异常</span></div><div class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">readNumber</span><span class="params">(reader: <span class="type">BufferedReader</span>)</span></span>: <span class="built_in">Int</span>? &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">val</span> line = reader.readLine()</div><div class="line">            <span class="keyword">return</span> Integer.parseInt(line)</div><div class="line"></div><div class="line">            <span class="comment">// 异常类型在右边</span></div><div class="line">        &#125; <span class="keyword">catch</span> (e: NumberFormatException) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">null</span></div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            reader.close()</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="2、try-作为表达式"><a href="#2、try-作为表达式" class="headerlink" title="2、try 作为表达式"></a>2、try 作为表达式</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">readNumber2</span><span class="params">(reader: <span class="type">BufferedReader</span>)</span></span> &#123;</div><div class="line">        <span class="keyword">val</span> number = <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 没有任何异常发生时 使用这个值</span></div><div class="line">            Integer.parseInt(reader.readLine())</div><div class="line">        &#125; <span class="keyword">catch</span> (e: NumberFormatException) &#123;</div><div class="line"><span class="comment">//            return</span></div><div class="line">            <span class="comment">// 发生异常时的情况下使用 null</span></div><div class="line">            <span class="literal">null</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>fun 关键字用来声明函数。Val关键字和var关键字分别用来声明只读变量和可变变量。</li>
+<li>字符串模板帮组你避免繁琐的字符串拼接。在变量名称前加上 $ 前缀或者用 ${} 包围一个表达式，来把值注入到字符串中。</li>
+<li>值对象类在Kotlin中以简洁的方式表示。</li>
+<li>熟悉的if现在是带返回值的表达式。</li>
+<li>when表达式类似于Java中的switch但功能更强大。</li>
+<li>在检查过变量具有某种类型之后不必显示地转换它的类型:编译器使用智能转换字段帮你完成。</li>
+<li>for、while、和 do-while 循环与java类似，但是for循环现在更加方便，特别是当你需要迭代map的时候，又或是迭代集合需要下标的时候。</li>
+<li>简洁的语法 1..5 会创建一个区间。区间和数列允许Kotlin在for循环中使用统一的语法和同一套抽象机制，并且还可以使用in运算符和!in运算符来检查值是否属于某个区间。</li>
+<li>Kotlin中的异常处理和java非常相似，除了Kotlin不要求你声明函数可以抛出异常。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/22/kotlin-define/" rel="next" title="Kotlin | 1.定义和目的">
+                <i class="fa fa-chevron-left"></i> Kotlin | 1.定义和目的
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JingBin" />
+          <p class="site-author-name" itemprop="name">JingBin</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/youlookwhat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3121694927/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/jingbin_" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wanandroid.com/index" title="玩Android" target="_blank">玩Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://p.codekk.com/" title="CodeKK" target="_blank">CodeKK</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/sinyu890807/" title="郭霖" target="_blank">郭霖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791" title="鸿洋" target="_blank">鸿洋</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me/" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hukai.me/" title="胡凯" target="_blank">胡凯</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <!--
+-->
+        <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26237342&auto=0&height=66"></iframe>-->
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数和变量"><span class="nav-number">1.</span> <span class="nav-text">函数和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">1.1.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">1.2.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可变变量和不可变变量"><span class="nav-number">1.2.1.</span> <span class="nav-text">可变变量和不可变变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串模板"><span class="nav-number">1.3.</span> <span class="nav-text">字符串模板</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和属性"><span class="nav-number">2.</span> <span class="nav-text">类和属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">2.1.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义访问器"><span class="nav-number">2.3.</span> <span class="nav-text">自定义访问器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kotlin源码布局：目录和包"><span class="nav-number">2.4.</span> <span class="nav-text">Kotlin源码布局：目录和包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示和处理选择-枚举和”when”"><span class="nav-number">3.</span> <span class="nav-text">表示和处理选择: 枚举和”when”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举"><span class="nav-number">3.1.</span> <span class="nav-text">枚举</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-声明简单的枚举类"><span class="nav-number">3.1.1.</span> <span class="nav-text">1.声明简单的枚举类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-声明一个带属性的枚举类"><span class="nav-number">3.1.2.</span> <span class="nav-text">2.声明一个带属性的枚举类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-使用“when”处理枚举类"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.使用“when”处理枚举类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#when"><span class="nav-number">3.2.</span> <span class="nav-text">when</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、在-when-结构中使用任意对象"><span class="nav-number">3.2.1.</span> <span class="nav-text">1、在 when 结构中使用任意对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、不带参数的-when"><span class="nav-number">3.2.2.</span> <span class="nav-text">2、不带参数的 when</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、智能转换：合并类型检查和转换"><span class="nav-number">3.2.3.</span> <span class="nav-text">3、智能转换：合并类型检查和转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、重构：用“when”代替“if”"><span class="nav-number">3.2.4.</span> <span class="nav-text">4、重构：用“when”代替“if”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、代码块作为-“if”-和-“when”-的分支"><span class="nav-number">3.2.5.</span> <span class="nav-text">5、代码块作为 “if” 和 “when” 的分支</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代事物-“when”循环和“for”循环"><span class="nav-number">4.</span> <span class="nav-text">迭代事物: “when”循环和“for”循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、“while”-循环"><span class="nav-number">4.1.</span> <span class="nav-text">1、“while” 循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、迭代数字：区间和数列"><span class="nav-number">4.2.</span> <span class="nav-text">2、迭代数字：区间和数列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、迭代map"><span class="nav-number">4.3.</span> <span class="nav-text">3、迭代map</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、使用-“in”-检查集合和区间的成员"><span class="nav-number">4.4.</span> <span class="nav-text">4、使用 “in” 检查集合和区间的成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、try-catch-和-finally"><span class="nav-number">4.5.</span> <span class="nav-text">1、try catch 和 finally</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、try-作为表达式"><span class="nav-number">4.6.</span> <span class="nav-text">2、try 作为表达式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JingBin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cJ3qzFUAP7IbAMdtTT9gEmsd-gzGzoHsz", "Lb9yad0PMHUjs66NrAQqRT3A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>
