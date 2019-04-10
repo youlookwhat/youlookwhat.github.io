@@ -1,0 +1,1359 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MySql," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JingBin's Home" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="我们容易忽视慢变量，但慢变量才是牵引历史进程的火车头。 - 何帆/变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mybatis 框架实战">
+<meta property="og:url" content="http://jingbin.me/2019/04/03/mybatis-practice/index.html">
+<meta property="og:site_name" content="JingBin's Home">
+<meta property="og:description" content="我们容易忽视慢变量，但慢变量才是牵引历史进程的火车头。 - 何帆/变量">
+<meta property="og:updated_time" content="2019-04-10T14:49:09.907Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mybatis 框架实战">
+<meta name="twitter:description" content="我们容易忽视慢变量，但慢变量才是牵引历史进程的火车头。 - 何帆/变量">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '7NR95R0WHT',
+      apiKey: '',
+      indexName: 'jing_Name',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jingbin.me/2019/04/03/mybatis-practice/"/>
+
+
+
+
+
+  <title> Mybatis 框架实战 | JingBin's Home </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4bf05054dba6aed3e35f11764b201341";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <!-- <a href="https://github.com/youlookwhat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a> -->
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">JingBin's Home</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-music">
+          <a href="/music.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-music"></i> <br />
+            
+            音乐
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jingbin.me/2019/04/03/mybatis-practice/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="JingBin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="JingBin's Home">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="JingBin's Home" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mybatis 框架实战
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T18:39:00+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-10T22:49:09+08:00">
+                2019-04-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java后端/" itemprop="url" rel="index">
+                    <span itemprop="name">Java后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2019/04/03/mybatis-practice/" class="leancloud_visitors" data-flag-title="Mybatis 框架实战">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>我们容易忽视慢变量，但慢变量才是牵引历史进程的火车头。 - 何帆/变量</p>
+</blockquote>
+<a id="more"></a>
+<ul>
+<li>Mybatis 持久层：简化工作量、灵活</li>
+<li>Spring 粘合剂：整合框架 AOP IOC DI</li>
+<li>SpringMvc 表现层：方便前后端数据的传输</li>
+</ul>
+<p>Mybatis:</p>
+<ul>
+<li>1.是对jdbc的封装，</li>
+<li>2.将sql语句放在映射文件中(xml)，</li>
+<li>3.自动将输入参数映射到sql语句的动态参数上，</li>
+<li>4.自动将sql语句执行的结果映射成java对象</li>
+</ul>
+<p>入门示例：</p>
+<h3 id="1-创建项目mubatis-01"><a href="#1-创建项目mubatis-01" class="headerlink" title="1.创建项目mubatis-01"></a>1.创建项目mubatis-01</h3><h3 id="2-导入jar"><a href="#2-导入jar" class="headerlink" title="2.导入jar:"></a>2.导入jar:</h3><ul>
+<li>mybatis-3.2.8</li>
+<li>mysql-connect</li>
+<li>log4j-1.2.17</li>
+</ul>
+<h3 id="3-加入配置文件"><a href="#3-加入配置文件" class="headerlink" title="3.加入配置文件"></a>3.加入配置文件</h3><p>(1)db.properties</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">jdbc.driver=com.mysql.cj.jdbc.Driver</div><div class="line">jdbc.url = jdbc:mysql:<span class="comment">//localhost:3306/mysql_0219</span></div><div class="line">jdbc.username = root</div><div class="line">jdbc.password = <span class="number">123456</span></div></pre></td></tr></table></figure>
+<p>(2)log4j.properties<br><a href="https://blog.csdn.net/sinat_30185177/article/details/73550377" target="_blank" rel="external">https://blog.csdn.net/sinat_30185177/article/details/73550377</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">log4j.rootLogger=DEBUG,A1</div><div class="line">log4j.logger.org.mybatis=DEBUG</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>(3) mybatis核心配置文件：mybatis-config.xml</p>
+<p>(4) BlogMapper.xml</p>
+<p>包:com.jingbin.mybatis.mapper</p>
+<h3 id="4-编写接口：BlogMapper"><a href="#4-编写接口：BlogMapper" class="headerlink" title="4.编写接口：BlogMapper"></a>4.编写接口：BlogMapper</h3><h3 id="5-创建pojo：Blog"><a href="#5-创建pojo：Blog" class="headerlink" title="5.创建pojo：Blog"></a>5.创建pojo：Blog</h3><h3 id="6-创建工具类：MyBatisUtil"><a href="#6-创建工具类：MyBatisUtil" class="headerlink" title="6.创建工具类：MyBatisUtil"></a>6.创建工具类：MyBatisUtil</h3><h3 id="7-编写测试类："><a href="#7-编写测试类：" class="headerlink" title="7.编写测试类："></a>7.编写测试类：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">testSelectBlog</div><div class="line">发现要连接数据库，学习mysql内容</div><div class="line">学习配置好了后：运行报错：Invalid bound statement (not found): mapper.BlogMapper.selectBlog</div><div class="line">解决：https://www.cnblogs.com/cailijuan/p/9505244.html</div><div class="line">1)使用创建接口的方式</div><div class="line">2)不是用接口的方式</div></pre></td></tr></table></figure>
+<h3 id="8-列名和属性名不一致的情况"><a href="#8-列名和属性名不一致的情况" class="headerlink" title="8.列名和属性名不一致的情况"></a>8.列名和属性名不一致的情况</h3><p>数据库里的列名为author_id,属性名为authorId。在BlogMapper.xml里：</p>
+<p>1.使用别名</p>
+<p><code>select author_id as authorId from Blog where id=#{id}</code></p>
+<p>2.使用 resultMap</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap type="Blog" id="blogResultMap"&gt;</div><div class="line">		&lt;id column="id" property="id" jdbcType="INTEGER"/&gt;</div><div class="line">      &lt;result column="author_id" property="authorId" jdbcType="INTEGER"/&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line"></div><div class="line">&lt;select id="selectBlog" parameterType="Integer" resultMap="blogResultMap"&gt;</div><div class="line">       select * from blog where id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<h3 id="9-模糊查询之-和-的区别"><a href="#9-模糊查询之-和-的区别" class="headerlink" title="9.模糊查询之#和$的区别"></a>9.模糊查询之<code>#</code>和<code>$</code>的区别</h3><p>模糊查询：根据博客名字查询博客列表</p>
+<p>1)使用<code>#</code>传参<br>2)使用<code>$</code>传参</p>
+<p><code>#</code>是占位符？，<code>$</code>是字符串拼接。</p>
+<p>mybatis定义：</p>
+<ul>
+<li>使用<code>$</code>。如果参数是单指类型(简单类型)，并且只有一个参数，则花括号里只能写value占位。</li>
+<li>使用<code>$</code>可以直接将<code>%</code>写里面，可能有sql注入的风险，建议最好使用<code>#</code>。参数是字符串要使用 ‘’</li>
+<li>当参数表示表名或列名的时候，只能使用<code>$</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 使用 $ 不区分大小写的查询 lower--&gt;</div><div class="line">    &lt;select id=<span class="string">"selectBlogByTitle2"</span> parameterType=<span class="string">"string"</span> resultType=<span class="string">"Blog"</span>&gt;</div><div class="line">            select * <span class="function">from blog where <span class="title">lower</span><span class="params">(title)</span> like <span class="title">lower</span><span class="params">(<span class="string">'%$&#123;value&#125;%'</span>)</span></span></div><div class="line">    &lt;/select&gt;</div><div class="line">&lt;/mapper&gt;</div></pre></td></tr></table></figure>
+<h3 id="10-查询排序"><a href="#10-查询排序" class="headerlink" title="10.查询排序"></a>10.查询排序</h3><p>需求：按照某一列排序</p>
+<p>select * from blog order by CONVERT(${value} USING gbk)</p>
+<p>gbk:输入中文时排序成功，否则会失败。且使用gbk规避魅族(gb2313)不排序问题。</p>
+<h3 id="11-分页-多参数传递"><a href="#11-分页-多参数传递" class="headerlink" title="11.分页-多参数传递"></a>11.分页-多参数传递</h3><p>需求：查询分页数据</p>
+<ul>
+<li>1）使用索引</li>
+</ul>
+<p>按照参数的顺序，从0开始</p>
+<p>select * from blog limit #{0}, #{1}</p>
+<ul>
+<li>2）使用注解</li>
+</ul>
+<p>注解的value值要和mapper的占位参数一致。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from blog limit #&#123;offset&#125;, #&#123;pageSize&#125;</div><div class="line">List&lt;Blog&gt; selectBlogByPage2(@Param(value = "offset") int offset, @Param(value = "pageSize") int pageSize);</div></pre></td></tr></table></figure>
+<ul>
+<li>3）使用map(常用)</li>
+</ul>
+<p>注意：mapper中的参数占位符要和测试中的map的key一一对应</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">select * from blog limit #&#123;offset&#125;, #&#123;pageSize&#125;</div><div class="line">// 测试</div><div class="line">SqlSession session = MyBatisUtil.getSqlSession();</div><div class="line">BlogMapper blogMapper = session.getMapper(BlogMapper.class);</div><div class="line">Map&lt;String, Object&gt; objectMap = new HashMap&lt;&gt;();</div><div class="line">objectMap.put("offset", 0);</div><div class="line">objectMap.put("pageSize", 2);</div><div class="line">List&lt;Blog&gt; blogList = blogMapper.selectBlogByPage3(objectMap);</div></pre></td></tr></table></figure>
+<h3 id="12-插入功能和获取刚刚插入的id"><a href="#12-插入功能和获取刚刚插入的id" class="headerlink" title="12.插入功能和获取刚刚插入的id"></a>12.插入功能和获取刚刚插入的id</h3><ul>
+<li>1)插入记录</li>
+</ul>
+<p>需求：新增一个博客记录</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;insert id="insertBlog" parameterType="Blog"&gt;</div><div class="line">        insert into `blog`(</div><div class="line">          `name`,</div><div class="line">          `age`,</div><div class="line">          `title`,</div><div class="line">          `author_id`,</div><div class="line">          `featured`</div><div class="line">        ) values (</div><div class="line">          #&#123;name&#125;,</div><div class="line">          #&#123;age&#125;,</div><div class="line">          #&#123;title&#125;,</div><div class="line">          #&#123;author_id&#125;,</div><div class="line">          #&#123;featured&#125;</div><div class="line">        )</div><div class="line">    &lt;/insert&gt;</div><div class="line">    </div><div class="line">// 提交</div><div class="line">session.commit();</div></pre></td></tr></table></figure>
+<ul>
+<li>2）获取自增id<br>方式1：在mapper中配置<code>insert</code>节点的属性 <code>useGeneratedKeys</code>和<code>keyProperty</code>节点<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;insert id=<span class="string">"insertBlog"</span> parameterType=<span class="string">"Blog"</span> useGeneratedKeys=<span class="string">"true"</span> keyProperty=<span class="string">"id"</span>/&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>方式2：在全局配置文件中配置setting<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;!--定义数据库链接配置--&gt;</div><div class="line">    &lt;properties resource="db.properties"/&gt;</div><div class="line">    </div><div class="line">&lt;!--具体的insert也得配置 keyProperty节点--&gt;</div><div class="line">    &lt;settings&gt;</div><div class="line">        &lt;setting name="useGeneratedKeys" value="true"/&gt;</div><div class="line">    &lt;/settings&gt;</div></pre></td></tr></table></figure></p>
+<p>方式3：适用于没有自增主键的数据库</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;insert id="insertBlogOracle" parameterType="Blog"&gt;</div><div class="line">        &lt;selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id"&gt;</div><div class="line">            select seq.nextval as id from dual</div><div class="line">        &lt;/selectKey&gt;</div><div class="line">        insert into `blog`(</div><div class="line">          `name`,</div><div class="line">          `age`,</div><div class="line">          `title`,</div><div class="line">          `author_id`,</div><div class="line">          `featured`</div><div class="line">        ) values (</div><div class="line">          #&#123;name&#125;,</div><div class="line">          #&#123;age&#125;,</div><div class="line">          #&#123;title&#125;,</div><div class="line">          #&#123;author_id&#125;,</div><div class="line">          #&#123;featured&#125;</div><div class="line">        )</div><div class="line">    &lt;/insert&gt;</div><div class="line"></div><div class="line">    &lt;insert id="insertBlogMysql" parameterType="Blog"&gt;</div><div class="line">        &lt;selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id"&gt;</div><div class="line">            SELECT LAST_INSERT_ID()</div><div class="line">        &lt;/selectKey&gt;</div><div class="line"></div><div class="line">        insert into `blog`(</div><div class="line">        `name`,</div><div class="line">        `age`,</div><div class="line">        `title`,</div><div class="line">        `author_id`,</div><div class="line">        `featured`</div><div class="line">        ) values (</div><div class="line">        #&#123;name&#125;,</div><div class="line">        #&#123;age&#125;,</div><div class="line">        #&#123;title&#125;,</div><div class="line">        #&#123;author_id&#125;,</div><div class="line">        #&#123;featured&#125;</div><div class="line">        )</div><div class="line">    &lt;/insert&gt;</div></pre></td></tr></table></figure>
+<h3 id="13-修改功能和修改部分字段注意的问题"><a href="#13-修改功能和修改部分字段注意的问题" class="headerlink" title="13.修改功能和修改部分字段注意的问题"></a>13.修改功能和修改部分字段注意的问题</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;update id="updateBlog" parameterType="Blog"&gt;</div><div class="line">        update `blog`</div><div class="line">        set</div><div class="line">        `name` = #&#123;name&#125;,</div><div class="line">        `age` = #&#123;age&#125;,</div><div class="line">        `title` = #&#123;title&#125;,</div><div class="line">        `author_id` = #&#123;author_id&#125;,</div><div class="line">        `featured` = #&#123;featured&#125;</div><div class="line">        where</div><div class="line">        `id` = #&#123;id&#125;</div><div class="line">    &lt;/update&gt;</div></pre></td></tr></table></figure>
+<p>注意：如果没有为对象设置所有的要修改的属性，那么未设置的属性会用成员变量的默认值填充。<br>解决：<br>方式1：数据库查一遍，再返回的数据修改。缺点：又执行了一遍数据库操作<br>方式2：查询语句里增加if else。</p>
+<h3 id="14-删除记录"><a href="#14-删除记录" class="headerlink" title="14.删除记录"></a>14.删除记录</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;delete id="deleteBlogById"&gt;</div><div class="line">  delete from blog where id=#&#123;id&#125;</div><div class="line">&lt;/delete&gt;</div></pre></td></tr></table></figure>
+<p>动态sql<br>批量删除：使用动态sql实现<br>if、[choose、when、otherwise]、where、set、trim、foreach、sql片段</p>
+<h3 id="15-if"><a href="#15-if" class="headerlink" title="15.if"></a>15.if</h3><p>需求：</p>
+<ul>
+<li>1.查询已激活的并且博客的名字是包含某个查询字符串的记录</li>
+<li>2.如果用户没有输入任何查询字符串，那么就显示所有已激活的记录</li>
+</ul>
+<p>// 如果用户输入了查询字符串<br>select * from blog<br>where state = ‘ACTIVE’<br>and title like  ‘%o%’</p>
+<p>// 用户没有输入查询字符串<br>select * from blog<br>where state = ‘ACTIVE’</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select * from blog</div><div class="line">where state = 'ACTIVE' </div><div class="line">&lt;if test="value != null and value!=''"&gt;</div><div class="line">   and title like value[%%] 具体见代码</div><div class="line">&lt;/if&gt;</div></pre></td></tr></table></figure>
+<h3 id="16-choose、when、otherwise"><a href="#16-choose、when、otherwise" class="headerlink" title="16.choose、when、otherwise"></a>16.choose、when、otherwise</h3><p>需求：</p>
+<ul>
+<li>1、查询已激活的</li>
+<li>2、如果用户输入了标题的查询关键字，则根据关键字查询</li>
+<li>3、否则根据blog风格样式查询</li>
+<li>4、如果什么都没有输入，则显示推荐的博客</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;select id="selectActiveBlogByTitleOrStyle" parameterType="Blog" resultType="Blog"&gt;</div><div class="line">    select * from blog</div><div class="line">    where state = 'ACTIVE'</div><div class="line">    &lt;choose&gt;</div><div class="line">        &lt;when test="title != null and title!=''"&gt;and lower(title) like lower(#&#123;title&#125;)&lt;/when&gt;</div><div class="line">        &lt;when test="style != null and style!=''"&gt;and style = #&#123;style&#125;&lt;/when&gt;</div><div class="line">        &lt;otherwise&gt; and featured = true&lt;/otherwise&gt;</div><div class="line">    &lt;/choose&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<h3 id="17-where"><a href="#17-where" class="headerlink" title="17.where"></a>17.where</h3><p>需求：多条件查询，根据状态，标题，是否被推荐<br>自动修补查询条件，查询语句中的where关键字使用<where>标签替代，不能省略 and or 关键字</where></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;select id="selectBlogByCondition" parameterType="Blog" resultType="Blog"&gt;</div><div class="line">    select * from blog</div><div class="line">    &lt;where&gt;</div><div class="line">        &lt;if test="state != null and state!=''"&gt;</div><div class="line">            state = #&#123;state&#125;</div><div class="line">        &lt;/if&gt;</div><div class="line">        &lt;if test="title != null and title!=''"&gt;</div><div class="line">            and lower(title) like lower(#&#123;title&#125;)</div><div class="line">        &lt;/if&gt;</div><div class="line">        &lt;if test="featured != null"&gt;</div><div class="line">            and featured = #&#123;featured&#125;</div><div class="line">        &lt;/if&gt;</div><div class="line">    &lt;/where&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<h3 id="18-set"><a href="#18-set" class="headerlink" title="18.set"></a>18.set</h3><p>需求：按需修改，修改执行的列，未指定的不修改<br>set 会自动去掉if语句后面的逗号</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;update id="updateBlogByCondition" parameterType="Blog"&gt;</div><div class="line">    update `blog`</div><div class="line">    &lt;set&gt;</div><div class="line">        &lt;if test="name != null"&gt;`name` = #&#123;name&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="age != null"&gt;`age` = #&#123;age&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="title != null"&gt;`title` = #&#123;title&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="author_id != null"&gt;`author_id` = #&#123;author_id&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="featured != null"&gt;`featured` = #&#123;featured&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="state != null"&gt;`state` = #&#123;state&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="style != null"&gt;`style` = #&#123;state&#125;,&lt;/if&gt;</div><div class="line">    &lt;/set&gt;</div><div class="line">    where `id` = #&#123;id&#125;</div><div class="line">&lt;/update&gt;</div></pre></td></tr></table></figure>
+<h3 id="19-trim"><a href="#19-trim" class="headerlink" title="19.trim"></a>19.trim</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;select id="selectBlogByConditionTrim" parameterType="Blog" resultType="Blog"&gt;</div><div class="line">    select * from blog</div><div class="line">    -- prefixOverrides 去掉前面的 and 或 or</div><div class="line">    &lt;trim prefix="where" prefixOverrides="and | or"&gt;</div><div class="line">        &lt;if test="state != null and state!=''"&gt;</div><div class="line">            state = #&#123;state&#125;</div><div class="line">        &lt;/if&gt;</div><div class="line">        &lt;if test="title != null and title!=''"&gt;</div><div class="line">            and lower(title) like lower(#&#123;title&#125;)</div><div class="line">        &lt;/if&gt;</div><div class="line">        &lt;if test="featured != null"&gt;</div><div class="line">            and featured = #&#123;featured&#125;</div><div class="line">        &lt;/if&gt;</div><div class="line">    &lt;/trim&gt;</div><div class="line">&lt;/select&gt;</div><div class="line"></div><div class="line">&lt;update id="updateBlogByConditionTrim" parameterType="Blog"&gt;</div><div class="line">    update `blog`</div><div class="line">    -- suffixOverrides 去掉后面的 ,</div><div class="line">    &lt;trim prefix="set" suffixOverrides=","&gt;</div><div class="line">        &lt;if test="name != null"&gt;`name` = #&#123;name&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="age != null"&gt;`age` = #&#123;age&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="title != null"&gt;`title` = #&#123;title&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="author_id != null"&gt;`author_id` = #&#123;author_id&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="featured != null"&gt;`featured` = #&#123;featured&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="state != null"&gt;`state` = #&#123;state&#125;,&lt;/if&gt;</div><div class="line">        &lt;if test="style != null"&gt;`style` = #&#123;state&#125;,&lt;/if&gt;</div><div class="line">    &lt;/trim&gt;</div><div class="line">    where `id` = #&#123;id&#125;</div><div class="line">&lt;/update&gt;</div></pre></td></tr></table></figure>
+<h3 id="20-foreach"><a href="#20-foreach" class="headerlink" title="20.foreach"></a>20.foreach</h3><p>需求：批量删除</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> &lt;!-- parameterType 与 collection 一致--&gt;</div><div class="line">&lt;delete id="deleteBlogList" parameterType="list"&gt;</div><div class="line">    delete from blog where id in</div><div class="line">    &lt;foreach collection="list" item="item" open="(" close=")" separator=","&gt;</div><div class="line">        #&#123;item&#125;</div><div class="line">    &lt;/foreach&gt;</div><div class="line">&lt;/delete&gt;</div><div class="line"></div><div class="line">@Test</div><div class="line">public void testDeleteBlogList() &#123;</div><div class="line">    SqlSession session = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper = session.getMapper(BlogMapper.class);</div><div class="line">    List&lt;Integer&gt; asList = Arrays.asList(1, 2);</div><div class="line">    int count = blogMapper.deleteBlogList(asList);</div><div class="line">    // 提交</div><div class="line">    session.commit();</div><div class="line">    session.close();</div><div class="line">    System.out.println("更新了" + count + "条记录");</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="21-sql片段"><a href="#21-sql片段" class="headerlink" title="21.sql片段"></a>21.sql片段</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!--sql片段--&gt;</div><div class="line">&lt;sql id="columnBase"&gt;</div><div class="line">      `id`,</div><div class="line">      `name`,</div><div class="line">      `age`,</div><div class="line">      `title`,</div><div class="line">      `author_id`,</div><div class="line">      `featured`,</div><div class="line">      `state`,</div><div class="line">      `style`</div><div class="line">&lt;/sql&gt;</div><div class="line"></div><div class="line">&lt;!--通过id查询博客--&gt;</div><div class="line">&lt;select id="selectBlog" parameterType="Integer" resultType="Blog"&gt;</div><div class="line">    select</div><div class="line">    &lt;include refid="columnBase"/&gt;</div><div class="line">    from blog where id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<h3 id="22-23-逆向功工程-代码的生成"><a href="#22-23-逆向功工程-代码的生成" class="headerlink" title="22 23.逆向功工程-代码的生成"></a>22 23.逆向功工程-代码的生成</h3><p>使用 Mybatis 官方工具直接生成对应的mapper文件<br>全部生成 - 无实际意义，具体项目中不适用</p>
+<h3 id="24-缓存-mybatis的一级缓存"><a href="#24-缓存-mybatis的一级缓存" class="headerlink" title="24.缓存 - mybatis的一级缓存"></a>24.缓存 - mybatis的一级缓存</h3><p>一级缓存：<br>是session级别的缓存，一级缓存默认存在。<br>当在同一个session范围内执行查询的时候，如果执行相同的查询，那么第二次查询会从缓存中获取数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * mybatis的一级缓存</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogCacheOne1</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper = session.getMapper(BlogMapper.class);</div><div class="line"></div><div class="line">    Blog blog1 = blogMapper.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询"</span> + blog1);</div><div class="line">    Blog blog2 = blogMapper.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询：从缓存中获取数据"</span> + blog2);</div><div class="line"></div><div class="line">    session.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"session关闭"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="25-缓存-一级缓存被刷新的情况"><a href="#25-缓存-一级缓存被刷新的情况" class="headerlink" title="25.缓存 - 一级缓存被刷新的情况"></a>25.缓存 - 一级缓存被刷新的情况</h3><p>如果两次查询中间有增删改操作，sql session缓存区会被自动清空，说明下一次查询会重新执行sql语句。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * mybatis的一级缓存,中间有增删改会刷新</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogCacheOne2</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper = session.getMapper(BlogMapper.class);</div><div class="line"></div><div class="line">    Blog blog1 = blogMapper.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询"</span> + blog1);</div><div class="line">    blog1.setFeatured(<span class="keyword">true</span>);</div><div class="line">    blogMapper.updateBlog(blog1);</div><div class="line"></div><div class="line">    Blog blog2 = blogMapper.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询：从新执行查询"</span> + blog2);</div><div class="line"></div><div class="line">    session.commit();</div><div class="line">    session.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"session关闭"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="26-缓存-开启二级缓存"><a href="#26-缓存-开启二级缓存" class="headerlink" title="26.缓存 - 开启二级缓存"></a>26.缓存 - 开启二级缓存</h3><p><strong>默认不开启</strong>。如果在不同的session范围内执行相同的数据查询，那么每次查询将会执行独立的数据库检索过程。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * mybatis的二级缓存</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogCacheLevelTwo1</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    Blog blog1 = blogMapper1.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询"</span> + blog1);</div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    SqlSession session2 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper2 = session2.getMapper(BlogMapper.class);</div><div class="line">    Blog blog2 = blogMapper2.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询：从缓存中获取数据"</span> + blog2);</div><div class="line">    session2.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"session关闭"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>开启二级缓存<br>1.在mapper文件中设置  <cache><br>2.在实体类中实现序列化接口</cache></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Blog</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line">     <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="comment">/**</span></div><div class="line"> * mybatis的二级缓存</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogCacheLevelTwo1</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    Blog blog1 = blogMapper1.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询"</span> + blog1);</div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    <span class="comment">// Cache Hit Ratio [mapper.BlogMapper]: 0.5</span></div><div class="line">    SqlSession session2 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper2 = session2.getMapper(BlogMapper.class);</div><div class="line">    Blog blog2 = blogMapper2.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询：从缓存中获取数据"</span> + blog2);</div><div class="line">    session2.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"session关闭"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="27-缓存-二级缓存被刷新的情况"><a href="#27-缓存-二级缓存被刷新的情况" class="headerlink" title="27.缓存 - 二级缓存被刷新的情况"></a>27.缓存 - 二级缓存被刷新的情况</h3><p>和一级缓存相同，中间有增删改则二级缓存会被清空</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * mybatis的二级缓存 缓存被刷新</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogCacheLevelTwo2</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    Blog blog1 = blogMapper1.selectBlog(<span class="number">3</span>);</div><div class="line">    blog1.setFeatured(<span class="keyword">true</span>);</div><div class="line">    blogMapper1.updateBlog(blog1);</div><div class="line">    System.out.println(<span class="string">"结果已查询"</span> + blog1);</div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    SqlSession session2 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper2 = session2.getMapper(BlogMapper.class);</div><div class="line">    Blog blog2 = blogMapper2.selectBlog(<span class="number">3</span>);</div><div class="line">    System.out.println(<span class="string">"缓存被刷新，重新查询"</span> + blog2);</div><div class="line">    session2.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"session关闭"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="28-嵌套查询-一对一和多对一"><a href="#28-嵌套查询-一对一和多对一" class="headerlink" title="28.嵌套查询 - 一对一和多对一"></a>28.嵌套查询 - 一对一和多对一</h3><p>高级结果映射<br>一、关联映射(适用于一对一和多对一的情况)</p>
+<p>1).创建pojo<br>(1)在Blog中创建Author对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Author author;</div></pre></td></tr></table></figure>
+<p>(2)创建Author的pojo</p>
+<p>2).配置mapper</p>
+<p>BlogMapper.java</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap type="Blog" id="blogResultMap"&gt;</div><div class="line">    &lt;id column="id" property="id" jdbcType="INTEGER"&gt;&lt;/id&gt;</div><div class="line">    &lt;association property="author" column="author_id" javaType="Author"</div><div class="line">                 select="me.jing.mapper.AuthorMapper.selectAuthorById"&gt;</div><div class="line">    &lt;/association&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;select id="selectBlogById" parameterType="int" resultMap="blogResultMap"&gt;</div><div class="line">    select * from blog where id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<p>AuthorMapper.java</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap type="Author" id="authorResultMap"&gt;</div><div class="line">    &lt;id column="id" property="id" jdbcType="INTEGER"/&gt;</div><div class="line">    &lt;result column="favourite_section" property="favouriteSection" jdbcType="VARCHAR"/&gt;</div><div class="line"></div><div class="line">&lt;/resultMap&gt;</div><div class="line"></div><div class="line">&lt;select id="selectAuthorById" parameterType="int" resultMap="authorResultMap"&gt;</div><div class="line">  select * from author where id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<p>3) 接口</p>
+<p>(1) Blog</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">Blog <span class="title">selectBlogById</span><span class="params">(Integer id)</span></span>;</div></pre></td></tr></table></figure>
+<p>(2) Author</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">Author <span class="title">selectAuthorById</span><span class="params">(Integer id)</span></span>;</div></pre></td></tr></table></figure>
+<p>4) 测试</p>
+<p>查询Blog列表时，执行的sql语句是 1+n，但是如果blog关联的author有重复的数据，那么从一级缓存中查询。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * 通过id查具体的博客，查询时 再拿到作者id 去作者表查具体的作者信息</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogById</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    Blog blog = blogMapper1.selectBlogById(<span class="number">3</span>);</div><div class="line"></div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"结果已查询"</span> + blog);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="29-嵌套查询-显示信息列表"><a href="#29-嵌套查询-显示信息列表" class="headerlink" title="29.嵌套查询 - 显示信息列表"></a>29.嵌套查询 - 显示信息列表</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;select id="selectBlogList" resultMap="blogResultMap"&gt;</div><div class="line">    select * from blog</div><div class="line">&lt;/select&gt;</div><div class="line"></div><div class="line">List&lt;Blog&gt; selectBlogList();</div><div class="line"></div><div class="line">@Test</div><div class="line">public void testSelectBlogList() &#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    List&lt;Blog&gt; blogs = blogMapper1.selectBlogList();</div><div class="line"></div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    System.out.println("结果已查询" + blogs);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="30-嵌套查询-一对多的配置-31-嵌套查询-一对多的查询配置"><a href="#30-嵌套查询-一对多的配置-31-嵌套查询-一对多的查询配置" class="headerlink" title="30.嵌套查询-一对多的配置 31.嵌套查询-一对多的查询配置"></a>30.嵌套查询-一对多的配置 31.嵌套查询-一对多的查询配置</h3><p>执行流程：1.先执行单表查询，2.再利用单表查询的结果继续执行其他单表查询，3.最后组装结果映射。</p>
+<p>通过post的id 查询post表的内容，同时通过此id查询评论表 comment 里的数据列表,即这篇文章的评论列表</p>
+<p>sql:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function">create table <span class="title">post</span><span class="params">(id <span class="keyword">int</span>,blog_id <span class="keyword">int</span>,author_id <span class="keyword">int</span>,</span></span></div><div class="line">section varchar(<span class="number">20</span>),subject <span class="title">varchar</span><span class="params">(<span class="number">20</span>)</span>,draft <span class="title">varchar</span><span class="params">(<span class="number">20</span>)</span>);</div><div class="line"></div><div class="line"><span class="function">insert into <span class="title">post</span><span class="params">(id,blog_id,author_id,section,subject,draft)</span> </span></div><div class="line"><span class="title">values</span><span class="params">(<span class="string">'1'</span>,<span class="string">'3'</span>,<span class="string">'15'</span>,<span class="string">'section'</span>,<span class="string">'subject'</span>,<span class="string">'draft'</span>)</span>;</div><div class="line"></div><div class="line"><span class="function">create table <span class="title">comment</span><span class="params">(id <span class="keyword">int</span>,</span></span></div><div class="line">name varchar(<span class="number">20</span>),comment <span class="title">varchar</span><span class="params">(<span class="number">20</span>)</span>);</div><div class="line"></div><div class="line"><span class="function">insert into <span class="title">comment</span><span class="params">(id,name,comment,post_id)</span> </span></div><div class="line"><span class="title">values</span><span class="params">(<span class="string">'1'</span>,<span class="string">'评论name'</span>,<span class="string">'我觉得很棒 评论'</span>,<span class="string">'1'</span>)</span>;</div></pre></td></tr></table></figure>
+<p>PostMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap type="Post" id="postResultMap"&gt;</div><div class="line">    &lt;id column="id" property="id" jdbcType="INTEGER"&gt;&lt;/id&gt;</div><div class="line">    &lt;collection property="commentList" column="id" javaType="ArrayList" ofType="Comment"</div><div class="line">                select="me.jing.mapper.CommentMapper.selectCommentListByPostId"&gt;&lt;/collection&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;select id="selectPostById" parameterType="int" resultMap="postResultMap"&gt;</div><div class="line">    select * from post where id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<p>CommentMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap type="Comment" id="commentResultMap"&gt;</div><div class="line">    &lt;id column="id" property="id" jdbcType="INTEGER"&gt;&lt;/id&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line"></div><div class="line">&lt;!--通过post_id查询评论列表--&gt;</div><div class="line">&lt;select id="selectCommentListByPostId"  parameterType="int" resultMap="commentResultMap"&gt;</div><div class="line">    select * from comment where post_id = #&#123;postId&#125;</div><div class="line">&lt;/select&gt;</div><div class="line"></div><div class="line">&lt;select id="selectCommentById" parameterType="int" resultMap="commentResultMap"&gt;</div><div class="line">    select * from comment where id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * 通过post的id 查询post表的内容，</div><div class="line"> * 同时通过此id查询评论表 comment 里的数据列表,即这篇文章的评论列表</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectPostById</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    PostMapper mapper = session1.getMapper(PostMapper.class);</div><div class="line">    Post post = mapper.selectPostById(<span class="number">1</span>);</div><div class="line">    System.out.println(<span class="string">"结果已查询"</span> + post);</div><div class="line">    session1.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="32-高级结果映射-嵌套结果"><a href="#32-高级结果映射-嵌套结果" class="headerlink" title="32.高级结果映射-嵌套结果"></a>32.高级结果映射-嵌套结果</h3><p>1).先执行关联查询，一次性将所有数据都查询出来<br>2).再将所有查询出来的列组织成嵌套的结果对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM</div><div class="line">blog b</div><div class="line">LEFT JOIN author a</div><div class="line">ON b.author_id = a.id;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">SELECT</div><div class="line"> b.id as blog_id,</div><div class="line"> b.title as blog_title,</div><div class="line"> b.author_id as blog_author_id,</div><div class="line"> b.state as blog_state,</div><div class="line"> b.featured as blog_featured,</div><div class="line"> b.style as blog_style,</div><div class="line"> </div><div class="line"> a.id as author_id,</div><div class="line"> a.username as author_username,</div><div class="line"> a.password as author_password,</div><div class="line"> a.email as author_email</div><div class="line"> </div><div class="line">FROM blog b</div><div class="line">LEFT JOIN author a</div><div class="line">ON b.author_id = a.id;</div></pre></td></tr></table></figure>
+<p>BlogMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">&lt;resultMap id="blogResultMapNested" type="Blog"&gt;</div><div class="line">    &lt;id column="blog_id" property="id"/&gt;</div><div class="line">    &lt;result column="blog_title" property="title"/&gt;</div><div class="line">    &lt;result column="blog_state" property="state"/&gt;</div><div class="line">    &lt;result column="blog_featured" property="featured"/&gt;</div><div class="line">    &lt;result column="blog_style" property="style"/&gt;</div><div class="line">    &lt;!--&lt;result column="blog_author_id" property="author_id"/&gt;--&gt;</div><div class="line">    &lt;association property="author" column="blog_author_id" javaType="Author"&gt;</div><div class="line">        &lt;id column="author_id" property="id"/&gt;</div><div class="line">        &lt;result column="author_username" property="username"/&gt;</div><div class="line">        &lt;result column="author_password" property="password"/&gt;</div><div class="line">        &lt;result column="author_email" property="email"/&gt;</div><div class="line">    &lt;/association&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;!--32.高级结果映射-嵌套结果--&gt;</div><div class="line">&lt;select id="selectBlogListNested" resultMap="blogResultMapNested"&gt;</div><div class="line">    SELECT</div><div class="line">     b.id as blog_id,</div><div class="line">     b.title as blog_title,</div><div class="line">     b.author_id as blog_author_id,</div><div class="line">     b.state as blog_state,</div><div class="line">     b.featured as blog_featured,</div><div class="line">     b.style as blog_style,</div><div class="line"></div><div class="line">     a.id as author_id,</div><div class="line">     a.username as author_username,</div><div class="line">     a.password as author_password</div><div class="line"></div><div class="line">    FROM blog b</div><div class="line">    LEFT JOIN author a</div><div class="line">    ON b.author_id = a.id;</div><div class="line">&lt;/select&gt;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 嵌套查询</div><div class="line"> */</div><div class="line">List&lt;Blog&gt; selectBlogListNested();</div><div class="line"></div><div class="line">/**</div><div class="line"> * 嵌套查询</div><div class="line"> */</div><div class="line">@Test</div><div class="line">public void testSelectBlogListNested() &#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    List&lt;Blog&gt; blogs = blogMapper1.selectBlogListNested();</div><div class="line">    session1.close();</div><div class="line">    System.out.println("结果已查询2:" + blogs);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="33-为什么要做扩展结果集-34-扩展结果的实现"><a href="#33-为什么要做扩展结果集-34-扩展结果的实现" class="headerlink" title="33.为什么要做扩展结果集|34.扩展结果的实现"></a>33.为什么要做扩展结果集|34.扩展结果的实现</h3><p>1).mapper</p>
+<p>BlogCustomMapper.xml</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;sql id="baseColumn"&gt;</div><div class="line">    b.id,</div><div class="line">    b.`title`,</div><div class="line">    b.`author_id`,</div><div class="line">    b.`state`,</div><div class="line">    b.`featured`,</div><div class="line">    b.`style`,</div><div class="line">    a.username as authorUsername</div><div class="line">&lt;/sql&gt;</div><div class="line"></div><div class="line">&lt;select id="selectBlogById" parameterType="int" resultType="BlogCustom"&gt;</div><div class="line">    select</div><div class="line">    &lt;include refid="baseColumn"/&gt;</div><div class="line">    from blog b</div><div class="line">    left join author a</div><div class="line">    on b.author_id = a.id</div><div class="line">    where b.id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+<p>BlogCustomMapper.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BlogCustomMapper</span> </span>&#123;</div><div class="line">    <span class="function">BlogCustom <span class="title">selectBlogById</span><span class="params">(Integer id)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2)vo.BlogCustom.java</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 扩展Blog</div><div class="line"> */</div><div class="line">public class BlogCustom extends Blog &#123;</div><div class="line"></div><div class="line">    private static final long serialVersionUID = 1L;</div><div class="line">    private String authorUsername;</div><div class="line"></div><div class="line">    public String getAuthorUsername() &#123;</div><div class="line">        return authorUsername;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setAuthorUsername(String authorUsername) &#123;</div><div class="line">        this.authorUsername = authorUsername;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String toString() &#123;</div><div class="line">        return "BlogCustom&#123;" +</div><div class="line">                "authorUsername='" + authorUsername + '\'' +</div><div class="line">                '&#125;';</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;!--定义别名--&gt;</div><div class="line">&lt;typeAliases&gt;</div><div class="line">    &lt;!--&lt;typeAlias type="pojo.Blog" alias="Blog"/&gt;--&gt;</div><div class="line">    &lt;package name="me.jing.pojo"/&gt;</div><div class="line">    &lt;package name="me.jing.pojo.vo"/&gt;</div><div class="line">&lt;/typeAliases&gt;</div></pre></td></tr></table></figure>
+<p>3)测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 通过id查具体的博客，查询时 再拿到作者id 去作者表查具体的作者 username</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogById</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogCustomMapper mapper = session1.getMapper(BlogCustomMapper.class);</div><div class="line">    BlogCustom blog = mapper.selectBlogById(<span class="number">3</span>);</div><div class="line"></div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"结果已查询"</span> + blog);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="35-高级结果映射-构造方式映射"><a href="#35-高级结果映射-构造方式映射" class="headerlink" title="35.高级结果映射 - 构造方式映射"></a>35.高级结果映射 - 构造方式映射</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">Bolg.xml</div><div class="line"></div><div class="line">public Blog(Integer id, String title) &#123;</div><div class="line">    this.id = id;</div><div class="line">    this.title = title;</div><div class="line">    System.out.println("构造函数调用-----");</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;!--构造方法映射--&gt;</div><div class="line">&lt;resultMap id="blogResultMapConstructor" type="Blog"&gt;</div><div class="line">    &lt;constructor&gt;</div><div class="line">        &lt;idArg column="id" javaType="int"/&gt;</div><div class="line">        &lt;arg column="title" javaType="string"/&gt;</div><div class="line">    &lt;/constructor&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line">&lt;select id="selectBlogByIdConstructor" parameterType="int" resultMap="blogResultMapConstructor"&gt;</div><div class="line">  select * from blog where id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div><div class="line"></div><div class="line"> /**</div><div class="line"> * 构造方式映射</div><div class="line"> */</div><div class="line">Blog selectBlogByIdConstructor(Integer id);</div><div class="line"></div><div class="line"> /**</div><div class="line"> * 构造方式映射</div><div class="line"> */</div><div class="line">@Test</div><div class="line">public void testSelectBlogByIdConstructor() &#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    Blog blog = blogMapper1.selectBlogByIdConstructor(3);</div><div class="line">    session1.close();</div><div class="line">    System.out.println("结果已查询:" + blog);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="36-鉴别器"><a href="#36-鉴别器" class="headerlink" title="36.鉴别器"></a>36.鉴别器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE `vehicle`(</div><div class="line">	`id` INT(<span class="number">11</span>) NOT NULL AUTO_INCREMENT,</div><div class="line">	`vin` VARCHAR(<span class="number">50</span>) COLLATE utf8_bin DEFAULT NULL,</div><div class="line">	`year` YEAR(<span class="number">4</span>) DEFAULT NULL,</div><div class="line">	`make` VARCHAR(<span class="number">50</span>) COLLATE utf8_bin DEFAULT NULL,</div><div class="line">	`model` VARCHAR(<span class="number">50</span>) COLLATE utf8_bin DEFAULT NULL,</div><div class="line">	`color` VARCHAR(<span class="number">50</span>) COLLATE utf8_bin DEFAULT NULL,</div><div class="line">	`vehicle_type` INT(<span class="number">11</span>) DEFAULT NULL,</div><div class="line">	`door_count` INT(<span class="number">11</span>) DEFAULT NULL,</div><div class="line">	`all_wheel_drive` TINYINT(<span class="number">1</span>) DEFAULT NULL,</div><div class="line">	<span class="function">PRIMARY <span class="title">KEY</span><span class="params">(`id`)</span></span></div><div class="line"> ) ENGINE=INNODB AUTO_INCREMENT=<span class="number">5</span> DEFAULT CHARSET=utf8 COLLATE=utf8_bin;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">VehicleMapper.xml</div><div class="line"></div><div class="line">&lt;resultMap type="Vehicle" id="vehicleResultMap"&gt;</div><div class="line">    &lt;id column="id" property="id" jdbcType="INTEGER"/&gt;</div><div class="line">    &lt;discriminator javaType="int" column="vehicle_type"&gt;</div><div class="line">        &lt;case value="1" resultType="Car"&gt;</div><div class="line">            &lt;result column="door_count" property="doorCount"/&gt;</div><div class="line">        &lt;/case&gt;</div><div class="line">        &lt;case value="2" resultType="Suv"&gt;</div><div class="line">            &lt;result column="all_wheel_drive" property="allWheelDrive"/&gt;</div><div class="line">        &lt;/case&gt;</div><div class="line">    &lt;/discriminator&gt;</div><div class="line">&lt;/resultMap&gt;</div><div class="line"></div><div class="line"></div><div class="line">&lt;select id="selectVehicleById" parameterType="int" resultMap="vehicleResultMap"&gt;</div><div class="line">    select * from vehicle where id = #&#123;id&#125;</div><div class="line">&lt;/select&gt;</div><div class="line"></div><div class="line">Vehicle selectVehicleById(Integer id);</div></pre></td></tr></table></figure>
+<p>pojo</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Integer id;</div><div class="line">    <span class="keyword">private</span> Integer vehicle_type;</div><div class="line">    <span class="keyword">private</span> String vin;</div><div class="line">    <span class="keyword">private</span> String make;</div><div class="line">    <span class="keyword">private</span> String model;</div><div class="line">    <span class="keyword">private</span> String color;</div><div class="line">    <span class="keyword">private</span> Boolean all_wheel_drive;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Suv</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 全轮驱动 awd</span></div><div class="line">    <span class="keyword">private</span> Boolean allWheelDrive;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Suv</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">getAllWheelDrive</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> allWheelDrive;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAllWheelDrive</span><span class="params">(Boolean allWheelDrive)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.allWheelDrive = allWheelDrive;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Suv&#123;"</span> +</div><div class="line">                <span class="string">"allWheelDrive="</span> + allWheelDrive +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 门的数量</span></div><div class="line">    <span class="keyword">private</span> Integer doorCount;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getDoorCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> doorCount;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDoorCount</span><span class="params">(Integer doorCount)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.doorCount = doorCount;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Car&#123;"</span> +</div><div class="line">                <span class="string">"doorCount="</span> + doorCount +</div><div class="line">                <span class="string">'&#125;'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * 鉴别器</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectVehicleById</span><span class="params">()</span> </span>&#123;</div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    VehicleMapper mapper = session1.getMapper(VehicleMapper.class);</div><div class="line">    Vehicle vehicle = mapper.selectVehicleById(<span class="number">1</span>);</div><div class="line">    Vehicle vehicle2 = mapper.selectVehicleById(<span class="number">2</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (vehicle <span class="keyword">instanceof</span> Car) &#123;</div><div class="line">        Car car = (Car) vehicle;</div><div class="line">        Suv suv = (Suv) vehicle2;</div><div class="line">        System.out.println(<span class="string">"car:"</span> + car);</div><div class="line">        System.out.println(<span class="string">"suv:"</span> + suv);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        Car car = (Car) vehicle2;</div><div class="line">        Suv suv = (Suv) vehicle;</div><div class="line">        System.out.println(<span class="string">"car:"</span> + car);</div><div class="line">        System.out.println(<span class="string">"suv:"</span> + suv);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"vehicle:"</span> + vehicle);</div><div class="line">    System.out.println(<span class="string">"vehicle2:"</span> + vehicle2);</div><div class="line">    session1.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="37-延迟加载-不配置延迟加载的情况"><a href="#37-延迟加载-不配置延迟加载的情况" class="headerlink" title="37.延迟加载 - 不配置延迟加载的情况"></a>37.延迟加载 - 不配置延迟加载的情况</h3><p>测试一：<br>没有配置任何选项，执行两遍查询，性能比较低</p>
+<p>无论是否查询blog的任意属性，都会执行author的任何查询，就是说 始终会执行两次查询。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">查询blog----</div><div class="line">Opening JDBC Connection</div><div class="line">Created connection <span class="number">504858437</span>.</div><div class="line">Setting autocommit to <span class="keyword">false</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@<span class="number">1e178745</span>]</div><div class="line">==&gt;  Preparing: select * from blog where id = ? </div><div class="line">==&gt; Parameters: <span class="number">3</span>(Integer)</div><div class="line">====&gt;  Preparing: select * from author where id = ? </div><div class="line">====&gt; Parameters: <span class="number">15</span>(Integer)</div><div class="line">&lt;====      Total: <span class="number">1</span></div><div class="line">&lt;==      Total: <span class="number">1</span></div><div class="line">Resetting autocommit to <span class="keyword">true</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@<span class="number">1e178745</span>]</div><div class="line">Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@<span class="number">1e178745</span>]</div><div class="line">Returned connection <span class="number">504858437</span> to pool.</div><div class="line">查询blog的title属性----</div><div class="line">Android开发艺术探索</div><div class="line">查询blog的author属性----</div><div class="line">景彬</div><div class="line">结果已查询</div></pre></td></tr></table></figure>
+<h3 id="38-延迟加载-配置lazyloadingenabled"><a href="#38-延迟加载-配置lazyloadingenabled" class="headerlink" title="38.延迟加载 - 配置lazyloadingenabled"></a>38.延迟加载 - 配置lazyloadingenabled</h3><p>测试二：<br>如果不查询blog的任意属性，那么不会执行author的查询</p>
+<p>配置了全局属性：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;settings&gt;</div><div class="line">    &lt;!--&lt;setting name="useGeneratedKeys" value="true"/&gt;--&gt;</div><div class="line">    &lt;!--延迟加载 配置lazyloadingenabled--&gt;</div><div class="line">    &lt;setting name="lazyLoadingEnabled" value="true"/&gt;</div><div class="line">&lt;/settings&gt;</div></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 测试延迟加载</div><div class="line"> * 没有配置 lazyLoadingEnabled 时，会始终执行两次查询</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogByIdLazyLoading</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    System.out.println(<span class="string">"查询blog----"</span>);</div><div class="line">    Blog blog = blogMapper1.selectBlogById(<span class="number">3</span>);</div><div class="line">    session1.close();</div><div class="line"></div><div class="line"><span class="comment">//        System.out.println("查询blog的title属性----");</span></div><div class="line"><span class="comment">//        System.out.println(blog.getTitle());</span></div><div class="line"><span class="comment">//        System.out.println("查询blog的author属性----");</span></div><div class="line"><span class="comment">//        System.out.println(blog.getAuthor().getUsername());</span></div><div class="line">    System.out.println(<span class="string">"结果已查询"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>日志打印：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">查询blog----</div><div class="line">Opening JDBC Connection</div><div class="line">Created connection <span class="number">210156003</span>.</div><div class="line">Setting autocommit to <span class="keyword">false</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">==&gt;  Preparing: select * from blog where id = ? </div><div class="line">==&gt; Parameters: <span class="number">3</span>(Integer)</div><div class="line">&lt;==      Total: <span class="number">1</span></div><div class="line">Resetting autocommit to <span class="keyword">true</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">Returned connection <span class="number">210156003</span> to pool.</div><div class="line">结果已查询</div></pre></td></tr></table></figure>
+<h3 id="39-延迟加载-测试用例1和2的比较"><a href="#39-延迟加载-测试用例1和2的比较" class="headerlink" title="39.延迟加载 - 测试用例1和2的比较"></a>39.延迟加载 - 测试用例1和2的比较</h3><h3 id="40-延迟加载-积极的延迟加载"><a href="#40-延迟加载-积极的延迟加载" class="headerlink" title="40.延迟加载 - 积极的延迟加载"></a>40.延迟加载 - 积极的延迟加载</h3><p>延迟加载：用属性就加载，不用就不加载。<br>积极的延迟加载：只要用属性，就把所有要查询的属性sql全部执行一遍。</p>
+<p>测试三：<br>只要查询bolg的任意属性，都会执行author数据的查询</p>
+<p>配置了全局属性(同测试2的配置)：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;settings&gt;</div><div class="line">    &lt;!--&lt;setting name="useGeneratedKeys" value="true"/&gt;--&gt;</div><div class="line">    &lt;!--延迟加载 配置lazyloadingenabled--&gt;</div><div class="line">    &lt;setting name="lazyLoadingEnabled" value="true"/&gt;</div><div class="line">&lt;/settings&gt;</div></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 测试延迟加载</div><div class="line"> * 没有配置 lazyLoadingEnabled 时，会始终执行两次查询</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogByIdLazyLoading</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    System.out.println(<span class="string">"查询blog----"</span>);</div><div class="line">    Blog blog = blogMapper1.selectBlogById(<span class="number">3</span>);</div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"查询blog的title属性----"</span>);</div><div class="line">    System.out.println(blog.getTitle());</div><div class="line"><span class="comment">//        System.out.println("查询blog的author属性----");</span></div><div class="line"><span class="comment">//        System.out.println(blog.getAuthor().getUsername());</span></div><div class="line">    System.out.println(<span class="string">"结果已查询"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="41-延迟加载-非积极延迟加载"><a href="#41-延迟加载-非积极延迟加载" class="headerlink" title="41.延迟加载 - 非积极延迟加载"></a>41.延迟加载 - 非积极延迟加载</h3><p>测试四：<br>延迟加载，并且是非积极的。如果需要访问blog的非author属性，则不执行关联的author查询。</p>
+<p>配置了全局属性：</p>
+<blockquote>
+<p>配置后，没有调用 blog.getAuthor() 属性，就只会执行一次，调用 blog.getAuthor() 属性才回再执行查询author表一次。</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!--具体的insert也得配置 keyProperty--&gt;</div><div class="line">&lt;settings&gt;</div><div class="line">    &lt;setting name="useGeneratedKeys" value="true"/&gt;</div><div class="line">    &lt;!--延迟加载 配置lazyloadingenabled--&gt;</div><div class="line">    &lt;setting name="lazyLoadingEnabled" value="true"/&gt;</div><div class="line">    &lt;!--非积极的延迟加载--&gt;</div><div class="line">    &lt;setting name="aggressiveLazyLoading" value="false"/&gt;</div><div class="line">&lt;/settings&gt;</div></pre></td></tr></table></figure>
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * 测试延迟加载</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogByIdLazyLoading</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    System.out.println(<span class="string">"查询blog----"</span>);</div><div class="line">    Blog blog = blogMapper1.selectBlogById(<span class="number">3</span>);</div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"查询blog的title属性----"</span>);</div><div class="line">    System.out.println(blog.getTitle());</div><div class="line"><span class="comment">//        System.out.println("查询blog的author属性----");</span></div><div class="line"><span class="comment">//        System.out.println(blog.getAuthor().getUsername());</span></div><div class="line">    System.out.println(<span class="string">"结果已查询"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>打印：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">查询blog----</div><div class="line">Opening JDBC Connection</div><div class="line">Created connection <span class="number">210156003</span>.</div><div class="line">Setting autocommit to <span class="keyword">false</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">==&gt;  Preparing: select * from blog where id = ? </div><div class="line">==&gt; Parameters: <span class="number">3</span>(Integer)</div><div class="line">&lt;==      Total: <span class="number">1</span></div><div class="line">Resetting autocommit to <span class="keyword">true</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">Returned connection <span class="number">210156003</span> to pool.</div><div class="line">查询blog的title属性----</div><div class="line">Android开发艺术探索</div><div class="line">结果已查询</div></pre></td></tr></table></figure>
+<p>测试五：</p>
+<p>配置了全局属性 同配置四</p>
+<p>延迟加载，并且是不积极的。如果访问了blog的author属性，则执行关联的author查询</p>
+<p>测试：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 测试延迟加载</div><div class="line"> */</div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectBlogByIdLazyLoading</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    SqlSession session1 = MyBatisUtil.getSqlSession();</div><div class="line">    BlogMapper blogMapper1 = session1.getMapper(BlogMapper.class);</div><div class="line">    System.out.println(<span class="string">"查询blog----"</span>);</div><div class="line">    Blog blog = blogMapper1.selectBlogById(<span class="number">3</span>);</div><div class="line">    session1.close();</div><div class="line"></div><div class="line">    System.out.println(<span class="string">"查询blog的title属性----"</span>);</div><div class="line">    System.out.println(blog.getTitle());</div><div class="line">    System.out.println(<span class="string">"查询blog的author属性----"</span>);</div><div class="line">    System.out.println(blog.getAuthor().getUsername());</div><div class="line">    System.out.println(<span class="string">"结果已查询"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>打印：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">查询blog----</div><div class="line">Opening JDBC Connection</div><div class="line">Created connection <span class="number">210156003</span>.</div><div class="line">Setting autocommit to <span class="keyword">false</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">==&gt;  Preparing: select * from blog where id = ? </div><div class="line">==&gt; Parameters: <span class="number">3</span>(Integer)</div><div class="line">&lt;==      Total: <span class="number">1</span></div><div class="line">Resetting autocommit to <span class="keyword">true</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">Returned connection <span class="number">210156003</span> to pool.</div><div class="line">查询blog的title属性----</div><div class="line">Android开发艺术探索</div><div class="line">查询blog的author属性----</div><div class="line">Opening JDBC Connection</div><div class="line">Checked out connection <span class="number">210156003</span> from pool.</div><div class="line">Setting autocommit to <span class="keyword">false</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">==&gt;  Preparing: select * from author where id = ? </div><div class="line">==&gt; Parameters: <span class="number">15</span>(Integer)</div><div class="line">&lt;==      Total: <span class="number">1</span></div><div class="line">Resetting autocommit to <span class="keyword">true</span> on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl<span class="meta">@c</span>86b9e3]</div><div class="line">Returned connection <span class="number">210156003</span> to pool.</div><div class="line">景彬</div><div class="line">结果已查询</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySql/" rel="tag"># MySql</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/31/mysql-tip/" rel="next" title="MySQL 使用规范(内部培训笔记)">
+                <i class="fa fa-chevron-left"></i> MySQL 使用规范(内部培训笔记)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/09/github-pages-readme/" rel="prev" title="为 GitHub 项目生成独立主页">
+                为 GitHub 项目生成独立主页 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMDc4MS83MzMz">
+      </div>
+    
+  </div>
+
+
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="JingBin" />
+          <p class="site-author-name" itemprop="name">JingBin</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">61</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/youlookwhat" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/e43c6e979831/latest_articles" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3121694927/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/jingbin_" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wanandroid.com/index" title="玩Android" target="_blank">玩Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="iconfont" target="_blank">iconfont</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://gold.xitu.io/" title="掘金" target="_blank">掘金</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://p.codekk.com/" title="CodeKK" target="_blank">CodeKK</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/sinyu890807/" title="郭霖" target="_blank">郭霖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791" title="鸿洋" target="_blank">鸿洋</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://daimajia.com/" title="代码家" target="_blank">代码家</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yifeiyuan.me/" title="程序亦非猿" target="_blank">程序亦非猿</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hukai.me/" title="胡凯" target="_blank">胡凯</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        <!--
+-->
+        <!--<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26237342&auto=0&height=66"></iframe>-->
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建项目mubatis-01"><span class="nav-number">1.</span> <span class="nav-text">1.创建项目mubatis-01</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-导入jar"><span class="nav-number">2.</span> <span class="nav-text">2.导入jar:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-加入配置文件"><span class="nav-number">3.</span> <span class="nav-text">3.加入配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-编写接口：BlogMapper"><span class="nav-number">4.</span> <span class="nav-text">4.编写接口：BlogMapper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-创建pojo：Blog"><span class="nav-number">5.</span> <span class="nav-text">5.创建pojo：Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-创建工具类：MyBatisUtil"><span class="nav-number">6.</span> <span class="nav-text">6.创建工具类：MyBatisUtil</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-编写测试类："><span class="nav-number">7.</span> <span class="nav-text">7.编写测试类：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-列名和属性名不一致的情况"><span class="nav-number">8.</span> <span class="nav-text">8.列名和属性名不一致的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-模糊查询之-和-的区别"><span class="nav-number">9.</span> <span class="nav-text">9.模糊查询之#和$的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-查询排序"><span class="nav-number">10.</span> <span class="nav-text">10.查询排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-分页-多参数传递"><span class="nav-number">11.</span> <span class="nav-text">11.分页-多参数传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-插入功能和获取刚刚插入的id"><span class="nav-number">12.</span> <span class="nav-text">12.插入功能和获取刚刚插入的id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-修改功能和修改部分字段注意的问题"><span class="nav-number">13.</span> <span class="nav-text">13.修改功能和修改部分字段注意的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-删除记录"><span class="nav-number">14.</span> <span class="nav-text">14.删除记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-if"><span class="nav-number">15.</span> <span class="nav-text">15.if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-choose、when、otherwise"><span class="nav-number">16.</span> <span class="nav-text">16.choose、when、otherwise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-where"><span class="nav-number">17.</span> <span class="nav-text">17.where</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-set"><span class="nav-number">18.</span> <span class="nav-text">18.set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-trim"><span class="nav-number">19.</span> <span class="nav-text">19.trim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-foreach"><span class="nav-number">20.</span> <span class="nav-text">20.foreach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-sql片段"><span class="nav-number">21.</span> <span class="nav-text">21.sql片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-23-逆向功工程-代码的生成"><span class="nav-number">22.</span> <span class="nav-text">22 23.逆向功工程-代码的生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-缓存-mybatis的一级缓存"><span class="nav-number">23.</span> <span class="nav-text">24.缓存 - mybatis的一级缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-缓存-一级缓存被刷新的情况"><span class="nav-number">24.</span> <span class="nav-text">25.缓存 - 一级缓存被刷新的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-缓存-开启二级缓存"><span class="nav-number">25.</span> <span class="nav-text">26.缓存 - 开启二级缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27-缓存-二级缓存被刷新的情况"><span class="nav-number">26.</span> <span class="nav-text">27.缓存 - 二级缓存被刷新的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#28-嵌套查询-一对一和多对一"><span class="nav-number">27.</span> <span class="nav-text">28.嵌套查询 - 一对一和多对一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#29-嵌套查询-显示信息列表"><span class="nav-number">28.</span> <span class="nav-text">29.嵌套查询 - 显示信息列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#30-嵌套查询-一对多的配置-31-嵌套查询-一对多的查询配置"><span class="nav-number">29.</span> <span class="nav-text">30.嵌套查询-一对多的配置 31.嵌套查询-一对多的查询配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-高级结果映射-嵌套结果"><span class="nav-number">30.</span> <span class="nav-text">32.高级结果映射-嵌套结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33-为什么要做扩展结果集-34-扩展结果的实现"><span class="nav-number">31.</span> <span class="nav-text">33.为什么要做扩展结果集|34.扩展结果的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35-高级结果映射-构造方式映射"><span class="nav-number">32.</span> <span class="nav-text">35.高级结果映射 - 构造方式映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#36-鉴别器"><span class="nav-number">33.</span> <span class="nav-text">36.鉴别器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#37-延迟加载-不配置延迟加载的情况"><span class="nav-number">34.</span> <span class="nav-text">37.延迟加载 - 不配置延迟加载的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#38-延迟加载-配置lazyloadingenabled"><span class="nav-number">35.</span> <span class="nav-text">38.延迟加载 - 配置lazyloadingenabled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#39-延迟加载-测试用例1和2的比较"><span class="nav-number">36.</span> <span class="nav-text">39.延迟加载 - 测试用例1和2的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#40-延迟加载-积极的延迟加载"><span class="nav-number">37.</span> <span class="nav-text">40.延迟加载 - 积极的延迟加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#41-延迟加载-非积极延迟加载"><span class="nav-number">38.</span> <span class="nav-text">41.延迟加载 - 非积极延迟加载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JingBin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("cJ3qzFUAP7IbAMdtTT9gEmsd-gzGzoHsz", "Lb9yad0PMHUjs66NrAQqRT3A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>
