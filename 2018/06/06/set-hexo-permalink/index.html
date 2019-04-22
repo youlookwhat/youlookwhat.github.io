@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://jingbin.me/2018/06/06/set-hexo-permalink/index.html">
 <meta property="og:site_name" content="JingBin's Home">
 <meta property="og:description" content="背景之前的文章有幸被鸿洋的公众号收录，文章内引用了博客中的一篇文章链接：https://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/；着实尴尬，因为默认生成的文章链接是:year/:month/:day/:title/，里面的汉字经过转">
-<meta property="og:updated_time" content="2018-06-12T17:25:38.909Z">
+<meta property="og:updated_time" content="2019-04-22T15:01:34.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo permalink设置技巧">
 <meta name="twitter:description" content="背景之前的文章有幸被鸿洋的公众号收录，文章内引用了博客中的一篇文章链接：https://jingbin.me/2017/11/23/%E5%BC%80%E5%8F%91%E4%B8%AD%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3/；着实尴尬，因为默认生成的文章链接是:year/:month/:day/:title/，里面的汉字经过转">
@@ -372,8 +372,8 @@
                 <i class="fa fa-calendar-check-o"></i>
               </span>
               <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-13T01:25:38+08:00">
-                2018-06-13
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-22T23:01:34+08:00">
+                2019-04-22
               </time>
             
           </span>
@@ -465,6 +465,14 @@
 </blockquote>
 <p>网上有说是链接上有中文的原因，不过是2016年的了。</p>
 <p>我的是使用了<code>![图片](图片)</code>这样的文本，本想做一个占位然后后期补上的，不过加上这个会导致错误！</p>
+<h4 id="主页底部的访问数量显示失效"><a href="#主页底部的访问数量显示失效" class="headerlink" title="主页底部的访问数量显示失效"></a>主页底部的访问数量显示失效</h4><p>之前一直以为底部的访问数量是<code>leancloud</code>来计数的，后来发现错了。</p>
+<p><code>leancloud</code>是用来统计文章的访问量的，不蒜子才是用来统计站点的总访问量的。</p>
+<p><code>因七牛强制过期『dn-lbstatics.qbox.me』域名，与客服沟通无果，只能更换域名到『busuanzi.ibruce.info』！</code><br>导致站点的总浏览量显示不出，更改就好了：<br>找到对应的next主题文件：<br><code>_scripts/third-party/analytics/busuanzi-counter.swig</code></p>
+<p>更改对应的域名为：busuanzi.ibruce.info</p>
+<ul>
+<li><a href="https://www.zhyong.cn/posts/ea4d/" target="_blank" rel="external">使用不蒜子添加总访问量</a></li>
+<li><a href="http://busuanzi.ibruce.info/" target="_blank" rel="external">不蒜子 - 极简网页计数器</a></li>
+</ul>
 <h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><ul>
 <li><a href="https://jingbin.me/2016/11/19/Mac%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95%EF%BC%8C%E6%8E%92%E9%9B%B7%E5%AE%8C%E6%88%90/">Mac搭建Hexo博客流程记录，排雷完成</a></li>
 <li><a href="http://www.wuliaole.com/post/permalink_and_internal_link_in_hexo/" target="_blank" rel="external">HEXO的站内链接和永久链接</a></li>
@@ -745,7 +753,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久链接"><span class="nav-number">2.</span> <span class="nav-text">永久链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一下"><span class="nav-number">3.</span> <span class="nav-text">总结一下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">hexo遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-d卡很久"><span class="nav-number">4.1.</span> <span class="nav-text">hexo d卡很久</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#debug预览错误提示"><span class="nav-number">4.2.</span> <span class="nav-text">debug预览错误提示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关文章"><span class="nav-number">5.</span> <span class="nav-text">相关文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久链接"><span class="nav-number">2.</span> <span class="nav-text">永久链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结一下"><span class="nav-number">3.</span> <span class="nav-text">总结一下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">hexo遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-d卡很久"><span class="nav-number">4.1.</span> <span class="nav-text">hexo d卡很久</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#debug预览错误提示"><span class="nav-number">4.2.</span> <span class="nav-text">debug预览错误提示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主页底部的访问数量显示失效"><span class="nav-number">4.3.</span> <span class="nav-text">主页底部的访问数量显示失效</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关文章"><span class="nav-number">5.</span> <span class="nav-text">相关文章</span></a></li></ol></div>
             
 
           </div>
