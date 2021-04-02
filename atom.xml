@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://jingbin.me/"/>
+  <link href="http://jinbeen.com/"/>
   <updated>2019-05-29T15:34:01.093Z</updated>
-  <id>http://jingbin.me/</id>
+  <id>http://jinbeen.com/</id>
   
   <author>
     <name>JingBin</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>support升级到28.0.0所遇问题</title>
-    <link href="http://jingbin.me/2019/05/23/android-support-update/"/>
-    <id>http://jingbin.me/2019/05/23/android-support-update/</id>
+    <link href="http://jinbeen.com/2019/05/23/android-support-update/"/>
+    <id>http://jinbeen.com/2019/05/23/android-support-update/</id>
     <published>2019-05-23T10:42:00.000Z</published>
     <updated>2019-05-29T15:34:01.093Z</updated>
     
@@ -62,24 +62,24 @@
     
     </summary>
     
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>Android gradle 命令行打包</title>
-    <link href="http://jingbin.me/2019/04/24/android-gradle-packaging/"/>
-    <id>http://jingbin.me/2019/04/24/android-gradle-packaging/</id>
+    <link href="http://jinbeen.com/2019/04/24/android-gradle-packaging/"/>
+    <id>http://jinbeen.com/2019/04/24/android-gradle-packaging/</id>
     <published>2019-04-24T08:47:00.000Z</published>
     <updated>2019-05-29T15:15:10.227Z</updated>
     
     <content type="html"><![CDATA[<p>偶尔用一下，hhh(╯﹏╰)</p>
 <a id="more"></a>
 <h4 id="项目配置gradle环境"><a href="#项目配置gradle环境" class="headerlink" title="项目配置gradle环境"></a>项目配置gradle环境</h4><ul>
-<li><a href="https://jingbin.me/2016/10/13/Mac-Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE-java%E3%80%81sdk%E3%80%81ndk%E3%80%81gradle/">Mac Android开发环境变量的配置(java、sdk、ndk、gradle)</a></li>
+<li><a href="https://jingbin.me/2016/10/13/Mac-Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE-java%E3%80%81sdk%E3%80%81ndk%E3%80%81gradle/" target="_blank" rel="external">Mac Android开发环境变量的配置(java、sdk、ndk、gradle)</a></li>
 <li><a href="https://blog.csdn.net/jingbin_/article/details/89491970" target="_blank" rel="external">gradle -version Permission denied - in mac terminal</a></li>
 </ul>
 <h4 id="build-gradle-配置"><a href="#build-gradle-配置" class="headerlink" title="build.gradle 配置"></a>build.gradle 配置</h4><p>在项目的<code>build.gradle</code>配置</p>
@@ -114,19 +114,19 @@
     
     </summary>
     
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/tags/Android/"/>
     
-      <category term="gradle" scheme="http://jingbin.me/tags/gradle/"/>
+      <category term="gradle" scheme="http://jinbeen.com/tags/gradle/"/>
     
   </entry>
   
   <entry>
     <title>Android 系统剪贴板的使用 - 复制、获取和清空</title>
-    <link href="http://jingbin.me/2019/04/23/android-clipboard/"/>
-    <id>http://jingbin.me/2019/04/23/android-clipboard/</id>
+    <link href="http://jinbeen.com/2019/04/23/android-clipboard/"/>
+    <id>http://jinbeen.com/2019/04/23/android-clipboard/</id>
     <published>2019-04-23T06:56:00.000Z</published>
     <updated>2019-05-29T15:01:43.508Z</updated>
     
@@ -151,19 +151,19 @@
     
     </summary>
     
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/tags/Android/"/>
     
-      <category term="clipboard" scheme="http://jingbin.me/tags/clipboard/"/>
+      <category term="clipboard" scheme="http://jinbeen.com/tags/clipboard/"/>
     
   </entry>
   
   <entry>
     <title>链表（上）：如何实现LRU缓存淘汰算法?</title>
-    <link href="http://jingbin.me/2019/04/13/list/"/>
-    <id>http://jingbin.me/2019/04/13/list/</id>
+    <link href="http://jinbeen.com/2019/04/13/list/"/>
+    <id>http://jinbeen.com/2019/04/13/list/</id>
     <published>2019-04-13T06:30:00.000Z</published>
     <updated>2019-05-29T14:58:59.245Z</updated>
     
@@ -302,17 +302,17 @@
     
     </summary>
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
   </entry>
   
   <entry>
     <title>数组：为什么很多编程语言中数组都从0开始编号？</title>
-    <link href="http://jingbin.me/2019/04/12/array/"/>
-    <id>http://jingbin.me/2019/04/12/array/</id>
+    <link href="http://jinbeen.com/2019/04/12/array/"/>
+    <id>http://jinbeen.com/2019/04/12/array/</id>
     <published>2019-04-12T04:43:00.000Z</published>
     <updated>2019-05-29T14:49:47.154Z</updated>
     
@@ -400,17 +400,17 @@
     
     </summary>
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
   </entry>
   
   <entry>
     <title>为 GitHub 项目生成独立主页</title>
-    <link href="http://jingbin.me/2019/04/09/github-pages-readme/"/>
-    <id>http://jingbin.me/2019/04/09/github-pages-readme/</id>
+    <link href="http://jinbeen.com/2019/04/09/github-pages-readme/"/>
+    <id>http://jinbeen.com/2019/04/09/github-pages-readme/</id>
     <published>2019-04-09T10:00:00.000Z</published>
     <updated>2019-04-22T14:52:12.035Z</updated>
     
@@ -429,7 +429,7 @@
 <li><p>确定选择<br><img src="https://upload-images.jianshu.io/upload_images/1354448-efbcee3c18c2c798.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Select.png"></p>
 </li>
 </ol>
-<p>效果页面：<a href="https://jingbin.me/CloudReader">https://jingbin.me/CloudReader</a></p>
+<p>效果页面：<a href="https://jingbin.me/CloudReader" target="_blank" rel="external">https://jingbin.me/CloudReader</a></p>
 <h4 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h4><ol>
 <li><p>图片显示不出来？<br>使用<code>&lt;img /&gt;</code>标签失效，必须使用正规的引入图片的方式：<code>![]()</code><br>图片尺寸太大？ - 图片处理网站：<a href="https://www.fotor.com/create/design" target="_blank" rel="external">https://www.fotor.com/create/design</a></p>
 </li>
@@ -447,19 +447,19 @@
     
     </summary>
     
-      <category term="开源项目" scheme="http://jingbin.me/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+      <category term="开源项目" scheme="http://jinbeen.com/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="开源项目" scheme="http://jingbin.me/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+      <category term="开源项目" scheme="http://jinbeen.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     
-      <category term="github" scheme="http://jingbin.me/tags/github/"/>
+      <category term="github" scheme="http://jinbeen.com/tags/github/"/>
     
   </entry>
   
   <entry>
     <title>Mybatis 框架实战</title>
-    <link href="http://jingbin.me/2019/04/03/mybatis-practice/"/>
-    <id>http://jingbin.me/2019/04/03/mybatis-practice/</id>
+    <link href="http://jinbeen.com/2019/04/03/mybatis-practice/"/>
+    <id>http://jinbeen.com/2019/04/03/mybatis-practice/</id>
     <published>2019-04-03T10:39:00.000Z</published>
     <updated>2019-04-10T14:49:09.907Z</updated>
     
@@ -669,17 +669,17 @@
     
     </summary>
     
-      <category term="Java后端" scheme="http://jingbin.me/categories/Java%E5%90%8E%E7%AB%AF/"/>
+      <category term="Java后端" scheme="http://jinbeen.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="MySql" scheme="http://jingbin.me/tags/MySql/"/>
+      <category term="MySql" scheme="http://jinbeen.com/tags/MySql/"/>
     
   </entry>
   
   <entry>
     <title>MySQL 使用规范(内部培训笔记)</title>
-    <link href="http://jingbin.me/2019/03/31/mysql-tip/"/>
-    <id>http://jingbin.me/2019/03/31/mysql-tip/</id>
+    <link href="http://jinbeen.com/2019/03/31/mysql-tip/"/>
+    <id>http://jinbeen.com/2019/03/31/mysql-tip/</id>
     <published>2019-03-31T14:14:00.000Z</published>
     <updated>2019-04-10T14:42:18.170Z</updated>
     
@@ -741,17 +741,17 @@
     
     </summary>
     
-      <category term="Java后端" scheme="http://jingbin.me/categories/Java%E5%90%8E%E7%AB%AF/"/>
+      <category term="Java后端" scheme="http://jinbeen.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="MySql" scheme="http://jingbin.me/tags/MySql/"/>
+      <category term="MySql" scheme="http://jinbeen.com/tags/MySql/"/>
     
   </entry>
   
   <entry>
     <title>数据库基础</title>
-    <link href="http://jingbin.me/2019/03/30/mysql-basics/"/>
-    <id>http://jingbin.me/2019/03/30/mysql-basics/</id>
+    <link href="http://jinbeen.com/2019/03/30/mysql-basics/"/>
+    <id>http://jinbeen.com/2019/03/30/mysql-basics/</id>
     <published>2019-03-30T11:00:00.000Z</published>
     <updated>2019-04-10T14:38:16.714Z</updated>
     
@@ -852,17 +852,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="Java后端" scheme="http://jingbin.me/categories/Java%E5%90%8E%E7%AB%AF/"/>
+      <category term="Java后端" scheme="http://jinbeen.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="MySql" scheme="http://jingbin.me/tags/MySql/"/>
+      <category term="MySql" scheme="http://jinbeen.com/tags/MySql/"/>
     
   </entry>
   
   <entry>
     <title>Maven基础</title>
-    <link href="http://jingbin.me/2019/03/29/maven-basics/"/>
-    <id>http://jingbin.me/2019/03/29/maven-basics/</id>
+    <link href="http://jinbeen.com/2019/03/29/maven-basics/"/>
+    <id>http://jinbeen.com/2019/03/29/maven-basics/</id>
     <published>2019-03-29T10:25:00.000Z</published>
     <updated>2019-04-10T14:32:30.774Z</updated>
     
@@ -924,17 +924,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="Java后端" scheme="http://jingbin.me/categories/Java%E5%90%8E%E7%AB%AF/"/>
+      <category term="Java后端" scheme="http://jinbeen.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="Maven" scheme="http://jingbin.me/tags/Maven/"/>
+      <category term="Maven" scheme="http://jinbeen.com/tags/Maven/"/>
     
   </entry>
   
   <entry>
     <title>复杂度分析（下）：浅析最好、最坏、平均、均摊时间复杂度</title>
-    <link href="http://jingbin.me/2019/03/27/complexity-analysis-next/"/>
-    <id>http://jingbin.me/2019/03/27/complexity-analysis-next/</id>
+    <link href="http://jinbeen.com/2019/03/27/complexity-analysis-next/"/>
+    <id>http://jinbeen.com/2019/03/27/complexity-analysis-next/</id>
     <published>2019-03-27T14:56:00.000Z</published>
     <updated>2019-04-10T14:26:49.420Z</updated>
     
@@ -1003,17 +1003,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
   </entry>
   
   <entry>
     <title>复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？</title>
-    <link href="http://jingbin.me/2019/03/26/complexity-analysis/"/>
-    <id>http://jingbin.me/2019/03/26/complexity-analysis/</id>
+    <link href="http://jinbeen.com/2019/03/26/complexity-analysis/"/>
+    <id>http://jinbeen.com/2019/03/26/complexity-analysis/</id>
     <published>2019-03-26T13:38:00.000Z</published>
     <updated>2019-04-10T14:25:03.499Z</updated>
     
@@ -1088,17 +1088,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
   </entry>
   
   <entry>
     <title>推荐几款常用的Chrome插件</title>
-    <link href="http://jingbin.me/2019/03/25/chrome-plugin/"/>
-    <id>http://jingbin.me/2019/03/25/chrome-plugin/</id>
+    <link href="http://jinbeen.com/2019/03/25/chrome-plugin/"/>
+    <id>http://jinbeen.com/2019/03/25/chrome-plugin/</id>
     <published>2019-03-25T12:02:00.000Z</published>
     <updated>2019-04-10T14:19:32.778Z</updated>
     
@@ -1128,17 +1128,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="工具" scheme="http://jingbin.me/categories/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="http://jinbeen.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="工具" scheme="http://jingbin.me/tags/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="http://jinbeen.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>如何学习数据结构与算法</title>
-    <link href="http://jingbin.me/2019/03/25/array/"/>
-    <id>http://jingbin.me/2019/03/25/array/</id>
+    <link href="http://jinbeen.com/2019/03/25/array/"/>
+    <id>http://jinbeen.com/2019/03/25/array/</id>
     <published>2019-03-25T04:43:00.000Z</published>
     <updated>2019-05-29T14:46:41.926Z</updated>
     
@@ -1163,21 +1163,21 @@ mysql -u root -p
     
     </summary>
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
     
-      <category term="数据结构与算法之美" scheme="http://jingbin.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
+      <category term="数据结构与算法之美" scheme="http://jinbeen.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
     
   </entry>
   
   <entry>
     <title>Kotlin | 2.Kotlin基础</title>
-    <link href="http://jingbin.me/2019/03/24/kotlin-basics/"/>
-    <id>http://jingbin.me/2019/03/24/kotlin-basics/</id>
+    <link href="http://jinbeen.com/2019/03/24/kotlin-basics/"/>
+    <id>http://jinbeen.com/2019/03/24/kotlin-basics/</id>
     <published>2019-03-24T05:21:00.000Z</published>
     <updated>2019-04-10T14:08:44.769Z</updated>
     
-    <content type="html"><![CDATA[<p>上篇：<a href="https://jingbin.me/2019/03/22/kotlin-define/">《Kotlin | 1.定义和目的》</a></p>
+    <content type="html"><![CDATA[<p>上篇：<a href="https://jingbin.me/2019/03/22/kotlin-define/" target="_blank" rel="external">《Kotlin | 1.定义和目的》</a></p>
 <a id="more"></a>
 <blockquote>
 <ul>
@@ -1250,17 +1250,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="Kotlin" scheme="http://jingbin.me/categories/Kotlin/"/>
+      <category term="Kotlin" scheme="http://jinbeen.com/categories/Kotlin/"/>
     
     
-      <category term="Kotlin" scheme="http://jingbin.me/tags/Kotlin/"/>
+      <category term="Kotlin" scheme="http://jinbeen.com/tags/Kotlin/"/>
     
   </entry>
   
   <entry>
     <title>Kotlin | 1.定义和目的</title>
-    <link href="http://jingbin.me/2019/03/22/kotlin-define/"/>
-    <id>http://jingbin.me/2019/03/22/kotlin-define/</id>
+    <link href="http://jinbeen.com/2019/03/22/kotlin-define/"/>
+    <id>http://jinbeen.com/2019/03/22/kotlin-define/</id>
     <published>2019-03-22T09:24:00.000Z</published>
     <updated>2019-03-22T15:39:05.490Z</updated>
     
@@ -1314,17 +1314,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="Kotlin" scheme="http://jingbin.me/categories/Kotlin/"/>
+      <category term="Kotlin" scheme="http://jinbeen.com/categories/Kotlin/"/>
     
     
-      <category term="Kotlin" scheme="http://jingbin.me/tags/Kotlin/"/>
+      <category term="Kotlin" scheme="http://jinbeen.com/tags/Kotlin/"/>
     
   </entry>
   
   <entry>
     <title>Android Span在项目中的几种使用方式</title>
-    <link href="http://jingbin.me/2019/03/21/android-span/"/>
-    <id>http://jingbin.me/2019/03/21/android-span/</id>
+    <link href="http://jinbeen.com/2019/03/21/android-span/"/>
+    <id>http://jinbeen.com/2019/03/21/android-span/</id>
     <published>2019-03-21T08:33:00.000Z</published>
     <updated>2019-03-22T15:34:19.577Z</updated>
     
@@ -1366,19 +1366,19 @@ mysql -u root -p
     
     </summary>
     
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/tags/Android/"/>
     
-      <category term="span" scheme="http://jingbin.me/tags/span/"/>
+      <category term="span" scheme="http://jinbeen.com/tags/span/"/>
     
   </entry>
   
   <entry>
     <title>Git commit 规范</title>
-    <link href="http://jingbin.me/2019/03/20/git-commit/"/>
-    <id>http://jingbin.me/2019/03/20/git-commit/</id>
+    <link href="http://jinbeen.com/2019/03/20/git-commit/"/>
+    <id>http://jinbeen.com/2019/03/20/git-commit/</id>
     <published>2019-03-20T07:49:00.000Z</published>
     <updated>2019-03-22T15:30:29.061Z</updated>
     
@@ -1417,17 +1417,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="Git" scheme="http://jingbin.me/categories/Git/"/>
+      <category term="Git" scheme="http://jinbeen.com/categories/Git/"/>
     
     
-      <category term="Git" scheme="http://jingbin.me/tags/Git/"/>
+      <category term="Git" scheme="http://jinbeen.com/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>TabLayout的几种用法</title>
-    <link href="http://jingbin.me/2019/03/19/android-tablayout/"/>
-    <id>http://jingbin.me/2019/03/19/android-tablayout/</id>
+    <link href="http://jinbeen.com/2019/03/19/android-tablayout/"/>
+    <id>http://jinbeen.com/2019/03/19/android-tablayout/</id>
     <published>2019-03-19T12:13:00.000Z</published>
     <updated>2019-03-22T15:26:18.103Z</updated>
     
@@ -1468,17 +1468,17 @@ mysql -u root -p
     
     </summary>
     
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>Android MVC、MVP、MVVM、MVP-databinding 架构单元示例</title>
-    <link href="http://jingbin.me/2019/03/18/android-mvc-mvp-mvvm/"/>
-    <id>http://jingbin.me/2019/03/18/android-mvc-mvp-mvvm/</id>
+    <link href="http://jinbeen.com/2019/03/18/android-mvc-mvp-mvvm/"/>
+    <id>http://jinbeen.com/2019/03/18/android-mvc-mvp-mvvm/</id>
     <published>2019-03-18T09:35:00.000Z</published>
     <updated>2019-03-22T15:20:36.991Z</updated>
     
@@ -1537,12 +1537,12 @@ mysql -u root -p
     
     </summary>
     
-      <category term="Android" scheme="http://jingbin.me/categories/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://jingbin.me/tags/Android/"/>
+      <category term="Android" scheme="http://jinbeen.com/tags/Android/"/>
     
-      <category term="mvvm" scheme="http://jingbin.me/tags/mvvm/"/>
+      <category term="mvvm" scheme="http://jinbeen.com/tags/mvvm/"/>
     
   </entry>
   
