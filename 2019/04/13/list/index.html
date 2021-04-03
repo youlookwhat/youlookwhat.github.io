@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>链表（上）：如何实现LRU缓存淘汰算法? | 景彬</title>
+  <title>链表（上）：如何实现LRU缓存淘汰算法? | JinBeen&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -18,7 +18,7 @@
   <meta property="og:type" content="article">
 <meta property="og:title" content="链表（上）：如何实现LRU缓存淘汰算法?">
 <meta property="og:url" content="http://jinbeen.com/2019/04/13/list/index.html">
-<meta property="og:site_name" content="景彬">
+<meta property="og:site_name" content="JinBeen's Blog">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-9df053cef236aff6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-48f37c5fa5a90667.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-9df053cef236aff6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -198,7 +198,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#从底层的存储结构看"><span class="toc-text">从底层的存储结构看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链表"><span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#单链表"><span class="toc-text">单链表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#循环链表"><span class="toc-text">循环链表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双向链表"><span class="toc-text">双向链表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#删除操作"><span class="toc-text">删除操作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-删除结点中“值等于某个给定值”的结点"><span class="toc-text">1. 删除结点中“值等于某个给定值”的结点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-删除给定指针指向的结点"><span class="toc-text">2.删除给定指针指向的结点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双向循环链表"><span class="toc-text">双向循环链表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表-VS-数组性能大比拼"><span class="toc-text">链表 VS 数组性能大比拼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何基于链表实现-LRU-缓存淘汰算法？"><span class="toc-text">如何基于链表实现 LRU 缓存淘汰算法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#个人总结"><span class="toc-text">个人总结</span></a></li></ol>
   </div>
 
@@ -434,7 +434,7 @@ ga('send', 'pageview');
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">

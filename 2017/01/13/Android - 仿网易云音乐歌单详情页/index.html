@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android - 仿网易云音乐歌单详情页 | 景彬</title>
+  <title>Android - 仿网易云音乐歌单详情页 | JinBeen&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -20,7 +20,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android - 仿网易云音乐歌单详情页">
 <meta property="og:url" content="http://jinbeen.com/2017/01/13/Android - 仿网易云音乐歌单详情页/index.html">
-<meta property="og:site_name" content="景彬">
+<meta property="og:site_name" content="JinBeen's Blog">
 <meta property="og:description" content="前段时间模仿网易云音乐UI使用DataBinding做了一个App：CloudReader，今天把其中的类似歌单详情页单独拿出来说一下，我觉得其中还是有些干货的，关联到的知识点还比较有价值，而且也有很多需要注意的地方。
 本次项目地址：ScrollShapeUI">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1354448-761770bdf2e2ab04.gif?imageMogr2/auto-orient/strip">
@@ -200,7 +200,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#效果图对比："><span class="toc-text">效果图对比：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本布局："><span class="toc-text">基本布局：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现思路："><span class="toc-text">实现思路：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、Activity设置自定义元素共享切换动画"><span class="toc-text">1、Activity设置自定义元素共享切换动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、透明状态栏"><span class="toc-text">2、透明状态栏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、Toolbar的背景图"><span class="toc-text">3、Toolbar的背景图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#调整Toolbar背景图位置"><span class="toc-text">调整Toolbar背景图位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#显示Toolbar背景图"><span class="toc-text">显示Toolbar背景图</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、上下滑动，渐变背景图透明度"><span class="toc-text">4、上下滑动，渐变背景图透明度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
   </div>
 
@@ -354,7 +354,7 @@ ga('send', 'pageview');
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">

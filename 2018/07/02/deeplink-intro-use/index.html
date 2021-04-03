@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android DeepLink介绍与使用 | 景彬</title>
+  <title>Android DeepLink介绍与使用 | JinBeen&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android DeepLink介绍与使用">
 <meta property="og:url" content="http://jinbeen.com/2018/07/02/deeplink-intro-use/index.html">
-<meta property="og:site_name" content="景彬">
+<meta property="og:site_name" content="JinBeen's Blog">
 <meta property="og:description" content="前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-a4fcbfe2740d1b8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240">
@@ -197,7 +197,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Posts List</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#商业价值"><span class="toc-text">商业价值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Deeplink（深度链接）"><span class="toc-text">Deeplink（深度链接）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deferred-deeplink（-延迟深度链接）"><span class="toc-text">Deferred deeplink（ 延迟深度链接）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML页面：deeplink-html"><span class="toc-text">HTML页面：deeplink.html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AndroidManifest-xml"><span class="toc-text">AndroidManifest.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyWebViewClient-class"><span class="toc-text">MyWebViewClient.class</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DeepLinkActivity-java"><span class="toc-text">DeepLinkActivity.java</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现原理"><span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applink"><span class="toc-text">Applink</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本介绍"><span class="toc-text">基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与Deep-Links的区别"><span class="toc-text">与Deep Links的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结一下"><span class="toc-text">总结一下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些常用APP的URL-Schemes"><span class="toc-text">一些常用APP的URL Schemes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li></ol>
   </div>
 
@@ -423,7 +423,7 @@ ga('send', 'pageview');
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
+      <span id="close" class="btn-close">Close</span>
     </div>
     <hr>
     <div class="modal-body">
