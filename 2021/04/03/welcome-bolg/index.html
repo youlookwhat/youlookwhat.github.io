@@ -33,7 +33,7 @@ Mac搭建Hexo博客流程记录
 因为之前搭建过所以更换起来相对比较简单，需要注意的地方：
 
 没设置标题的时候会出现(no title)的情况，可自定义，我设置为空串了，在这里设置：theme/fexo/layout/partial/article.ejs里的&amp;lt;h1 class=&amp;quot;post-title&amp;quot;&amp;gt;&amp;lt;%= post.title">
-<meta property="og:updated_time" content="2021-04-03T14:26:38.563Z">
+<meta property="og:updated_time" content="2021-04-03T15:03:36.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客装修了，欢迎来坐">
 <meta name="twitter:description" content="装修效果(主题)
@@ -162,6 +162,17 @@ ga('send', 'pageview');
         <li class="item-toolbox">
           <a
             class="CIRCLE"
+            href="/project"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
             href="/link/"
             rel="noopener noreferrer"
             target="_self"
@@ -178,17 +189,6 @@ ga('send', 'pageview');
             target="_self"
             >
             关于
-          </a>
-        </li>
-      
-        <li class="item-toolbox">
-          <a
-            class="CIRCLE"
-            href="/atom.xml"
-            rel="noopener noreferrer"
-            target="_blank"
-            >
-            RSS
           </a>
         </li>
       
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#装修效果-主题"><span class="toc-text">装修效果(主题)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各大家族-文章发布平台"><span class="toc-text">各大家族(文章发布平台)</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#装修效果-主题"><span class="toc-text">装修效果(主题)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各大文章发布平台"><span class="toc-text">各大文章发布平台</span></a></li></ol>
   </div>
 
 
@@ -275,7 +275,15 @@ ga('send', 'pageview');
 <li><p>友链的介绍如果太长，在手机上样式会变型，最好是能一行显示完</p>
 </li>
 </ol>
-<h2 id="各大家族-文章发布平台"><a href="#各大家族-文章发布平台" class="headerlink" title="各大家族(文章发布平台)"></a>各大家族(文章发布平台)</h2><p>距离之前的 <code>next</code> 主题已经快五年了，这期间维护花了老大的劲，评论阅读数，访问人数统计，https，域名，图片防盗链等。之前使用github pages搭建博客可是有一大波人，现在留下的估计就那么几个了，奉劝大家还是找一个合适的技术平台，把文章放那里。</p>
+<p>常用的Hexo命令：</p>
+<ol>
+<li><code>hexo generate (hexo g)</code>　生成静态文件，会在当前目录下生成一个新的叫做public的文件夹</li>
+<li><code>hexo server (hexo s --debug)</code>　启动本地web服务，用于博客的预览</li>
+<li><code>hexo deploy (hexo d)</code> 　部署播客到远端</li>
+<li><code>hexo new &quot;postName&quot;</code> 　新建文章</li>
+<li><code>hexo new page &quot;pageName&quot;</code> 　新建页面</li>
+</ol>
+<h2 id="各大文章发布平台"><a href="#各大文章发布平台" class="headerlink" title="各大文章发布平台"></a>各大文章发布平台</h2><p>距离之前的 <code>next</code> 主题已经快五年了，这期间维护花了老大的劲，评论阅读数，访问人数统计，https，域名，图片防盗链等。之前使用github pages搭建博客可是有一大波人，现在留下的估计就那么几个了，奉劝大家还是找一个合适的技术平台，把文章放那里。</p>
 <ul>
 <li>个人博客：适合装X，一个人的空间，做一些定制化的样式还挺不错</li>
 <li>掘金：高质量的技术文章平台，有能力的技术人员推荐在这里发展</li>
@@ -387,6 +395,17 @@ ga('send', 'pageview');
           <li class="item-toolbox">
             <a
               class="CIRCLE"
+              href="/project"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
               href="/link/"
               rel="noopener noreferrer"
               target="_self"
@@ -403,17 +422,6 @@ ga('send', 'pageview');
               target="_self"
               >
               关于
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a
-              class="CIRCLE"
-              href="/atom.xml"
-              rel="noopener noreferrer"
-              target="_blank"
-              >
-              RSS
             </a>
           </li>
         
