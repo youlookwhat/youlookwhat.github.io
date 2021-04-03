@@ -122,7 +122,7 @@ ga('send', 'pageview');
         <li class="item-toolbox">
           <a
             class="CIRCLE"
-            href="/categories/Android"
+            href="/categories/Android/"
             rel="noopener noreferrer"
             target="_self"
             >
@@ -133,7 +133,7 @@ ga('send', 'pageview');
         <li class="item-toolbox">
           <a
             class="CIRCLE"
-            href="/tags/Android"
+            href="/tags/Android/"
             rel="noopener noreferrer"
             target="_self"
             >
@@ -144,7 +144,7 @@ ga('send', 'pageview');
         <li class="item-toolbox">
           <a
             class="CIRCLE"
-            href="/project"
+            href="/project/"
             rel="noopener noreferrer"
             target="_self"
             >
@@ -193,7 +193,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#与Gradle的爱恨情仇"><span class="toc-text">与Gradle的爱恨情仇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置全局参数"><span class="toc-text">配置全局参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建defaultConfig"><span class="toc-text">构建defaultConfig</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建buildTypes"><span class="toc-text">构建buildTypes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于签名"><span class="toc-text">关于签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可选配置"><span class="toc-text">可选配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建Proguard-混淆"><span class="toc-text">构建Proguard 混淆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态设置参数"><span class="toc-text">动态设置参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多渠道打包"><span class="toc-text">多渠道打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他注意事项"><span class="toc-text">其他注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grovvy"><span class="toc-text">Grovvy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深藏功与名的开发者工具"><span class="toc-text">深藏功与名的开发者工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AAPT"><span class="toc-text">AAPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lint"><span class="toc-text">Lint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无线调试"><span class="toc-text">无线调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9Patch工具"><span class="toc-text">9Patch工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hierarchy-viewer"><span class="toc-text">Hierarchy viewer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看UI"><span class="toc-text">查看UI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发者模式"><span class="toc-text">开发者模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#App背后的故事-性能检测与分析工具"><span class="toc-text">App背后的故事 - 性能检测与分析工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UI性能分析"><span class="toc-text">UI性能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存区分"><span class="toc-text">内存区分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GC系统"><span class="toc-text">GC系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取更多内存"><span class="toc-text">获取更多内存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通过子线程"><span class="toc-text">通过子线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Native-Heap"><span class="toc-text">Native Heap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#openGL"><span class="toc-text">openGL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LargeHeap"><span class="toc-text">LargeHeap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#系统内存警告"><span class="toc-text">系统内存警告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#检测内存泄漏工具"><span class="toc-text">检测内存泄漏工具</span></a></li></ol></li></ol></li></ol>
   </div>
 
@@ -489,7 +489,7 @@ ga('send', 'pageview');
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">
@@ -509,7 +509,7 @@ ga('send', 'pageview');
           <li class="item-toolbox">
             <a
               class="CIRCLE"
-              href="/categories/Android"
+              href="/categories/Android/"
               rel="noopener noreferrer"
               target="_self"
               >
@@ -520,7 +520,7 @@ ga('send', 'pageview');
           <li class="item-toolbox">
             <a
               class="CIRCLE"
-              href="/tags/Android"
+              href="/tags/Android/"
               rel="noopener noreferrer"
               target="_self"
               >
@@ -531,7 +531,7 @@ ga('send', 'pageview');
           <li class="item-toolbox">
             <a
               class="CIRCLE"
-              href="/project"
+              href="/project/"
               rel="noopener noreferrer"
               target="_self"
               >
