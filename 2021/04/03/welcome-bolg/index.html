@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>博客装修了，欢迎来坐 | 景彬</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="hexo," />
+  
+
+  <meta name="description" content="装修效果(主题)
+Mac搭建Hexo博客流程记录
+主题配置
+
+因为之前搭建过所以更换起来相对比较简单，需要注意的地方：
+
+没设置标题的时候会出现(no title)的情况，可自定义，我设置为空串了，在这里设置：theme/fexo/layout/partial/article.ejs里的&amp;lt;h1 class=&amp;quot;post-title&amp;quot;&amp;gt;&amp;lt;%= post.title">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客装修了，欢迎来坐">
+<meta property="og:url" content="http://jinbeen.com/2021/04/03/welcome-bolg/index.html">
+<meta property="og:site_name" content="景彬">
+<meta property="og:description" content="装修效果(主题)
+Mac搭建Hexo博客流程记录
+主题配置
+
+因为之前搭建过所以更换起来相对比较简单，需要注意的地方：
+
+没设置标题的时候会出现(no title)的情况，可自定义，我设置为空串了，在这里设置：theme/fexo/layout/partial/article.ejs里的&amp;lt;h1 class=&amp;quot;post-title&amp;quot;&amp;gt;&amp;lt;%= post.title">
+<meta property="og:updated_time" content="2021-04-03T14:26:38.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博客装修了，欢迎来坐">
+<meta name="twitter:description" content="装修效果(主题)
+Mac搭建Hexo博客流程记录
+主题配置
+
+因为之前搭建过所以更换起来相对比较简单，需要注意的地方：
+
+没设置标题的时候会出现(no title)的情况，可自定义，我设置为空串了，在这里设置：theme/fexo/layout/partial/article.ejs里的&amp;lt;h1 class=&amp;quot;post-title&amp;quot;&amp;gt;&amp;lt;%= post.title">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-91L2DT6NQB', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?643275289e816ea38d7a840456d91ebd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/Android"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/Android"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/music.html"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            🎵
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#装修效果-主题"><span class="toc-text">装修效果(主题)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各大家族-文章发布平台"><span class="toc-text">各大家族(文章发布平台)</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-博客装修了，欢迎来坐" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">博客装修了，欢迎来坐</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2021.04.03</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>JinBeen</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h2 id="装修效果-主题"><a href="#装修效果-主题" class="headerlink" title="装修效果(主题)"></a>装修效果(主题)</h2><ul>
+<li><a href="https://jinbeen.com/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/">Mac搭建Hexo博客流程记录</a></li>
+<li><a href="http://forsigner.com/2016/03/10/fexo-doc-zh-cn/#%E5%BC%80%E5%A7%8B" target="_blank" rel="external">主题配置</a></li>
+</ul>
+<p>因为之前搭建过所以更换起来相对比较简单，需要注意的地方：</p>
+<ol>
+<li><p>没设置标题的时候会出现<code>(no title)</code>的情况，可自定义，我设置为空串了，在这里设置：<code>theme</code>/<code>fexo</code>/<code>layout</code>/<code>partial</code>/<code>article.ejs</code>里的<code>&lt;h1 class=&quot;post-title&quot;&gt;&lt;%= post.title || &#39;&#39; %&gt;&lt;/h1&gt;</code></p>
+</li>
+<li><p>博客里的音乐的iframe，之前宽度是固定的，可设置为自适应：width=”100%”</p>
+</li>
+<li><p>评论改为了<a href="https://github.com/gitalk/gitalk#usage" target="_blank" rel="external">gitalk</a>，在主题下的<code>_config.yml</code>配置即可。需要注意的是<code>Authorization callback URL</code>使用的就是网站的域名，例如<code>https://jinbeen.com</code>。配置错误也可以到<a href="https://github.com/settings/applications/1551717" target="_blank" rel="external">此处</a>更改。</p>
+</li>
+<li><p>分类和标签页面配置的是<code>/categories/Android</code>、<code>tags/Android</code>。感觉应该是<code>categories</code>，但是不行还不知道为啥。</p>
+</li>
+<li><p>友链的介绍如果太长，在手机上样式会变型，最好是能一行显示完</p>
+</li>
+</ol>
+<h2 id="各大家族-文章发布平台"><a href="#各大家族-文章发布平台" class="headerlink" title="各大家族(文章发布平台)"></a>各大家族(文章发布平台)</h2><p>距离之前的 <code>next</code> 主题已经快五年了，这期间维护花了老大的劲，评论阅读数，访问人数统计，https，域名，图片防盗链等。之前使用github pages搭建博客可是有一大波人，现在留下的估计就那么几个了，奉劝大家还是找一个合适的技术平台，把文章放那里。</p>
+<ul>
+<li>个人博客：适合装X，一个人的空间，做一些定制化的样式还挺不错</li>
+<li>掘金：高质量的技术文章平台，有能力的技术人员推荐在这里发展</li>
+<li>CSDN：水文比较多，很多重复文章，但是能发展起来也非常厉害</li>
+<li>简书：以前还可以，自从饱醉豚事件后就没落了，现在技术人员基本不在里面活动了</li>
+</ul>
+<p> 欢迎关注我的<a href="https://github.com/youlookwhat" target="_blank" rel="external">GitHub账号</a>，或<a href="https://juejin.cn/user/201965867640862/posts" target="_blank" rel="external">掘金号</a>，有事没事留个言👋</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持我</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="https://raw.githubusercontent.com/youlookwhat/CloudReader/master/file/Wechat-admire.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="https://raw.githubusercontent.com/youlookwhat/CloudReader/master/file/alipay-admire.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/05/23/android-support-update/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/Android"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/Android"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/music.html"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              🎵
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '2b303b849c8ea65e4051',
+  clientSecret: '57fc88550a6d86d10a191bb7b6411072576c00b3',
+  repo: 'blog-comment',
+  owner: 'youlookwhat',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['youlookwhat'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
