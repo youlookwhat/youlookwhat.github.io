@@ -74,12 +74,12 @@
     <link href="http://jinbeen.com/2019/04/24/android-gradle-packaging/"/>
     <id>http://jinbeen.com/2019/04/24/android-gradle-packaging/</id>
     <published>2019-04-24T08:47:00.000Z</published>
-    <updated>2019-05-29T15:15:10.227Z</updated>
+    <updated>2021-04-03T08:29:29.468Z</updated>
     
     <content type="html"><![CDATA[<p>偶尔用一下，hhh(╯﹏╰)</p>
 <a id="more"></a>
 <h4 id="项目配置gradle环境"><a href="#项目配置gradle环境" class="headerlink" title="项目配置gradle环境"></a>项目配置gradle环境</h4><ul>
-<li><a href="https://jingbin.me/2016/10/13/Mac-Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE-java%E3%80%81sdk%E3%80%81ndk%E3%80%81gradle/" target="_blank" rel="external">Mac Android开发环境变量的配置(java、sdk、ndk、gradle)</a></li>
+<li><a href="https://jinbeen.com/2016/10/13/Mac-Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE-java%E3%80%81sdk%E3%80%81ndk%E3%80%81gradle/">Mac Android开发环境变量的配置(java、sdk、ndk、gradle)</a></li>
 <li><a href="https://blog.csdn.net/jingbin_/article/details/89491970" target="_blank" rel="external">gradle -version Permission denied - in mac terminal</a></li>
 </ul>
 <h4 id="build-gradle-配置"><a href="#build-gradle-配置" class="headerlink" title="build.gradle 配置"></a>build.gradle 配置</h4><p>在项目的<code>build.gradle</code>配置</p>
@@ -93,7 +93,7 @@
 </li>
 </ul>
 <ul>
-<li>3.里面的 <code>pStoreFile</code>、<code>pStorePassword</code>等属性在<code>gradle.properties</code>文件内：<br><img src="http://upload-images.jianshu.io/upload_images/1354448-c330c2b8f3171044?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gradle.properties"></li>
+<li>3.里面的 <code>pStoreFile</code>、<code>pStorePassword</code>等属性在<code>gradle.properties</code>文件内：<br><img src="https://img-blog.csdnimg.cn/2021040316263383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmdiaW5f,size_16,color_FFFFFF,t_70" alt="gradle.properties"></li>
 </ul>
 <h4 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h4><p>在命令行里输入：</p>
 <ul>
@@ -104,7 +104,7 @@
 <ul>
 <li>gradle installDebug</li>
 </ul>
-<p>输出地址：<br><img src="http://upload-images.jianshu.io/upload_images/1354448-1f532817741cffd1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="apk"></p>
+<p>输出地址：<br><img src="https://img-blog.csdnimg.cn/20210403162649667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ppbmdiaW5f,size_16,color_FFFFFF,t_70" alt="apk"></p>
 <p>参考文件：<a href="https://github.com/youlookwhat/CloudReader/blob/master/app/build.gradle" target="_blank" rel="external">CloudReader - build.gradle</a></p>
 ]]></content>
     
@@ -412,7 +412,7 @@
     <link href="http://jinbeen.com/2019/04/09/github-pages-readme/"/>
     <id>http://jinbeen.com/2019/04/09/github-pages-readme/</id>
     <published>2019-04-09T10:00:00.000Z</published>
-    <updated>2019-04-22T14:52:12.035Z</updated>
+    <updated>2021-04-03T08:29:31.997Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/1354448-b66068bcf588c88a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <a id="more"></a>
@@ -429,7 +429,7 @@
 <li><p>确定选择<br><img src="https://upload-images.jianshu.io/upload_images/1354448-efbcee3c18c2c798.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Select.png"></p>
 </li>
 </ol>
-<p>效果页面：<a href="https://jingbin.me/CloudReader" target="_blank" rel="external">https://jingbin.me/CloudReader</a></p>
+<p>效果页面：<a href="https://jinbeen.com/CloudReader">https://jinbeen.com/CloudReader</a></p>
 <h4 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h4><ol>
 <li><p>图片显示不出来？<br>使用<code>&lt;img /&gt;</code>标签失效，必须使用正规的引入图片的方式：<code>![]()</code><br>图片尺寸太大？ - 图片处理网站：<a href="https://www.fotor.com/create/design" target="_blank" rel="external">https://www.fotor.com/create/design</a></p>
 </li>
@@ -1175,9 +1175,9 @@ mysql -u root -p
     <link href="http://jinbeen.com/2019/03/24/kotlin-basics/"/>
     <id>http://jinbeen.com/2019/03/24/kotlin-basics/</id>
     <published>2019-03-24T05:21:00.000Z</published>
-    <updated>2019-04-10T14:08:44.769Z</updated>
+    <updated>2021-04-03T08:25:18.568Z</updated>
     
-    <content type="html"><![CDATA[<p>上篇：<a href="https://jingbin.me/2019/03/22/kotlin-define/" target="_blank" rel="external">《Kotlin | 1.定义和目的》</a></p>
+    <content type="html"><![CDATA[<p>上篇：<a href="https://jinbeen.com/2019/03/22/kotlin-define/">《Kotlin | 1.定义和目的》</a></p>
 <a id="more"></a>
 <blockquote>
 <ul>
@@ -1246,7 +1246,7 @@ mysql -u root -p
     
     <summary type="html">
     
-      &lt;p&gt;上篇：&lt;a href=&quot;https://jingbin.me/2019/03/22/kotlin-define/&quot;&gt;《Kotlin | 1.定义和目的》&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;上篇：&lt;a href=&quot;https://jinbeen.com/2019/03/22/kotlin-define/&quot;&gt;《Kotlin | 1.定义和目的》&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     

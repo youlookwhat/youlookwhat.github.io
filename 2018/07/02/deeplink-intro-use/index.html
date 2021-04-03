@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-f9353b100e86560b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-a4fcbfe2740d1b8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-b4468f9f81f2e0b4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-03T15:58:23.590Z">
+<meta property="og:updated_time" content="2021-04-03T08:25:40.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android DeepLink介绍与使用">
 <meta name="twitter:description" content="前段时间公司让调研一下DeepLink，说以后会用到，之前看了很久，并做了个demo，现整理一下，方便以后查阅，如果有幸帮助到其他人就更好了。">
@@ -348,7 +348,7 @@ ga('send', 'pageview');
 <p>这种方式只能用于系统处理URL的intent的情况，若URL本身没有抛给系统处理，而是直接在应用内打开了，那就无法直接拉起应用。</p>
 <p>由于大部分应用，如微博、微信、第三方浏览器(包括Chrome)，都不会将URL抛给系统处理(对scheme进行屏蔽)，因此App Links生效的情况就很有限了，比如只能从记事本应用、短信应用这些进行跳转。总体来说，实属鸡肋。</p>
 <blockquote>
-<p>京东及淘宝的CPS即是使用此方式实现的。<br><a href="https://jingbin.me/2018/02/02/%E4%BA%AC%E4%B8%9CCPS%E5%95%86%E5%93%81%E6%8E%A8%E5%B9%BF%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/" target="_blank" rel="external">京东CPS商品推广接入流程</a><br><a href="https://jingbin.me/2018/01/19/Android-%E9%98%BF%E9%87%8C%E7%99%BE%E5%B7%9Dcps-SDK%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/" target="_blank" rel="external">Android 阿里百川cps SDK接入流程</a></p>
+<p>京东及淘宝的CPS即是使用此方式实现的。<br><a href="https://jinbeen.com/2018/02/02/%E4%BA%AC%E4%B8%9CCPS%E5%95%86%E5%93%81%E6%8E%A8%E5%B9%BF%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/">京东CPS商品推广接入流程</a><br><a href="https://jinbeen.com/2018/01/19/Android-%E9%98%BF%E9%87%8C%E7%99%BE%E5%B7%9Dcps-SDK%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B/">Android 阿里百川cps SDK接入流程</a></p>
 </blockquote>
 <h2 id="一些常用APP的URL-Schemes"><a href="#一些常用APP的URL-Schemes" class="headerlink" title="一些常用APP的URL Schemes"></a>一些常用APP的URL Schemes</h2><p>知乎：回答 zhihu://answers/{id}用户页 zhihu://people/{id}<br>微信：<br>weixin://dl/scan 扫一扫weixin://dl/feedback 反馈weixin://dl/moments 朋友圈weixin://dl/settings 设置weixin://dl/notifications 消息通知设置weixin://dl/chat 聊天设置weixin://dl/general 通用设置weixin://dl/officialaccounts 公众号weixin://dl/games 游戏weixin://dl/help 帮助weixin://dl/feedback 反馈weixin://dl/profile 个人信息weixin://dl/features 功能插件</p>
 <p>腾讯微博：TencentWeibo://<br>淘宝：taobao://<br>支付宝：alipay://<br>微博：sinaweibo://<br>weico微博：weico://<br>QQ浏览器：mqqbrowser://<br>uc浏览器：ucbrowser://<br>海豚浏览器：dolphin://<br>搜狗浏览器：SogouMSE://<br>百度地图：baidumap://<br>Chrome：googlechrome://<br>优酷：youku://<br>京东：openapp.jdmoble://<br>人人：renren://<br>美团：imeituan://<br>1号店：wccbyihaodian://<br>我查查：wcc://<br>有道词典：ddictproapp://<br>点评：dianping://<br>微盘：sinavdisk://<br>豆瓣fm：doubanradio://<br>网易公开课：ntesopen://<br>名片全能王：camcard://<br>淘宝宝贝搜索：taobao://<a href="http://s.taobao.com/?q=[prompt" target="_blank" rel="external">http://s.taobao.com/?q=[prompt</a>]<br>淘宝店铺搜索：taobao://<a href="http://shopsearch.t" target="_blank" rel="external">http://shopsearch.t</a></p>
