@@ -218,7 +218,7 @@
     <link href="http://jinbeen.com/2021/04/03/welcome-bolg/"/>
     <id>http://jinbeen.com/2021/04/03/welcome-bolg/</id>
     <published>2021-04-03T09:38:29.000Z</published>
-    <updated>2021-04-03T15:03:36.412Z</updated>
+    <updated>2021-04-12T15:05:27.812Z</updated>
     
     <content type="html"><![CDATA[<h2 id="装修效果-主题"><a href="#装修效果-主题" class="headerlink" title="装修效果(主题)"></a>装修效果(主题)</h2><ul>
 <li><a href="https://jinbeen.com/2016/11/19/Mac搭建Hexo博客流程记录，排雷完成/">Mac搭建Hexo博客流程记录</a></li>
@@ -235,6 +235,8 @@
 <li><p>分类和标签页面配置的是<code>/categories/Android</code>、<code>tags/Android</code>。感觉应该是<code>categories</code>，但是不行还不知道为啥。</p>
 </li>
 <li><p>友链的介绍如果太长，在手机上样式会变型，最好是能一行显示完</p>
+</li>
+<li><p>语言不生效，经常变为英文：站点下的配置为<code>language: zh-Hans</code>，但是fexo下的languages下只有<code>zh-CN.yml</code>文件，改为：<code>language: zh-CN</code>就好。</p>
 </li>
 </ol>
 <p>常用的Hexo命令：</p>

@@ -33,7 +33,7 @@ Mac搭建Hexo博客流程记录
 因为之前搭建过所以更换起来相对比较简单，需要注意的地方：
 
 没设置标题的时候会出现(no title)的情况，可自定义，我设置为空串了，在这里设置：theme/fexo/layout/partial/article.ejs里的&amp;lt;h1 class=&amp;quot;post-title&amp;quot;&amp;gt;&amp;lt;%= post.title">
-<meta property="og:updated_time" content="2021-04-03T15:03:36.412Z">
+<meta property="og:updated_time" content="2021-04-12T15:05:27.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客装修了，欢迎来坐">
 <meta name="twitter:description" content="装修效果(主题)
@@ -211,7 +211,7 @@ ga('send', 'pageview');
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
+    <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#装修效果-主题"><span class="toc-text">装修效果(主题)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各大文章发布平台"><span class="toc-text">各大文章发布平台</span></a></li></ol>
   </div>
 
@@ -273,6 +273,8 @@ ga('send', 'pageview');
 <li><p>分类和标签页面配置的是<code>/categories/Android</code>、<code>tags/Android</code>。感觉应该是<code>categories</code>，但是不行还不知道为啥。</p>
 </li>
 <li><p>友链的介绍如果太长，在手机上样式会变型，最好是能一行显示完</p>
+</li>
+<li><p>语言不生效，经常变为英文：站点下的配置为<code>language: zh-Hans</code>，但是fexo下的languages下只有<code>zh-CN.yml</code>文件，改为：<code>language: zh-CN</code>就好。</p>
 </li>
 </ol>
 <p>常用的Hexo命令：</p>
@@ -353,7 +355,7 @@ ga('send', 'pageview');
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">
