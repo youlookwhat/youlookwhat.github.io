@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinbeen.com/"/>
-  <updated>2021-06-06T13:48:43.817Z</updated>
+  <updated>2021-07-19T15:37:26.769Z</updated>
   <id>http://jinbeen.com/</id>
   
   <author>
@@ -14,6 +14,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>这段期间的一些事</title>
+    <link href="http://jinbeen.com/2021/07/19/recent-things/"/>
+    <id>http://jinbeen.com/2021/07/19/recent-things/</id>
+    <published>2021-07-19T15:28:42.000Z</published>
+    <updated>2021-07-19T15:37:26.769Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是2021年7月18日，上半年发生了很多事，简单记录下。</p>
+<h3 id="1-今年计划"><a href="#1-今年计划" class="headerlink" title="1.今年计划"></a>1.今年计划</h3><p>基本上每年都会有自己的大概计划，每年有几个关键词概括。去年是私活、技术深入学习。前年是开源库。今年的关键词应该是<code>读书</code>了。</p>
+<p>其实最开始不是这样打算的，最开始是准备做视频号或者是抖音号，还买了相关的课程，做了一段时间发现不太适合，视频号发了几个视频基本没有数据，抖音号发了几个数据还可以，但是基本是搬运和简单的修改，很多时候是在上班找素材然后回家了剪辑。起初公司的事情还不是很多，后来越来越忙后就不太适合了。</p>
+<p>每年的读书节都会在当当上买很多的书，刚开始没有把读书列为这么优先级，是因为看了《绝非偶然》这件事，和身边的很多厉害的人的经历，告诉我读书非常重要，刚好趁这个时间把屯下来的一些书今年读完，然后做好读书笔记加深印象。</p>
+<p>现阶段的<a href="https://screeching-allium-a1b.notion.site/5ceebc90da874d7295aa5b785c44c657?v=ebcde82d26904c8da17fb55223fc7435" target="_blank" rel="external">书籍列表</a>。</p>
+<h3 id="2-结婚"><a href="#2-结婚" class="headerlink" title="2.结婚"></a>2.结婚</h3><p>第二大的事情就是结婚。</p>
+<p>很早定的2020年1月30日结婚，但是由于疫情一直延后，最终订到了今年的5月1日。前后经过了太长的时间，过程还算顺利，主要还是家里人和亲戚朋友的帮忙，还有媳妇那边的宽容。这期间的经过我写了很多，具体到每天做了什么事情，很多细节，这里就不详细说了。</p>
+<h3 id="3-才结婚没多久的亲戚去世了"><a href="#3-才结婚没多久的亲戚去世了" class="headerlink" title="3.才结婚没多久的亲戚去世了"></a>3.才结婚没多久的亲戚去世了</h3><p>吃年饭的时候餐桌上奶奶还说不要和 灿 搞在同一天了，听说他定的是五一，在正月初几的时候当面问他说具体时间还没确定，中间才知道定在了三月底，弟还一起去上头/娶亲了。五一我结婚的时候，我还请教了他几个问题，当时很正常。然后一个月后看姑姑发的水滴筹说是急性心梗，导致多器官衰竭，再一个月后就去世了。</p>
+<p>小时候我们还一起打一晚上小霸王，在我家睡觉，前段时间还好好的，大概医治了80w，感到非常可惜。然后我联系了我一前同事买了泰康的重疾险，今天合同拿到手了。</p>
+<p>生命很脆弱。</p>
+<h3 id="4-工作现状"><a href="#4-工作现状" class="headerlink" title="4.工作现状"></a>4.工作现状</h3><p>这两三个月很忙，主要有两个原因，其一是一个同事离职了，很多活被分配到了我和另一个安卓同事身上。 其二是被叫去每天和技术总监汇报进度，因为每天要汇报任务进度，所以做任务都比较紧，不然延期了不好交代，而且不仅是技术中的，还有很多产品上的事要沟通交流，很多的时间用在了交流上。</p>
+<p>不得不说，这两个月在工作中收获很大，多是沟通和产品上的。虽然技术没什么太大的进步，因为很多时候没有时间来学习，以前还有时间看点书和学点新技术，比如之前还学了小程序，后面想自己做个小程序现在在上班的时间是难以实现了。</p>
+<p>最近招聘了两个多月了，面试了很多做安卓的，大多工作年限在5年以上，其中很多人都在沟通上挂了，如果沟通好的话技术是可以放低点要求的，当然技术不太好的话薪资也低点，现在还在招聘中，总的来说：</p>
+<ul>
+<li><p>1.技术可以过关，这对于5年以上经验来说难度不高；</p>
+</li>
+<li><p>2.沟通友好，别不懂扯其他的，微笑，表现稍微活泼一点，这对于程序员是不是有点难？</p>
+</li>
+<li><p>3.对产品有点见解，这主要是技术总监考察的，因为技术总监也管产品部门，程序员有点产品思维做需求时更好沟通，不仅仅是埋头写代码。</p>
+</li>
+</ul>
+<p>当然有全部通过的，但是别人有了更好的选择，或者是觉得不适合我们业务的。现在应该是发了两个offer，但是都没有来，一个是之前在烽火，应该找到了更好的。另一个是之前做车载应用的，沟通很好，很想要他，后来也过了，但是也没过来。</p>
+<p>招个合适的人确实不容易。</p>
+<h3 id="5-买了一只雪纳瑞，取名飞碟"><a href="#5-买了一只雪纳瑞，取名飞碟" class="headerlink" title="5.买了一只雪纳瑞，取名飞碟"></a>5.买了一只雪纳瑞，取名飞碟</h3><p>程序员这行加班挺多，我们是一周6小时加班时间，基本是周二和周四加班2小时，忙的话再选一天，不忙就两天。媳妇是5:30下班，回来很多时候要过几个小时我才回来，然后媳妇家之前有条很乖的小狗叫小黄，后来被人抓走了，媳妇就想买一条狗回来，后来买了一只迷你版雪纳瑞，不会长的很大。</p>
+<p>取名飞碟是我们相信有外星人，恰好买的时间距离6月25号美国公布UFO附近，为了不重名就取名飞碟了。前几天我们回想起飞碟来家里多长时间了，感觉有很久了，后来想才才15天不到，但是和我们已经有很深的感情。</p>
+<p>有段时间还梦到他是一只军犬，在战争中被敌方毒死了，然后很伤心。</p>
+<h3 id="6-昨天-7月17日-在教育商店买了iPad-Pro"><a href="#6-昨天-7月17日-在教育商店买了iPad-Pro" class="headerlink" title="6.昨天(7月17日)在教育商店买了iPad Pro"></a>6.昨天(7月17日)在教育商店买了iPad Pro</h3><p>利用Apple每年的买苹果设备送耳机的活动在教育商店买了iPad Pro。计划了很久，消费欲望太强烈，家里已经有两个iPad了，但是有个是5年前买的，想卖给岳母了回点血😄，当然是媳妇卖。</p>
+<p>之前不太忙的时候每天回来都会用平板写点东西，不得不说是写东西是很有必要的，现在很忙但仍然也会写，只是频次少了些。希望能发挥它生产力的用处。其他时间基本都是看youtobe，每天用它看不到一小时的时间。</p>
+<h3 id="7-一些想法"><a href="#7-一些想法" class="headerlink" title="7.一些想法"></a>7.一些想法</h3><ul>
+<li><p>1.通过面试认识到：<code>写博客很重要</code>。基本每个写博客的人都通过了初试，而且大部分都通过了复试。因为写博客一方面是技术总结，善于总结的人技术不会太差，另一方面是写博客会有自己的想法，再是多给面试官一种了解你的途径。</p>
+</li>
+<li><p>2.这段时间频繁沟通理解到：有一个level很高的人点拨你，对你影响很大。前段时间算是我们的技术部中层管理之一说了一句：技术总监说<code>你做到对应职位的工作了，你就是那个职位的人。</code> 例如你现在是一个小技术员，你慢慢开始做你那个小组领导的事，等你做的差不多的时候，你就可以做小组领导。起初经常听到这个观点，当结合实际场景说的时候才深有感触的意识到。我现在是安卓的小组长，如果做到前端组长就需要开始做一些前端组长的工作，等公司需要一个前端组长的时候就可以水到渠成。能管理人感觉主要是人格魅力，会沟通、能使团队高效的做事、激励团队、当然技术好是基础、还有必备的产品意识毕竟我们主要工作是做产品。</p>
+</li>
+<li><p>3.<code>阅读、探索新事物</code>。每年应该接触点新东西，例如安卓新技术，产品知识，后台，小程序等。如果只在技术舒适区，5年后面试将会毫无亮点直接被pass。最好是学的新东西能拿出成果，我学习了小程序，自己写了一个小程序发布了，学了新技术写了技术博客或开源了等等。今天看到吴军提到的学校里的好学生不一定出社会就发展的很好，因为很多是不尝试新东西在自己的圈子里，给自己生活注入新鲜血液，这也和《了不起的我》提到的一样。</p>
+</li>
+</ul>
+<p>感谢你能看到这里，祝你身体健康，克服生活的难关，步步向上。</p>
+<p>完。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天是2021年7月18日，上半年发生了很多事，简单记录下。&lt;/p&gt;
+&lt;h3 id=&quot;1-今年计划&quot;&gt;&lt;a href=&quot;#1-今年计划&quot; class=&quot;headerlink&quot; title=&quot;1.今年计划&quot;&gt;&lt;/a&gt;1.今年计划&lt;/h3&gt;&lt;p&gt;基本上每年都会有自己的大概计划，
+    
+    </summary>
+    
+      <category term="life" scheme="http://jinbeen.com/categories/life/"/>
+    
+    
+      <category term="life" scheme="http://jinbeen.com/tags/life/"/>
+    
+  </entry>
   
   <entry>
     <title>《小狗钱钱2》| 养成优秀品格的7条准则</title>
@@ -1654,91 +1715,6 @@ mysql -u root -p
     
       &lt;blockquote&gt;
 &lt;p&gt;在大多数情况下，我们并不需要区分最好、最坏、平均情况时间复杂度三种情况。只有同一块代码在不同的情况下，时间复杂度有量级的差距，我们才会使用这三种复杂度表示法来区分。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="数据结构与算法之美" scheme="http://jinbeen.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
-    
-    
-      <category term="数据结构与算法之美" scheme="http://jinbeen.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>复杂度分析（上）：如何分析、统计算法的执行效率和资源消耗？</title>
-    <link href="http://jinbeen.com/2019/03/26/complexity-analysis/"/>
-    <id>http://jinbeen.com/2019/03/26/complexity-analysis/</id>
-    <published>2019-03-26T13:38:00.000Z</published>
-    <updated>2019-04-10T14:25:03.499Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>T(n) = O(f(n))</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="大-O-复杂度表示法"><a href="#大-O-复杂度表示法" class="headerlink" title="大 O 复杂度表示法"></a>大 O 复杂度表示法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span> (; i &lt;= n; ++i) &#123;</div><div class="line">    sum = sum + i;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>总的执行时间就是T(n) = (2n+2)*unit_time。<br>记为：T(n) = O(n)； </p>
-<p>所有代码的执行时间 T(n) 与每行代码的执行次数成正比。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">  <span class="keyword">int</span> j = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span> (; i &lt;= n; ++i) &#123;</div><div class="line">    j = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (; j &lt;= n; ++j) &#123;</div><div class="line">      sum = sum +  i * j;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>执行时间 T(n) = (2n2+2n+3)* unit_time。<br>记为：T(n) = O(n2)</p>
-<p><strong>大 O 复杂度表示法：</strong></p>
-<p><center>T(n) = O(f(n))</center></p>
-<p>T(n): 表示代码执行的时间；<br>n: 表示数据规模的大小；<br>f(n): 表示每行代码执行的次数总和；<br>O: 表示代码的执行时间T(n)与f(n)表达式成正比。</p>
-<p>大 O 复杂度表示法时间上并不具体表示代码真正的执行时间，而是表示代码<strong>执行时间随数据规模增长的变化趋势</strong>，所以，也叫作渐进时间复杂度，简称<strong>时间复杂度</strong>。</p>
-<h3 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h3><ul>
-<li>1.只关注循环执行次数最多的一段代码</li>
-<li>2.加法法则：总复杂度等于量级最大的那段代码的复杂度</li>
-<li>3.乘法法则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘积</li>
-</ul>
-<h3 id="几种常见时间复杂度实例分析"><a href="#几种常见时间复杂度实例分析" class="headerlink" title="几种常见时间复杂度实例分析"></a>几种常见时间复杂度实例分析</h3><p>虽然代码千差万别，但是常见的复杂度量级并不多。我稍微总结了一下，这些复杂度量级几乎涵盖了你今后可以接触的所有代码的复杂度量级。</p>
-<p>复杂度量级(按数量级递增)</p>
-<ul>
-<li>多项式量级<ul>
-<li>常量阶 O(1) </li>
-<li>对数阶 O(log n)</li>
-<li>线性阶 O(n)</li>
-<li>线性代数阶 O(nlogn)</li>
-<li>平方阶 O(n²)、立方阶O(n³)…k次方阶O(n^{k})</li>
-</ul>
-</li>
-<li>非多项式量级<ul>
-<li>指数阶 O(2^n)</li>
-<li>阶乘积 O(n!)</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-O-1"><a href="#1-O-1" class="headerlink" title="1.O(1)"></a>1.O(1)</h4><p>首先你必须明确一个概念，O(1) 只是常量级时间复杂度的一种表示方法，并不是指只执行了一行代码。比如这段代码，即便有 3 行，它的时间复杂度也是 O(1），而不是 O(3)。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">8</span>;</div><div class="line"><span class="keyword">int</span> j = <span class="number">6</span>;</div><div class="line"><span class="keyword">int</span> sum = i + j;</div></pre></td></tr></table></figure>
-<p>我稍微总结一下，只要代码的执行时间不随 n 的增大而增长，这样代码的时间复杂度我们都记作 O(1)。或者说，<strong>一般情况下，只要算法中不存在循环语句、递归语句，即使有成千上万行的代码，其时间复杂度也是Ο(1)。</strong></p>
-<h4 id="2-O-logn-、O-nlogn"><a href="#2-O-logn-、O-nlogn" class="headerlink" title="2.O(logn)、O(nlogn)"></a>2.O(logn)、O(nlogn)</h4><p>对数阶时间复杂度非常常见，同时也是最难分析的一种时间复杂度。我通过一个例子来说明一下。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">i=<span class="number">1</span>;</div><div class="line"><span class="keyword">while</span> (i &lt;= n)  &#123;</div><div class="line">  i = i * <span class="number">2</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>根据我们前面讲的复杂度分析方法，第三行代码是循环执行次数最多的。所以，我们只要能计算出这行代码被执行了多少次，就能知道整段代码的时间复杂度。</p>
-<p>从代码中可以看出，变量 i 的值从 1 开始取，每循环一次就乘以 2。当大于 n 时，循环结束。还记得我们高中学过的等比数列吗？实际上，变量 i 的取值就是一个等比数列。如果我把它一个一个列出来，就应该是这个样子的：</p>
-<p><code>2^0 * 2^1 * 2^2 ... 2^k ... 2^n = m 3 n</code></p>
-<p>所以，我们只要知道 x 值是多少，就知道这行代码执行的次数了。通过 2x=n 求解 x 这个问题我们想高中应该就学过了，我就不多说了。x=log2n，所以，这段代码的时间复杂度就是 O(log2n)。</p>
-<p>现在，我把代码稍微改下，你再看看，这段代码的时间复杂度是多少？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">i=<span class="number">1</span>;</div><div class="line"><span class="keyword">while</span> (i &lt;= n)  &#123;</div><div class="line">  i = i * <span class="number">3</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>根据我刚刚讲的思路，很简单就能看出来，这段代码的时间复杂度为 O(log3n)。</p>
-<p>实际上，不管是以 2 为底、以 3 为底，还是以 10 为底，我们可以把所有对数阶的时间复杂度都记为 O(logn)。为什么呢？</p>
-<p>我们知道，对数之间是可以互相转换的，log3n 就等于 log32 <em> log2n，所以 O(log3n) = O(C </em> log2n)，其中 C=log32 是一个常量。基于我们前面的一个理论：<strong>在采用大 O 标记复杂度的时候，可以忽略系数，即 O(Cf(n)) = O(f(n))</strong>。所以，O(log2n) 就等于 O(log3n)。因此，在对数阶时间复杂度的表示方法里，我们忽略对数的“底”，统一表示为 O(logn)。</p>
-<p>如果你理解了我前面讲的 O(logn)，那 O(nlogn) 就很容易理解了。还记得我们刚讲的乘法法则吗？如果一段代码的时间复杂度是 O(logn)，我们循环执行 n 遍，时间复杂度就是 O(nlogn) 了。而且，O(nlogn) 也是一种非常常见的算法时间复杂度。比如，归并排序、快速排序的时间复杂度都是 O(nlogn)。</p>
-<h4 id="3-O-m-n-、O-m-n"><a href="#3-O-m-n-、O-m-n" class="headerlink" title="3.O(m+n)、O(m*n)"></a>3.O(m+n)、O(m*n)</h4><p>我们再来讲一种跟前面都不一样的时间复杂度，代码的复杂度由两个数据的规模来决定。老规矩，先看代码！</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">cal</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> sum_1 = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span> (; i &lt; m; ++i) &#123;</div><div class="line">    sum_1 = sum_1 + i;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">int</span> sum_2 = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> j = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span> (; j &lt; n; ++j) &#123;</div><div class="line">    sum_2 = sum_2 + j;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> sum_1 + sum_2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>从代码中可以看出，m 和 n 是表示两个数据规模。我们无法事先评估 m 和 n 谁的量级大，所以我们在表示复杂度的时候，就不能简单地利用加法法则，省略掉其中一个。所以，上面代码的时间复杂度就是 O(m+n)。</p>
-<p>针对这种情况，原来的加法法则就不正确了，我们需要将加法规则改为：T1(m) + T2(n) = O(f(m) + g(n))。但是乘法法则继续有效：T1(m)<em>T2(n) = O(f(m) </em> f(n))。</p>
-<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>前面我讲过，时间复杂度的全称是<strong>渐进时间复杂度，表示算法的执行时间与数据规模之间的增长关系</strong>。类比一下，空间复杂度全称就是<strong>渐进空间复杂度</strong>（asymptotic space complexity），<strong>表示算法的存储空间与数据规模之间的增长关系。</strong></p>
-<p>举个例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">  <span class="keyword">for</span> (i; i &lt;n; ++i) &#123;</div><div class="line">    a[i] = i * i;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (i = n-<span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</div><div class="line">    print out a[i]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>跟时间复杂度分析一样，我们可以看到，第 2 行代码中，我们申请了一个空间存储变量 i，但是它是常量阶的，跟数据规模 n 没有关系，所以我们可以忽略。第 3 行申请了一个大小为 n 的 int 类型数组，除此之外，剩下的代码都没有占用更多的空间，所以整段代码的空间复杂度就是 O(n)。</p>
-<p>我们常见的空间复杂度就是 O(1)、O(n)、O(n2 )，像 O(logn)、O(nlogn) 这样的对数阶复杂度平时都用不到。而且，空间复杂度分析比时间复杂度分析要简单很多。所以，对于空间复杂度，掌握刚我说的这些内容已经足够了。</p>
-<h3 id="内容小节"><a href="#内容小节" class="headerlink" title="内容小节"></a>内容小节</h3><p>复杂度也叫渐进复杂度，包括时间复杂度和空间复杂度，用来分析算法执行效率与数据规模之间的增长关系，可以粗略地表示，越高阶复杂度的算法，执行效率越低。常见的复杂度并不多，从低阶到高阶有：O(1)、O(logn)、O(n)、O(nlogn)、O(n2 )。等你学完整个专栏之后，你就会发现几乎所有的数据结构和算法的复杂度都跑不出这几个。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1354448-d2f12e37539d8733.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;T(n) = O(f(n))&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
