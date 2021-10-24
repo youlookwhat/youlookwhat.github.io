@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android 深色模式的项目应用 | JinBeen&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Android," />
+  
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Android 深色模式的项目应用">
+<meta property="og:url" content="http://jinbeen.com/2021/10/23/android-dark-mode/index.html">
+<meta property="og:site_name" content="JinBeen's Blog">
+<meta property="og:image" content="https://jinbeen.com/images/2021/android-dark-mode-header.jpg">
+<meta property="og:image" content="https://jinbeen.com/images/2021/android-dark-mode-feedback.jpg">
+<meta property="og:image" content="https://jinbeen.com/images/2021/android-dark-mode-setting.jpg">
+<meta property="og:updated_time" content="2021-10-24T14:56:24.543Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 深色模式的项目应用">
+<meta name="twitter:image" content="https://jinbeen.com/images/2021/android-dark-mode-header.jpg">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-91L2DT6NQB', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?643275289e816ea38d7a840456d91ebd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/Android/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/Android/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/project/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/music.html"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            🎵
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目实践"><span class="toc-text">项目实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-选定原生Api实现"><span class="toc-text">1.选定原生Api实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-关键的工具类"><span class="toc-text">2.关键的工具类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在Application里初始化"><span class="toc-text">3.在Application里初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-切换状态后重启App"><span class="toc-text">4.切换状态后重启App</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Application下的主题设置"><span class="toc-text">5.Application下的主题设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-WebView的深色模式设置"><span class="toc-text">6.WebView的深色模式设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-配置项"><span class="toc-text">7.配置项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-text">遇到的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Android 深色模式的项目应用" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Android 深色模式的项目应用</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2021.10.23</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>JinBeen</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <!--早在四年前就准备做深色模式的，当时用的三方的SDK，但是SDK上还有bug，现在使用官方给出的深色模式Api，实现起来比较简单，但是也有一些注意项和优化点。-->
+<a id="more"></a>
+<p><img src="https://jinbeen.com/images/2021/android-dark-mode-header.jpg" alt=""></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>早在四年前就准备做深色模式的，当时用的三方的SDK，但是SDK上还有bug，不能适配RecyclerView，用上后会很卡，然后就一直放着了，有些用户一直催着要深色模式：</p>
+<p><img src="https://jinbeen.com/images/2021/android-dark-mode-feedback.jpg" alt=""></p>
+<p>然后这段期间给整上，本以为现在深色模式应用的挺广泛的，在项目中实践了一下还是躺了很多坑，梳理一下实践过程及遇到的问题。</p>
+<p>所有代码实践在云阅里可以看到：</p>
+<ul>
+<li>下载App体验，<a href="https://www.coolapk.com/apk/com.example.jingbin.cloudreader" target="_blank" rel="external">酷安：云阅</a></li>
+<li>直接查看源码，<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">GitHub：CloudReader</a></li>
+</ul>
+<h2 id="项目实践"><a href="#项目实践" class="headerlink" title="项目实践"></a>项目实践</h2><h3 id="1-选定原生Api实现"><a href="#1-选定原生Api实现" class="headerlink" title="1.选定原生Api实现"></a>1.选定原生Api实现</h3><blockquote>
+<p>Android官方<a href="https://developer.android.com/guide/topics/ui/look-and-feel/darktheme?hl=zh-cn#kotlin" target="_blank" rel="external">深色主题背景开发文档</a>(需科学上网)。</p>
+</blockquote>
+<p>原生Api简单稳定但是就是要重启App，不过看掘金以及微信都是这样实现的。</p>
+<p>于是参考了微信和掘金的操作，总有三种状态，跟随系统，普通模式，深色模式。</p>
+<p><img src="https://jinbeen.com/images/2021/android-dark-mode-setting.jpg" alt="设置深色模式"></p>
+<h3 id="2-关键的工具类"><a href="#2-关键的工具类" class="headerlink" title="2.关键的工具类"></a>2.关键的工具类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NightModeUtil</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 当前系统是否是深色模式</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNightMode</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> uiMode = context.getResources().getConfiguration().uiMode &amp; Configuration.UI_MODE_NIGHT_MASK;</div><div class="line">        <span class="keyword">return</span> uiMode == Configuration.UI_MODE_NIGHT_YES;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取是否跟随系统，默认true</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">getSystemMode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> SPUtils.getBoolean(Constants.KEY_MODE_SYSTEM, <span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setSystemMode</span><span class="params">(<span class="keyword">boolean</span> nightMode)</span> </span>&#123;</div><div class="line">        SPUtils.putBoolean(Constants.KEY_MODE_SYSTEM, nightMode);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取是否设置深色模式，默认false</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">getNightMode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> SPUtils.getBoolean(Constants.KEY_MODE_NIGHT, <span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setNightMode</span><span class="params">(<span class="keyword">boolean</span> nightMode)</span> </span>&#123;</div><div class="line">        SPUtils.putBoolean(Constants.KEY_MODE_NIGHT, nightMode);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initNightMode</span><span class="params">()</span> </span>&#123;</div><div class="line">        initNightMode(getSystemMode(), getNightMode());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 初始化App深色模式</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> systemMode 是否是跟随系统</div><div class="line">     * <span class="doctag">@param</span> nightMode  是否是深色模式</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initNightMode</span><span class="params">(<span class="keyword">boolean</span> systemMode, <span class="keyword">boolean</span> nightMode)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (systemMode) &#123;</div><div class="line">            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (nightMode) &#123;</div><div class="line">                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 重启App</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">restartApp</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Intent intent = App.getInstance().getPackageManager().getLaunchIntentForPackage(App.getInstance().getPackageName());</div><div class="line">        <span class="keyword">if</span> (intent != <span class="keyword">null</span>) &#123;</div><div class="line">            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);</div><div class="line">            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);</div><div class="line">            activity.startActivity(intent);</div><div class="line">            android.os.Process.killProcess(android.os.Process.myPid());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-在Application里初始化"><a href="#3-在Application里初始化" class="headerlink" title="3.在Application里初始化"></a>3.在Application里初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NightModeUtil.initNightMode();</div></pre></td></tr></table></figure>
+<h3 id="4-切换状态后重启App"><a href="#4-切换状态后重启App" class="headerlink" title="4.切换状态后重启App"></a>4.切换状态后重启App</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NightModeUtil.initNightMode(dayNightSwitch.isChecked, ctvCheckNight.isChecked)</div><div class="line">NightModeUtil.restartApp(activity)</div></pre></td></tr></table></figure>
+<p>其中还要保存是否跟随系统或指定深色模式的状态，具体逻辑细节可见:<a href="https://github.com/youlookwhat/CloudReader/blob/master/app/src/main/java/com/example/jingbin/cloudreader/ui/menu/NavNightModeActivity.kt" target="_blank" rel="external">NavNightModeActivity.kt</a></p>
+<h3 id="5-Application下的主题设置"><a href="#5-Application下的主题设置" class="headerlink" title="5.Application下的主题设置"></a>5.Application下的主题设置</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar"&gt;</div><div class="line"></div><div class="line">    &lt;!--选中状态icon的颜色和字体颜色--&gt;</div><div class="line">    &lt;item name="colorPrimary"&gt;@color/colorTheme&lt;/item&gt;</div><div class="line">    &lt;item name="colorPrimaryDark"&gt;@color/colorTheme&lt;/item&gt;</div><div class="line">    &lt;item name="colorAccent"&gt;@color/colorTheme&lt;/item&gt;</div><div class="line">    &lt;item name="android:windowAnimationStyle"&gt;@style/default_animation&lt;/item&gt;</div><div class="line">    &lt;item name="android:listDivider"&gt;@drawable/shape_line&lt;/item&gt;</div><div class="line">    &lt;!--默认状态下页面的背景色--&gt;</div><div class="line">    &lt;item name="android:windowBackground"&gt;@color/color_page_bg&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+<p>同时还要注意如果单个Activity有自己的主题，也需要设置parent主题为<code>Theme.AppCompat.DayNight.NoActionBar</code>。</p>
+<p>ToolBar也有自己的主题：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;androidx.appcompat.widget.Toolbar xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    android:id=<span class="string">"@+id/tool_bar"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"?attr/actionBarSize"</span></div><div class="line">    android:background=<span class="string">"@color/colorToolBar"</span></div><div class="line">    app:contentInsetStart=<span class="string">"0.0dp"</span></div><div class="line">    app:contentInsetStartWithNavigation=<span class="string">"0dp"</span></div><div class="line">    app:layout_scrollFlags=<span class="string">"enterAlways|scroll"</span></div><div class="line">    app:popupTheme=<span class="string">"@style/ThemeOverlay.AppCompat.ActionBar"</span></div><div class="line">    app:subtitleTextAppearance=<span class="string">"@style/Toolbar.SubTitle"</span></div><div class="line">    app:theme=<span class="string">"@style/ToolbarStyle"</span></div><div class="line">    app:titleMarginStart=<span class="string">"0dp"</span></div><div class="line">    app:titleTextAppearance=<span class="string">"@style/ToolBar.Title"</span></div><div class="line">    tools:layout_height=<span class="string">"50dp"</span></div><div class="line">    tools:title=<span class="string">"云阅"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>其中</p>
+<ul>
+<li><code>theme</code>为：<code>&lt;style name=&quot;ToolbarStyle&quot;  parent=&quot;@style/ThemeOverlay.AppCompat.ActionBar&quot;/&gt;</code>，</li>
+<li><code>popupTheme</code>也不能设置单个的<code>Light</code>或<code>Dark</code>主题，不然切换深色模式的时候也不会改变效果。</li>
+</ul>
+<h3 id="6-WebView的深色模式设置"><a href="#6-WebView的深色模式设置" class="headerlink" title="6.WebView的深色模式设置"></a>6.WebView的深色模式设置</h3><p>引入<code>implementation &#39;androidx.webkit:webkit:1.2.0&#39;</code>后可轻易的实现WebView的深色模式，不过有兼容问题，这和WebView的版本有关，WebView版本独立于Android版本。(亲测在系统6.0和7.1上无效。)</p>
+<p>在有WebView的Activity的onCarete里加上如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">WebSettings webSetting = webView.getSettings();</div><div class="line"><span class="comment">// 检查是否支持暗模式</span></div><div class="line"><span class="keyword">if</span> (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) &#123;</div><div class="line">    <span class="keyword">boolean</span> isAppDarkMode;</div><div class="line">    <span class="keyword">if</span> (NightModeUtil.getSystemMode()) &#123;</div><div class="line">        <span class="comment">// 是否是跟随系统</span></div><div class="line">        isAppDarkMode = NightModeUtil.isNightMode(<span class="keyword">this</span>);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        isAppDarkMode = NightModeUtil.getNightMode();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (isAppDarkMode) &#123;</div><div class="line">        WebSettingsCompat.setForceDark(webSetting, WebSettingsCompat.FORCE_DARK_ON);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        WebSettingsCompat.setForceDark(webSetting, WebSettingsCompat.FORCE_DARK_OFF);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="7-配置项"><a href="#7-配置项" class="headerlink" title="7.配置项"></a>7.配置项</h3><p>1).接下来就是一些配色和部分深色模式下的图片处理问题。</p>
+<ul>
+<li>颜色：新建<code>values-night</code>文件夹，里面是深色模式下的<code>colors.xml</code>文件</li>
+<li>图片：新建<code>drawable-night-xxhdpi</code>图片文件夹</li>
+</ul>
+<p>2).启动页我们经常会放品牌图，页面的深色模式可以通过 改变普通/深色模式文件夹下的图来实现</p>
+<p>3).也可以自己处理配置变更，不重建Activity：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=<span class="string">".NavNightModeActivity"</span></div><div class="line">    android:configChanges=<span class="string">"uiMode"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>当某个 Activity 声明它会处理配置变更时，系统会在出现主题背景变更时调用该 Activity 的 <code>onConfigurationChanged()</code>方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val currentNightMode = configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK</div><div class="line">when (currentNightMode) &#123;</div><div class="line">    Configuration.UI_MODE_NIGHT_NO -&gt; &#123;&#125; // Night mode is not active, we&apos;re using the light theme</div><div class="line">    Configuration.UI_MODE_NIGHT_YES -&gt; &#123;&#125; // Night mode is active, we&apos;re using dark theme</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>1).获取颜色<code>ContextCompat.getColor(context, resId)</code>，需要加<code>Activity</code>的context，如果是<code>Application</code>的context会变不了色，这个和切换语言是一样的，获取String也不能用全局的context。</p>
+<p>2).之前使用了关闭应用时杀掉进程的代码，导致不能重建Activity，找了好长时间问题。杀掉进程代码：<code>android.os.Process.killProcess(android.os.Process.myPid());</code></p>
+<p>3).如果代码需要单独动态设置ToolBar的主题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置toolbar的dark模式，为了使"完成"文字颜色显示白色</span></div><div class="line">supportActionBar?.themedContext?.setTheme(R.style.ToolBarDarkActionBar)</div></pre></td></tr></table></figure>
+<p>4).可以使用系统自己的颜色值：</p>
+<ul>
+<li><code>?android:attr/textColorPrimary</code> 这是一种通用型文本颜色。它在浅色主题背景下接近于黑色，在深色主题背景下接近于白色。</li>
+<li><code>?android:attr/textColorSecondary</code>可作为第二文本颜色，相对于上面的颜色较浅。</li>
+</ul>
+<p>5).在dialog打开后，再切换系统的深色模式，这时使用系统的颜色会不生效，需要使用自己的color文件里的颜色。具体出现在首次打开应用时，弹出的隐私弹框。</p>
+<p>6).需要使用png后缀的图，最好别直接将jpg改为png，可以打开图片后将图片另存为png格式。我做时候debug模式下没问题，打release包的时候就提示了这个问题。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>使用官方给出的深色模式Api，实现起来比较简单，但是也有一些注意项和优化点，如有需要可自取代码 GitHub：<a href="https://github.com/youlookwhat/CloudReader" target="_blank" rel="external">CloudReader</a>，如有其他问题，欢迎留言骚扰~</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持我</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/Wechat-admire.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/alipay-admire.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2021/07/19/recent-things/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/Android/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/Android/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/project/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/music.html"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              🎵
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '2b303b849c8ea65e4051',
+  clientSecret: '57fc88550a6d86d10a191bb7b6411072576c00b3',
+  repo: 'blog-comment',
+  owner: 'youlookwhat',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['youlookwhat'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

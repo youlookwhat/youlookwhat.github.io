@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinbeen.com/"/>
-  <updated>2021-10-24T14:51:18.933Z</updated>
+  <updated>2021-10-24T14:56:24.543Z</updated>
   <id>http://jinbeen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jinbeen.com/2021/10/23/android-dark-mode/"/>
     <id>http://jinbeen.com/2021/10/23/android-dark-mode/</id>
     <published>2021-10-23T14:00:00.000Z</published>
-    <updated>2021-10-24T14:51:18.933Z</updated>
+    <updated>2021-10-24T14:56:24.543Z</updated>
     
     <content type="html"><![CDATA[<!--早在四年前就准备做深色模式的，当时用的三方的SDK，但是SDK上还有bug，现在使用官方给出的深色模式Api，实现起来比较简单，但是也有一些注意项和优化点。-->
 <a id="more"></a>
