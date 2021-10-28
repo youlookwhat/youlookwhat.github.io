@@ -21,8 +21,8 @@
 <meta property="og:site_name" content="JinBeen's Blog">
 <meta property="og:image" content="https://jinbeen.com/images/2021/android-smb-mac.png">
 <meta property="og:image" content="https://jinbeen.com/images/2021/android-smb-windows.png">
-<meta property="og:image" content="https://jinbeen.com/images/2021/android-smb-demo.png">
-<meta property="og:updated_time" content="2021-10-28T15:16:06.290Z">
+<meta property="og:image" content="https://jinbeen.com/images/2021/android-smb-demo.jpg">
+<meta property="og:updated_time" content="2021-10-28T15:20:59.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android SMB 简单几步实现手机给电脑传输数据">
 <meta name="twitter:image" content="https://jinbeen.com/images/2021/android-smb-mac.png">
@@ -285,7 +285,7 @@ ga('send', 'pageview');
 <h3 id="2-代码配置"><a href="#2-代码配置" class="headerlink" title="2.代码配置"></a>2.代码配置</h3><blockquote>
 <p>具体源码见GitHub：<a href="https://github.com/youlookwhat/BySMB" target="_blank" rel="external">BySMB</a></p>
 </blockquote>
-<p><img src="https://jinbeen.com/images/2021/android-smb-demo.png" alt="Demo使用"></p>
+<p><img src="https://jinbeen.com/images/2021/android-smb-demo.jpg" alt="Demo使用"></p>
 <p>1).代码引入<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">	repositories &#123;</div><div class="line">		...</div><div class="line">		maven &#123; url <span class="string">'https://jitpack.io'</span> &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    implementation <span class="string">'com.github.youlookwhat:BySMB:1.1.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>2).开启联网权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</div></pre></td></tr></table></figure></p>
 <p>3).在<code>Application</code>初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BySMB.initProperty()</div></pre></td></tr></table></figure></p>
