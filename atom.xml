@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinbeen.com/"/>
-  <updated>2021-10-24T14:56:24.543Z</updated>
+  <updated>2021-10-28T15:16:06.290Z</updated>
   <id>http://jinbeen.com/</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android SMB 简单几步实现手机给电脑传输数据</title>
+    <link href="http://jinbeen.com/2021/10/25/android-smb/"/>
+    <id>http://jinbeen.com/2021/10/25/android-smb/</id>
+    <published>2021-10-25T14:00:00.000Z</published>
+    <updated>2021-10-28T15:16:06.290Z</updated>
+    
+    <content type="html"><![CDATA[<!--早在四年前就准备做深色模式的，当时用的三方的SDK，但是SDK上还有bug，现在使用官方给出的深色模式Api，实现起来比较简单，但是也有一些注意项和优化点。-->
+<a id="more"></a>
+<h2 id="SMB是什么"><a href="#SMB是什么" class="headerlink" title="SMB是什么"></a>SMB是什么</h2><p>SMB，即”Server Message Block” 服务器信息块，是一个网络文件共享协议，它能被用于Web连接和客户端与服务器之间的信息沟通，允许应用程序和终端用户从远端的文件服务器访问文件资源。</p>
+<p>SMB通信协议是微软（Microsoft）和英特尔(Intel)在1987年制定的协议，主要是作为Microsoft网络的通讯协议。SMB 是在会话层（session layer）和<a href="https://baike.baidu.com/item/%E8%A1%A8%E7%A4%BA%E5%B1%82/4329716" target="_blank" rel="external">表示层</a>（presentation layer）以及小部分<a href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E5%B1%82/4329788" target="_blank" rel="external">应用层</a>（application layer）的协议。</p>
+<p>通过它可以简单的给电脑传输文件，不过SMB不太安全：<br><code>SMB协议中采用控制文件安全传输的机制是使用客户身份验证的方式，该方式通过客户端向服务器端发送验证密码来获取文件传输的权限，不过针对该机制的网络攻击相对严重，攻击程序通过对验证密码的截获来窃取文件的访问权限，局域网下文件传输的安全性得不到保障。</code></p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>一般不会采用这种方式来实现具体的功能需求，有一些特殊的场景会用到，例如：</p>
+<ol>
+<li><p>一些手机上的壁纸软件，有横屏的壁纸，但是横屏的壁纸一般在电脑上使用，如果用SMB技术就可以直接将图片传到电脑的文件夹内，不用下载在本地后再通过微信/QQ传给电脑，方便很多。</p>
+</li>
+<li><p>再如我们有时候有一个很大的apk包，通过微信传给电脑会改后缀名，QQ可能还有大文件限制，这时候也可以考虑使用SMB来解决，毕竟自己写的传输代码，逼格直接拉满🤡。</p>
+</li>
+<li><p>再者想要直接将设备中操作的数据反应在电脑上查看，例如一个平板端的视力检测工具，检测后直接将数据反应在电脑上供工作人员使用。</p>
+</li>
+</ol>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="1-前提条件"><a href="#1-前提条件" class="headerlink" title="1.前提条件"></a>1.前提条件</h3><ul>
+<li>手机和电脑连接到同一局域网</li>
+<li>电脑需要设置用户名和密码</li>
+<li>设置共享文件夹 (smb://username:password@ip/folder。（登录鉴权）)<ul>
+<li>Mac设置：系统偏好设置-共享-文件共享-添加共享文件夹</li>
+<li>Windows设置：文件夹-共享-高级共享-权限-打开更改权限<ul>
+<li>电脑不能息屏</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>设置共享文件夹:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Mac设置</th>
+<th style="text-align:center">Windows设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2021/android-smb-mac.png" alt="Mac设置"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2021/android-smb-windows.png" alt="Windows设置"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-代码配置"><a href="#2-代码配置" class="headerlink" title="2.代码配置"></a>2.代码配置</h3><blockquote>
+<p>具体源码见GitHub：<a href="https://github.com/youlookwhat/BySMB" target="_blank" rel="external">BySMB</a></p>
+</blockquote>
+<p><img src="https://jinbeen.com/images/2021/android-smb-demo.png" alt="Demo使用"></p>
+<p>1).代码引入<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">	repositories &#123;</div><div class="line">		...</div><div class="line">		maven &#123; url <span class="string">'https://jitpack.io'</span> &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    implementation <span class="string">'com.github.youlookwhat:BySMB:1.1.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2).开启联网权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<p>3).在<code>Application</code>初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BySMB.initProperty()</div></pre></td></tr></table></figure></p>
+<p>4).得到SMB实例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">val bySmb = BySMB.with()</div><div class="line">        .setConfig(</div><div class="line">                et_ip.text.toString(),       <span class="comment">// ip</span></div><div class="line">                et_username.text.toString(),<span class="comment">// 用户名</span></div><div class="line">                et_password.text.toString(),<span class="comment">// 密码</span></div><div class="line">                et_foldName.text.toString()<span class="comment">// 共享文件夹名</span></div><div class="line">        )</div><div class="line">        .setReadTimeOut(<span class="number">60</span>)</div><div class="line">        .setSoTimeOut(<span class="number">180</span>)</div><div class="line">        .build()</div></pre></td></tr></table></figure></p>
+<p>查看ip:</p>
+<ul>
+<li>Mac上查看ip：<code>ifconfig | grep &quot;inet&quot;</code></li>
+<li>Windows上查看ip：<code>ipconfig</code></li>
+</ul>
+<h3 id="3-上传文件到电脑"><a href="#3-上传文件到电脑" class="headerlink" title="3.上传文件到电脑"></a>3.上传文件到电脑</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">upload</span><span class="params">(bySmb: <span class="type">BySMB</span>)</span></span> &#123;</div><div class="line">    <span class="comment">// 生成文件 File</span></div><div class="line">    <span class="keyword">val</span> writeStringToFile = writeStringToFile(</div><div class="line">            instance,</div><div class="line">            et_content.text.toString(), <span class="comment">// 文本内容</span></div><div class="line">            et_fileName.text.toString()<span class="comment">// 文件名，例如:随感笔记.txt</span></div><div class="line">    )</div><div class="line">    <span class="comment">// 上传</span></div><div class="line">    bySmb.writeToFile(writeStringToFile, <span class="keyword">object</span> : OnOperationFileCallback &#123;</div><div class="line"></div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSuccess</span><span class="params">()</span></span> &#123;</div><div class="line">            <span class="comment">// 成功</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(message: <span class="type">String</span>)</span></span> &#123;</div><div class="line">            <span class="comment">// 失败</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意：如上传相同文件名的文件，会覆盖之前文件的内容。</p>
+<h3 id="4-查找电脑上的文件列表"><a href="#4-查找电脑上的文件列表" class="headerlink" title="4.查找电脑上的文件列表"></a>4.查找电脑上的文件列表</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">listFile</span><span class="params">(bySmb: <span class="type">BySMB</span>)</span></span>&#123;</div><div class="line">    <span class="comment">// 读取根目录下的所有文件，重载方法("", "*.txt", callback)</span></div><div class="line">    bySmb.listShareFileName(<span class="keyword">object</span> : OnReadFileListNameCallback &#123;</div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSuccess</span><span class="params">(fileNameList: <span class="type">List</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">            <span class="comment">// 读取成功 fileNameList文件名列表</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(message: <span class="type">String</span>)</span></span> &#123;</div><div class="line">             <span class="comment">// 失败</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-删除电脑上的文件"><a href="#5-删除电脑上的文件" class="headerlink" title="5.删除电脑上的文件"></a>5.删除电脑上的文件</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">deleteFile</span><span class="params">(bySmb: <span class="type">BySMB</span>)</span></span>&#123;</div><div class="line">    bySmb.deleteFile(et_fileName.text.toString(), <span class="keyword">object</span> : OnOperationFileCallback &#123;</div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSuccess</span><span class="params">()</span></span> &#123;</div><div class="line">	    <span class="comment">// 删除成功</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(message: <span class="type">String</span>)</span></span> &#123;</div><div class="line">            <span class="comment">// 失败</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>SMB一般用不到，但是也有部分有需求的用户，之前做的时候遇到很多摸不着头脑的地方，而且很多的资料是外文的，希望此篇文章对部分人有所帮助。附上源码地址，<a href="https://github.com/youlookwhat/BySMB" target="_blank" rel="external">GitHub：BySMB</a>。</p>
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><ul>
+<li><a href="https://github.com/hierynomus/smbj" target="_blank" rel="external">hierynomus/smbj</a></li>
+<li><a href="https://www.notion.so/Android-SMB-8b0e2f78551140ea80d9620af4f442aa#52b03a47f37a4227b8266abff5a05ac3" target="_blank" rel="external">iPad/iPhone通过smb与Windows互传文件</a></li>
+<li><a href="https://blog.csdn.net/securitit/article/details/107534895" target="_blank" rel="external">SMB 2.0和3.0协议 Java应用</a></li>
+<li><a href="https://os.51cto.com/art/202009/627615.htm" target="_blank" rel="external">不用QQ微信，简单几步让电脑手机快速互传共享文件！</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;!--早在四年前就准备做深色模式的，当时用的三方的SDK，但是SDK上还有bug，现在使用官方给出的深色模式Api，实现起来比较简单，但是也有一些注意项和优化点。--&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://jinbeen.com/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://jinbeen.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Android 深色模式的项目应用</title>
@@ -1646,78 +1733,6 @@ mysql -u root -p
     
     
       <category term="MySql" scheme="http://jinbeen.com/tags/MySql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Maven基础</title>
-    <link href="http://jinbeen.com/2019/03/29/maven-basics/"/>
-    <id>http://jinbeen.com/2019/03/29/maven-basics/</id>
-    <published>2019-03-29T10:25:00.000Z</published>
-    <updated>2019-04-10T14:32:30.774Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>真正的价值并不在人生的舞台上，而在我们扮演的角色中。 - 席勒/画家</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="Maven基础"><a href="#Maven基础" class="headerlink" title="Maven基础"></a>Maven基础</h2><ul>
-<li><a href="https://www.cnblogs.com/xulisheng/p/4049740.html" target="_blank" rel="external">Mac中host设置方法</a></li>
-<li><a href="https://www.jianshu.com/p/3c87487e7121" target="_blank" rel="external">IntelliJ IDEA 2018 破解过程</a></li>
-</ul>
-<p>jdk1.8</p>
-<p>File Encodings 全部utf-8</p>
-<p>企业做法 - Maven</p>
-<ul>
-<li>新建 maven</li>
-<li><strong>普通项目 quickstart</strong></li>
-<li><strong>web项目 webapp</strong></li>
-</ul>
-<p>GAV坐标：GroupId 组织 ArtifactId 项目 Version 版本</p>
-<ul>
-<li>新建的时候，setting.xml第一次需要新建，并配置本地仓库地址</li>
-<li>配置自动导入，maven - inporting</li>
-</ul>
-<p>Maven install 打包部署</p>
-<hr>
-<p>建web项目：</p>
-<ul>
-<li>Maven - webapp</li>
-<li>默认建立没有java目录 - 手动创建Java目录</li>
-</ul>
-<p>web项目打包格式：<packaging>war</packaging> 不适合给三方团队使用。</p>
-<p>关联web容器：</p>
-<ul>
-<li>顶部导航栏 - Add Configuration - 加号 - Tomcat Server local</li>
-</ul>
-<p>下载tomcat : <a href="http://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">http://tomcat.apache.org/download-80.cgi</a></p>
-<p>部署：</p>
-<ul>
-<li>顶部导航栏 - Add Configuration - 加号 - Tomcat Server local - Deployment - 加号 “/web_war”？“/” 不用改</li>
-<li>maven - install - 开始键部署</li>
-</ul>
-<hr>
-<p>多模块开发：</p>
-<ul>
-<li>父子项目 - 选择站点模式 - site-simple</li>
-<li>目的：让父项目来管理所有子项目的jar包</li>
-<li>server引用dao的代码：</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!--导入dao--&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;me.jing&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;jd-dao&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;1.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
-<p>直接右键 - Run</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;真正的价值并不在人生的舞台上，而在我们扮演的角色中。 - 席勒/画家&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Java后端" scheme="http://jinbeen.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Maven" scheme="http://jinbeen.com/tags/Maven/"/>
     
   </entry>
   

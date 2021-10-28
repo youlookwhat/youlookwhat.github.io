@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android SMB 简单几步实现手机给电脑传输数据 | JinBeen&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Android," />
+  
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Android SMB 简单几步实现手机给电脑传输数据">
+<meta property="og:url" content="http://jinbeen.com/2021/10/25/android-smb/index.html">
+<meta property="og:site_name" content="JinBeen's Blog">
+<meta property="og:image" content="https://jinbeen.com/images/2021/android-smb-mac.png">
+<meta property="og:image" content="https://jinbeen.com/images/2021/android-smb-windows.png">
+<meta property="og:image" content="https://jinbeen.com/images/2021/android-smb-demo.png">
+<meta property="og:updated_time" content="2021-10-28T15:16:06.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android SMB 简单几步实现手机给电脑传输数据">
+<meta name="twitter:image" content="https://jinbeen.com/images/2021/android-smb-mac.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-91L2DT6NQB', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?643275289e816ea38d7a840456d91ebd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/Android/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/Android/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/project/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/music.html"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            🎵
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SMB是什么"><span class="toc-text">SMB是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用"><span class="toc-text">如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-前提条件"><span class="toc-text">1.前提条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-代码配置"><span class="toc-text">2.代码配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-上传文件到电脑"><span class="toc-text">3.上传文件到电脑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-查找电脑上的文件列表"><span class="toc-text">4.查找电脑上的文件列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-删除电脑上的文件"><span class="toc-text">5.删除电脑上的文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-text">结语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关资料"><span class="toc-text">相关资料</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-Android SMB 简单几步实现手机给电脑传输数据" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Android SMB 简单几步实现手机给电脑传输数据</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2021.10.25</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>JinBeen</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <!--早在四年前就准备做深色模式的，当时用的三方的SDK，但是SDK上还有bug，现在使用官方给出的深色模式Api，实现起来比较简单，但是也有一些注意项和优化点。-->
+<a id="more"></a>
+<h2 id="SMB是什么"><a href="#SMB是什么" class="headerlink" title="SMB是什么"></a>SMB是什么</h2><p>SMB，即”Server Message Block” 服务器信息块，是一个网络文件共享协议，它能被用于Web连接和客户端与服务器之间的信息沟通，允许应用程序和终端用户从远端的文件服务器访问文件资源。</p>
+<p>SMB通信协议是微软（Microsoft）和英特尔(Intel)在1987年制定的协议，主要是作为Microsoft网络的通讯协议。SMB 是在会话层（session layer）和<a href="https://baike.baidu.com/item/%E8%A1%A8%E7%A4%BA%E5%B1%82/4329716" target="_blank" rel="external">表示层</a>（presentation layer）以及小部分<a href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E5%B1%82/4329788" target="_blank" rel="external">应用层</a>（application layer）的协议。</p>
+<p>通过它可以简单的给电脑传输文件，不过SMB不太安全：<br><code>SMB协议中采用控制文件安全传输的机制是使用客户身份验证的方式，该方式通过客户端向服务器端发送验证密码来获取文件传输的权限，不过针对该机制的网络攻击相对严重，攻击程序通过对验证密码的截获来窃取文件的访问权限，局域网下文件传输的安全性得不到保障。</code></p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>一般不会采用这种方式来实现具体的功能需求，有一些特殊的场景会用到，例如：</p>
+<ol>
+<li><p>一些手机上的壁纸软件，有横屏的壁纸，但是横屏的壁纸一般在电脑上使用，如果用SMB技术就可以直接将图片传到电脑的文件夹内，不用下载在本地后再通过微信/QQ传给电脑，方便很多。</p>
+</li>
+<li><p>再如我们有时候有一个很大的apk包，通过微信传给电脑会改后缀名，QQ可能还有大文件限制，这时候也可以考虑使用SMB来解决，毕竟自己写的传输代码，逼格直接拉满🤡。</p>
+</li>
+<li><p>再者想要直接将设备中操作的数据反应在电脑上查看，例如一个平板端的视力检测工具，检测后直接将数据反应在电脑上供工作人员使用。</p>
+</li>
+</ol>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="1-前提条件"><a href="#1-前提条件" class="headerlink" title="1.前提条件"></a>1.前提条件</h3><ul>
+<li>手机和电脑连接到同一局域网</li>
+<li>电脑需要设置用户名和密码</li>
+<li>设置共享文件夹 (smb://username:password@ip/folder。（登录鉴权）)<ul>
+<li>Mac设置：系统偏好设置-共享-文件共享-添加共享文件夹</li>
+<li>Windows设置：文件夹-共享-高级共享-权限-打开更改权限<ul>
+<li>电脑不能息屏</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>设置共享文件夹:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Mac设置</th>
+<th style="text-align:center">Windows设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2021/android-smb-mac.png" alt="Mac设置"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2021/android-smb-windows.png" alt="Windows设置"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-代码配置"><a href="#2-代码配置" class="headerlink" title="2.代码配置"></a>2.代码配置</h3><blockquote>
+<p>具体源码见GitHub：<a href="https://github.com/youlookwhat/BySMB" target="_blank" rel="external">BySMB</a></p>
+</blockquote>
+<p><img src="https://jinbeen.com/images/2021/android-smb-demo.png" alt="Demo使用"></p>
+<p>1).代码引入<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">allprojects &#123;</div><div class="line">	repositories &#123;</div><div class="line">		...</div><div class="line">		maven &#123; url <span class="string">'https://jitpack.io'</span> &#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    implementation <span class="string">'com.github.youlookwhat:BySMB:1.1.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2).开启联网权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<p>3).在<code>Application</code>初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BySMB.initProperty()</div></pre></td></tr></table></figure></p>
+<p>4).得到SMB实例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">val bySmb = BySMB.with()</div><div class="line">        .setConfig(</div><div class="line">                et_ip.text.toString(),       <span class="comment">// ip</span></div><div class="line">                et_username.text.toString(),<span class="comment">// 用户名</span></div><div class="line">                et_password.text.toString(),<span class="comment">// 密码</span></div><div class="line">                et_foldName.text.toString()<span class="comment">// 共享文件夹名</span></div><div class="line">        )</div><div class="line">        .setReadTimeOut(<span class="number">60</span>)</div><div class="line">        .setSoTimeOut(<span class="number">180</span>)</div><div class="line">        .build()</div></pre></td></tr></table></figure></p>
+<p>查看ip:</p>
+<ul>
+<li>Mac上查看ip：<code>ifconfig | grep &quot;inet&quot;</code></li>
+<li>Windows上查看ip：<code>ipconfig</code></li>
+</ul>
+<h3 id="3-上传文件到电脑"><a href="#3-上传文件到电脑" class="headerlink" title="3.上传文件到电脑"></a>3.上传文件到电脑</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">upload</span><span class="params">(bySmb: <span class="type">BySMB</span>)</span></span> &#123;</div><div class="line">    <span class="comment">// 生成文件 File</span></div><div class="line">    <span class="keyword">val</span> writeStringToFile = writeStringToFile(</div><div class="line">            instance,</div><div class="line">            et_content.text.toString(), <span class="comment">// 文本内容</span></div><div class="line">            et_fileName.text.toString()<span class="comment">// 文件名，例如:随感笔记.txt</span></div><div class="line">    )</div><div class="line">    <span class="comment">// 上传</span></div><div class="line">    bySmb.writeToFile(writeStringToFile, <span class="keyword">object</span> : OnOperationFileCallback &#123;</div><div class="line"></div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSuccess</span><span class="params">()</span></span> &#123;</div><div class="line">            <span class="comment">// 成功</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(message: <span class="type">String</span>)</span></span> &#123;</div><div class="line">            <span class="comment">// 失败</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意：如上传相同文件名的文件，会覆盖之前文件的内容。</p>
+<h3 id="4-查找电脑上的文件列表"><a href="#4-查找电脑上的文件列表" class="headerlink" title="4.查找电脑上的文件列表"></a>4.查找电脑上的文件列表</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">listFile</span><span class="params">(bySmb: <span class="type">BySMB</span>)</span></span>&#123;</div><div class="line">    <span class="comment">// 读取根目录下的所有文件，重载方法("", "*.txt", callback)</span></div><div class="line">    bySmb.listShareFileName(<span class="keyword">object</span> : OnReadFileListNameCallback &#123;</div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSuccess</span><span class="params">(fileNameList: <span class="type">List</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</div><div class="line">            <span class="comment">// 读取成功 fileNameList文件名列表</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(message: <span class="type">String</span>)</span></span> &#123;</div><div class="line">             <span class="comment">// 失败</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-删除电脑上的文件"><a href="#5-删除电脑上的文件" class="headerlink" title="5.删除电脑上的文件"></a>5.删除电脑上的文件</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">deleteFile</span><span class="params">(bySmb: <span class="type">BySMB</span>)</span></span>&#123;</div><div class="line">    bySmb.deleteFile(et_fileName.text.toString(), <span class="keyword">object</span> : OnOperationFileCallback &#123;</div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSuccess</span><span class="params">()</span></span> &#123;</div><div class="line">	    <span class="comment">// 删除成功</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(message: <span class="type">String</span>)</span></span> &#123;</div><div class="line">            <span class="comment">// 失败</span></div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>SMB一般用不到，但是也有部分有需求的用户，之前做的时候遇到很多摸不着头脑的地方，而且很多的资料是外文的，希望此篇文章对部分人有所帮助。附上源码地址，<a href="https://github.com/youlookwhat/BySMB" target="_blank" rel="external">GitHub：BySMB</a>。</p>
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><ul>
+<li><a href="https://github.com/hierynomus/smbj" target="_blank" rel="external">hierynomus/smbj</a></li>
+<li><a href="https://www.notion.so/Android-SMB-8b0e2f78551140ea80d9620af4f442aa#52b03a47f37a4227b8266abff5a05ac3" target="_blank" rel="external">iPad/iPhone通过smb与Windows互传文件</a></li>
+<li><a href="https://blog.csdn.net/securitit/article/details/107534895" target="_blank" rel="external">SMB 2.0和3.0协议 Java应用</a></li>
+<li><a href="https://os.51cto.com/art/202009/627615.htm" target="_blank" rel="external">不用QQ微信，简单几步让电脑手机快速互传共享文件！</a></li>
+</ul>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持我</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/Wechat-admire.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/alipay-admire.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2021/10/23/android-dark-mode/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/Android/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/Android/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/project/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/music.html"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              🎵
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '2b303b849c8ea65e4051',
+  clientSecret: '57fc88550a6d86d10a191bb7b6411072576c00b3',
+  repo: 'blog-comment',
+  owner: 'youlookwhat',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['youlookwhat'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
