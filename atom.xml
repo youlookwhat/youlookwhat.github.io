@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinbeen.com/"/>
-  <updated>2021-11-13T13:28:04.028Z</updated>
+  <updated>2021-11-13T13:46:04.716Z</updated>
   <id>http://jinbeen.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://jinbeen.com/2021/11/08/cloudreader-development-process/"/>
     <id>http://jinbeen.com/2021/11/08/cloudreader-development-process/</id>
     <published>2021-11-08T13:47:31.000Z</published>
-    <updated>2021-11-13T13:28:04.028Z</updated>
+    <updated>2021-11-13T13:46:04.716Z</updated>
     
-    <content type="html"><![CDATA[<p>因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。</p>
+    <content type="html"><![CDATA[<p><img src="https://jinbeen.com/images/2021/cloudreader-370-screenshots.jpg" alt="云阅3.7.0"></p>
+<p>因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。</p>
 <p>云阅这几年迭代历程仿佛是安卓这几年的发展历程。</p>
 <p>云阅从2017年元旦第一版开始到现在2021年11月8日，将近四年的时间了。</p>
 <p><strong>使用过的Api：豆瓣、干货集中营、时光网、玩安卓</strong></p>
@@ -41,10 +42,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。&lt;/p&gt;
-&lt;p&gt;云阅这几年迭代历程仿佛是安卓这几年的发展历程。&lt;/p&gt;
-&lt;p&gt;云阅从2017年元旦第一版开始到现在2021年11月8日，将近四年的时间了。&lt;/p&gt;
-&lt;p&gt;&lt;stro
+      &lt;p&gt;&lt;img src=&quot;https://jinbeen.com/images/2021/cloudreader-370-screenshots.jpg&quot; alt=&quot;云阅3.7.0&quot;&gt;&lt;/p&gt;
+&lt;p&gt;因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从
     
     </summary>
     
