@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinbeen.com/"/>
-  <updated>2021-10-28T15:20:59.064Z</updated>
+  <updated>2021-11-13T13:28:04.028Z</updated>
   <id>http://jinbeen.com/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>云阅迭代历程20211108</title>
+    <link href="http://jinbeen.com/2021/11/08/cloudreader-development-process/"/>
+    <id>http://jinbeen.com/2021/11/08/cloudreader-development-process/</id>
+    <published>2021-11-08T13:47:31.000Z</published>
+    <updated>2021-11-13T13:28:04.028Z</updated>
+    
+    <content type="html"><![CDATA[<p>因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。</p>
+<p>云阅这几年迭代历程仿佛是安卓这几年的发展历程。</p>
+<p>云阅从2017年元旦第一版开始到现在2021年11月8日，将近四年的时间了。</p>
+<p><strong>使用过的Api：豆瓣、干货集中营、时光网、玩安卓</strong></p>
+<p>最早的是豆瓣，之前豆瓣提供了音乐，书籍，电影的数据，还有社区的数据，不过要授权得到，碍于前端程序员没有多少公共的Api，这些数据帮助很多开发者完成了他们自己的App，包括之前的豆芽等。记得之前它的star是四千多，那时候云阅还没开发出来，不知道能到多少，看了好多开源App，四千多几乎是极限了，现在云阅也到了这个数，增长的很缓慢了。</p>
+<p>但是豆瓣的开源api慢慢在消失，从书籍开始，当时还做了一版书籍的页面，但是还没等发布就失效了，然后我将一个模块拿出来做了干货集中营。干货集中营那时候异常火热，是代码家开源出来的，也有很多开发者接入，感觉和现在玩安卓差不多，于是我将干货集中营也接入了，首页做成和以前的网易云音乐一样的形式，不过图片的高度是写死的，不是比例的，当时还废了一点时间，哈哈</p>
+<p>书籍之后就是玩安卓，当时只接入了部分的功能，变成了：干货集中营，玩安卓，电影<br>这个是云阅2.0的版本：<a href="https://jinbeen.com/2018/11/06/cloudreader-app-introduce/">《云阅2.0》一款同时看玩安卓和干货集中营资讯的App</a></p>
+<p><img src="https://jinbeen.com/images/2018/cloudreader-2-screenshots.png" alt="云阅2.0"></p>
+<p>后来豆瓣电影的数据失效了，改成了时光网的电影数据，但是不太稳定，期间也有几次修改，后来就完全不能用了，然后换成了玩安卓其他的页面。</p>
+<p>玩安卓两个模块，干货集中营一个模块这样维持了很久，之前干货集中营也进行了 一次接口升级维持了一段时间。</p>
+<p>现在也失效了，没有报酬的服务难以持久，抹泪。然后换成了玩安卓的项目类别页面。</p>
+<p>至此云阅基本都是玩安卓的内容，也感谢鸿洋给了我们开发者公共的Api。</p>
+<p><strong>代码方面：</strong><br>最早做的时候，MVVM才出来不久，自己研究了一段时间，第一版的云阅其实不是真正的MVVM模式，ViewModel里还是放的接口请求然后使用Presenter将方法在外面使用。然后别人指出了，后来就改成了这样纯粹的MVVM模式，然后慢慢的加入了Room，升级成了Retrofit2，使用了AndroidX，最后慢慢使用Koltin，还实现了四年前用户要求的深色模式。</p>
+<p>写云阅目的是练新技术，例如AndroidX和Retrofit2等都是在云阅上实践后再慢慢放在公司的项目中，现在也是的，搜索里的流式布局和深色模式都会先在云阅里实现。还有就是确实可以看到成体系的技术文章，我基本每天都会看。</p>
+<p>云阅就还会一直更新，目的是做出最好的技术实践和使用体验。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。&lt;/p&gt;
+&lt;p&gt;云阅这几年迭代历程仿佛是安卓这几年的发展历程。&lt;/p&gt;
+&lt;p&gt;云阅从2017年元旦第一版开始到现在2021年11月8日，将近四年的时间了。&lt;/p&gt;
+&lt;p&gt;&lt;stro
+    
+    </summary>
+    
+      <category term="开源项目" scheme="http://jinbeen.com/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="cloudreader" scheme="http://jinbeen.com/tags/cloudreader/"/>
+    
+      <category term="开源项目" scheme="http://jinbeen.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>Android SMB 简单几步实现手机给电脑传输数据</title>
@@ -1615,117 +1657,6 @@
     <summary type="html">
     
       &lt;p&gt;袋鼠云数据库使用基本规范。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java后端" scheme="http://jinbeen.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="MySql" scheme="http://jinbeen.com/tags/MySql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础</title>
-    <link href="http://jinbeen.com/2019/03/30/mysql-basics/"/>
-    <id>http://jinbeen.com/2019/03/30/mysql-basics/</id>
-    <published>2019-03-30T11:00:00.000Z</published>
-    <updated>2019-04-10T14:38:16.714Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>我坚信在行动之前，必须先有足够的观察和知识。 - 奇异博士</p>
-</blockquote>
-<a id="more"></a>
-<ul>
-<li>持久化操作：保存到数据库</li>
-<li>主键：用户表里的id，唯一标识</li>
-<li>外键：另一个表里引用的用户id，外键</li>
-</ul>
-<p><a href="https://www.cnblogs.com/xiaomaotao/p/9211152.html" target="_blank" rel="external">下载mysql 配置环境</a> 更改密码：a12345678</p>
-<p><a href="https://www.jianshu.com/p/f3ef78deadaa" target="_blank" rel="external">Navicat Premium for Mac的破解教程</a> 注意时间戳是今天的时间-2019-02-20 12:00:00</p>
-<p>命令行操作(一般来说关键字都用大写)：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alias mysql=/usr/local/mysql/bin/mysql</div><div class="line">alias mysqladmin=/usr/local/mysql/bin/mysqladmin</div></pre></td></tr></table></figure>
-<pre><code>启动mysql
-mysql
-// 更换密码：
-mysqladmin -u root -p password
-登录：
-mysql -u root -p
-</code></pre><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><blockquote>
-<p>;是结束符</p>
-</blockquote>
-<ul>
-<li><p>1.创建数据库<br><code>create database mysql_0219;</code></p>
-</li>
-<li><p>2.查看所有数据库<br><code>show databases;</code></p>
-</li>
-<li><p>3.使用数据库<br><code>use mysql_0219;</code></p>
-</li>
-<li><p>4.删除数据库<br><code>drop database mysql_0219;</code></p>
-</li>
-<li><p>5.查看数据库状态<br><code>status (注意编码：utf-8)</code></p>
-</li>
-</ul>
-<h3 id="表的创建与管理"><a href="#表的创建与管理" class="headerlink" title="表的创建与管理:"></a>表的创建与管理:</h3><ul>
-<li><p>1.创建表<br><code>create table t_user1(id int,name varchar(20),age int,birthday date);</code></p>
-</li>
-<li><p>2.修改表<br><code>alter table t_user1 rename t_user2;</code></p>
-</li>
-<li><p>3.查看具体表<br><code>desc t_user2;</code></p>
-</li>
-<li><p>4.查看所有表<br><code>show tables;</code></p>
-</li>
-<li><p>5.删除<br><code>drop table t_user2;</code></p>
-</li>
-<li><p>6.表中添加字段</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alter table 表名称 add 字段名称 字段类型</div><div class="line">alter table t_user1 add sex varchar(3);</div></pre></td></tr></table></figure>
-<ul>
-<li>7.修改表中的字段</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">alter table t_user1 change name user_name varchar(3);</div><div class="line">// 更改表的类型名称 布尔为 tinyint(1)</div><div class="line">alter table t_user1 modify user_name varchar(2);</div></pre></td></tr></table></figure>
-<ul>
-<li>8.删除表重的字段<br><code>alter table t_user1 drop birthday;</code></li>
-</ul>
-<h3 id="表数据更新："><a href="#表数据更新：" class="headerlink" title="表数据更新："></a>表数据更新：</h3><ul>
-<li><p>1.数据插入<br><code>insert into t_user1(id,user_name,age,sex) values(&#39;1&#39;,&#39;ad&#39;,&#39;22&#39;,&#39;男&#39;);</code></p>
-</li>
-<li><p>2.查看数据<br><code>select * from t_user1;</code></p>
-</li>
-<li><p>3.数据更新</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">单条</div><div class="line">update t_user1 set user_name=&apos;admin&apos; where id=1;</div><div class="line">多条</div><div class="line">update t_user1 set age=33,sex=&apos;女&apos; where id=1;</div></pre></td></tr></table></figure>
-<ul>
-<li>4.删除数据</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">delete from t_user1 where id =2;</div><div class="line">delete from t_user1;(清空表)</div></pre></td></tr></table></figure>
-<h3 id="约束条件"><a href="#约束条件" class="headerlink" title="约束条件"></a>约束条件</h3><p>非空约束 唯一约束 主键约束 主外键约束</p>
-<p>图形化连接:</p>
-<p>使用 Navicat for MySQL 输入密码：a123456789 新建查询创建</p>
-<h4 id="非空约束："><a href="#非空约束：" class="headerlink" title="非空约束："></a>非空约束：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function">CREATE TABLE <span class="title">t_user2</span><span class="params">(</span></span></div><div class="line">id <span class="keyword">int</span>,</div><div class="line">name VARCHAR(<span class="number">2</span>) not <span class="keyword">null</span></div><div class="line">);</div><div class="line"></div><div class="line">show TABLES;</div><div class="line"></div><div class="line"><span class="function">INSERT INTO <span class="title">t_user2</span><span class="params">(id,name)</span> <span class="title">VALUES</span><span class="params">(<span class="number">1</span>,<span class="number">23</span>)</span></span>;</div><div class="line">-- <span class="function">INSERT INTO <span class="title">t_user2</span><span class="params">(id,name)</span> <span class="title">VALUES</span><span class="params">(<span class="number">1</span>,<span class="keyword">null</span>)</span></span>;</div><div class="line"></div><div class="line">SELECT * FROM t_user2;</div></pre></td></tr></table></figure>
-<h4 id="唯一约束："><a href="#唯一约束：" class="headerlink" title="唯一约束："></a>唯一约束：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function">CREATE TABLE <span class="title">t_user3</span><span class="params">(</span></span></div><div class="line">id <span class="keyword">int</span>,</div><div class="line">name VARCHAR(<span class="number">30</span>) not <span class="keyword">null</span>,</div><div class="line">email <span class="title">VARCHAR</span><span class="params">(<span class="number">20</span>)</span> UNIQUE -- 唯一约束，邮箱不允许重复</div><div class="line">);</div><div class="line"></div><div class="line"><span class="function">INSERT INTO <span class="title">t_user3</span><span class="params">(id,name,email)</span> <span class="title">VALUES</span><span class="params">(<span class="number">1</span>,<span class="number">23</span>,<span class="string">'110@email.com'</span>)</span></span>;</div><div class="line"><span class="function">INSERT INTO <span class="title">t_user3</span><span class="params">(id,name,email)</span> <span class="title">VALUES</span><span class="params">(<span class="number">2</span>,<span class="number">333</span>,<span class="string">'111@email.com'</span>)</span></span>;</div><div class="line"></div><div class="line">SELECT * FROM t_user3;</div></pre></td></tr></table></figure>
-<h4 id="主键约束："><a href="#主键约束：" class="headerlink" title="主键约束："></a>主键约束：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DROP TABLE t_user3;</div><div class="line"></div><div class="line"><span class="function">CREATE TABLE <span class="title">t_user3</span><span class="params">(</span></span></div><div class="line">id INT PRIMARY KEY AUTO_INCREMENT, -- 主键唯一不能为<span class="keyword">null</span>，自增</div><div class="line">name VARCHAR(<span class="number">30</span>) not <span class="keyword">null</span>,</div><div class="line">email <span class="title">VARCHAR</span><span class="params">(<span class="number">20</span>)</span> UNIQUE -- 唯一约束，邮箱不允许重复</div><div class="line">);</div><div class="line"></div><div class="line"><span class="function">INSERT INTO <span class="title">t_user3</span><span class="params">(name,email)</span> <span class="title">VALUES</span><span class="params">(<span class="number">23</span>,<span class="string">'110@email.com'</span>)</span></span>;</div><div class="line"><span class="function">INSERT INTO <span class="title">t_user3</span><span class="params">(name,email)</span> <span class="title">VALUES</span><span class="params">(<span class="number">2223</span>,<span class="string">'112220@email.com'</span>)</span></span>;</div></pre></td></tr></table></figure>
-<h4 id="主外键约束："><a href="#主外键约束：" class="headerlink" title="主外键约束："></a>主外键约束：</h4><p>一般不会建，不能单独删除这个约束表。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function">CREATE TABLE <span class="title">t_user</span><span class="params">(</span></span></div><div class="line">id INT PRIMARY KEY AUTO_INCREMENT, -- 主键不能为 <span class="keyword">null</span>，且不能重复，自增</div><div class="line">name VARCHAR(<span class="number">30</span>) not <span class="keyword">null</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="function">CREATE TABLE <span class="title">t_order</span><span class="params">(</span></span></div><div class="line">id INT PRIMARY KEY AUTO_INCREMENT, -- 主键不能为 <span class="keyword">null</span>，且不能重复，自增</div><div class="line">order_name VARCHAR(<span class="number">30</span>),</div><div class="line">user_id <span class="keyword">int</span>,</div><div class="line">CONSTRAINT user_id_fk FOREIGN <span class="title">key</span> <span class="params">(user_id)</span> REFERENCES <span class="title">t_user</span><span class="params">(id)</span> -- 添加外键</div><div class="line">);</div><div class="line"></div><div class="line"><span class="function">INSERT INTO <span class="title">t_user</span><span class="params">(name)</span> <span class="title">VALUES</span><span class="params">(<span class="string">'amdin'</span>)</span></span>;</div><div class="line">SELECT * FROM t_user;</div><div class="line"><span class="function">INSERT INTO <span class="title">t_order</span><span class="params">(order_name,user_id)</span> <span class="title">VALUES</span><span class="params">(<span class="string">'订单1'</span>,<span class="number">1</span>)</span></span>;</div><div class="line"><span class="function">INSERT INTO <span class="title">t_order</span><span class="params">(order_name,user_id)</span> <span class="title">VALUES</span><span class="params">(<span class="string">'订单2'</span>,<span class="number">2</span>)</span></span>;<span class="comment">// 报错</span></div><div class="line">SELECT * FROM t_order;</div></pre></td></tr></table></figure></p>
-<h3 id="Mysql的备份与恢复"><a href="#Mysql的备份与恢复" class="headerlink" title="Mysql的备份与恢复"></a>Mysql的备份与恢复</h3><h4 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h4><p>导出数据库：</p>
-<p>mysqldump -u root -p mysql_0219&gt;/Users/jingbin/Documents/LearningFile/S-Mybatis/mysql_0219.sql;</p>
-<p>一、<a href="https://www.cnblogs.com/malcolmfeng/p/6560772.html" target="_blank" rel="external">Mac os导出Mysql数据库</a></p>
-<p>1.打开终端，</p>
-<p>2.执行： cd 要导出到的目录  （如：cd /Users/jingbin/Documents/LearningFile/mysql）</p>
-<p>3.执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　alias mysqldump=/usr/local/mysql/bin/mysqldump</div><div class="line">　　mysqldump -u root -p 要导出的数据库名&gt;名字随意.sql </div><div class="line">　　（如：mysqldump -u root -p mysql_0219&gt;mysql_0219.sql;） 输入数据密码</div><div class="line">此时，会在/Users/jingbin/Documents/LearningFile/mysql中发现已经导出的.sql文件：mysql_0219.sql。</div></pre></td></tr></table></figure>
-<p>导出数据库里对应的表：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysqldump -u root -p mysql_0219 t_user&gt;mysql_0219_user.sql;</div></pre></td></tr></table></figure>
-<h4 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">create database mysql_back;</div><div class="line">use mysql_back;</div><div class="line">show tables;</div><div class="line">source /Users/jingbin/Documents/LearningFile/mysql/mysql_0219_user.sql</div><div class="line">show tables;</div><div class="line">select * from t_user;</div></pre></td></tr></table></figure>
-<hr>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;我坚信在行动之前，必须先有足够的观察和知识。 - 奇异博士&lt;/p&gt;
-&lt;/blockquote&gt;
     
     </summary>
     

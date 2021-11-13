@@ -7,24 +7,38 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mac Android开发环境变量的配置(java、sdk、ndk、gradle) | JinBeen&#39;s Blog</title>
+  <title>云阅迭代历程20211108 | JinBeen&#39;s Blog</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Android Studio,Macbook Pro," />
+    <meta name="keywords" content="cloudreader,开源项目," />
   
 
-  <meta name="description" content="很多文章说了mac下怎样配置环境变量的问题，但大都很杂，在此总结一下，目的是使Android开发者看一篇博客就可以配置好AndroidStudio开发下的环境变量。">
+  <meta name="description" content="因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。
+云阅这几年迭代历程仿佛是安卓这几年的发展历程。
+云阅从2017年元旦第一版开始到现在2021年11月8日，将近四年的时间了。
+使用过的Api：豆瓣、干货集中营、时光网、玩安卓
+最早的是豆瓣，之前豆瓣提供了音乐，书籍，电影的数据，还有社区的数据，不过要授权得到，碍于前端程序员没有多少公共的Api，这些数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac Android开发环境变量的配置(java、sdk、ndk、gradle)">
-<meta property="og:url" content="http://jinbeen.com/2016/10/13/Mac-Android开发环境变量的配置-java、sdk、ndk、gradle/index.html">
+<meta property="og:title" content="云阅迭代历程20211108">
+<meta property="og:url" content="http://jinbeen.com/2021/11/08/cloudreader-development-process/index.html">
 <meta property="og:site_name" content="JinBeen's Blog">
-<meta property="og:description" content="很多文章说了mac下怎样配置环境变量的问题，但大都很杂，在此总结一下，目的是使Android开发者看一篇博客就可以配置好AndroidStudio开发下的环境变量。">
-<meta property="og:updated_time" content="2018-06-06T16:24:17.482Z">
+<meta property="og:description" content="因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。
+云阅这几年迭代历程仿佛是安卓这几年的发展历程。
+云阅从2017年元旦第一版开始到现在2021年11月8日，将近四年的时间了。
+使用过的Api：豆瓣、干货集中营、时光网、玩安卓
+最早的是豆瓣，之前豆瓣提供了音乐，书籍，电影的数据，还有社区的数据，不过要授权得到，碍于前端程序员没有多少公共的Api，这些数据">
+<meta property="og:image" content="https://jinbeen.com/images/2018/cloudreader-2-screenshots.png">
+<meta property="og:updated_time" content="2021-11-13T13:28:04.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac Android开发环境变量的配置(java、sdk、ndk、gradle)">
-<meta name="twitter:description" content="很多文章说了mac下怎样配置环境变量的问题，但大都很杂，在此总结一下，目的是使Android开发者看一篇博客就可以配置好AndroidStudio开发下的环境变量。">
+<meta name="twitter:title" content="云阅迭代历程20211108">
+<meta name="twitter:description" content="因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。
+云阅这几年迭代历程仿佛是安卓这几年的发展历程。
+云阅从2017年元旦第一版开始到现在2021年11月8日，将近四年的时间了。
+使用过的Api：豆瓣、干货集中营、时光网、玩安卓
+最早的是豆瓣，之前豆瓣提供了音乐，书籍，电影的数据，还有社区的数据，不过要授权得到，碍于前端程序员没有多少公共的Api，这些数据">
+<meta name="twitter:image" content="https://jinbeen.com/images/2018/cloudreader-2-screenshots.png">
 
   
 
@@ -195,14 +209,14 @@ ga('send', 'pageview');
 
 
 <div class="content content-post CENTER">
-   <article id="post-Mac-Android开发环境变量的配置-java、sdk、ndk、gradle" class="article article-type-post" itemprop="blogPost">
+   <article id="post-云阅迭代历程20211108" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">Mac Android开发环境变量的配置(java、sdk、ndk、gradle)</h1>
+    <h1 class="post-title">云阅迭代历程20211108</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2016.10.13</span>
+        <span>2021.11.08</span>
       </span>
 
       
@@ -215,7 +229,7 @@ ga('send', 'pageview');
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/Android/">Android</a>
+    <a class="article-category-link" href="/categories/开源项目/">开源项目</a>
   </span>
 
 
@@ -235,31 +249,21 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <p>很多文章说了mac下怎样配置环境变量的问题，但大都很杂，在此总结一下，目的是使Android开发者看一篇博客就可以配置好AndroidStudio开发下的环境变量。<br><a id="more"></a></p>
-<p>楼主的<strong>JDK</strong>版本是：1.8.0_40；   <strong>AndroidStudio</strong>版本：2.2；  <strong>ndk</strong>版本：android-ndk-r10e</p>
-<p>1.打开terminal<br>2.然后输入</p>
-<blockquote>
-<p>vi .bash_profile      后按“e”进入编辑模式</p>
-</blockquote>
-<p>3.输入想要配置的环境变量(java、sdk、ndk、gradle)：</p>
-<blockquote>
-<p><code>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home</code><br><code>export PATH=$JAVA_HOME/bin:$PATH</code><br><code>export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</code></p>
-<p><code>export ANDROID_HOME=/Users/jingbin/Documents/AndroidStudio/sdk</code><br><code>export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools</code></p>
-<p><code>export PATH=$PATH:/Users/jingbin/Documents/AndroidStudio/ndk/android-ndk-r10e</code><br><code>export A_NDK_ROOT=/Users/jingbin/Documents/AndroidStudio/ndk/android-ndk-r10e</code></p>
-<p><code>export GRADLE_HOME=/Applications/Android\ Studio\ 2.app/Contents/gradle/gradle-2.14.1</code><br><code>export PATH=$PATH:$GRADLE_HOME/bin</code></p>
-</blockquote>
-<p>4.在vi编辑器使用</p>
-<blockquote>
-<p>esc<br>:wq<br>保存并退出(注意有“:”号)</p>
-</blockquote>
-<p>5.更新设置</p>
-<blockquote>
-<p>source .bash_profile</p>
-</blockquote>
-<p>6.检查对应配置是否成功</p>
-<blockquote>
-<p>echo $PATH（查看路径）<br>java -version<br>adb<br>ndk-build<br>gradle -version</p>
-</blockquote>
+      <p>因为干货集中营服务器不维护了，QQ用户交流群也解散了，于是今天把干货集中营模块从云阅里移除了。</p>
+<p>云阅这几年迭代历程仿佛是安卓这几年的发展历程。</p>
+<p>云阅从2017年元旦第一版开始到现在2021年11月8日，将近四年的时间了。</p>
+<p><strong>使用过的Api：豆瓣、干货集中营、时光网、玩安卓</strong></p>
+<p>最早的是豆瓣，之前豆瓣提供了音乐，书籍，电影的数据，还有社区的数据，不过要授权得到，碍于前端程序员没有多少公共的Api，这些数据帮助很多开发者完成了他们自己的App，包括之前的豆芽等。记得之前它的star是四千多，那时候云阅还没开发出来，不知道能到多少，看了好多开源App，四千多几乎是极限了，现在云阅也到了这个数，增长的很缓慢了。</p>
+<p>但是豆瓣的开源api慢慢在消失，从书籍开始，当时还做了一版书籍的页面，但是还没等发布就失效了，然后我将一个模块拿出来做了干货集中营。干货集中营那时候异常火热，是代码家开源出来的，也有很多开发者接入，感觉和现在玩安卓差不多，于是我将干货集中营也接入了，首页做成和以前的网易云音乐一样的形式，不过图片的高度是写死的，不是比例的，当时还废了一点时间，哈哈</p>
+<p>书籍之后就是玩安卓，当时只接入了部分的功能，变成了：干货集中营，玩安卓，电影<br>这个是云阅2.0的版本：<a href="https://jinbeen.com/2018/11/06/cloudreader-app-introduce/">《云阅2.0》一款同时看玩安卓和干货集中营资讯的App</a></p>
+<p><img src="https://jinbeen.com/images/2018/cloudreader-2-screenshots.png" alt="云阅2.0"></p>
+<p>后来豆瓣电影的数据失效了，改成了时光网的电影数据，但是不太稳定，期间也有几次修改，后来就完全不能用了，然后换成了玩安卓其他的页面。</p>
+<p>玩安卓两个模块，干货集中营一个模块这样维持了很久，之前干货集中营也进行了 一次接口升级维持了一段时间。</p>
+<p>现在也失效了，没有报酬的服务难以持久，抹泪。然后换成了玩安卓的项目类别页面。</p>
+<p>至此云阅基本都是玩安卓的内容，也感谢鸿洋给了我们开发者公共的Api。</p>
+<p><strong>代码方面：</strong><br>最早做的时候，MVVM才出来不久，自己研究了一段时间，第一版的云阅其实不是真正的MVVM模式，ViewModel里还是放的接口请求然后使用Presenter将方法在外面使用。然后别人指出了，后来就改成了这样纯粹的MVVM模式，然后慢慢的加入了Room，升级成了Retrofit2，使用了AndroidX，最后慢慢使用Koltin，还实现了四年前用户要求的深色模式。</p>
+<p>写云阅目的是练新技术，例如AndroidX和Retrofit2等都是在云阅上实践后再慢慢放在公司的项目中，现在也是的，搜索里的流式布局和深色模式都会先在云阅里实现。还有就是确实可以看到成体系的技术文章，我基本每天都会看。</p>
+<p>云阅就还会一直更新，目的是做出最好的技术实践和使用体验。</p>
 
     
   </div>
@@ -297,10 +301,10 @@ ga('send', 'pageview');
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2016/04/16/Linux与几种电脑系统的区别/">
+    <a class="show pull-left" href="/2021/10/25/android-smb/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2016/10/28/MarkDown-readme图片尺寸固定且居中/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
