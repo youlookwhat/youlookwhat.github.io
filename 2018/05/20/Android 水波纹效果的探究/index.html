@@ -19,16 +19,16 @@
 <meta property="og:title" content="Android 水波纹效果的探究">
 <meta property="og:url" content="http://jinbeen.com/2018/05/20/Android 水波纹效果的探究/index.html">
 <meta property="og:site_name" content="JinBeen's Blog">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-8f11f2c691d43da9.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-37ff47faeefa1837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-d64a1d0d128a14f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-9200fb6b1432db62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-8f11f2c691d43da9.gif?imageMogr2/auto-orient/strip">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-5d195c450d541d19.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2018-12-07T14:43:42.608Z">
+<meta property="og:image" content="https://jinbeen.com/images/2018/cloudreader-ripple-demo.gif">
+<meta property="og:image" content="https://jinbeen.com/images/2018/cloudreader-ripple-info.png">
+<meta property="og:image" content="https://jinbeen.com/images/2018/cloudreader-ripple-before.png">
+<meta property="og:image" content="https://jinbeen.com/images/2018/cloudreader-ripple-done.png">
+<meta property="og:image" content="https://jinbeen.com/images/2018/cloudreader-ripple-demo.gif">
+<meta property="og:image" content="https://jinbeen.com/images/2018/cloudreader-ripple-button.gif">
+<meta property="og:updated_time" content="2021-11-13T13:38:08.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 水波纹效果的探究">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1354448-8f11f2c691d43da9.gif?imageMogr2/auto-orient/strip">
+<meta name="twitter:image" content="https://jinbeen.com/images/2018/cloudreader-ripple-demo.gif">
 
   
 
@@ -244,7 +244,7 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <p><img src="https://upload-images.jianshu.io/upload_images/1354448-8f11f2c691d43da9.gif?imageMogr2/auto-orient/strip" alt="长按水波纹扩展效果"></p>
+      <p><img src="https://jinbeen.com/images/2018/cloudreader-ripple-demo.gif" alt="长按水波纹扩展效果"></p>
 <a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>水波纹效果从Android5.0就已经出来了，基本的使用相信大家都知道了，这里多谈一些相对深层次的使用：</p>
 <ul>
@@ -260,7 +260,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:background=<span class="string">"?android:attr/selectableItemBackgroundBorderless"</span></div></pre></td></tr></table></figure>
 <h3 id="自定义水波纹实现方式"><a href="#自定义水波纹实现方式" class="headerlink" title="自定义水波纹实现方式"></a>自定义水波纹实现方式</h3><h4 id="无界水波纹-1"><a href="#无界水波纹-1" class="headerlink" title="无界水波纹"></a>无界水波纹</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;  </div><div class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">android:color="@color/colorAccent"&gt; </div><div class="line">&lt;/ripple&gt;</div></pre></td></tr></table></figure>
 <h4 id="有界水波纹-1"><a href="#有界水波纹-1" class="headerlink" title="有界水波纹"></a>有界水波纹</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;ripple xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:color="@color/itemBackground"&gt;</div><div class="line">    &lt;item &gt;</div><div class="line">        &lt;color android:color="@android:color/white" /&gt;</div><div class="line">    &lt;/item&gt;</div><div class="line">&lt;/ripple&gt;</div></pre></td></tr></table></figure>
-<h2 id="水波纹效果与布局绘制之间的问题"><a href="#水波纹效果与布局绘制之间的问题" class="headerlink" title="水波纹效果与布局绘制之间的问题"></a>水波纹效果与布局绘制之间的问题</h2><p><img src="https://upload-images.jianshu.io/upload_images/1354448-37ff47faeefa1837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>在使用了以上的<strong>自定义有界水波纹点击效果</strong>后，使用[开发者选项 - 调试GPU过渡绘制]得到下面的视图<br><img src="https://upload-images.jianshu.io/upload_images/1354448-d64a1d0d128a14f4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自定义有界水波纹"></p>
+<h2 id="水波纹效果与布局绘制之间的问题"><a href="#水波纹效果与布局绘制之间的问题" class="headerlink" title="水波纹效果与布局绘制之间的问题"></a>水波纹效果与布局绘制之间的问题</h2><p><img src="https://jinbeen.com/images/2018/cloudreader-ripple-info.png" alt=""><br>在使用了以上的<strong>自定义有界水波纹点击效果</strong>后，使用[开发者选项 - 调试GPU过渡绘制]得到下面的视图<br><img src="https://jinbeen.com/images/2018/cloudreader-ripple-before.png" alt="自定义有界水波纹"></p>
 <p>对比后，发现绿色的文字部分经过了二重绘制，因为布局的白色背景和文字自身颜色的原因。如果布局背景能去掉还能实现水波纹的效果就好了，这样就只有文字一层的颜色。</p>
 <h3 id="有两种方案可以达到想要的这种效果："><a href="#有两种方案可以达到想要的这种效果：" class="headerlink" title="有两种方案可以达到想要的这种效果："></a>有两种方案可以达到想要的这种效果：</h3><p>1、使用系统自带有界水波纹实现方式，因为系统本身的默认背景是透明色的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:background=<span class="string">"?android:attr/selectableItemBackground"</span></div></pre></td></tr></table></figure></p>
 <blockquote>
@@ -271,15 +271,15 @@ ga('send', 'pageview');
 <blockquote>
 <p>添item时，如果<strong><em>指定id为@android:id/mask</em></strong>，那么不点击时不会显示出该item指定的color。<br>可以设置指定子层item的android:id=”@android:id/mask”来设定当前Ripple的Mask。<br>Mask的内容并不会被绘制到屏幕上，它的作用是限定Ripple效果的绘制区域。</p>
 </blockquote>
-<p>最后可以得到我们想要的效果：<br><img src="https://upload-images.jianshu.io/upload_images/1354448-9200fb6b1432db62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="长按水波纹扩散效果"><a href="#长按水波纹扩散效果" class="headerlink" title="长按水波纹扩散效果"></a>长按水波纹扩散效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/1354448-8f11f2c691d43da9.gif?imageMogr2/auto-orient/strip" alt="长按水波纹扩展效果"></p>
+<p>最后可以得到我们想要的效果：<br><img src="https://jinbeen.com/images/2018/cloudreader-ripple-done.png" alt="image.png"></p>
+<h2 id="长按水波纹扩散效果"><a href="#长按水波纹扩散效果" class="headerlink" title="长按水波纹扩散效果"></a>长按水波纹扩散效果</h2><p><img src="https://jinbeen.com/images/2018/cloudreader-ripple-demo.gif" alt="长按水波纹扩展效果"></p>
 <p>在使用小红书时，我们可以看到关于“笔记”的item长按会展示扩散的效果。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:foreground=<span class="string">"?attr/selectableItemBackgroundBorderless"</span></div></pre></td></tr></table></figure></p>
 <p>又或者，无边界的水波纹也可以达到长按扩散的效果，只是它会超出边界，那我们就在对应的父布局加一层有边界的水波纹背景即可。就像这样：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:background="?attr/selectableItemBackground"&gt;</div><div class="line"></div><div class="line">        &lt;RelativeLayout</div><div class="line">            android:layout_width="match_parent"</div><div class="line">            android:layout_height="wrap_content"</div><div class="line">            android:background="?attr/selectableItemBackgroundBorderless"</div><div class="line">            android:onClick="@&#123;()-&gt;adapter.openDetail(bean)&#125;"</div><div class="line">            android:padding="8dp"&gt;</div><div class="line">        &lt;/RelativeLayout&gt;</div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>两者的区别是：长按扩散时，前者的水波纹会在图片之上，而后者在图片之下。</p>
 </blockquote>
-<h2 id="Button点击的水波纹效果"><a href="#Button点击的水波纹效果" class="headerlink" title="Button点击的水波纹效果"></a>Button点击的水波纹效果</h2><p><img src="https://upload-images.jianshu.io/upload_images/1354448-5d195c450d541d19.gif?imageMogr2/auto-orient/strip" alt="button阴影与点击效果"></p>
+<h2 id="Button点击的水波纹效果"><a href="#Button点击的水波纹效果" class="headerlink" title="Button点击的水波纹效果"></a>Button点击的水波纹效果</h2><p><img src="https://jinbeen.com/images/2018/cloudreader-ripple-button.gif" alt="button阴影与点击效果"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;Button</div><div class="line">    style=<span class="string">"@style/Widget.AppCompat.Button.Colored"</span></div><div class="line">    android:layout_width=<span class="string">"0dp"</span></div><div class="line">    android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">    android:layout_marginLeft=<span class="string">"20dp"</span></div><div class="line">    android:layout_weight=<span class="string">"1"</span></div><div class="line">    android:onClick=<span class="string">"login"</span></div><div class="line">    android:text=<span class="string">"登陆"</span></div><div class="line">    android:textColor=<span class="string">"@android:color/white"</span></div><div class="line">    android:textStyle=<span class="string">"bold"</span> /&gt;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>The Widget.AppCompat.Button.Colored 继承了 Widget.AppCompat.Button style并且根据你选择的主题应用最接近的颜色。</p>
