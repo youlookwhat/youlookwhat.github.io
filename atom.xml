@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinbeen.com/"/>
-  <updated>2021-11-13T13:46:04.716Z</updated>
+  <updated>2022-01-05T14:50:02.075Z</updated>
   <id>http://jinbeen.com/</id>
   
   <author>
@@ -14,6 +14,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021年终总结</title>
+    <link href="http://jinbeen.com/2022/01/05/summary2021/"/>
+    <id>http://jinbeen.com/2022/01/05/summary2021/</id>
+    <published>2022-01-05T14:00:00.000Z</published>
+    <updated>2022-01-05T14:50:02.075Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>家里的抽屉大概会一年整理一次，人也应如此。</p>
+</blockquote>
+<p>今年的收获：</p>
+<ol>
+<li><p><strong>读书</strong>。今年大概读了10本书。去年定的今年的关键词主要是读书，但是没有定几本。这是一个失误，<code>计划今年要读书不是战略，计划要读几本书，每月完成多少，才是战略</code>。所以2022年的计划要更具体才行，例如具体到两周看一本。</p>
+</li>
+<li><p><strong>沟通能力</strong>。这算是一个计划之外的收获，由于公司的人才培养计划，今年上半年在公司进行了中层员工培训；然后部门总监拉Android/iOS的负责人去进行每天的例会，虽然每天基本没有汇报什么，但是确实提高了表达能力。之前说事情情绪起伏挺多，现在虽然也有点但是和以前比好很多了，尤其是和其他人沟融能很平稳的将事情表达清楚，也基本能达成共赢。</p>
+</li>
+<li><p><strong>鸿蒙卡片开发</strong>。这个也是计划之外的收获，公司和华为合作开发一款查成分的鸿蒙卡片，然后自己一个人完成了开发，和产品/UI/测试沟通的很好，以及发布到应用市场和华为新折叠屏手机(<a href="https://consumer.huawei.com/cn/phones/p50-pocket/" target="_blank" rel="external">HUAWEI P50 Pocket</a>)的外屏适配，去了3次武汉的华为研究所。在公司分享了鸿蒙卡片开发的基础知识，达到可以快速上手的目的，小组成员也进行了尝试。另外还分享了App的启动流程。</p>
+</li>
+<li><p><strong>结婚</strong>。今年5月1日举行的婚礼，得到了很多亲朋好友的帮助和祝福，最感谢的是我弟，忙了很长时间。办酒席真的不容易，需要很多的协调工作，两家的相互包容很重要，曾老先生说为什么中华有办酒席的风俗，美国都是两个人直接过日子甚至不接自己的爸妈，因为我们办酒席很复杂，办了一次后绝对不想办第二次，这样对于婚姻就很谨慎，不想再进行第二次婚礼，而且很多人见证了，离婚后感觉会很丢脸。</p>
+</li>
+<li><p><strong>飞碟</strong>。今年最大的幸福感还来自于飞碟，差不多6月份买过来的，花的价格还不少，媳妇很想养一只，买了后看着他长大了，差不多6月多月时间，已经离不开他了，也为他找好了对象。很乖很粘人，由于我们白天上班一直把他关笼子里，晚上和我们一起在睡。</p>
+</li>
+<li><p><strong>技术文章和GitHub维护</strong>。今年参加了掘金的技术征文，在繁重的工作任务中抽时间出来写博客是有点艰难，不过还是达到了基础标准，得到了一个马克杯和一个徽章。GitHub也在维护，将所有的项目基本统一成Androidx了，升级了各个依赖库的版本，云阅也加上了深色模式，由于时光网api和干货集中营api失效都去掉了然后换成了玩安卓的内容。今年总体的star数也涨了不少。</p>
+</li>
+</ol>
+<p>总结：</p>
+<ul>
+<li><p>今年收获了两项不在计划之中的能力，软实力沟通和技术方面鸿蒙开发，都是由于公司安排产生的，也是因为大部分的时间在工作上面，所以这方面的提升较多。</p>
+</li>
+<li><p>计划之中的读书比预期的数量要少很多，明年要减少这方面的任务量并做好时间规划。</p>
+</li>
+<li><p>GitHub方面在预期之中，因为短期不会有新项目的开源，主要还是要集中在硬实力的增强，例如源码和数据结构算法之类的学习，而不是追求star数。计划将鸿蒙基础架构开源，实现鸿蒙的快速开发。</p>
+</li>
+<li><p>家庭方面和以前比好了很多，也增加了一个新的成员。</p>
+</li>
+</ul>
+<p>回想2020给自己定的目标，只提到了关键词，没有具体的时间计划。2021大概也是围绕着这些在做，但是整体的达标率还是差了些。</p>
+<hr>
+<p>2022的flag：</p>
+<ol>
+<li><p>中级软件设计</p>
+<p> 本身自己是非科班出生，虽然有工作经验和GitHub做背书，但是考这个证不是个形式上的东西，第一确实可以让我全方面了解软件开发，里面有常用的数据结构算法等，如果这个都达不到，进大厂就不可能了。第二媳妇也在进行备考，可以一起学习。计划时间1234月份。</p>
+</li>
+<li><p>高级项目管理</p>
+<p> 同事考的这个，感觉自己也可以考个，比较符合自己的职业规划。每年有两次考试，5月份和11月份，计划是5月份考中级11月份考高级，然后自己非科班也有中级高级的证书也利于自己的职业发展。计划时间8910月份。</p>
+</li>
+<li><p>阅读20本书，平均2周一本</p>
+<p> 看书是必不可少的，甚至可以加到和吃饭上厕所同一级别，今年计划每两周一本书，写读书笔记，先把自己买的书看完。</p>
+</li>
+<li><p>上班空闲时间精进源码</p>
+<p> 做重要不紧急的事情。有计划的深入学习源码知识。做每周计划。</p>
+</li>
+<li><p>开发工具类或其他种类小程序</p>
+<p> 今年学了小程序开发，但是一直没有实践过，想开发出一款小程序出来，想好了内容，缺的还是UI和后台接口，如果有合适的会执行，需要的时间大概在连续一个月左右。</p>
+</li>
+</ol>
+<p>刻意休息，将可支配时间做好规划，投资在重要不紧急的事情中。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;家里的抽屉大概会一年整理一次，人也应如此。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今年的收获：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;读书&lt;/strong&gt;。今年大概读了10本书。去年定的今年的关键词主要是读书，但是没有定几本。这是一
+    
+    </summary>
+    
+      <category term="life" scheme="http://jinbeen.com/categories/life/"/>
+    
+    
+      <category term="life" scheme="http://jinbeen.com/tags/life/"/>
+    
+  </entry>
   
   <entry>
     <title>云阅迭代历程20211108</title>
@@ -1584,78 +1661,6 @@
       &lt;blockquote&gt;
 &lt;p&gt;我们容易忽视慢变量，但慢变量才是牵引历史进程的火车头。 - 何帆/变量&lt;/p&gt;
 &lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="Java后端" scheme="http://jinbeen.com/categories/Java%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="MySql" scheme="http://jinbeen.com/tags/MySql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL 使用规范(内部培训笔记)</title>
-    <link href="http://jinbeen.com/2019/03/31/mysql-tip/"/>
-    <id>http://jinbeen.com/2019/03/31/mysql-tip/</id>
-    <published>2019-03-31T14:14:00.000Z</published>
-    <updated>2019-04-10T14:42:18.170Z</updated>
-    
-    <content type="html"><![CDATA[<p>袋鼠云数据库使用基本规范。</p>
-<a id="more"></a>
-<h3 id="一般操作"><a href="#一般操作" class="headerlink" title="一般操作"></a>一般操作</h3><ul>
-<li>高峰期不进行DDL操作，不进行大表全表扫描；</li>
-<li>进行更新或删除时，一万以下条数据最好使用 分批更新(计数 如 i 累加到500)（存储方式）</li>
-</ul>
-<h3 id="设计库"><a href="#设计库" class="headerlink" title="设计库"></a>设计库</h3><ul>
-<li>原则：不同业务按库划分</li>
-<li>使用：innodb 存储引擎</li>
-</ul>
-<h3 id="设计表"><a href="#设计表" class="headerlink" title="设计表"></a>设计表</h3><ul>
-<li>一定要有主键</li>
-<li>强烈建议字段为 NOT NULL，并设置默认值</li>
-<li>禁止储存图片、文件、视频等</li>
-<li>使用 tingint 代替 ENUM</li>
-<li>禁止使用外键</li>
-<li>少用拆分 BLOB、TEXT字段</li>
-<li>控制 字段数量/尽可能小的字段/命名规范</li>
-</ul>
-<h3 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h3><ul>
-<li>Tinyint[UNSIGNED] - 无负整数 （从 0 到 255 的整型数据。存储大小为 1 字节。）</li>
-<li>DECIIMAL - 精确数值，不是Float/Double</li>
-<li>int(3) - 后面的数字无意义</li>
-</ul>
-<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><blockquote>
-<p>index<em>表名</em>字段</p>
-</blockquote>
-<ul>
-<li>联合索引字段建议不超过5个</li>
-<li>单表索引数量5个以内</li>
-<li>使用自增id作为主键</li>
-</ul>
-<h3 id="编写sql"><a href="#编写sql" class="headerlink" title="编写sql"></a>编写sql</h3><ul>
-<li>update/delete 不使用limit，必须添加where</li>
-<li>使用prepared、statement，提成性能，避免SQL注入</li>
-<li>禁止使用 % 模糊查询(全表)</li>
-<li>表中记录数 <code>count(*)</code></li>
-<li>用 join 链接替代 嵌套查询</li>
-<li>尽量不使用 hints</li>
-<li><p>查询拒绝 select * ，避免对索引字段使用 函数或计算操作</p>
-<ul>
-<li><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">where new_id = <span class="string">"123456"</span> (<span class="function">where <span class="title">upper</span><span class="params">(id)</span>)</span></div></pre></td></tr></table></figure>
-<ul>
-<li>如果 new_id 是 varchar 则使用 <code>new_id = &quot;123456&quot;</code> 比使用 <code>new_id = 123456</code> 的效率高很多倍</li>
-<li>使用 where upper(id) 的效率很低</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;袋鼠云数据库使用基本规范。&lt;/p&gt;
     
     </summary>
     
