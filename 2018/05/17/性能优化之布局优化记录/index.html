@@ -21,17 +21,17 @@
 <meta property="og:url" content="http://jinbeen.com/2018/05/17/性能优化之布局优化记录/index.html">
 <meta property="og:site_name" content="JinBeen's Blog">
 <meta property="og:description" content="做开发时间长了之后，收集后台的bug，发现很多都是OOM(Out Of Memory Killer)。性能优化这时候成为了重点，下面是自己项目中布局优化的记录，希望对大家有所帮助。">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-37ff47faeefa1837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-9eabb8928ef612f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-ee5b4e1a13244e97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-8b5d6f7c6cfefbfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-ac9f12fc0f737096.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1354448-33a678ffc779709d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-06T15:48:02.991Z">
+<meta property="og:image" content="https://jinbeen.com/images/2018/android-layout01.png">
+<meta property="og:image" content="https://jinbeen.com/images/2018/android-layout02.png">
+<meta property="og:image" content="https://jinbeen.com/images/2018/android-layout03.png">
+<meta property="og:image" content="https://jinbeen.com/images/2018/android-layout04.png">
+<meta property="og:image" content="https://jinbeen.com/images/2018/android-layout05.png">
+<meta property="og:image" content="https://jinbeen.com/images/2018/android-layout06.png">
+<meta property="og:updated_time" content="2022-07-22T14:41:53.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="性能优化之布局优化记录">
 <meta name="twitter:description" content="做开发时间长了之后，收集后台的bug，发现很多都是OOM(Out Of Memory Killer)。性能优化这时候成为了重点，下面是自己项目中布局优化的记录，希望对大家有所帮助。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1354448-37ff47faeefa1837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="https://jinbeen.com/images/2018/android-layout01.png">
 
   
 
@@ -247,7 +247,7 @@ ga('send', 'pageview');
 
   <div class="article-content">
     
-      <p><img src="https://upload-images.jianshu.io/upload_images/1354448-37ff47faeefa1837.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="gpu绘制"></p>
+      <p><img src="https://jinbeen.com/images/2018/android-layout01.png" alt="gpu绘制"></p>
 <p>做开发时间长了之后，收集后台的bug，发现很多都是OOM(Out Of Memory Killer)。性能优化这时候成为了重点，下面是自己项目中布局优化的记录，希望对大家有所帮助。</p>
 <a id="more"></a>
 <h3 id="父布局"><a href="#父布局" class="headerlink" title="父布局"></a>父布局</h3><ul>
@@ -256,6 +256,7 @@ ga('send', 'pageview');
 <li>尽量不要在嵌套的LinearLayout中都使用weight属性.</li>
 <li>避免使用多重布局嵌套，层级能少就少</li>
 <li>善用TextView的Drawable减少布局层级</li>
+<li>深层布局 - 嵌套过多的布局会降低性能。考虑使用 RelativeLayout 或 GridLayout 等比较扁平的布局来提高性能。<a href="https://developer.android.com/training/improving-layouts/optimizing-layout?hl=zh-cn" target="_blank" rel="external">默认的深度上限为 10</a></li>
 </ul>
 <h3 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h3><ul>
 <li>去掉多余的布局背景色，比如ScrollView包裹的内容分为两段，第一段使用的是<code>match_parent</code>的宽，第二段是文字，只需要给文字部分加背景，则背景色属性就放在文字部分的节点属性里。</li>
@@ -282,15 +283,15 @@ ga('send', 'pageview');
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/1354448-9eabb8928ef612f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="使用前"></td>
-<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/1354448-ee5b4e1a13244e97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="使用后"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2018/android-layout02.png" alt="使用前"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2018/android-layout03.png" alt="使用后"></td>
 </tr>
 </tbody>
 </table>
 <p>3、<code>&lt;merge&gt;</code>：在使用了include后可能导致布局嵌套过多，多余不必要的layout节点，从而导致解析变慢，不必要的节点和嵌套可通过hierarchy viewer(下面布局调优工具中有具体介绍)或设置-&gt;开发者选项-&gt;显示布局边界查看。</p>
 <h3 id="优化工具"><a href="#优化工具" class="headerlink" title="优化工具"></a>优化工具</h3><p>1、GPU过渡绘制：Graphic Processing Unit</p>
 <p>位置：设置/选择开发选项（Developer Options）/调试GPU 过度绘制（Debug GPU Overdraw），然后选择“显示过度绘制区域（Show overdraw area）”。</p>
-<p>定义：指在屏幕上的一个像素在单个帧中被重绘了多次。可以通过手机设置/开发者选项/调试GPU过渡绘制/，不同的颜色显示了渲染过渡程度<br><img src="https://upload-images.jianshu.io/upload_images/1354448-8b5d6f7c6cfefbfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="手机gpu绘制"></p>
+<p>定义：指在屏幕上的一个像素在单个帧中被重绘了多次。可以通过手机设置/开发者选项/调试GPU过渡绘制/，不同的颜色显示了渲染过渡程度<br><img src="https://jinbeen.com/images/2018/android-layout04.png" alt="手机gpu绘制"></p>
 <p>2、Hierarchy Viewer<br>3、Lint tool</p>
 <h3 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h3><table>
 <thead>
@@ -301,8 +302,8 @@ ga('send', 'pageview');
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/1354448-ac9f12fc0f737096.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="优化前"></td>
-<td style="text-align:center"><img src="https://upload-images.jianshu.io/upload_images/1354448-33a678ffc779709d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="优化后"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2018/android-layout05.png" alt="优化前"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2018/android-layout06.png" alt="优化后"></td>
 </tr>
 </tbody>
 </table>
