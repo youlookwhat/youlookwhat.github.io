@@ -1,0 +1,18 @@
+Searching 126 files for "no title"
+
+/Users/jingbin/Documents/workspace/AsGithub/amyblog/themes/fexo/layout/_partial/article.ejs:
+    1  <article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemprop="blogPost">
+    2    <header class="article-header">
+    3:     <h1 class="post-title"><%= post.title || '' %></h1>
+    4  
+    5      <div class="article-meta">
+
+/Users/jingbin/Documents/workspace/AsGithub/amyblog/themes/fexo/layout/_partial/component/title.ejs:
+    1  <% if(theme.post.open_in_new_window) { %>
+    2:   <a class="post-title" href="<%- url_for(post.path) %>" rel="noopener noreferrer" target="_blank"><%= post.title || '' %></a>
+    3  <% } else { %>
+    4:   <a class="post-title" href="<%- url_for(post.path) %>"><%= post.title || '' %></a>
+    5  <% } %>
+    6  
+
+3 matches across 2 files

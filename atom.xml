@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinbeen.com/"/>
-  <updated>2022-10-16T09:11:11.698Z</updated>
+  <updated>2022-10-16T09:18:39.344Z</updated>
   <id>http://jinbeen.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jinbeen.com/2022/10/16/harmonyos-dev/"/>
     <id>http://jinbeen.com/2022/10/16/harmonyos-dev/</id>
     <published>2022-10-16T09:00:00.000Z</published>
-    <updated>2022-10-16T09:11:11.698Z</updated>
+    <updated>2022-10-16T09:18:39.344Z</updated>
     
     <content type="html"><![CDATA[<h1 id="鸿蒙卡片开发"><a href="#鸿蒙卡片开发" class="headerlink" title="鸿蒙卡片开发"></a>鸿蒙卡片开发</h1><blockquote>
 <p>2021年十月份开发上架到华为卡片服务中心，此篇文章很早就整理出来在公司内部分享过。</p>
@@ -88,7 +88,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="https://jinbeen.com/images/2022/hm-fa.png" alt="hm-fa"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2022/hm-pa.png" alt="hm-pa"></td>
 <td style="text-align:center"><img src="https://jinbeen.com/images/2022/hm-activity.png" alt="hm-activity"></td>
 </tr>
 </tbody>
