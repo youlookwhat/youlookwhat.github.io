@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>鸿蒙卡片开发-总结篇 | JinBeen&#39;s Blog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="harmonyos," />
+  
+
+  <meta name="description" content="鸿蒙卡片开发
+2021年十月份开发上架到华为卡片服务中心，此篇文章很早就整理出来在公司内部分享过。
+
+1.鸿蒙卡片概念官方描述：服务卡片（以下简称“卡片”）是FA的一种界面展示形式，将FA的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。
+开发文档：harmonyos应用开发-卡片开发
+左下角或右下角往上滑呼出。
+
+没有App的widget
+鸿蒙手机里的小程序
+
+2.开发语言，JAV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鸿蒙卡片开发-总结篇">
+<meta property="og:url" content="http://jinbeen.com/2022/10/16/harmonyos-dev/index.html">
+<meta property="og:site_name" content="JinBeen's Blog">
+<meta property="og:description" content="鸿蒙卡片开发
+2021年十月份开发上架到华为卡片服务中心，此篇文章很早就整理出来在公司内部分享过。
+
+1.鸿蒙卡片概念官方描述：服务卡片（以下简称“卡片”）是FA的一种界面展示形式，将FA的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。
+开发文档：harmonyos应用开发-卡片开发
+左下角或右下角往上滑呼出。
+
+没有App的widget
+鸿蒙手机里的小程序
+
+2.开发语言，JAV">
+<meta property="og:image" content="https://jinbeen.com/images/2022/hm-card.png">
+<meta property="og:image" content="https://jinbeen.com/images/2022/hm-fa.png">
+<meta property="og:image" content="https://jinbeen.com/images/2022/hm-activity.png">
+<meta property="og:image" content="https://jinbeen.com/images/2022/hm-shell.png">
+<meta property="og:updated_time" content="2022-10-16T09:11:11.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鸿蒙卡片开发-总结篇">
+<meta name="twitter:description" content="鸿蒙卡片开发
+2021年十月份开发上架到华为卡片服务中心，此篇文章很早就整理出来在公司内部分享过。
+
+1.鸿蒙卡片概念官方描述：服务卡片（以下简称“卡片”）是FA的一种界面展示形式，将FA的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。
+开发文档：harmonyos应用开发-卡片开发
+左下角或右下角往上滑呼出。
+
+没有App的widget
+鸿蒙手机里的小程序
+
+2.开发语言，JAV">
+<meta name="twitter:image" content="https://jinbeen.com/images/2022/hm-card.png">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-91L2DT6NQB', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?643275289e816ea38d7a840456d91ebd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/categories/Android/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tags/Android/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/project/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            项目
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/music.html"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            🎵
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#鸿蒙卡片开发"><span class="toc-text">鸿蒙卡片开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-鸿蒙卡片概念"><span class="toc-text">1.鸿蒙卡片概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-开发语言，JAVA-JS"><span class="toc-text">2.开发语言，JAVA/JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-卡片布局"><span class="toc-text">3.卡片布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Ability-AbilitySlice"><span class="toc-text">4.Ability/AbilitySlice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-项目架构，主要三方组件"><span class="toc-text">5.项目架构，主要三方组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-打包调试"><span class="toc-text">6.打包调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-遇到的问题，优缺点"><span class="toc-text">7.遇到的问题，优缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-总结"><span class="toc-text">8.总结</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-鸿蒙卡片开发-总结篇" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">鸿蒙卡片开发-总结篇</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2022.10.16</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>JinBeen</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/harmonyos/">harmonyos</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="鸿蒙卡片开发"><a href="#鸿蒙卡片开发" class="headerlink" title="鸿蒙卡片开发"></a>鸿蒙卡片开发</h1><blockquote>
+<p>2021年十月份开发上架到华为卡片服务中心，此篇文章很早就整理出来在公司内部分享过。</p>
+</blockquote>
+<h2 id="1-鸿蒙卡片概念"><a href="#1-鸿蒙卡片概念" class="headerlink" title="1.鸿蒙卡片概念"></a>1.鸿蒙卡片概念</h2><p><strong>官方描述</strong>：服务卡片（以下简称“卡片”）是<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/glossary-0000000000029587#section5406185415236" target="_blank" rel="external">FA</a>的一种界面展示形式，将FA的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。</p>
+<p><strong>开发文档</strong>：<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/develop-overview-0000001071291809#section126539392141" target="_blank" rel="external">harmonyos应用开发-卡片开发</a></p>
+<p>左下角或右下角往上滑呼出。</p>
+<ul>
+<li>没有App的widget</li>
+<li>鸿蒙手机里的小程序</li>
+</ul>
+<h2 id="2-开发语言，JAVA-JS"><a href="#2-开发语言，JAVA-JS" class="headerlink" title="2.开发语言，JAVA/JS"></a>2.开发语言，JAVA/JS</h2><ul>
+<li>Java ：适用于Android开发，<ul>
+<li>直接引入<code>BASE64.jar</code> 在项目中使用</li>
+<li>放入<code>WebView</code>加载一个url</li>
+<li>开发流程及Api和Android非常相似</li>
+</ul>
+</li>
+<li>JS ：适用h5前端开发</li>
+</ul>
+<h2 id="3-卡片布局"><a href="#3-卡片布局" class="headerlink" title="3.卡片布局"></a>3.卡片布局</h2><p><img src="https://jinbeen.com/images/2022/hm-card.png" alt="hm-card"></p>
+<p>默认尺寸<code>2*2</code>，可扩展多个卡片和尺寸。</p>
+<ul>
+<li>简单绘制UI</li>
+<li>复杂交互 - 音乐播放器，根据状态启动服务改变卡片样式</li>
+</ul>
+<p><strong>折叠屏适配</strong>：<br>华为新出的Mate V折叠屏手机需要将卡片显示在折叠之后的外屏上，需要在卡片form上配置<code>customizeData</code> ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">"metaData"</span>: &#123;</div><div class="line">  <span class="string">"customizeData"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="string">"name"</span>: <span class="string">"exteCoverFACard"</span>,</div><div class="line">      <span class="string">"value"</span>: <span class="string">"com.xxx.xx"</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果内屏和外屏显示的UI是不一样的，需要额外处理。</p>
+<p>现在遇到的问题：点击外屏会无反应(进入到程序会被禁止)，通过服务改变卡片的ui并启动内屏的Ability。</p>
+<p><strong>UI方面：</strong></p>
+<ul>
+<li>图片指定固定宽高后模，可能的正确示例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;Image</div><div class="line">    ohos:height=<span class="string">"65vp"</span></div><div class="line">    ohos:width=<span class="string">"match_parent"</span></div><div class="line">    ohos:horizontal_center=<span class="string">"true"</span></div><div class="line">    ohos:image_src=<span class="string">"$media:card_book_text_icon"</span></div><div class="line">    ohos:scale_mode=<span class="string">"zoom_center"</span>/&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>vp</code>相当于Android里的dp，<code>fp</code>相当于Android里的sp。<br><a href="https://developer.huawei.com/consumer/cn/forum/topic/0202443732090860511" target="_blank" rel="external">fp px vp有啥区别，什么时候用哪个？</a></li>
+</ul>
+<h2 id="4-Ability-AbilitySlice"><a href="#4-Ability-AbilitySlice" class="headerlink" title="4.Ability/AbilitySlice"></a>4.Ability/AbilitySlice</h2><ul>
+<li>Ability：应用的重要组成部分，是应用所具备能力的抽象。Ability分为两种类型，Feature Ability和Particle Ability。<ul>
+<li>FA支持Page Ability：<ul>
+<li>Page模板是FA唯一支持的模板，用于提供与用户交互的能力。类似于android的Activity。一个Page实例可以包含一组相关页面，每个页面用一个<strong>AbilitySlice</strong>实例表示。</li>
+</ul>
+</li>
+<li>PA支持Service Ability和Data Ability：<ul>
+<li>Service模板：用于提供后台运行任务的能力。</li>
+<li>Data模板：用于对外部提供统一的数据访问抽象。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>AbilitySlice</strong>：切片，是单个可视化界面及其交互逻辑的总和，是Feature Ability的组成单元。一个Feature Ability可以包含一组业务关系密切的可视化界面，每一个可视化界面对应一个AbilitySlice。</p>
+</li>
+<li><p><strong>Page Ability</strong>：用于提供与用户交互的能力。一个应用可以由多个Page组成，一个Page可以由一个或多个AbilitySlice构成，AbilitySlice是指应用的单个页面及其控制逻辑的总和。</p>
+</li>
+</ul>
+<p>Activity 用户与应用互动的入口点。一个应用可以由一个或多个Activity组成，一个Activity可以由零个，一个或多个Fragment构成。Fragment是FragmentActivity行为或界面的一部分。</p>
+<p><strong>生命周期 ：</strong>Page Ability和Activity的比较相似</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Page Ability</th>
+<th style="text-align:center">Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2022/hm-fa.png" alt="hm-fa"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2022/hm-activity.png" alt="hm-activity"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Page Ability启动模式</strong>：</p>
+<ul>
+<li>standard：在任何情况下，无论Page Ability被显示多少次，都会创建一个新的Page Ability实例；</li>
+<li>singleton：表示该Ability在所有任务栈中仅可以有一个实例。例如，具有全局唯一性的呼叫来电界面即采用“singleton”模式。</li>
+<li>singleMission：表示此Ability在每个任务栈中只能有一个实例。</li>
+</ul>
+<p>standard相对于是Actvity的<code>standard</code>。<br>singleton相对于是Actvity的<code>singleInstance</code>。</p>
+<p>singleMission相当于是Actvity的<code>singleTask</code>。</p>
+<h2 id="5-项目架构，主要三方组件"><a href="#5-项目架构，主要三方组件" class="headerlink" title="5.项目架构，主要三方组件"></a>5.项目架构，主要三方组件</h2><blockquote>
+<p>常见库：<a href="http://www.androidchina.net/11863.html" target="_blank" rel="external">http://www.androidchina.net/11863.html</a><br>三方库：<a href="https://bbs.elecfans.com/jishu_2075216_1_1.html" target="_blank" rel="external">https://bbs.elecfans.com/jishu_2075216_1_1.html</a></p>
+</blockquote>
+<ul>
+<li><p>项目架构</p>
+<ul>
+<li>MVC</li>
+<li>MVP</li>
+<li>MVVM (databinding/MVVM)</li>
+</ul>
+</li>
+<li><p>主要三方组件</p>
+<ol>
+<li>下拉刷新 XRecyclerView<ul>
+<li>小bug：加载更多功能，“没有很多数据”布局有时会出现在头部。</li>
+<li>一定要加item点击事件</li>
+<li>系统自带可长按拖动功能，要设置禁止</li>
+</ul>
+</li>
+<li>add HeaderView/FooterView<ul>
+<li>XRecyclerView没看到可以添加FooterView的功能</li>
+</ul>
+</li>
+<li>图片加载 glide<ul>
+<li>加载圆形图片，加载中的图片不能设置缩放模式或者是设置后无效？</li>
+</ul>
+</li>
+<li>网络请求 jianjia<ul>
+<li>封装程序较低，设置cookie不方便，不过够用</li>
+<li>基本的使用：</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 搜索</div><div class="line"> */</div><div class="line">@POST(&quot;/search&quot;)</div><div class="line">@FormUrlEncoded</div><div class="line">Call&lt;BaseResultBean&lt;GoodsBean&gt;&gt; search(@Header(&quot;Cookie&quot;) String cookie,@Field(&quot;keywords&quot;) String keywords);</div></pre></td></tr></table></figure>
+<p>和Android里使用基本一致，Cookie可以直接通过这样的形式添加，<code>@Header(&quot;Cookie&quot;) String Cookie</code>，也可以通过插值器添加，不过插值器方式还没跑通。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">ApiUtil.getApiService().search(cookie,keywords).enqueue(new Callback&lt;BaseResultBean&lt;GoodsBean&gt;&gt;() &#123;</div><div class="line">    @Override</div><div class="line">    public void onResponse(Call&lt;BaseResultBean&lt;GoodsBean&gt;&gt; call, Response&lt;BaseResultBean&lt;GoodsBean&gt;&gt; response) &#123;</div><div class="line">        if (response.isSuccessful()) &#123;</div><div class="line">            if (response.body() != null) &#123;</div><div class="line">                callBack.onSuccess(response.body().getData());</div><div class="line">            &#125; else &#123;</div><div class="line">                callBack.onError(response.message());</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            callBack.onError(&quot;&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onFailure(Call&lt;BaseResultBean&lt;GoodsBean&gt;&gt; call, Throwable t) &#123;</div><div class="line">        callBack.onError(t.getMessage());</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="6-打包调试"><a href="#6-打包调试" class="headerlink" title="6.打包调试"></a>6.打包调试</h2><ul>
+<li><a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section1112183053510" target="_blank" rel="external">使用真机进行调试</a></li>
+<li><a href="https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/ups/9249519184596237893" target="_blank" rel="external">添加设备</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line">    debug &#123;</div><div class="line">        // 使用正式的p12，用正式的p12生成测试的p7b/cer</div><div class="line">        storeFile file(&apos;/Users/gcc/Documents/devecostudio-0908/workspace-huawei/hm-xxxx/key/xxxxRelease.p12&apos;)</div><div class="line">        storePassword &apos;00000019965xxxxx024B0747A83xxxxxDE6E6E&apos;</div><div class="line">        keyAlias = &apos;xxxxx&apos;</div><div class="line">        keyPassword &apos;000000194364CCE179C9BCAB021AD3DxxxxxA&apos;</div><div class="line">        signAlg = &apos;SHA256withECDSA&apos;</div><div class="line">        profile file(&apos;/Users/gcc/Documents/devecostudio-0908/workspace-huawei/hm-xxxx/key/release2Debug.p7b&apos;)</div><div class="line">        certpath file(&apos;/Users/gcc/Documents/devecostudio-0908/workspace-huawei/hm-xxxx/key/release2Debug.cer&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>华为登录需要使用固定的<code>p12</code>文件，再用这个p12文件生成测试需要的<code>p7b</code>/<code>cer</code>文件</li>
+<li>测试设备有效期为<code>一年</code>。</li>
+<li>默认打包时会<code>清空应用数据</code>，可更改。</li>
+</ul>
+<p><strong>真机调试配置需要获取<code>udid</code>：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /Users/gcc/Documents/devecostudio-0908/huawei-sdk/toolchains</div><div class="line">hdc shell bm get -udid</div></pre></td></tr></table></figure>
+<p>在HarmonyOS SDK的toolchains文件夹下 有一个<code>hdc.exe</code><br><code>前提要将hdc的路径配置到环境变量</code>:</p>
+<p><img src="https://jinbeen.com/images/2022/hm-shell.png" alt="hm-shell"></p>
+<p><strong>混淆</strong>：</p>
+<ul>
+<li>可以的话集成SDK或三方组件后使用<code>release</code>运行一下</li>
+</ul>
+<h2 id="7-遇到的问题，优缺点"><a href="#7-遇到的问题，优缺点" class="headerlink" title="7.遇到的问题，优缺点"></a>7.遇到的问题，优缺点</h2><p>鸿蒙相对于Android开发的优点是：</p>
+<ul>
+<li><code>国产</code></li>
+<li>鸿蒙卡片在鸿蒙设备上<code>免安装</code>，就相当于小程序。且鸿蒙折叠屏手机为卡片提供更多有趣的功能。</li>
+<li>鸿蒙App在鸿蒙的手机上能上滑出卡片，有更好的<code>交互</code>效果。得益于鸿蒙生态的优势，能在多个设备上互传。</li>
+<li><code>状态栏处理方便</code>，透明或去掉标题栏很简单就可以实现等</li>
+<li><code>兼容性</code>会很好，不用考虑很多机型适配问题。</li>
+<li>提供了<code>卡片</code>，相当于Android可玩性更强。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>开源生态<code>不成熟</code>，没有很成熟的架子。每个分类只有少数几个可用，且基本没有人维护或频次较低。</li>
+<li>有一些<code>系统Api待完善</code>。例如跳转到App，还会使用Android的部分代码，官方没有一个确认的方案；</li>
+<li><code>滚动布局</code>还需要具体的高度或宽度等</li>
+<li><code>布局预览</code>需要每次都点击刷新，不是实时更新，当然也有好坏，但是希望有个控制键</li>
+<li>学习资料不那么完全，例如想要Android的<code>tools</code>那样的预览效果，现在没找到怎么实现或者不能实现。</li>
+<li>图片<code>Image</code>固定大小后会变模糊，暂时没找到原因。</li>
+<li>和Android对比，没有丰富的Api</li>
+<li>不是apk文件，不能直接发给别人安装。</li>
+</ul>
+<p>上架遇到的问题，key</p>
+<ul>
+<li>秘钥可用一个p12，然后生成不同的测试和正式的证书，好处是用来华为登录(需要p12一致)</li>
+<li>隐私合规，进入第一个页面就需要弹框告诉用户</li>
+<li>卡片和icon启动图标有严格要求</li>
+<li>只有通过邀请的企业才能发布</li>
+<li>p12等秘钥配置生成麻烦，不能直接发给别人安装，需要adb?</li>
+<li>不授权也要可以使用基础的功能</li>
+</ul>
+<h2 id="8-总结"><a href="#8-总结" class="headerlink" title="8.总结"></a>8.总结</h2><ul>
+<li>对于Android开发，鸿蒙开发会很好上手，不清楚的查资料就可以得到解决，思路和进行Android开发基本类似。</li>
+</ul>
+<p>附录：</p>
+<p><a href="http://jspang.com/detailed?id=74#toc233" target="_blank" rel="external">华为鸿蒙系统应用 OpenHarmony JS 前端开发 基础入门教程-完结</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/Clock-Card" target="_blank" rel="external">时钟卡片示例</a></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持我</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/Wechat-admire.jpg" alt="">
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/alipay-admire.jpg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2022/05/29/analyse2022/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/categories/Android/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tags/Android/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/project/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              项目
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/music.html"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              🎵
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '2b303b849c8ea65e4051',
+  clientSecret: '57fc88550a6d86d10a191bb7b6411072576c00b3',
+  repo: 'blog-comment',
+  owner: 'youlookwhat',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['youlookwhat'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>

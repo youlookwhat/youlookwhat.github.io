@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jinbeen.com/"/>
-  <updated>2022-05-29T14:09:14.241Z</updated>
+  <updated>2022-10-16T09:11:11.698Z</updated>
   <id>http://jinbeen.com/</id>
   
   <author>
@@ -14,6 +14,199 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>鸿蒙卡片开发-总结篇</title>
+    <link href="http://jinbeen.com/2022/10/16/harmonyos-dev/"/>
+    <id>http://jinbeen.com/2022/10/16/harmonyos-dev/</id>
+    <published>2022-10-16T09:00:00.000Z</published>
+    <updated>2022-10-16T09:11:11.698Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="鸿蒙卡片开发"><a href="#鸿蒙卡片开发" class="headerlink" title="鸿蒙卡片开发"></a>鸿蒙卡片开发</h1><blockquote>
+<p>2021年十月份开发上架到华为卡片服务中心，此篇文章很早就整理出来在公司内部分享过。</p>
+</blockquote>
+<h2 id="1-鸿蒙卡片概念"><a href="#1-鸿蒙卡片概念" class="headerlink" title="1.鸿蒙卡片概念"></a>1.鸿蒙卡片概念</h2><p><strong>官方描述</strong>：服务卡片（以下简称“卡片”）是<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/glossary-0000000000029587#section5406185415236" target="_blank" rel="external">FA</a>的一种界面展示形式，将FA的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。</p>
+<p><strong>开发文档</strong>：<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/develop-overview-0000001071291809#section126539392141" target="_blank" rel="external">harmonyos应用开发-卡片开发</a></p>
+<p>左下角或右下角往上滑呼出。</p>
+<ul>
+<li>没有App的widget</li>
+<li>鸿蒙手机里的小程序</li>
+</ul>
+<h2 id="2-开发语言，JAVA-JS"><a href="#2-开发语言，JAVA-JS" class="headerlink" title="2.开发语言，JAVA/JS"></a>2.开发语言，JAVA/JS</h2><ul>
+<li>Java ：适用于Android开发，<ul>
+<li>直接引入<code>BASE64.jar</code> 在项目中使用</li>
+<li>放入<code>WebView</code>加载一个url</li>
+<li>开发流程及Api和Android非常相似</li>
+</ul>
+</li>
+<li>JS ：适用h5前端开发</li>
+</ul>
+<h2 id="3-卡片布局"><a href="#3-卡片布局" class="headerlink" title="3.卡片布局"></a>3.卡片布局</h2><p><img src="https://jinbeen.com/images/2022/hm-card.png" alt="hm-card"></p>
+<p>默认尺寸<code>2*2</code>，可扩展多个卡片和尺寸。</p>
+<ul>
+<li>简单绘制UI</li>
+<li>复杂交互 - 音乐播放器，根据状态启动服务改变卡片样式</li>
+</ul>
+<p><strong>折叠屏适配</strong>：<br>华为新出的Mate V折叠屏手机需要将卡片显示在折叠之后的外屏上，需要在卡片form上配置<code>customizeData</code> ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="string">"metaData"</span>: &#123;</div><div class="line">  <span class="string">"customizeData"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="string">"name"</span>: <span class="string">"exteCoverFACard"</span>,</div><div class="line">      <span class="string">"value"</span>: <span class="string">"com.xxx.xx"</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果内屏和外屏显示的UI是不一样的，需要额外处理。</p>
+<p>现在遇到的问题：点击外屏会无反应(进入到程序会被禁止)，通过服务改变卡片的ui并启动内屏的Ability。</p>
+<p><strong>UI方面：</strong></p>
+<ul>
+<li>图片指定固定宽高后模，可能的正确示例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;Image</div><div class="line">    ohos:height=<span class="string">"65vp"</span></div><div class="line">    ohos:width=<span class="string">"match_parent"</span></div><div class="line">    ohos:horizontal_center=<span class="string">"true"</span></div><div class="line">    ohos:image_src=<span class="string">"$media:card_book_text_icon"</span></div><div class="line">    ohos:scale_mode=<span class="string">"zoom_center"</span>/&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>vp</code>相当于Android里的dp，<code>fp</code>相当于Android里的sp。<br><a href="https://developer.huawei.com/consumer/cn/forum/topic/0202443732090860511" target="_blank" rel="external">fp px vp有啥区别，什么时候用哪个？</a></li>
+</ul>
+<h2 id="4-Ability-AbilitySlice"><a href="#4-Ability-AbilitySlice" class="headerlink" title="4.Ability/AbilitySlice"></a>4.Ability/AbilitySlice</h2><ul>
+<li>Ability：应用的重要组成部分，是应用所具备能力的抽象。Ability分为两种类型，Feature Ability和Particle Ability。<ul>
+<li>FA支持Page Ability：<ul>
+<li>Page模板是FA唯一支持的模板，用于提供与用户交互的能力。类似于android的Activity。一个Page实例可以包含一组相关页面，每个页面用一个<strong>AbilitySlice</strong>实例表示。</li>
+</ul>
+</li>
+<li>PA支持Service Ability和Data Ability：<ul>
+<li>Service模板：用于提供后台运行任务的能力。</li>
+<li>Data模板：用于对外部提供统一的数据访问抽象。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>AbilitySlice</strong>：切片，是单个可视化界面及其交互逻辑的总和，是Feature Ability的组成单元。一个Feature Ability可以包含一组业务关系密切的可视化界面，每一个可视化界面对应一个AbilitySlice。</p>
+</li>
+<li><p><strong>Page Ability</strong>：用于提供与用户交互的能力。一个应用可以由多个Page组成，一个Page可以由一个或多个AbilitySlice构成，AbilitySlice是指应用的单个页面及其控制逻辑的总和。</p>
+</li>
+</ul>
+<p>Activity 用户与应用互动的入口点。一个应用可以由一个或多个Activity组成，一个Activity可以由零个，一个或多个Fragment构成。Fragment是FragmentActivity行为或界面的一部分。</p>
+<p><strong>生命周期 ：</strong>Page Ability和Activity的比较相似</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Page Ability</th>
+<th style="text-align:center">Activity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2022/hm-fa.png" alt="hm-fa"></td>
+<td style="text-align:center"><img src="https://jinbeen.com/images/2022/hm-activity.png" alt="hm-activity"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Page Ability启动模式</strong>：</p>
+<ul>
+<li>standard：在任何情况下，无论Page Ability被显示多少次，都会创建一个新的Page Ability实例；</li>
+<li>singleton：表示该Ability在所有任务栈中仅可以有一个实例。例如，具有全局唯一性的呼叫来电界面即采用“singleton”模式。</li>
+<li>singleMission：表示此Ability在每个任务栈中只能有一个实例。</li>
+</ul>
+<p>standard相对于是Actvity的<code>standard</code>。<br>singleton相对于是Actvity的<code>singleInstance</code>。</p>
+<p>singleMission相当于是Actvity的<code>singleTask</code>。</p>
+<h2 id="5-项目架构，主要三方组件"><a href="#5-项目架构，主要三方组件" class="headerlink" title="5.项目架构，主要三方组件"></a>5.项目架构，主要三方组件</h2><blockquote>
+<p>常见库：<a href="http://www.androidchina.net/11863.html" target="_blank" rel="external">http://www.androidchina.net/11863.html</a><br>三方库：<a href="https://bbs.elecfans.com/jishu_2075216_1_1.html" target="_blank" rel="external">https://bbs.elecfans.com/jishu_2075216_1_1.html</a></p>
+</blockquote>
+<ul>
+<li><p>项目架构</p>
+<ul>
+<li>MVC</li>
+<li>MVP</li>
+<li>MVVM (databinding/MVVM)</li>
+</ul>
+</li>
+<li><p>主要三方组件</p>
+<ol>
+<li>下拉刷新 XRecyclerView<ul>
+<li>小bug：加载更多功能，“没有很多数据”布局有时会出现在头部。</li>
+<li>一定要加item点击事件</li>
+<li>系统自带可长按拖动功能，要设置禁止</li>
+</ul>
+</li>
+<li>add HeaderView/FooterView<ul>
+<li>XRecyclerView没看到可以添加FooterView的功能</li>
+</ul>
+</li>
+<li>图片加载 glide<ul>
+<li>加载圆形图片，加载中的图片不能设置缩放模式或者是设置后无效？</li>
+</ul>
+</li>
+<li>网络请求 jianjia<ul>
+<li>封装程序较低，设置cookie不方便，不过够用</li>
+<li>基本的使用：</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 搜索</div><div class="line"> */</div><div class="line">@POST(&quot;/search&quot;)</div><div class="line">@FormUrlEncoded</div><div class="line">Call&lt;BaseResultBean&lt;GoodsBean&gt;&gt; search(@Header(&quot;Cookie&quot;) String cookie,@Field(&quot;keywords&quot;) String keywords);</div></pre></td></tr></table></figure>
+<p>和Android里使用基本一致，Cookie可以直接通过这样的形式添加，<code>@Header(&quot;Cookie&quot;) String Cookie</code>，也可以通过插值器添加，不过插值器方式还没跑通。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">ApiUtil.getApiService().search(cookie,keywords).enqueue(new Callback&lt;BaseResultBean&lt;GoodsBean&gt;&gt;() &#123;</div><div class="line">    @Override</div><div class="line">    public void onResponse(Call&lt;BaseResultBean&lt;GoodsBean&gt;&gt; call, Response&lt;BaseResultBean&lt;GoodsBean&gt;&gt; response) &#123;</div><div class="line">        if (response.isSuccessful()) &#123;</div><div class="line">            if (response.body() != null) &#123;</div><div class="line">                callBack.onSuccess(response.body().getData());</div><div class="line">            &#125; else &#123;</div><div class="line">                callBack.onError(response.message());</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            callBack.onError(&quot;&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onFailure(Call&lt;BaseResultBean&lt;GoodsBean&gt;&gt; call, Throwable t) &#123;</div><div class="line">        callBack.onError(t.getMessage());</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="6-打包调试"><a href="#6-打包调试" class="headerlink" title="6.打包调试"></a>6.打包调试</h2><ul>
+<li><a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404#ZH-CN_TOPIC_0000001154985555__section1112183053510" target="_blank" rel="external">使用真机进行调试</a></li>
+<li><a href="https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/ups/9249519184596237893" target="_blank" rel="external">添加设备</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">signingConfigs &#123;</div><div class="line">    debug &#123;</div><div class="line">        // 使用正式的p12，用正式的p12生成测试的p7b/cer</div><div class="line">        storeFile file(&apos;/Users/gcc/Documents/devecostudio-0908/workspace-huawei/hm-xxxx/key/xxxxRelease.p12&apos;)</div><div class="line">        storePassword &apos;00000019965xxxxx024B0747A83xxxxxDE6E6E&apos;</div><div class="line">        keyAlias = &apos;xxxxx&apos;</div><div class="line">        keyPassword &apos;000000194364CCE179C9BCAB021AD3DxxxxxA&apos;</div><div class="line">        signAlg = &apos;SHA256withECDSA&apos;</div><div class="line">        profile file(&apos;/Users/gcc/Documents/devecostudio-0908/workspace-huawei/hm-xxxx/key/release2Debug.p7b&apos;)</div><div class="line">        certpath file(&apos;/Users/gcc/Documents/devecostudio-0908/workspace-huawei/hm-xxxx/key/release2Debug.cer&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>华为登录需要使用固定的<code>p12</code>文件，再用这个p12文件生成测试需要的<code>p7b</code>/<code>cer</code>文件</li>
+<li>测试设备有效期为<code>一年</code>。</li>
+<li>默认打包时会<code>清空应用数据</code>，可更改。</li>
+</ul>
+<p><strong>真机调试配置需要获取<code>udid</code>：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /Users/gcc/Documents/devecostudio-0908/huawei-sdk/toolchains</div><div class="line">hdc shell bm get -udid</div></pre></td></tr></table></figure>
+<p>在HarmonyOS SDK的toolchains文件夹下 有一个<code>hdc.exe</code><br><code>前提要将hdc的路径配置到环境变量</code>:</p>
+<p><img src="https://jinbeen.com/images/2022/hm-shell.png" alt="hm-shell"></p>
+<p><strong>混淆</strong>：</p>
+<ul>
+<li>可以的话集成SDK或三方组件后使用<code>release</code>运行一下</li>
+</ul>
+<h2 id="7-遇到的问题，优缺点"><a href="#7-遇到的问题，优缺点" class="headerlink" title="7.遇到的问题，优缺点"></a>7.遇到的问题，优缺点</h2><p>鸿蒙相对于Android开发的优点是：</p>
+<ul>
+<li><code>国产</code></li>
+<li>鸿蒙卡片在鸿蒙设备上<code>免安装</code>，就相当于小程序。且鸿蒙折叠屏手机为卡片提供更多有趣的功能。</li>
+<li>鸿蒙App在鸿蒙的手机上能上滑出卡片，有更好的<code>交互</code>效果。得益于鸿蒙生态的优势，能在多个设备上互传。</li>
+<li><code>状态栏处理方便</code>，透明或去掉标题栏很简单就可以实现等</li>
+<li><code>兼容性</code>会很好，不用考虑很多机型适配问题。</li>
+<li>提供了<code>卡片</code>，相当于Android可玩性更强。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>开源生态<code>不成熟</code>，没有很成熟的架子。每个分类只有少数几个可用，且基本没有人维护或频次较低。</li>
+<li>有一些<code>系统Api待完善</code>。例如跳转到App，还会使用Android的部分代码，官方没有一个确认的方案；</li>
+<li><code>滚动布局</code>还需要具体的高度或宽度等</li>
+<li><code>布局预览</code>需要每次都点击刷新，不是实时更新，当然也有好坏，但是希望有个控制键</li>
+<li>学习资料不那么完全，例如想要Android的<code>tools</code>那样的预览效果，现在没找到怎么实现或者不能实现。</li>
+<li>图片<code>Image</code>固定大小后会变模糊，暂时没找到原因。</li>
+<li>和Android对比，没有丰富的Api</li>
+<li>不是apk文件，不能直接发给别人安装。</li>
+</ul>
+<p>上架遇到的问题，key</p>
+<ul>
+<li>秘钥可用一个p12，然后生成不同的测试和正式的证书，好处是用来华为登录(需要p12一致)</li>
+<li>隐私合规，进入第一个页面就需要弹框告诉用户</li>
+<li>卡片和icon启动图标有严格要求</li>
+<li>只有通过邀请的企业才能发布</li>
+<li>p12等秘钥配置生成麻烦，不能直接发给别人安装，需要adb?</li>
+<li>不授权也要可以使用基础的功能</li>
+</ul>
+<h2 id="8-总结"><a href="#8-总结" class="headerlink" title="8.总结"></a>8.总结</h2><ul>
+<li>对于Android开发，鸿蒙开发会很好上手，不清楚的查资料就可以得到解决，思路和进行Android开发基本类似。</li>
+</ul>
+<p>附录：</p>
+<p><a href="http://jspang.com/detailed?id=74#toc233" target="_blank" rel="external">华为鸿蒙系统应用 OpenHarmony JS 前端开发 基础入门教程-完结</a></p>
+<p><a href="https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/Clock-Card" target="_blank" rel="external">时钟卡片示例</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;鸿蒙卡片开发&quot;&gt;&lt;a href=&quot;#鸿蒙卡片开发&quot; class=&quot;headerlink&quot; title=&quot;鸿蒙卡片开发&quot;&gt;&lt;/a&gt;鸿蒙卡片开发&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;2021年十月份开发上架到华为卡片服务中心，此篇文章很早就整理出来在公司内部分享过
+    
+    </summary>
+    
+      <category term="harmonyos" scheme="http://jinbeen.com/categories/harmonyos/"/>
+    
+    
+      <category term="harmonyos" scheme="http://jinbeen.com/tags/harmonyos/"/>
+    
+  </entry>
   
   <entry>
     <title>2022年中复盘</title>
@@ -1468,55 +1661,6 @@
     
     
       <category term="数据结构与算法之美" scheme="http://jinbeen.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E4%B9%8B%E7%BE%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为 GitHub 项目生成独立主页</title>
-    <link href="http://jinbeen.com/2019/04/09/github-pages-readme/"/>
-    <id>http://jinbeen.com/2019/04/09/github-pages-readme/</id>
-    <published>2019-04-09T10:00:00.000Z</published>
-    <updated>2021-04-03T08:29:31.997Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/1354448-b66068bcf588c88a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<a id="more"></a>
-<h4 id="生成主页"><a href="#生成主页" class="headerlink" title="生成主页"></a>生成主页</h4><p>步骤：</p>
-<ol>
-<li><p>进入项目的设置页 <code>Settings</code><br><img src="https://upload-images.jianshu.io/upload_images/1354448-acb452ee6cf3f1a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Settings.png"></p>
-</li>
-<li><p>选择 <code>GitHub Pages</code><br><img src="https://upload-images.jianshu.io/upload_images/1354448-5941f6d80b024d10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub Pages.png"></p>
-</li>
-</ol>
-<ol>
-<li><p>选择主题 <code>Change theme</code><br><img src="https://upload-images.jianshu.io/upload_images/1354448-d378ddf6260eaea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Change theme.png"></p>
-</li>
-<li><p>确定选择<br><img src="https://upload-images.jianshu.io/upload_images/1354448-efbcee3c18c2c798.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Select.png"></p>
-</li>
-</ol>
-<p>效果页面：<a href="https://jinbeen.com/CloudReader">https://jinbeen.com/CloudReader</a></p>
-<h4 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h4><ol>
-<li><p>图片显示不出来？<br>使用<code>&lt;img /&gt;</code>标签失效，必须使用正规的引入图片的方式：<code>![]()</code><br>图片尺寸太大？ - 图片处理网站：<a href="https://www.fotor.com/create/design" target="_blank" rel="external">https://www.fotor.com/create/design</a></p>
-</li>
-<li><p>图片链接失效？<br>注意使用正确的图片链接，之前使用的是：<br><code>https://github.com/youlookwhat/CloudReader/blob/master/file/images.png</code><br>发现这个链接是有问题的，点击<code>download</code>进去，正确的链接应该是：<br><code>https://raw.githubusercontent.com/youlookwhat/CloudReader/master/file/images.png</code></p>
-</li>
-</ol>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="https://www.jianshu.com/p/1b37016d8db6" target="_blank" rel="external">https://www.jianshu.com/p/1b37016d8db6</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1354448-b66068bcf588c88a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="开源项目" scheme="http://jinbeen.com/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-    
-    
-      <category term="开源项目" scheme="http://jinbeen.com/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="github" scheme="http://jinbeen.com/tags/github/"/>
     
   </entry>
   
